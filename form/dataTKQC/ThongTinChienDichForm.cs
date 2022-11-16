@@ -173,13 +173,25 @@ namespace AdsManager.form.dataTKQC
                 var dateSince = Common.parseStringDateToFilter2(TTCDInstance.fromDate);
                 var dateUntil = Common.parseStringDateToFilter2(TTCDInstance.toDate);
 
-                var detailChienDich = TTCDInstance.GetDataChienDich(accId, cookie, dateFilter, businessId);
-                if(accId == "2436564250344")
+                //var detailChienDich = TTCDInstance.GetDataChienDich(accId, cookie, dateFilter, businessId);
+                if(accId == "104236866338845")
                 {
                     var a = 0;
                 }
-                var arIds = detailChienDich.Split(new string[] { "window.__preloaderData[\"AdsPEAdObjectTableDataManagerPreloader\"]=[{\"get\\/v14.0\\/{\\\"ids\\\":\\\"" }, StringSplitOptions.None)[1];
-                arIds = arIds.Split('\\')[0];   //
+                List<string> lsAds = new List<string>();
+                JObject objectLsAds = JObject.Parse( RequestGetListAds(accId, token, cookie));
+                for (int i = 0; i < objectLsAds["data"].Count(); i++)
+                {
+                    try
+                    {
+                        var ads = objectLsAds["data"][i]["id"].ToString().Trim();
+                        lsAds.Add(ads);
+                    }
+                    catch { return; }
+                }
+                //return;
+                //var arIds = detailChienDich.Split(new string[] { "window.__preloaderData[\"AdsPEAdObjectTableDataManagerPreloader\"]=[{\"get\\/v14.0\\/{\\\"ids\\\":\\\"" }, StringSplitOptions.None)[1];
+                //arIds = arIds.Split('\\')[0];   //
 
                 //var arTongTieu = detailChienDich.Split(new string[] { ",\"atomic_values\":[\"" }, StringSplitOptions.None);
                 //Dictionary<string, string> tongTieuAds = new Dictionary<string, string>();
@@ -233,41 +245,41 @@ namespace AdsManager.form.dataTKQC
                 }
 
 
-                detailChienDich.Split(new string[] { "window.__preloaderData[\"AdsPEAdObjectTableDataManagerPreloader\"]=[" }, StringSplitOptions.None);
-                string regexString = @"window\.__preloaderData\[""AdsPEAdObjectTableDataManagerPreloader""\]=\[(.*),new Date\(\)\.getTime\(\)\];window";
-                Regex r = new Regex(regexString, RegexOptions.IgnoreCase);
-                Match m = r.Match(detailChienDich);
-                var detailData = "";
+                //detailChienDich.Split(new string[] { "window.__preloaderData[\"AdsPEAdObjectTableDataManagerPreloader\"]=[" }, StringSplitOptions.None);
+                //string regexString = @"window\.__preloaderData\[""AdsPEAdObjectTableDataManagerPreloader""\]=\[(.*),new Date\(\)\.getTime\(\)\];window";
+                //Regex r = new Regex(regexString, RegexOptions.IgnoreCase);
+                //Match m = r.Match(detailChienDich);
+                //var detailData = "";
 
-                if (m.Success)
-                {
-                    detailData = m.Groups[1].Value;
-                }
-                JObject jObject = null;
-                JObject objectAds = null;
-                JObject objectCampaign = null;
+                //if (m.Success)
+                //{
+                //    detailData = m.Groups[1].Value;
+                //}
+                //JObject jObject = null;
+                //JObject objectAds = null;
+                //JObject objectCampaign = null;
                 try
                 {
-                    try
-                    {
-                        jObject = JObject.Parse(detailData);
+                    //try
+                    //{
+                    //    jObject = JObject.Parse(detailData);
 
-                        List<string> listDetail = new List<string>();
-                        foreach (var a in jObject)
-                        {
-                            var b = a.Value.ToString();
-                            listDetail.Add(b);
-                        }
-                        //ads
+                    //    List<string> listDetail = new List<string>();
+                    //    foreach (var a in jObject)
+                    //    {
+                    //        var b = a.Value.ToString();
+                    //        listDetail.Add(b);
+                    //    }
+                    //    //ads
 
-                        objectAds = JObject.Parse(listDetail[0]);
-                        objectCampaign = JObject.Parse(listDetail[2]);
-                    }
-                    catch
-                    {
+                    //    objectAds = JObject.Parse(listDetail[0]);
+                    //    objectCampaign = JObject.Parse(listDetail[2]);
+                    //}
+                    //catch
+                    //{
 
-                    }
-                    foreach (var AdsId in arIds.Split(','))
+                    //}
+                    foreach (var AdsId in lsAds)
                     {
                         try
                         {
@@ -531,7 +543,38 @@ namespace AdsManager.form.dataTKQC
             catch { return null; }
         }
 
-
+        public static string RequestGetListAds(string accId, string token, string stringCookie)
+        {
+            try
+            {
+                var url = $"https://graph.facebook.com/v14.0/act_{accId}/lightads";
+                url += "?filtering=[{\"field\":\"ad.delivery_status\",\"operator\":\"IN\",\"value\":[\"active\",\"deleted\",\"error\",\"inactive\",\"off\",\"pending\"]},{\"field\":\"draft_action\",\"operator\":\"NOT_IN\",\"value\":[\"add\"]}]";
+                url += "&fields=id,name,adset_id";
+                url += "&limit=1000";
+                url += $"&access_token={token}";
+                var client = new RestClient(url);
+                client.Timeout = -1;
+                var request = new RestRequest(Method.GET);
+                var cookies = stringCookie.Split(';');
+                foreach (string cookie in cookies)
+                {
+                    if (cookie == "") break;
+                    var datacookie = cookie.Trim().Split('=');
+                    request.AddCookie(datacookie[0].Trim(), datacookie[1].Trim());
+                }
+                request.AddHeader("cookie", "sb=bPF1Y770-1k09Fbl1C0EjVn9; datr=bPF1Y3-ETOpD04TVTgnkTKZZ; locale=en_GB; dpr=1; c_user=100031578372045; xs=7%3AC9_UFkRGxICrnA%3A2%3A1668673921%3A-1%3A12231%3A%3AAcUdAwOQ3QdIucvfkNlBsqVaAFYfTN0-wIxtRPWAiQ; fr=0EUu0SwqAf3KkxuPd.AWWKLrNL-nQuyQh9sLpYiGWAp1k.Bjdfjx.Mi.AAA.0.0.Bjdfjx.AWX5_ghgYV0; cppo=1; usida=eyJ2ZXIiOjEsImlkIjoiQXJsaGx0a2ZpcG8yaSIsInRpbWUiOjE2Njg2ODAxMjB9; presence=EDvF3EtimeF1668680131EuserFA21B31578372045A2EstateFDutF0CEchF_7bCC; wd=600x979; c_user=100001549118292; fr=0uIyGrJrwuGgKCrcc.AWXevadV3I4YUK1wH5ZWouZl85k.Bjdgba.7M.AAA.0.0.Bjdgba.AWWr03iPXEI; xs=39%3AS0CggPRp5izfZg%3A2%3A1668673800%3A-1%3A8077%3A%3AAcWTnG8rirytOVQcZfw0JQEUfjF7953bpLQSOSLxNg");
+                request.AddHeader("sec-fetch-mode", "navigate");
+                request.AddHeader("sec-fetch-site", "same-origin");
+                client.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36";
+                IRestResponse response = client.Execute(request);
+                if(response.StatusCode== HttpStatusCode.OK)
+                {
+                    return response.Content;
+                }
+                return "";
+            }
+            catch { return "" ; }
+        }
 
 
 

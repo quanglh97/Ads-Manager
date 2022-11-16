@@ -100,8 +100,10 @@ namespace AdsManager
                     var userId = ViaInstances.lsAccVia[index].userId;
                     var cookie = ViaInstances.lsAccVia[index].cookie;
                     var token = ViaInstances.lsAccVia[index].token;
+                    var tick = ViaInstances.lsAccVia[index].tick;
+                    if (tick == false) continue;
                     var dtsg = AccInfo.Get_fb_dtsg(cookie);
-                    if (token == "" || dtsg == "")
+                    if (token == "" || dtsg == "" || tick == false)
                         continue;
 
                     var beginDataTKQC = RequestTTTKQCAsync(userId, token, cookie);

@@ -109,7 +109,7 @@ namespace AdsManager.form.dataTKQC
                         live_thread_number++;
                         AsyncCoreDoWork(TKQC);
                     }
-                    Thread.Sleep(200);
+                    Thread.Sleep(5000);
                 }
 
                 while (live_thread_number > 0)
@@ -159,9 +159,11 @@ namespace AdsManager.form.dataTKQC
                 {
                     return;
                 }
+                var startTime = HoaDonInstance.startTime;
+                var endTime = HoaDonInstance.endTime;
 
-
-                var detailHoaDon = GetDataHoaDon(cookie, dtsg, accId);
+                var detailHoaDon = GetDataHoaDon(cookie, dtsg, accId, startTime.Subtract(new DateTime(1970, 1, 1)).TotalSeconds.ToString().Split('.')[0],
+                    endTime.Subtract(new DateTime(1970, 1, 1)).TotalSeconds.ToString().Split('.')[0]);
                 JObject jObject = JObject.Parse(detailHoaDon);
                 for (int i = 0; i < jObject["data"]["node"]["billing_txns"]["edges"].Count(); i++)
                 {
@@ -192,7 +194,7 @@ namespace AdsManager.form.dataTKQC
             }
             catch (Exception ex)
             {
-
+                //test commit nữa
             }
         }
 
@@ -252,13 +254,31 @@ namespace AdsManager.form.dataTKQC
             HoaDonInstance.tongTien = 0;
             for (int i = 0; i < HoaDonInstance.lsHoaDon.Count; i++)
             {
+                var tien = "";
                 if (HoaDonInstance.lsHoaDon[i].SoTien.Contains("$"))
                 {
-                    HoaDonInstance.tongTien += double.Parse(HoaDonInstance.lsHoaDon[i].SoTien.Replace('$', ' ').Trim())*TTTKQCInstance.tiGia["USD"];
+                    tien = HoaDonInstance.lsHoaDon[i].SoTien.Replace("$", "").Trim();
+                    if (HoaDonInstance.lsHoaDon[i].SoTien.Contains('.'))
+                    {
+                        tien = HoaDonInstance.lsHoaDon[i].SoTien.Replace(".", "");
+                    }
+
+                    HoaDonInstance.tongTien += double.Parse(tien) *TTTKQCInstance.tiGia["USD"];
                 }
                 else
                 {
-                    HoaDonInstance.tongTien += double.Parse(HoaDonInstance.lsHoaDon[i].SoTien.Replace('.', ' ').Trim().Split(' ')[0].Replace('₫', ' '));
+                    
+                    if (HoaDonInstance.lsHoaDon[i].SoTien.Contains('.')){
+                        tien = HoaDonInstance.lsHoaDon[i].SoTien.Replace(".", "");
+                    }
+                    if (tien.Contains("₫"))
+                    {
+                        tien = tien.Replace("₫", "").Trim();
+                    }
+                    if (tien != "")
+                    {
+                        HoaDonInstance.tongTien += double.Parse(tien.Replace(" ", ""));
+                    }
                 }   
             }
             HoaDonThanhToanToTalDataGridView.Rows.Clear();
@@ -273,19 +293,21 @@ namespace AdsManager.form.dataTKQC
         private void HDTT_RefeshBtn_Click(object sender, EventArgs e)
         {
             loadingBtnHoadon.Visible = true;
+            HoaDonInstance.startTime = dateTimePickerHD.Value.AddYears(-15).ToUniversalTime();
+            HoaDonInstance.endTime = dateTimePickerHD.Value.ToUniversalTime();
             HoaDonThanhToanDataGridView.Rows.Clear();
             HDTT_RefeshBtn.BackgroundColor = Color.FromArgb(255, 198, 65, 24);
             Hoadon_Worker.RunWorkerAsync();
         }
 
-        public static string GetDataHoaDon(string cookie, string dtsg, string accId)
+        public static string GetDataHoaDon(string cookie, string dtsg, string accId, string startTime, string endTime)
         {
             try
             {
                 var url = "https://business.facebook.com/api/graphql/";
 
                 var httpRequest = (HttpWebRequest)WebRequest.Create(url);
-                var variables = "{\"count\":10000,\"cursor\":null,\"end_time\":1665939600,\"filters\":[],\"start_time\":1634403600,\"id\":\"" + accId + "\"}";
+                var variables = "{\"count\":10000,\"cursor\":null,\"end_time\":"+ endTime + ",\"filters\":[],\"start_time\":"+startTime+",\"id\":\"" + accId + "\"}";
                 var postData = "variables=" + variables;
                 postData += "&doc_id=" + "5088279497901543";
                 postData += "&fb_dtsg=" + dtsg;

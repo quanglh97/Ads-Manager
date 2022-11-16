@@ -37,6 +37,8 @@ namespace AdsManager
             //CodeTBox.TextAlign = HorizontalAlignment.Center;
             //TokenTBox.TextAlign = HorizontalAlignment.Center;
             //StatusTBox.TextAlign = HorizontalAlignment.Center;
+
+            //test tí thôi í mà
         }
 
         private delegate void InvokeDelegate(ViaEventArgs e);
@@ -53,6 +55,9 @@ namespace AdsManager
 
             AccountDataGridView.Rows.Insert(AccountDataGridView.Rows.Count - 1,
                                                     e.Info.status != null ? e.Info.status : "",
+                                                    e.Info.tick,
+                                                    e.Info.TenHT != null ? e.Info.TenHT : "",
+                                                    e.Info.HKD != null ? e.Info.HKD : "",
                                                     e.Info.userId != null ? e.Info.userId : "",
                                                     e.Info.pass != null ? e.Info.pass : "",
                                                     e.Info.key2fa != null ? e.Info.key2fa : "",
@@ -65,6 +70,8 @@ namespace AdsManager
             var code = AccountDataGridView.Rows[0].Cells["Code"].Value.ToString();
             var cookie = AccountDataGridView.Rows[0].Cells["Cookie"].Value.ToString();
             var token = AccountDataGridView.Rows[0].Cells["token"].Value.ToString();
+            var tenHT = AccountDataGridView.Rows[0].Cells["TenHT"].Value.ToString();
+            var HKD = AccountDataGridView.Rows[0].Cells["HKD"].Value.ToString();
 
             UidTBox.Text = uid;
             PassTBox.Text = pass;
@@ -72,6 +79,8 @@ namespace AdsManager
             CookieTBox.Text = cookie;
             StatusTBox.Text = status;
             TokenTBox.Text = token;
+            TenHTTBox.Text = tenHT;
+            HKDTBox.Text = HKD;
         }
 
         private void AccountDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -82,6 +91,8 @@ namespace AdsManager
             var code = AccountDataGridView.Rows[e.RowIndex].Cells["Code"].Value.ToString();
             var cookie = AccountDataGridView.Rows[e.RowIndex].Cells["Cookie"].Value.ToString();
             var token = AccountDataGridView.Rows[e.RowIndex].Cells["token"].Value.ToString();
+            var tenHT = AccountDataGridView.Rows[e.RowIndex].Cells["TenHT"].Value.ToString();
+            var HKD = AccountDataGridView.Rows[e.RowIndex].Cells["HKD"].Value.ToString();
 
             UidTBox.Text = uid;
             PassTBox.Text = pass;
@@ -89,6 +100,8 @@ namespace AdsManager
             CookieTBox.Text = cookie;
             StatusTBox.Text = status;
             TokenTBox.Text = token;
+            TenHTTBox.Text = tenHT;
+            HKDTBox.Text = HKD;
         }
 
         private void Account_RefreshBtn_Click(object sender, EventArgs e)
@@ -124,6 +137,8 @@ namespace AdsManager
                 CookieTBox.Text = "";
                 StatusTBox.Text = "";
                 TokenTBox.Text = "";
+                TenHTTBox.Text = "";
+                HKDTBox.Text = "";
             }
             else
             {
@@ -133,6 +148,8 @@ namespace AdsManager
                 var code = CodeTBox.Text;
                 var cookie = CookieTBox.Text;
                 var token = TokenTBox.Text;
+                var tenHT = TenHTTBox.Text;
+                var HKD = HKDTBox.Text;
 
                 if (uid == "" || pass == "" || cookie == "")
                 {
@@ -146,7 +163,9 @@ namespace AdsManager
                 acc.key2fa = code;
                 acc.cookie = cookie;
                 acc.token = token;
-                acc.Account = acc.userId + "|" + acc.pass + "|" + acc.key2fa + "|" + acc.cookie;
+                acc.TenHT = tenHT;
+                acc.HKD = HKD;
+                acc.Account = acc.userId + "|" + acc.pass + "|" + acc.key2fa + "|" + acc.cookie + "|" + acc.TenHT + "|" + acc.HKD;
                 if (ViaInstances.lsAccVia.Find(x => x.userId == acc.userId) == null)
                 {
                     ViaInstances.lsAccVia.Add(acc);
@@ -203,11 +222,25 @@ namespace AdsManager
                 CookieTBox.Text = "";
                 StatusTBox.Text = "";
                 TokenTBox.Text = "";
+                TenHTTBox.Text = "";
+                HKDTBox.Text = "";
             }
         }
 
         private void AccUpdateBtn_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i <= AccountDataGridView.Rows.Count - 1; i++)
+            {
+                try
+                {
+                    bool checkedCell = (bool)AccountDataGridView.Rows[i].Cells[1].Value;
+                    string Uid = (string)AccountDataGridView.Rows[i].Cells[4].Value;
+                    var TempVia = ViaInstances.lsAccVia.Find(x => x.userId == Uid);
+                    TempVia.tick = checkedCell;
+                }
+                catch { }
+            }
+
             var userId = UidTBox.Text;
             var Via = ViaInstances.lsAccVia.Find(x => x.userId == userId);
             if (Via != null)
@@ -215,7 +248,12 @@ namespace AdsManager
                 Via.cookie = CookieTBox.Text.Trim();
                 Via.pass = PassTBox.Text.Trim();
                 Via.key2fa = CodeTBox.Text.Trim();
-                Via.Account = Via.userId + "|" + Via.pass + "|" + Via.key2fa + "|" + Via.cookie;
+                var tenHT = TenHTTBox.Text;
+                var HKD = HKDTBox.Text;
+                Via.TenHT = tenHT;
+                Via.HKD = HKD;
+                var tick = Via.tick ? "1" : "0";
+                Via.Account = Via.userId + "|" + Via.pass + "|" + Via.key2fa + "|" + Via.cookie + "|" + Via.TenHT + "|" + Via.HKD + "|" + tick;
 
                 var dataFolder = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data");
                 if (!Directory.Exists(dataFolder))

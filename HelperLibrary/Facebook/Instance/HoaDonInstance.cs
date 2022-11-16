@@ -19,6 +19,9 @@ namespace AdsManager.HelperLibrary.Facebook.Instance
         public static double tongTien = 0;
         public static string searchData = "";
 
+        public static DateTime startTime = DateTime.Now;
+        public static DateTime endTime = DateTime.Now;
+
 
 
         public static void OnNewAccAdded(HoaDonInfo info)

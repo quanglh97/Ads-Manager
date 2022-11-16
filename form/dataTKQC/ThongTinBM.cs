@@ -50,6 +50,7 @@ namespace AdsManager.form.dataTKQC
                     var userId = ViaInstances.lsAccVia[index].userId;
                     var cookie = ViaInstances.lsAccVia[index].cookie;
                     var token = ViaInstances.lsAccVia[index].token;
+                    if (ViaInstances.lsAccVia[index].tick == false) continue;
                     if (token == "")
                         continue;
                     var InfoBM = RequestTTBM(userId, token, cookie);

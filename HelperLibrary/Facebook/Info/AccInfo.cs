@@ -24,6 +24,11 @@ namespace TakeCarePage.HelperLibrary.Facebook
         public string pass;
         public string key2fa;
 
+        public string TenHT;
+        public string HKD;
+
+        
+
         public AccInfo()
         {
         }
@@ -40,6 +45,25 @@ namespace TakeCarePage.HelperLibrary.Facebook
                 if (elementAccount.Length >= 3)
                 {
                     this.cookie = elementAccount[3].Trim();
+                    try
+                    {
+                        this.TenHT = elementAccount[4].Trim();
+                    }
+                    catch { }
+                    try
+                    {
+                        this.HKD = elementAccount[5].Trim();
+                    }
+                    catch { }
+                    try
+                    {
+                        var tick = elementAccount[6].Trim();
+                        if(tick == "1")
+                        {
+                            this.tick = true;
+                        }
+                    }
+                    catch { }
                     this.token = getToken(this.cookie);
                     if(this.token != "")
                     {

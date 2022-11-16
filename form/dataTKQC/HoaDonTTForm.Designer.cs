@@ -60,6 +60,7 @@
             this.searchBtn_HD = new AdsManager.VBButton();
             this.vbButton4 = new AdsManager.VBButton();
             this.to_dateTimePicker_HD = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerHD = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HoaDonThanhToanDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HoaDonThanhToanToTalDataGridView)).BeginInit();
@@ -144,7 +145,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(293, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 14);
+            this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 26;
             this.label2.Text = "10/50";
             // 
@@ -154,7 +155,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(129, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 14);
+            this.label1.Size = new System.Drawing.Size(47, 16);
             this.label1.TabIndex = 24;
             this.label1.Text = "Trang";
             // 
@@ -166,7 +167,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(4, 7);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(115, 21);
+            this.comboBox1.Size = new System.Drawing.Size(115, 24);
             this.comboBox1.TabIndex = 23;
             this.comboBox1.Text = "Row";
             // 
@@ -200,60 +201,70 @@
             // Status
             // 
             this.Status.HeaderText = "Trạng thái TKQC";
+            this.Status.MinimumWidth = 6;
             this.Status.Name = "Status";
             this.Status.Width = 120;
             // 
             // AccName
             // 
             this.AccName.HeaderText = "Tên tài khoản";
+            this.AccName.MinimumWidth = 6;
             this.AccName.Name = "AccName";
             this.AccName.Width = 300;
             // 
             // IDTKQC
             // 
             this.IDTKQC.HeaderText = "ID TKQC";
+            this.IDTKQC.MinimumWidth = 6;
             this.IDTKQC.Name = "IDTKQC";
             this.IDTKQC.Width = 200;
             // 
             // IDGiaoDich
             // 
             this.IDGiaoDich.HeaderText = "ID giao dịch";
+            this.IDGiaoDich.MinimumWidth = 6;
             this.IDGiaoDich.Name = "IDGiaoDich";
             this.IDGiaoDich.Width = 200;
             // 
             // Ngay
             // 
             this.Ngay.HeaderText = "Ngày";
+            this.Ngay.MinimumWidth = 6;
             this.Ngay.Name = "Ngay";
             this.Ngay.Width = 150;
             // 
             // SoTien
             // 
             this.SoTien.HeaderText = "Số tiền";
+            this.SoTien.MinimumWidth = 6;
             this.SoTien.Name = "SoTien";
             this.SoTien.Width = 150;
             // 
             // PhuongThucThanhToan
             // 
             this.PhuongThucThanhToan.HeaderText = "Phương thức thanh toán";
+            this.PhuongThucThanhToan.MinimumWidth = 6;
             this.PhuongThucThanhToan.Name = "PhuongThucThanhToan";
             this.PhuongThucThanhToan.Width = 200;
             // 
             // TrangThaiThanhToan
             // 
             this.TrangThaiThanhToan.HeaderText = "Trạng thái thanh toán";
+            this.TrangThaiThanhToan.MinimumWidth = 6;
             this.TrangThaiThanhToan.Name = "TrangThaiThanhToan";
             this.TrangThaiThanhToan.Width = 150;
             // 
             // IDHoaDonVAT
             // 
             this.IDHoaDonVAT.HeaderText = "ID Hóa đơn VAT";
+            this.IDHoaDonVAT.MinimumWidth = 6;
             this.IDHoaDonVAT.Name = "IDHoaDonVAT";
             this.IDHoaDonVAT.Width = 200;
             // 
             // HanhDong
             // 
             this.HanhDong.HeaderText = "Hành động";
+            this.HanhDong.MinimumWidth = 6;
             this.HanhDong.Name = "HanhDong";
             this.HanhDong.Width = 200;
             // 
@@ -268,6 +279,7 @@
             this.HoaDonThanhToanToTalDataGridView.EnableHeadersVisualStyles = false;
             this.HoaDonThanhToanToTalDataGridView.Location = new System.Drawing.Point(454, 634);
             this.HoaDonThanhToanToTalDataGridView.Name = "HoaDonThanhToanToTalDataGridView";
+            this.HoaDonThanhToanToTalDataGridView.RowHeadersWidth = 51;
             this.HoaDonThanhToanToTalDataGridView.RowTemplate.Height = 40;
             this.HoaDonThanhToanToTalDataGridView.Size = new System.Drawing.Size(400, 92);
             this.HoaDonThanhToanToTalDataGridView.TabIndex = 47;
@@ -275,12 +287,14 @@
             // TongHoaDon
             // 
             this.TongHoaDon.HeaderText = "TỔNG HÓA ĐƠN";
+            this.TongHoaDon.MinimumWidth = 6;
             this.TongHoaDon.Name = "TongHoaDon";
             this.TongHoaDon.Width = 200;
             // 
             // TongTienToTal
             // 
             this.TongTienToTal.HeaderText = "TỔNG TIỀN";
+            this.TongTienToTal.MinimumWidth = 6;
             this.TongTienToTal.Name = "TongTienToTal";
             this.TongTienToTal.Width = 200;
             // 
@@ -387,7 +401,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(485, 12);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 14);
+            this.label3.Size = new System.Drawing.Size(36, 16);
             this.label3.TabIndex = 14;
             this.label3.Text = "Đến";
             // 
@@ -397,7 +411,7 @@
             this.from_dateTimePicker_HD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.from_dateTimePicker_HD.Location = new System.Drawing.Point(394, 8);
             this.from_dateTimePicker_HD.Name = "from_dateTimePicker_HD";
-            this.from_dateTimePicker_HD.Size = new System.Drawing.Size(81, 20);
+            this.from_dateTimePicker_HD.Size = new System.Drawing.Size(81, 23);
             this.from_dateTimePicker_HD.TabIndex = 13;
             // 
             // searchBtn_HD
@@ -447,8 +461,18 @@
             this.to_dateTimePicker_HD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.to_dateTimePicker_HD.Location = new System.Drawing.Point(530, 8);
             this.to_dateTimePicker_HD.Name = "to_dateTimePicker_HD";
-            this.to_dateTimePicker_HD.Size = new System.Drawing.Size(87, 20);
+            this.to_dateTimePicker_HD.Size = new System.Drawing.Size(87, 23);
             this.to_dateTimePicker_HD.TabIndex = 11;
+            // 
+            // dateTimePickerHD
+            // 
+            this.dateTimePickerHD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dateTimePickerHD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerHD.Location = new System.Drawing.Point(322, 703);
+            this.dateTimePickerHD.Name = "dateTimePickerHD";
+            this.dateTimePickerHD.Size = new System.Drawing.Size(87, 23);
+            this.dateTimePickerHD.TabIndex = 51;
+            this.dateTimePickerHD.Visible = false;
             // 
             // HoaDonTTForm
             // 
@@ -457,6 +481,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(246)))), ((int)(((byte)(254)))));
             this.ClientSize = new System.Drawing.Size(1528, 735);
             this.ControlBox = false;
+            this.Controls.Add(this.dateTimePickerHD);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.loadingBtnHoadon);
             this.Controls.Add(this.HDTT_RefeshBtn);
@@ -511,5 +536,6 @@
         private VBButton searchBtn_HD;
         private VBButton vbButton4;
         private System.Windows.Forms.DateTimePicker to_dateTimePicker_HD;
+        private System.Windows.Forms.DateTimePicker dateTimePickerHD;
     }
 }
