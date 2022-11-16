@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{28DD1700-498B-46EF-A80B-DEDD0F3B149C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AdsManager</RootNamespace>
+    <AssemblyName>AdsManager</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenQA.Selenium.Chrome.ChromeDriverExtensions, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\OpenQA.Selenium.Chrome.ChromeDriverExtensions.1.2.0\lib\netstandard2.0\OpenQA.Selenium.Chrome.ChromeDriverExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Otp.NET, Version=1.2.2.0, Culture=neutral, PublicKeyToken=38a48df817e173a6, processorArchitecture=MSIL">
+      <HintPath>packages\Otp.NET.1.2.2\lib\net45\Otp.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.11.7.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>packages\RestSharp.106.11.7\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UndetectedChromeDriver, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Selenium.UndetectedChromeDriver.1.0.6\lib\net47\UndetectedChromeDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Selenium.WebDriver.4.3.0\lib\net47\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="xNet">
+      <HintPath>..\GetCookieFB\GetCookieFBTool\xNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="form\account\AccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\account\AccountForm.Designer.cs">
+      <DependentUpon>AccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\dataTKQC\DataTKQCForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\dataTKQC\DataTKQCForm.Designer.cs">
+      <DependentUpon>DataTKQCForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ElipseControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="form\dataTKQC\HoaDonTTForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\dataTKQC\HoaDonTTForm.Designer.cs">
+      <DependentUpon>HoaDonTTForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\dataTKQC\ThongTinBM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\dataTKQC\ThongTinBM.Designer.cs">
+      <DependentUpon>ThongTinBM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\dataTKQC\ThongTinChienDichForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\dataTKQC\ThongTinChienDichForm.Designer.cs">
+      <DependentUpon>ThongTinChienDichForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelperLibrary\Common.cs" />
+    <Compile Include="HelperLibrary\dgvEventArgs.cs" />
+    <Compile Include="HelperLibrary\Facebook\Info\AccInfo.cs" />
+    <Compile Include="HelperLibrary\Facebook\Info\BMInfo.cs" />
+    <Compile Include="HelperLibrary\Facebook\Core.cs" />
+    <Compile Include="HelperLibrary\Facebook\Info\HoaDonInfo.cs" />
+    <Compile Include="HelperLibrary\Facebook\Info\TTCDInfo.cs" />
+    <Compile Include="HelperLibrary\Facebook\Instance\BMInstance.cs" />
+    <Compile Include="HelperLibrary\Facebook\Instance\HoaDonInstance.cs" />
+    <Compile Include="HelperLibrary\Facebook\Instance\ViaInstances.cs" />
+    <Compile Include="HelperLibrary\Facebook\Info\TTTKQCInfo.cs" />
+    <Compile Include="HelperLibrary\Facebook\Instance\TTCDInstance.cs" />
+    <Compile Include="HelperLibrary\Facebook\Instance\TTTKQCInstance.cs" />
+    <Compile Include="HelperLibrary\FileLoader.cs" />
+    <Compile Include="HelperLibrary\HelperProxy\ChangeIPHelper.cs" />
+    <Compile Include="HelperLibrary\HelperProxy\CoreProxy.cs" />
+    <Compile Include="HelperLibrary\HelperProxy\FileSaver.cs" />
+    <Compile Include="HelperLibrary\HelperProxy\ProxyInstances.cs" />
+    <Compile Include="HelperLibrary\MultiThreading.cs" />
+    <Compile Include="HelperLibrary\Statistic.cs" />
+    <Compile Include="form\info software\InfoSoftWareForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\info software\InfoSoftWareForm.Designer.cs">
+      <DependentUpon>InfoSoftWareForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="form\dataTKQC\ThongTinTKQCForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\dataTKQC\ThongTinTKQCForm.Designer.cs">
+      <DependentUpon>ThongTinTKQCForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="VBButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="form\account\AccountForm.resx">
+      <DependentUpon>AccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\dataTKQC\DataTKQCForm.resx">
+      <DependentUpon>DataTKQCForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\dataTKQC\HoaDonTTForm.resx">
+      <DependentUpon>HoaDonTTForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\dataTKQC\ThongTinBM.resx">
+      <DependentUpon>ThongTinBM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\dataTKQC\ThongTinChienDichForm.resx">
+      <DependentUpon>ThongTinChienDichForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\info software\InfoSoftWareForm.resx">
+      <DependentUpon>InfoSoftWareForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\dataTKQC\ThongTinTKQCForm.resx">
+      <DependentUpon>ThongTinTKQCForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\Screenshot 2022-10-01 024949.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\search_find_locate_13934.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\Screenshot_2022-10-01_024949-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\yellow.png" />
+    <None Include="resources\red.png" />
+    <None Include="resources\green.png" />
+    <None Include="resources\gray.png" />
+    <None Include="resources\blue.png" />
+    <None Include="resources\loading.jpg" />
+    <Content Include="resources\log-exis-co-do-bong.ico" />
+    <None Include="resources\reload2.png" />
+    <None Include="resources\reload.png" />
+    <None Include="resources\xxx.png" />
+    <None Include="resources\reload_update_refresh_icon_149400-removebg-preview__1_-removebg-preview.png" />
+    <None Include="resources\Screenshot_2022-10-01_040546-removebg-preview.png" />
+    <None Include="resources\reload_update_refresh_icon_143703.png" />
+    <None Include="resources\log-exis-co-do-bong.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\Selenium.WebDriver.ChromeDriver.103.0.5060.13400\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('packages\Selenium.WebDriver.ChromeDriver.103.0.5060.13400\build\Selenium.WebDriver.ChromeDriver.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Selenium.WebDriver.ChromeDriver.103.0.5060.13400\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Selenium.WebDriver.ChromeDriver.103.0.5060.13400\build\Selenium.WebDriver.ChromeDriver.targets'))" />
+  </Target>
+</Project>

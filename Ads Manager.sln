@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ads Manager", "Ads Manager.csproj", "{28DD1700-498B-46EF-A80B-DEDD0F3B149C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28DD1700-498B-46EF-A80B-DEDD0F3B149C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28DD1700-498B-46EF-A80B-DEDD0F3B149C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28DD1700-498B-46EF-A80B-DEDD0F3B149C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28DD1700-498B-46EF-A80B-DEDD0F3B149C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8F6516A-4BD5-43FD-9268-6D787D43CA36}
+	EndGlobalSection
+EndGlobal
