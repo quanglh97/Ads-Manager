@@ -17,7 +17,7 @@ using TakeCarePage;
 using TakeCarePage.HelperLibrary.Facebook;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace AdsManager
+namespace AdsManager 
 {
     public partial class AccountForm : Form
     {
@@ -37,6 +37,8 @@ namespace AdsManager
             //CodeTBox.TextAlign = HorizontalAlignment.Center;
             //TokenTBox.TextAlign = HorizontalAlignment.Center;
             //StatusTBox.TextAlign = HorizontalAlignment.Center;
+
+            //test tí thôi í mà
         }
 
         private delegate void InvokeDelegate(ViaEventArgs e);

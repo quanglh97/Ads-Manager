@@ -192,7 +192,7 @@ namespace AdsManager.form.dataTKQC
             }
             catch (Exception ex)
             {
-
+                //test commit nữa
             }
         }
 
