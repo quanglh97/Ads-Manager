@@ -17,7 +17,7 @@ using TakeCarePage;
 using TakeCarePage.HelperLibrary.Facebook;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace AdsManager
+namespace AdsManager 
 {
     public partial class AccountForm : Form
     {
