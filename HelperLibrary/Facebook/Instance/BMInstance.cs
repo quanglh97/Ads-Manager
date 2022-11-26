@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdsManager.HelperLibrary.Facebook.Info;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,9 @@ namespace AdsManager.HelperLibrary.Facebook.Instance
     {
         public static event EventHandler<BMEventArgs> NewAccountAdded;
         public static ConcurrentQueue<string> dataResult = new ConcurrentQueue<string>();
-
+        public static List<BMInfo> lsBM = new List<BMInfo>();
+        public static List<BMInfo> lsViewBM = new List<BMInfo>();
+        public static string searchData = "";
 
         public static void OnNewAccAdded(BMInfo info)
         {

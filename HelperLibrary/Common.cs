@@ -8,6 +8,9 @@ namespace AdsManager.HelperLibrary
 {
     public class Common
     {
+        public static string key { get; set; }
+
+
         public static string parseStringDate(string stringDate)
         {
             var newStringDate = "";

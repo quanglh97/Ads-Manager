@@ -27,6 +27,7 @@ using System.Xml.Linq;
 using TakeCarePage;
 using TakeCarePage.HelperLibrary.Facebook;
 using static System.Net.Mime.MediaTypeNames;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace AdsManager.form.dataTKQC
 {
@@ -174,7 +175,7 @@ namespace AdsManager.form.dataTKQC
                 var dateUntil = Common.parseStringDateToFilter2(TTCDInstance.toDate);
 
                 //var detailChienDich = TTCDInstance.GetDataChienDich(accId, cookie, dateFilter, businessId);
-                if(accId == "104236866338845")
+                if(accId == "14984105")
                 {
                     var a = 0;
                 }
@@ -224,7 +225,7 @@ namespace AdsManager.form.dataTKQC
                     catch { }
                 }
 
-                var resultCostAds = getCostAds(accId, cookie, token, dateSince, dateUntil);
+                  var resultCostAds = getCostAds(accId, cookie, token, dateSince, dateUntil);
                 JObject objectresultCostAds = JObject.Parse(resultCostAds);
                 Dictionary<string, string> costAds = new Dictionary<string, string>();
                
@@ -232,7 +233,7 @@ namespace AdsManager.form.dataTKQC
                 {
                     try
                     {
-                        var id = objectresultCostAds["data"][i]["adset_id"].ToString();
+                        var id = objectresultCostAds["data"][i]["ad_id"].ToString();
                         var impression = objectresultCostAds["data"][i]["impressions"].ToString();
                         var cpm = objectresultCostAds["data"][i]["cpm"].ToString();
                         var cost = double.Parse(impression) * double.Parse(cpm) / 1000;
@@ -335,9 +336,9 @@ namespace AdsManager.form.dataTKQC
                                 TTCD.xemQC = "https://fb.com/" + tempObject[AdsId]["creative"]["effective_object_story_id"].ToString();
                             }
                             catch { TTCD.xemQC = ""; }
-                            if (costAds.ContainsKey(TTCD.IdNhomQC))
+                            if (costAds.ContainsKey(TTCD.IdQC))
                             {
-                                TTCD.chiPhiQC = costAds[TTCD.IdNhomQC];
+                                TTCD.chiPhiQC = costAds[TTCD.IdQC];
                             }
                             else
                             {
@@ -448,12 +449,14 @@ namespace AdsManager.form.dataTKQC
             vbButton3.Enabled = false;
             filterTimeBtn_TTCD.Enabled = false;
             searchBtn_TTCD.Enabled=false;
-            TTCDInstance.fromDate = dateTimePicker1.Value.AddDays(-1000).ToShortDateString();
-            TTCDInstance.toDate = dateTimePicker1.Value.AddDays(1).ToShortDateString();
             loadingBtnTTCD.Visible = true;
             ThongTinChienDichDataGridView.Rows.Clear();
             TTCD_RefreshBtn.Enabled = false;
             TTCD_RefreshBtn.BackgroundColor = Color.FromArgb(255, 198, 65, 24);
+
+            TTCDInstance.fromDate = dateTimePicker1.Value.AddDays(-3000).ToShortDateString();
+            TTCDInstance.toDate = dateTimePicker1.Value.ToShortDateString();
+            
             TTCD_Worker.RunWorkerAsync();
         }
 
@@ -464,7 +467,7 @@ namespace AdsManager.form.dataTKQC
             filterTimeBtn_TTCD.Enabled = false;
             searchBtn_TTCD.Enabled = false;
             TTCDInstance.fromDate = from_dateTimePicker_TTCD.Value.ToShortDateString();
-            TTCDInstance.toDate = to_dateTimePicker_TTCD.Value.AddDays(1).ToShortDateString();
+            TTCDInstance.toDate = to_dateTimePicker_TTCD.Value.ToShortDateString();
             loadingBtnTTCD.Visible = true;
             ThongTinChienDichDataGridView.Rows.Clear();
             TTCD_RefreshBtn.Enabled = false;
@@ -700,7 +703,7 @@ namespace AdsManager.form.dataTKQC
 
         public static string getCostAds(string IdTKQC, string stringCookie, string token, string dateSince, string dateUntil)
         {
-            var url = $"https://graph.facebook.com/v11.0/act_{IdTKQC}/insights?fields=adset_id,clicks,cost_per_outbound_click,cpc,cpm,cpp,ctr,frequency,impressions,reach,spend,results,actions,cost_per_action_type,mobile_app_purchase_roas,outbound_clicks,outbound_clicks_ctr,purchase_roas,website_purchase_roas&level=adset&time_range[since]={dateSince}&time_range[until]={dateUntil}&access_token={token}";
+            var url = $"https://graph.facebook.com/v11.0/act_{IdTKQC}/insights?fields=ad_id,clicks,cost_per_outbound_click,cpc,cpm,cpp,ctr,frequency,impressions,reach,spend,results,actions,cost_per_action_type,mobile_app_purchase_roas,outbound_clicks,outbound_clicks_ctr,purchase_roas,website_purchase_roas&level=ad&time_range[since]={dateSince}&time_range[until]={dateUntil}&access_token={token}&limit=1000";
             var client = new RestClient(url);
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
@@ -838,6 +841,91 @@ namespace AdsManager.form.dataTKQC
                 }
             }
             loadingBtnTTCD.Visible = false;
+        }
+
+        private void copyAlltoClipboard()
+        {
+            ThongTinChienDichDataGridView.SelectAll();
+            DataObject dataObj = ThongTinChienDichDataGridView.GetClipboardContent();
+            if (dataObj != null)
+                Clipboard.SetDataObject(dataObj);
+        }
+        private void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Exception Occurred while releasing object " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
+            }
+        }
+        private void vbButton4_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Excel Documents (*.xls)|*.xls";
+            sfd.FileName = "ThongTinChienDich.xls";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                // Copy DataGridView results to clipboard
+                copyAlltoClipboard();
+
+                object misValue = System.Reflection.Missing.Value;
+                Excel.Application xlexcel = new Excel.Application();
+
+                xlexcel.DisplayAlerts = false; // Without this you will get two confirm overwrite prompts
+                Excel.Workbook xlWorkBook = xlexcel.Workbooks.Add(misValue);
+                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+                // Format column D as text before pasting results, this was required for my data
+                Excel.Range rng = xlWorkSheet.get_Range("D:D").Cells;
+                rng.NumberFormat = "@";
+
+                // Paste clipboard results to worksheet range
+                Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[1, 1];
+                CR.Select();
+                xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+
+                // For some reason column A is always blank in the worksheet. ¯\_(ツ)_/¯
+                // Delete blank column A and select cell A1
+                Excel.Range delRng = xlWorkSheet.get_Range("A:A").Cells;
+                delRng.Delete(Type.Missing);
+                xlWorkSheet.get_Range("A1").Select();
+
+                // Save the excel file under the captured location from the SaveFileDialog
+                xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlexcel.DisplayAlerts = true;
+                xlWorkBook.Close(true, misValue, misValue);
+                xlexcel.Quit();
+
+                releaseObject(xlWorkSheet);
+                releaseObject(xlWorkBook);
+                releaseObject(xlexcel);
+
+                // Clear Clipboard and DataGridView selection
+                Clipboard.Clear();
+                ThongTinChienDichDataGridView.ClearSelection();
+
+                // Open the newly saved excel file
+                if (File.Exists(sfd.FileName))
+                    System.Diagnostics.Process.Start(sfd.FileName);
+            }
+        }
+
+        private void ThongTinChienDichDataGridView_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
+        {
+            if (e.Column.Index == 10)
+            {
+                e.SortResult = double.Parse(e.CellValue1.ToString()).CompareTo(double.Parse(e.CellValue2.ToString()));
+                e.Handled = true;//pass by the default sorting
+            }
         }
     }
 

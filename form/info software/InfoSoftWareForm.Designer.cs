@@ -34,9 +34,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.vbButton3 = new AdsManager.VBButton();
-            this.vbButton1 = new AdsManager.VBButton();
-            this.vbButton2 = new AdsManager.VBButton();
+            this.timeBtn = new AdsManager.VBButton();
+            this.copyKeyBtn = new AdsManager.VBButton();
+            this.keyBtn = new AdsManager.VBButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,74 +102,75 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.vbButton3);
-            this.panel1.Controls.Add(this.vbButton1);
-            this.panel1.Controls.Add(this.vbButton2);
+            this.panel1.Controls.Add(this.timeBtn);
+            this.panel1.Controls.Add(this.copyKeyBtn);
+            this.panel1.Controls.Add(this.keyBtn);
             this.panel1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(56, 45);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(881, 202);
             this.panel1.TabIndex = 14;
             // 
-            // vbButton3
+            // timeBtn
             // 
-            this.vbButton3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.vbButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(237)))), ((int)(((byte)(227)))));
-            this.vbButton3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(237)))), ((int)(((byte)(227)))));
-            this.vbButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.vbButton3.BorderRadius = 20;
-            this.vbButton3.BorderSize = 0;
-            this.vbButton3.Enabled = false;
-            this.vbButton3.FlatAppearance.BorderSize = 0;
-            this.vbButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.vbButton3.ForeColor = System.Drawing.Color.Black;
-            this.vbButton3.Location = new System.Drawing.Point(165, 135);
-            this.vbButton3.Name = "vbButton3";
-            this.vbButton3.Size = new System.Drawing.Size(533, 40);
-            this.vbButton3.TabIndex = 11;
-            this.vbButton3.Text = "THỜI GIAN";
-            this.vbButton3.TextColor = System.Drawing.Color.Black;
-            this.vbButton3.UseVisualStyleBackColor = false;
+            this.timeBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.timeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(237)))), ((int)(((byte)(227)))));
+            this.timeBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(237)))), ((int)(((byte)(227)))));
+            this.timeBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.timeBtn.BorderRadius = 20;
+            this.timeBtn.BorderSize = 0;
+            this.timeBtn.Enabled = false;
+            this.timeBtn.FlatAppearance.BorderSize = 0;
+            this.timeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.timeBtn.ForeColor = System.Drawing.Color.Black;
+            this.timeBtn.Location = new System.Drawing.Point(165, 135);
+            this.timeBtn.Name = "timeBtn";
+            this.timeBtn.Size = new System.Drawing.Size(533, 40);
+            this.timeBtn.TabIndex = 11;
+            this.timeBtn.Text = "THỜI GIAN";
+            this.timeBtn.TextColor = System.Drawing.Color.Black;
+            this.timeBtn.UseVisualStyleBackColor = false;
             // 
-            // vbButton1
+            // copyKeyBtn
             // 
-            this.vbButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.vbButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(75)))), ((int)(((byte)(79)))));
-            this.vbButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(75)))), ((int)(((byte)(79)))));
-            this.vbButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.vbButton1.BorderRadius = 20;
-            this.vbButton1.BorderSize = 0;
-            this.vbButton1.FlatAppearance.BorderSize = 0;
-            this.vbButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.vbButton1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vbButton1.ForeColor = System.Drawing.Color.White;
-            this.vbButton1.Location = new System.Drawing.Point(714, 80);
-            this.vbButton1.Name = "vbButton1";
-            this.vbButton1.Size = new System.Drawing.Size(135, 32);
-            this.vbButton1.TabIndex = 9;
-            this.vbButton1.Text = "COPY KEY";
-            this.vbButton1.TextColor = System.Drawing.Color.White;
-            this.vbButton1.UseVisualStyleBackColor = false;
+            this.copyKeyBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.copyKeyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(75)))), ((int)(((byte)(79)))));
+            this.copyKeyBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(75)))), ((int)(((byte)(79)))));
+            this.copyKeyBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.copyKeyBtn.BorderRadius = 20;
+            this.copyKeyBtn.BorderSize = 0;
+            this.copyKeyBtn.FlatAppearance.BorderSize = 0;
+            this.copyKeyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.copyKeyBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.copyKeyBtn.ForeColor = System.Drawing.Color.White;
+            this.copyKeyBtn.Location = new System.Drawing.Point(714, 80);
+            this.copyKeyBtn.Name = "copyKeyBtn";
+            this.copyKeyBtn.Size = new System.Drawing.Size(135, 32);
+            this.copyKeyBtn.TabIndex = 9;
+            this.copyKeyBtn.Text = "COPY KEY";
+            this.copyKeyBtn.TextColor = System.Drawing.Color.White;
+            this.copyKeyBtn.UseVisualStyleBackColor = false;
+            this.copyKeyBtn.Click += new System.EventHandler(this.copyKeyBtn_Click);
             // 
-            // vbButton2
+            // keyBtn
             // 
-            this.vbButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.vbButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(237)))), ((int)(((byte)(227)))));
-            this.vbButton2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(237)))), ((int)(((byte)(227)))));
-            this.vbButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.vbButton2.BorderRadius = 20;
-            this.vbButton2.BorderSize = 0;
-            this.vbButton2.Enabled = false;
-            this.vbButton2.FlatAppearance.BorderSize = 0;
-            this.vbButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.vbButton2.ForeColor = System.Drawing.Color.Black;
-            this.vbButton2.Location = new System.Drawing.Point(165, 77);
-            this.vbButton2.Name = "vbButton2";
-            this.vbButton2.Size = new System.Drawing.Size(533, 40);
-            this.vbButton2.TabIndex = 10;
-            this.vbButton2.Text = "KEY";
-            this.vbButton2.TextColor = System.Drawing.Color.Black;
-            this.vbButton2.UseVisualStyleBackColor = false;
+            this.keyBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.keyBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(237)))), ((int)(((byte)(227)))));
+            this.keyBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(237)))), ((int)(((byte)(227)))));
+            this.keyBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.keyBtn.BorderRadius = 20;
+            this.keyBtn.BorderSize = 0;
+            this.keyBtn.Enabled = false;
+            this.keyBtn.FlatAppearance.BorderSize = 0;
+            this.keyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.keyBtn.ForeColor = System.Drawing.Color.Black;
+            this.keyBtn.Location = new System.Drawing.Point(165, 77);
+            this.keyBtn.Name = "keyBtn";
+            this.keyBtn.Size = new System.Drawing.Size(533, 40);
+            this.keyBtn.TabIndex = 10;
+            this.keyBtn.Text = "KEY";
+            this.keyBtn.TextColor = System.Drawing.Color.Black;
+            this.keyBtn.UseVisualStyleBackColor = false;
             // 
             // InfoSoftWareForm
             // 
@@ -192,9 +193,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private VBButton vbButton1;
-        private VBButton vbButton2;
-        private VBButton vbButton3;
+        private VBButton copyKeyBtn;
+        private VBButton keyBtn;
+        private VBButton timeBtn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;

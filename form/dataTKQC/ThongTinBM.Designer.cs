@@ -32,18 +32,6 @@
             this.TTBM_RefreshBtn = new AdsManager.VBButton();
             this.TTBMTotalBMBtn = new AdsManager.VBButton();
             this.ThongTinBMdataGridView = new System.Windows.Forms.DataGridView();
-            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LoaiBM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Limit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Verified = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Created = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDBM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SLAdmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AdminAn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SLAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ChatLuongBM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.vbButton23 = new AdsManager.VBButton();
             this.vbButton1 = new AdsManager.VBButton();
@@ -58,9 +46,21 @@
             this.SearchTBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.from_dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.vbButton3 = new AdsManager.VBButton();
+            this.SearchBtn = new AdsManager.VBButton();
             this.vbButton4 = new AdsManager.VBButton();
             this.to_dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LoaiBM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Limit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Verified = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Created = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDBM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SLAdmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AdminAn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SLAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChatLuongBM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ThongTinBMdataGridView)).BeginInit();
             this.panel1.SuspendLayout();
@@ -108,6 +108,7 @@
             this.TTBMTotalBMBtn.BorderColor = System.Drawing.Color.Purple;
             this.TTBMTotalBMBtn.BorderRadius = 20;
             this.TTBMTotalBMBtn.BorderSize = 1;
+            this.TTBMTotalBMBtn.Enabled = false;
             this.TTBMTotalBMBtn.FlatAppearance.BorderSize = 0;
             this.TTBMTotalBMBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TTBMTotalBMBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -116,7 +117,7 @@
             this.TTBMTotalBMBtn.Name = "TTBMTotalBMBtn";
             this.TTBMTotalBMBtn.Size = new System.Drawing.Size(173, 33);
             this.TTBMTotalBMBtn.TabIndex = 41;
-            this.TTBMTotalBMBtn.Text = "TỔNG SỐ BM: 50 BM";
+            this.TTBMTotalBMBtn.Text = "TỔNG SỐ BM: 0 ";
             this.TTBMTotalBMBtn.TextColor = System.Drawing.Color.White;
             this.TTBMTotalBMBtn.UseVisualStyleBackColor = false;
             // 
@@ -146,78 +147,7 @@
             this.ThongTinBMdataGridView.Size = new System.Drawing.Size(1591, 638);
             this.ThongTinBMdataGridView.TabIndex = 38;
             this.ThongTinBMdataGridView.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.ThongTinBMdataGridView_RowPrePaint);
-            // 
-            // TrangThai
-            // 
-            this.TrangThai.HeaderText = "Trạng Thái";
-            this.TrangThai.Name = "TrangThai";
-            this.TrangThai.Width = 150;
-            // 
-            // BM
-            // 
-            this.BM.HeaderText = "BM";
-            this.BM.Name = "BM";
-            this.BM.Width = 200;
-            // 
-            // LoaiBM
-            // 
-            this.LoaiBM.HeaderText = "Loại BM";
-            this.LoaiBM.Name = "LoaiBM";
-            this.LoaiBM.Width = 200;
-            // 
-            // Role
-            // 
-            this.Role.HeaderText = "Role";
-            this.Role.Name = "Role";
-            this.Role.Width = 150;
-            // 
-            // Limit
-            // 
-            this.Limit.HeaderText = "Limit";
-            this.Limit.Name = "Limit";
-            this.Limit.Width = 150;
-            // 
-            // Verified
-            // 
-            this.Verified.HeaderText = "Verified";
-            this.Verified.Name = "Verified";
-            this.Verified.Width = 150;
-            // 
-            // Created
-            // 
-            this.Created.HeaderText = "Created";
-            this.Created.Name = "Created";
-            this.Created.Width = 200;
-            // 
-            // IDBM
-            // 
-            this.IDBM.HeaderText = "ID BM";
-            this.IDBM.Name = "IDBM";
-            this.IDBM.Width = 200;
-            // 
-            // SLAdmin
-            // 
-            this.SLAdmin.HeaderText = "SL Admin";
-            this.SLAdmin.Name = "SLAdmin";
-            this.SLAdmin.Width = 150;
-            // 
-            // AdminAn
-            // 
-            this.AdminAn.HeaderText = "Admin ẩn";
-            this.AdminAn.Name = "AdminAn";
-            this.AdminAn.Width = 150;
-            // 
-            // SLAccount
-            // 
-            this.SLAccount.HeaderText = "SL Account";
-            this.SLAccount.Name = "SLAccount";
-            this.SLAccount.Width = 150;
-            // 
-            // ChatLuongBM
-            // 
-            this.ChatLuongBM.HeaderText = "Chất lượng BM";
-            this.ChatLuongBM.Name = "ChatLuongBM";
-            this.ChatLuongBM.Width = 150;
+            this.ThongTinBMdataGridView.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.ThongTinBMdataGridView_SortCompare);
             // 
             // panel1
             // 
@@ -232,6 +162,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(373, 34);
             this.panel1.TabIndex = 39;
+            this.panel1.Visible = false;
             // 
             // vbButton23
             // 
@@ -338,7 +269,7 @@
             this.loadingBtnTTBM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loadingBtnTTBM.ForeColor = System.Drawing.Color.White;
             this.loadingBtnTTBM.Image = global::AdsManager.Properties.Resources.loading1;
-            this.loadingBtnTTBM.Location = new System.Drawing.Point(809, 295);
+            this.loadingBtnTTBM.Location = new System.Drawing.Point(833, 227);
             this.loadingBtnTTBM.Name = "loadingBtnTTBM";
             this.loadingBtnTTBM.Size = new System.Drawing.Size(249, 244);
             this.loadingBtnTTBM.TabIndex = 45;
@@ -354,7 +285,7 @@
             this.panel3.Controls.Add(this.SearchTBox);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.from_dateTimePicker);
-            this.panel3.Controls.Add(this.vbButton3);
+            this.panel3.Controls.Add(this.SearchBtn);
             this.panel3.Controls.Add(this.vbButton4);
             this.panel3.Controls.Add(this.to_dateTimePicker);
             this.panel3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -382,6 +313,7 @@
             this.locTimeBtn.Text = "Lọc";
             this.locTimeBtn.TextColor = System.Drawing.Color.Black;
             this.locTimeBtn.UseVisualStyleBackColor = false;
+            this.locTimeBtn.Click += new System.EventHandler(this.locTimeBtn_Click);
             // 
             // SearchTBox
             // 
@@ -414,25 +346,26 @@
             this.from_dateTimePicker.Size = new System.Drawing.Size(81, 20);
             this.from_dateTimePicker.TabIndex = 13;
             // 
-            // vbButton3
+            // SearchBtn
             // 
-            this.vbButton3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.vbButton3.BackColor = System.Drawing.Color.Green;
-            this.vbButton3.BackgroundColor = System.Drawing.Color.Green;
-            this.vbButton3.BorderColor = System.Drawing.SystemColors.WindowText;
-            this.vbButton3.BorderRadius = 20;
-            this.vbButton3.BorderSize = 0;
-            this.vbButton3.FlatAppearance.BorderSize = 0;
-            this.vbButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.vbButton3.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vbButton3.ForeColor = System.Drawing.Color.Black;
-            this.vbButton3.Image = global::AdsManager.Properties.Resources.Screenshot_2022_10_01_024949_removebg_preview1;
-            this.vbButton3.Location = new System.Drawing.Point(328, 3);
-            this.vbButton3.Name = "vbButton3";
-            this.vbButton3.Size = new System.Drawing.Size(56, 31);
-            this.vbButton3.TabIndex = 12;
-            this.vbButton3.TextColor = System.Drawing.Color.Black;
-            this.vbButton3.UseVisualStyleBackColor = false;
+            this.SearchBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.SearchBtn.BackColor = System.Drawing.Color.Green;
+            this.SearchBtn.BackgroundColor = System.Drawing.Color.Green;
+            this.SearchBtn.BorderColor = System.Drawing.SystemColors.WindowText;
+            this.SearchBtn.BorderRadius = 20;
+            this.SearchBtn.BorderSize = 0;
+            this.SearchBtn.FlatAppearance.BorderSize = 0;
+            this.SearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SearchBtn.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchBtn.ForeColor = System.Drawing.Color.Black;
+            this.SearchBtn.Image = global::AdsManager.Properties.Resources.Screenshot_2022_10_01_024949_removebg_preview1;
+            this.SearchBtn.Location = new System.Drawing.Point(328, 3);
+            this.SearchBtn.Name = "SearchBtn";
+            this.SearchBtn.Size = new System.Drawing.Size(56, 31);
+            this.SearchBtn.TabIndex = 12;
+            this.SearchBtn.TextColor = System.Drawing.Color.Black;
+            this.SearchBtn.UseVisualStyleBackColor = false;
+            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
             // vbButton4
             // 
@@ -453,6 +386,7 @@
             this.vbButton4.Text = "Xuất Excel";
             this.vbButton4.TextColor = System.Drawing.Color.Black;
             this.vbButton4.UseVisualStyleBackColor = false;
+            this.vbButton4.Click += new System.EventHandler(this.vbButton4_Click);
             // 
             // to_dateTimePicker
             // 
@@ -463,6 +397,78 @@
             this.to_dateTimePicker.Size = new System.Drawing.Size(87, 20);
             this.to_dateTimePicker.TabIndex = 11;
             // 
+            // TrangThai
+            // 
+            this.TrangThai.HeaderText = "Trạng Thái";
+            this.TrangThai.Name = "TrangThai";
+            this.TrangThai.Width = 150;
+            // 
+            // BM
+            // 
+            this.BM.HeaderText = "BM";
+            this.BM.Name = "BM";
+            this.BM.Width = 200;
+            // 
+            // LoaiBM
+            // 
+            this.LoaiBM.HeaderText = "Loại BM";
+            this.LoaiBM.Name = "LoaiBM";
+            this.LoaiBM.Width = 200;
+            // 
+            // Role
+            // 
+            this.Role.HeaderText = "Quyền";
+            this.Role.Name = "Role";
+            this.Role.Width = 150;
+            // 
+            // Limit
+            // 
+            this.Limit.HeaderText = "Limit";
+            this.Limit.Name = "Limit";
+            this.Limit.Width = 150;
+            // 
+            // Verified
+            // 
+            this.Verified.HeaderText = "Verified";
+            this.Verified.Name = "Verified";
+            this.Verified.Width = 150;
+            // 
+            // Created
+            // 
+            this.Created.HeaderText = "Created";
+            this.Created.Name = "Created";
+            this.Created.Width = 200;
+            // 
+            // IDBM
+            // 
+            this.IDBM.HeaderText = "ID BM";
+            this.IDBM.Name = "IDBM";
+            this.IDBM.Width = 200;
+            // 
+            // SLAdmin
+            // 
+            this.SLAdmin.HeaderText = "SL Admin";
+            this.SLAdmin.Name = "SLAdmin";
+            this.SLAdmin.Width = 150;
+            // 
+            // AdminAn
+            // 
+            this.AdminAn.HeaderText = "Admin ẩn";
+            this.AdminAn.Name = "AdminAn";
+            this.AdminAn.Width = 150;
+            // 
+            // SLAccount
+            // 
+            this.SLAccount.HeaderText = "SL Account";
+            this.SLAccount.Name = "SLAccount";
+            this.SLAccount.Width = 150;
+            // 
+            // ChatLuongBM
+            // 
+            this.ChatLuongBM.HeaderText = "Chất lượng BM";
+            this.ChatLuongBM.Name = "ChatLuongBM";
+            this.ChatLuongBM.Width = 150;
+            // 
             // ThongTinBM
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -471,8 +477,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(246)))), ((int)(((byte)(254)))));
             this.ClientSize = new System.Drawing.Size(1615, 755);
             this.ControlBox = false;
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.loadingBtnTTBM);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ThongTinBMdataGridView);
             this.Controls.Add(this.panel2);
@@ -503,6 +509,15 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private TakeCarePage.ElipseControl elipseControl1;
         private VBButton TTBM_RefreshBtn;
+        private VBButton loadingBtnTTBM;
+        private System.Windows.Forms.Panel panel3;
+        private VBButton locTimeBtn;
+        private System.Windows.Forms.TextBox SearchTBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker from_dateTimePicker;
+        private VBButton SearchBtn;
+        private VBButton vbButton4;
+        private System.Windows.Forms.DateTimePicker to_dateTimePicker;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
         private System.Windows.Forms.DataGridViewTextBoxColumn BM;
         private System.Windows.Forms.DataGridViewTextBoxColumn LoaiBM;
@@ -515,14 +530,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn AdminAn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SLAccount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ChatLuongBM;
-        private VBButton loadingBtnTTBM;
-        private System.Windows.Forms.Panel panel3;
-        private VBButton locTimeBtn;
-        private System.Windows.Forms.TextBox SearchTBox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker from_dateTimePicker;
-        private VBButton vbButton3;
-        private VBButton vbButton4;
-        private System.Windows.Forms.DateTimePicker to_dateTimePicker;
     }
 }

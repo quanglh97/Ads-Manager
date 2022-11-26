@@ -49,9 +49,6 @@
             this.HoaDonThanhToanToTalDataGridView = new System.Windows.Forms.DataGridView();
             this.TongHoaDon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongTienToTal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.elipseControl1 = new TakeCarePage.ElipseControl();
-            this.HDTT_RefeshBtn = new AdsManager.VBButton();
-            this.loadingBtnHoadon = new AdsManager.VBButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.locTimeBtn = new AdsManager.VBButton();
             this.SearchTBox_HD = new System.Windows.Forms.TextBox();
@@ -61,6 +58,9 @@
             this.vbButton4 = new AdsManager.VBButton();
             this.to_dateTimePicker_HD = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerHD = new System.Windows.Forms.DateTimePicker();
+            this.loadingBtnHoadon = new AdsManager.VBButton();
+            this.HDTT_RefeshBtn = new AdsManager.VBButton();
+            this.elipseControl1 = new TakeCarePage.ElipseControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HoaDonThanhToanDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HoaDonThanhToanToTalDataGridView)).BeginInit();
@@ -80,6 +80,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(373, 34);
             this.panel1.TabIndex = 46;
+            this.panel1.Visible = false;
             // 
             // vbButton23
             // 
@@ -145,7 +146,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(293, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.Size = new System.Drawing.Size(34, 14);
             this.label2.TabIndex = 26;
             this.label2.Text = "10/50";
             // 
@@ -155,7 +156,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(129, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 16);
+            this.label1.Size = new System.Drawing.Size(38, 14);
             this.label1.TabIndex = 24;
             this.label1.Text = "Trang";
             // 
@@ -167,7 +168,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(4, 7);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(115, 24);
+            this.comboBox1.Size = new System.Drawing.Size(115, 21);
             this.comboBox1.TabIndex = 23;
             this.comboBox1.Text = "Row";
             // 
@@ -298,55 +299,6 @@
             this.TongTienToTal.Name = "TongTienToTal";
             this.TongTienToTal.Width = 200;
             // 
-            // elipseControl1
-            // 
-            this.elipseControl1.CornerRadius = 15;
-            this.elipseControl1.TargetControl = this.comboBox1;
-            // 
-            // HDTT_RefeshBtn
-            // 
-            this.HDTT_RefeshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.HDTT_RefeshBtn.BackColor = System.Drawing.SystemColors.Window;
-            this.HDTT_RefeshBtn.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.HDTT_RefeshBtn.BorderColor = System.Drawing.SystemColors.WindowText;
-            this.HDTT_RefeshBtn.BorderRadius = 19;
-            this.HDTT_RefeshBtn.BorderSize = 1;
-            this.HDTT_RefeshBtn.FlatAppearance.BorderSize = 0;
-            this.HDTT_RefeshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HDTT_RefeshBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HDTT_RefeshBtn.ForeColor = System.Drawing.Color.Black;
-            this.HDTT_RefeshBtn.Image = global::AdsManager.Properties.Resources.reload2;
-            this.HDTT_RefeshBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.HDTT_RefeshBtn.Location = new System.Drawing.Point(14, 693);
-            this.HDTT_RefeshBtn.Name = "HDTT_RefeshBtn";
-            this.HDTT_RefeshBtn.Size = new System.Drawing.Size(137, 33);
-            this.HDTT_RefeshBtn.TabIndex = 48;
-            this.HDTT_RefeshBtn.Text = "Làm mới dữ liệu";
-            this.HDTT_RefeshBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.HDTT_RefeshBtn.TextColor = System.Drawing.Color.Black;
-            this.HDTT_RefeshBtn.UseVisualStyleBackColor = false;
-            this.HDTT_RefeshBtn.Click += new System.EventHandler(this.HDTT_RefeshBtn_Click);
-            // 
-            // loadingBtnHoadon
-            // 
-            this.loadingBtnHoadon.BackColor = System.Drawing.SystemColors.Window;
-            this.loadingBtnHoadon.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.loadingBtnHoadon.BorderColor = System.Drawing.Color.DarkOrange;
-            this.loadingBtnHoadon.BorderRadius = 40;
-            this.loadingBtnHoadon.BorderSize = 2;
-            this.loadingBtnHoadon.FlatAppearance.BorderSize = 0;
-            this.loadingBtnHoadon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.loadingBtnHoadon.ForeColor = System.Drawing.Color.White;
-            this.loadingBtnHoadon.Image = global::AdsManager.Properties.Resources.loading1;
-            this.loadingBtnHoadon.Location = new System.Drawing.Point(787, 211);
-            this.loadingBtnHoadon.Name = "loadingBtnHoadon";
-            this.loadingBtnHoadon.Size = new System.Drawing.Size(249, 244);
-            this.loadingBtnHoadon.TabIndex = 49;
-            this.loadingBtnHoadon.Text = "vbButton3";
-            this.loadingBtnHoadon.TextColor = System.Drawing.Color.White;
-            this.loadingBtnHoadon.UseVisualStyleBackColor = false;
-            this.loadingBtnHoadon.Visible = false;
-            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -401,7 +353,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(485, 12);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 16);
+            this.label3.Size = new System.Drawing.Size(29, 14);
             this.label3.TabIndex = 14;
             this.label3.Text = "Đến";
             // 
@@ -411,7 +363,7 @@
             this.from_dateTimePicker_HD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.from_dateTimePicker_HD.Location = new System.Drawing.Point(394, 8);
             this.from_dateTimePicker_HD.Name = "from_dateTimePicker_HD";
-            this.from_dateTimePicker_HD.Size = new System.Drawing.Size(81, 23);
+            this.from_dateTimePicker_HD.Size = new System.Drawing.Size(81, 20);
             this.from_dateTimePicker_HD.TabIndex = 13;
             // 
             // searchBtn_HD
@@ -454,6 +406,7 @@
             this.vbButton4.Text = "Xuất Excel";
             this.vbButton4.TextColor = System.Drawing.Color.Black;
             this.vbButton4.UseVisualStyleBackColor = false;
+            this.vbButton4.Click += new System.EventHandler(this.vbButton4_Click);
             // 
             // to_dateTimePicker_HD
             // 
@@ -461,7 +414,7 @@
             this.to_dateTimePicker_HD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.to_dateTimePicker_HD.Location = new System.Drawing.Point(530, 8);
             this.to_dateTimePicker_HD.Name = "to_dateTimePicker_HD";
-            this.to_dateTimePicker_HD.Size = new System.Drawing.Size(87, 23);
+            this.to_dateTimePicker_HD.Size = new System.Drawing.Size(87, 20);
             this.to_dateTimePicker_HD.TabIndex = 11;
             // 
             // dateTimePickerHD
@@ -470,9 +423,58 @@
             this.dateTimePickerHD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerHD.Location = new System.Drawing.Point(322, 703);
             this.dateTimePickerHD.Name = "dateTimePickerHD";
-            this.dateTimePickerHD.Size = new System.Drawing.Size(87, 23);
+            this.dateTimePickerHD.Size = new System.Drawing.Size(87, 20);
             this.dateTimePickerHD.TabIndex = 51;
             this.dateTimePickerHD.Visible = false;
+            // 
+            // loadingBtnHoadon
+            // 
+            this.loadingBtnHoadon.BackColor = System.Drawing.SystemColors.Window;
+            this.loadingBtnHoadon.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.loadingBtnHoadon.BorderColor = System.Drawing.Color.DarkOrange;
+            this.loadingBtnHoadon.BorderRadius = 40;
+            this.loadingBtnHoadon.BorderSize = 2;
+            this.loadingBtnHoadon.FlatAppearance.BorderSize = 0;
+            this.loadingBtnHoadon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loadingBtnHoadon.ForeColor = System.Drawing.Color.White;
+            this.loadingBtnHoadon.Image = global::AdsManager.Properties.Resources.loading1;
+            this.loadingBtnHoadon.Location = new System.Drawing.Point(787, 211);
+            this.loadingBtnHoadon.Name = "loadingBtnHoadon";
+            this.loadingBtnHoadon.Size = new System.Drawing.Size(249, 244);
+            this.loadingBtnHoadon.TabIndex = 49;
+            this.loadingBtnHoadon.Text = "vbButton3";
+            this.loadingBtnHoadon.TextColor = System.Drawing.Color.White;
+            this.loadingBtnHoadon.UseVisualStyleBackColor = false;
+            this.loadingBtnHoadon.Visible = false;
+            // 
+            // HDTT_RefeshBtn
+            // 
+            this.HDTT_RefeshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.HDTT_RefeshBtn.BackColor = System.Drawing.SystemColors.Window;
+            this.HDTT_RefeshBtn.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.HDTT_RefeshBtn.BorderColor = System.Drawing.SystemColors.WindowText;
+            this.HDTT_RefeshBtn.BorderRadius = 19;
+            this.HDTT_RefeshBtn.BorderSize = 1;
+            this.HDTT_RefeshBtn.FlatAppearance.BorderSize = 0;
+            this.HDTT_RefeshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HDTT_RefeshBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HDTT_RefeshBtn.ForeColor = System.Drawing.Color.Black;
+            this.HDTT_RefeshBtn.Image = global::AdsManager.Properties.Resources.reload2;
+            this.HDTT_RefeshBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.HDTT_RefeshBtn.Location = new System.Drawing.Point(14, 693);
+            this.HDTT_RefeshBtn.Name = "HDTT_RefeshBtn";
+            this.HDTT_RefeshBtn.Size = new System.Drawing.Size(137, 33);
+            this.HDTT_RefeshBtn.TabIndex = 48;
+            this.HDTT_RefeshBtn.Text = "Làm mới dữ liệu";
+            this.HDTT_RefeshBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.HDTT_RefeshBtn.TextColor = System.Drawing.Color.Black;
+            this.HDTT_RefeshBtn.UseVisualStyleBackColor = false;
+            this.HDTT_RefeshBtn.Click += new System.EventHandler(this.HDTT_RefeshBtn_Click);
+            // 
+            // elipseControl1
+            // 
+            this.elipseControl1.CornerRadius = 15;
+            this.elipseControl1.TargetControl = this.comboBox1;
             // 
             // HoaDonTTForm
             // 

@@ -55,6 +55,9 @@
             this.SoNgayDenKiTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LiDoDisable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.vbButton23 = new AdsManager.VBButton();
+            this.vbButton1 = new AdsManager.VBButton();
+            this.vbButton2 = new AdsManager.VBButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TTTKQCComboBox = new System.Windows.Forms.ComboBox();
@@ -65,17 +68,14 @@
             this.loạiKhácToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.khácToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.locTimeTKQCBtn = new AdsManager.VBButton();
             this.Search_TKQC_TBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.from_dateTimePicker_TKQC = new System.Windows.Forms.DateTimePicker();
-            this.to_dateTimePicker_TKQC = new System.Windows.Forms.DateTimePicker();
-            this.locTimeTKQCBtn = new AdsManager.VBButton();
             this.searchKTQCBtn = new AdsManager.VBButton();
             this.vbButton4 = new AdsManager.VBButton();
+            this.to_dateTimePicker_TKQC = new System.Windows.Forms.DateTimePicker();
             this.loadingBtnTKQC = new AdsManager.VBButton();
-            this.vbButton23 = new AdsManager.VBButton();
-            this.vbButton1 = new AdsManager.VBButton();
-            this.vbButton2 = new AdsManager.VBButton();
             this.TTTKQC_RefreshBtn = new AdsManager.VBButton();
             this.elipseControl1 = new TakeCarePage.ElipseControl();
             ((System.ComponentModel.ISupportInitialize)(this.thongTinTKQCToTalDataGridView)).BeginInit();
@@ -161,6 +161,7 @@
             this.thongTinTKQCDataGridView.TabIndex = 30;
             this.thongTinTKQCDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.thongTinTKQCDataGridView_CellFormatting);
             this.thongTinTKQCDataGridView.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.thongTinTKQCDataGridView_RowPrePaint);
+            this.thongTinTKQCDataGridView.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.thongTinTKQCDataGridView_SortCompare);
             this.thongTinTKQCDataGridView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.thongTinTKQCDataGridView_MouseDown);
             // 
             // Status
@@ -288,6 +289,64 @@
             this.panel1.Size = new System.Drawing.Size(373, 34);
             this.panel1.TabIndex = 43;
             // 
+            // vbButton23
+            // 
+            this.vbButton23.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.vbButton23.BackColor = System.Drawing.Color.White;
+            this.vbButton23.BackgroundColor = System.Drawing.Color.White;
+            this.vbButton23.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.vbButton23.BorderRadius = 10;
+            this.vbButton23.BorderSize = 1;
+            this.vbButton23.Enabled = false;
+            this.vbButton23.FlatAppearance.BorderSize = 0;
+            this.vbButton23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.vbButton23.ForeColor = System.Drawing.Color.Black;
+            this.vbButton23.Location = new System.Drawing.Point(187, 6);
+            this.vbButton23.Name = "vbButton23";
+            this.vbButton23.Size = new System.Drawing.Size(33, 22);
+            this.vbButton23.TabIndex = 33;
+            this.vbButton23.Text = "10";
+            this.vbButton23.TextColor = System.Drawing.Color.Black;
+            this.vbButton23.UseVisualStyleBackColor = false;
+            // 
+            // vbButton1
+            // 
+            this.vbButton1.BackColor = System.Drawing.SystemColors.Window;
+            this.vbButton1.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.vbButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.vbButton1.BorderRadius = 12;
+            this.vbButton1.BorderSize = 1;
+            this.vbButton1.FlatAppearance.BorderSize = 0;
+            this.vbButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.vbButton1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vbButton1.ForeColor = System.Drawing.Color.Black;
+            this.vbButton1.Location = new System.Drawing.Point(256, 6);
+            this.vbButton1.Name = "vbButton1";
+            this.vbButton1.Size = new System.Drawing.Size(25, 23);
+            this.vbButton1.TabIndex = 31;
+            this.vbButton1.Text = "<";
+            this.vbButton1.TextColor = System.Drawing.Color.Black;
+            this.vbButton1.UseVisualStyleBackColor = false;
+            // 
+            // vbButton2
+            // 
+            this.vbButton2.BackColor = System.Drawing.SystemColors.Window;
+            this.vbButton2.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.vbButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.vbButton2.BorderRadius = 12;
+            this.vbButton2.BorderSize = 1;
+            this.vbButton2.FlatAppearance.BorderSize = 0;
+            this.vbButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.vbButton2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vbButton2.ForeColor = System.Drawing.Color.Black;
+            this.vbButton2.Location = new System.Drawing.Point(343, 5);
+            this.vbButton2.Name = "vbButton2";
+            this.vbButton2.Size = new System.Drawing.Size(25, 23);
+            this.vbButton2.TabIndex = 32;
+            this.vbButton2.Text = ">";
+            this.vbButton2.TextColor = System.Drawing.Color.Black;
+            this.vbButton2.UseVisualStyleBackColor = false;
+            // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -388,6 +447,27 @@
             this.panel2.Size = new System.Drawing.Size(905, 37);
             this.panel2.TabIndex = 45;
             // 
+            // locTimeTKQCBtn
+            // 
+            this.locTimeTKQCBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.locTimeTKQCBtn.BackColor = System.Drawing.Color.Green;
+            this.locTimeTKQCBtn.BackgroundColor = System.Drawing.Color.Green;
+            this.locTimeTKQCBtn.BorderColor = System.Drawing.SystemColors.WindowText;
+            this.locTimeTKQCBtn.BorderRadius = 20;
+            this.locTimeTKQCBtn.BorderSize = 0;
+            this.locTimeTKQCBtn.FlatAppearance.BorderSize = 0;
+            this.locTimeTKQCBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.locTimeTKQCBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.locTimeTKQCBtn.ForeColor = System.Drawing.Color.Black;
+            this.locTimeTKQCBtn.Location = new System.Drawing.Point(623, 3);
+            this.locTimeTKQCBtn.Name = "locTimeTKQCBtn";
+            this.locTimeTKQCBtn.Size = new System.Drawing.Size(61, 31);
+            this.locTimeTKQCBtn.TabIndex = 27;
+            this.locTimeTKQCBtn.Text = "Lọc";
+            this.locTimeTKQCBtn.TextColor = System.Drawing.Color.Black;
+            this.locTimeTKQCBtn.UseVisualStyleBackColor = false;
+            this.locTimeTKQCBtn.Click += new System.EventHandler(this.locTimeTKQCBtn_Click);
+            // 
             // Search_TKQC_TBox
             // 
             this.Search_TKQC_TBox.BackColor = System.Drawing.Color.Gainsboro;
@@ -419,37 +499,6 @@
             this.from_dateTimePicker_TKQC.Name = "from_dateTimePicker_TKQC";
             this.from_dateTimePicker_TKQC.Size = new System.Drawing.Size(81, 20);
             this.from_dateTimePicker_TKQC.TabIndex = 13;
-            // 
-            // to_dateTimePicker_TKQC
-            // 
-            this.to_dateTimePicker_TKQC.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.to_dateTimePicker_TKQC.CustomFormat = "MM/dd/yyyy";
-            this.to_dateTimePicker_TKQC.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.to_dateTimePicker_TKQC.Location = new System.Drawing.Point(530, 8);
-            this.to_dateTimePicker_TKQC.Name = "to_dateTimePicker_TKQC";
-            this.to_dateTimePicker_TKQC.Size = new System.Drawing.Size(87, 20);
-            this.to_dateTimePicker_TKQC.TabIndex = 11;
-            // 
-            // locTimeTKQCBtn
-            // 
-            this.locTimeTKQCBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.locTimeTKQCBtn.BackColor = System.Drawing.Color.Green;
-            this.locTimeTKQCBtn.BackgroundColor = System.Drawing.Color.Green;
-            this.locTimeTKQCBtn.BorderColor = System.Drawing.SystemColors.WindowText;
-            this.locTimeTKQCBtn.BorderRadius = 20;
-            this.locTimeTKQCBtn.BorderSize = 0;
-            this.locTimeTKQCBtn.FlatAppearance.BorderSize = 0;
-            this.locTimeTKQCBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.locTimeTKQCBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.locTimeTKQCBtn.ForeColor = System.Drawing.Color.Black;
-            this.locTimeTKQCBtn.Location = new System.Drawing.Point(623, 3);
-            this.locTimeTKQCBtn.Name = "locTimeTKQCBtn";
-            this.locTimeTKQCBtn.Size = new System.Drawing.Size(61, 31);
-            this.locTimeTKQCBtn.TabIndex = 27;
-            this.locTimeTKQCBtn.Text = "Lọc";
-            this.locTimeTKQCBtn.TextColor = System.Drawing.Color.Black;
-            this.locTimeTKQCBtn.UseVisualStyleBackColor = false;
-            this.locTimeTKQCBtn.Click += new System.EventHandler(this.locTimeTKQCBtn_Click);
             // 
             // searchKTQCBtn
             // 
@@ -491,6 +540,17 @@
             this.vbButton4.Text = "Xuất Excel";
             this.vbButton4.TextColor = System.Drawing.Color.Black;
             this.vbButton4.UseVisualStyleBackColor = false;
+            this.vbButton4.Click += new System.EventHandler(this.vbButton4_Click);
+            // 
+            // to_dateTimePicker_TKQC
+            // 
+            this.to_dateTimePicker_TKQC.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.to_dateTimePicker_TKQC.CustomFormat = "MM/dd/yyyy";
+            this.to_dateTimePicker_TKQC.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.to_dateTimePicker_TKQC.Location = new System.Drawing.Point(530, 8);
+            this.to_dateTimePicker_TKQC.Name = "to_dateTimePicker_TKQC";
+            this.to_dateTimePicker_TKQC.Size = new System.Drawing.Size(87, 20);
+            this.to_dateTimePicker_TKQC.TabIndex = 11;
             // 
             // loadingBtnTKQC
             // 
@@ -511,64 +571,6 @@
             this.loadingBtnTKQC.TextColor = System.Drawing.Color.White;
             this.loadingBtnTKQC.UseVisualStyleBackColor = false;
             this.loadingBtnTKQC.Visible = false;
-            // 
-            // vbButton23
-            // 
-            this.vbButton23.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.vbButton23.BackColor = System.Drawing.Color.White;
-            this.vbButton23.BackgroundColor = System.Drawing.Color.White;
-            this.vbButton23.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.vbButton23.BorderRadius = 10;
-            this.vbButton23.BorderSize = 1;
-            this.vbButton23.Enabled = false;
-            this.vbButton23.FlatAppearance.BorderSize = 0;
-            this.vbButton23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.vbButton23.ForeColor = System.Drawing.Color.Black;
-            this.vbButton23.Location = new System.Drawing.Point(187, 6);
-            this.vbButton23.Name = "vbButton23";
-            this.vbButton23.Size = new System.Drawing.Size(33, 22);
-            this.vbButton23.TabIndex = 33;
-            this.vbButton23.Text = "10";
-            this.vbButton23.TextColor = System.Drawing.Color.Black;
-            this.vbButton23.UseVisualStyleBackColor = false;
-            // 
-            // vbButton1
-            // 
-            this.vbButton1.BackColor = System.Drawing.SystemColors.Window;
-            this.vbButton1.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.vbButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.vbButton1.BorderRadius = 12;
-            this.vbButton1.BorderSize = 1;
-            this.vbButton1.FlatAppearance.BorderSize = 0;
-            this.vbButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.vbButton1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vbButton1.ForeColor = System.Drawing.Color.Black;
-            this.vbButton1.Location = new System.Drawing.Point(256, 6);
-            this.vbButton1.Name = "vbButton1";
-            this.vbButton1.Size = new System.Drawing.Size(25, 23);
-            this.vbButton1.TabIndex = 31;
-            this.vbButton1.Text = "<";
-            this.vbButton1.TextColor = System.Drawing.Color.Black;
-            this.vbButton1.UseVisualStyleBackColor = false;
-            // 
-            // vbButton2
-            // 
-            this.vbButton2.BackColor = System.Drawing.SystemColors.Window;
-            this.vbButton2.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.vbButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.vbButton2.BorderRadius = 12;
-            this.vbButton2.BorderSize = 1;
-            this.vbButton2.FlatAppearance.BorderSize = 0;
-            this.vbButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.vbButton2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vbButton2.ForeColor = System.Drawing.Color.Black;
-            this.vbButton2.Location = new System.Drawing.Point(343, 5);
-            this.vbButton2.Name = "vbButton2";
-            this.vbButton2.Size = new System.Drawing.Size(25, 23);
-            this.vbButton2.TabIndex = 32;
-            this.vbButton2.Text = ">";
-            this.vbButton2.TextColor = System.Drawing.Color.Black;
-            this.vbButton2.UseVisualStyleBackColor = false;
             // 
             // TTTKQC_RefreshBtn
             // 

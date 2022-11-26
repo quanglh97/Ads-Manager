@@ -25,6 +25,8 @@ using TakeCarePage;
 using TakeCarePage.HelperLibrary.Facebook;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
+using Excel = Microsoft.Office.Interop.Excel;
+
 namespace AdsManager
 {
     public partial class ThongTinTKQCForm : Form
@@ -391,15 +393,18 @@ namespace AdsManager
         private void TTTKQC_RefreshBtn_Click(object sender, EventArgs e)
         {
             loadingBtnTKQC.Visible = true;
+            TTTKQC_RefreshBtn.Enabled = false;
+            TTTKQC_RefreshBtn.BackgroundColor = Color.FromArgb(255, 198, 65, 24);
+            thongTinTKQCDataGridView.Rows.Clear();
+
             TTTKQCInstance.tiGia = RequestTiGiaNgoaiTe();
             ViaInstances.ImportVia();
-            thongTinTKQCDataGridView.Rows.Clear();
+            
             if (!TTTKQCComboBox.SelectedValue.ToString().Contains("MAX"))
                 TTTKQCInstance.limit = Int32.Parse(TTTKQCComboBox.SelectedValue.ToString());
             else
                 TTTKQCInstance.limit = 100000;
-            TTTKQC_RefreshBtn.Enabled = false;
-            TTTKQC_RefreshBtn.BackgroundColor = Color.FromArgb(255, 198, 65, 24);
+            
             if (!TTTKQC_Worker.IsBusy)
             {
                 TTTKQC_Worker.RunWorkerAsync();
@@ -751,17 +756,21 @@ namespace AdsManager
                     List<TTTKQCInfo> tempLsTKQC = new List<TTTKQCInfo>();
                     queue.TryDequeue(out tempLsTKQC);
                     var dataFilterTime = GetDataFilterTime(ViaInstances.lsAccVia[index].token, cookie, timeSince, timeUntil, tempLsTKQC);
-                    if (dataFilterTime != null)
+                    dataFilterTime = "{\"data\":" + dataFilterTime + "}";
+                    JObject dataFilter = JObject.Parse(dataFilterTime);
+                    if (dataFilter != null)
                     {
-                        var lsBody = dataFilterTime.Split(new string[] { " \"body\": ", "},\r\n   {" }, StringSplitOptions.None);
-                        var pattern = @"account_id\\"": \\""(\d+).*spend\\"": \\""(\d+?.\d+)\\"",";
-                        foreach (var item in lsBody)
+                        //var lsBody = dataFilterTime.Split(new string[] { " \"body\": ", "},\r\n   {" }, StringSplitOptions.None);
+                        //var pattern = @"account_id\\"": \\""(\d+).*spend\\"": \\""(\d+?.\d+)\\"",";
+                        for(int i = 0; i< dataFilter["data"].Count(); i++)
                         {
-                            if (item.Contains("spend"))
+                            var itemBody = dataFilter["data"][i]["body"].ToString();
+                            if (itemBody.Contains("spend"))
                             {
-                                var match = Regex.Match(item, pattern);
-                                var tempId = match.Groups[1].Value;
-                                var tempTongTieu = match.Groups[2].Value;
+                                JObject dataFilterItem = JObject.Parse(itemBody);
+                                //var match = Regex.Match(item, pattern);
+                                var tempId = dataFilterItem["account_id"].ToString();
+                                var tempTongTieu = dataFilterItem["insights"]["data"][0]["spend"].ToString();
                                 TTTKQCInstance.lsViewTKQC.Find(x => x.ID == tempId).tongTieu = tempTongTieu;
                             }
                         }
@@ -935,6 +944,117 @@ namespace AdsManager
                 }
             }
             loadingBtnTKQC.Visible = false;
+        }
+        private void copyAlltoClipboard()
+        {
+            thongTinTKQCDataGridView.SelectAll();
+            DataObject dataObj = thongTinTKQCDataGridView.GetClipboardContent();
+            if (dataObj != null)
+                Clipboard.SetDataObject(dataObj);
+        }
+        private void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Exception Occurred while releasing object " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
+            }
+        }
+        private void vbButton4_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Excel Documents (*.xls)|*.xls";
+            sfd.FileName = "ThongTinTKQC.xls";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                // Copy DataGridView results to clipboard
+                copyAlltoClipboard();
+
+                object misValue = System.Reflection.Missing.Value;
+                Excel.Application xlexcel = new Excel.Application();
+
+                xlexcel.DisplayAlerts = false; // Without this you will get two confirm overwrite prompts
+                Excel.Workbook xlWorkBook = xlexcel.Workbooks.Add(misValue);
+                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+                // Format column D as text before pasting results, this was required for my data
+                Excel.Range rng = xlWorkSheet.get_Range("D:D").Cells;
+                rng.NumberFormat = "@";
+
+                // Paste clipboard results to worksheet range
+                Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[1, 1];
+                CR.Select();
+                xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+
+                // For some reason column A is always blank in the worksheet. ¯\_(ツ)_/¯
+                // Delete blank column A and select cell A1
+                Excel.Range delRng = xlWorkSheet.get_Range("A:A").Cells;
+                delRng.Delete(Type.Missing);
+                xlWorkSheet.get_Range("A1").Select();
+
+                // Save the excel file under the captured location from the SaveFileDialog
+                xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlexcel.DisplayAlerts = true;
+                xlWorkBook.Close(true, misValue, misValue);
+                xlexcel.Quit();
+
+                releaseObject(xlWorkSheet);
+                releaseObject(xlWorkBook);
+                releaseObject(xlexcel);
+
+                // Clear Clipboard and DataGridView selection
+                Clipboard.Clear();
+                thongTinTKQCDataGridView.ClearSelection();
+
+                // Open the newly saved excel file
+                if (File.Exists(sfd.FileName))
+                    System.Diagnostics.Process.Start(sfd.FileName);
+            }
+        }
+
+        private void thongTinTKQCDataGridView_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
+        {
+            if (e.Column.Index == 3|| e.Column.Index == 4 || e.Column.Index == 5 || e.Column.Index == 6 ||
+                e.Column.Index == 7)
+            {
+                try
+                {
+                    string a = "0";
+                    string b = "0";
+                    if(e.CellValue1.ToString() == "No Limit")
+                    {
+                        a = "999999999";
+                    }
+                    else
+                    {
+                        a = e.CellValue1.ToString();
+                    }
+                    if (e.CellValue2.ToString() == "No Limit")
+                    {
+                        b = "999999999";
+                    }
+                    else
+                    {
+                        b = e.CellValue2.ToString();
+                    }
+                    e.SortResult = double.Parse(a).CompareTo(double.Parse(b));
+                    e.Handled = true;//pass by the default sorting
+                }
+                catch
+                {
+                    e.SortResult = 1;
+                    e.Handled = true;
+                }
+            }
         }
     }
 
