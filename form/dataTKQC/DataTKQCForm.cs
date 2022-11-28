@@ -20,22 +20,25 @@ namespace AdsManager
 {
     public partial class DataTKQCForm : Form
     {
-        ThongTinChienDichForm TTCDFrom = new ThongTinChienDichForm();
-        ThongTinBM TTBMFrom = new ThongTinBM();
-        ThongTinTKQCForm TTTKQCFrom = new ThongTinTKQCForm();
-        HoaDonTTForm hoaDonTTFrom = new HoaDonTTForm();
+        ThongTinChienDichForm TTCDForm = new ThongTinChienDichForm();
+        ThongTinBM TTBMForm = new ThongTinBM();
+        ThongTinTKQCForm TTTKQCForm = new ThongTinTKQCForm();
+        HoaDonTTForm hoaDonTTForm = new HoaDonTTForm();
+        DuLieuPageForm duLieuPageForm = new DuLieuPageForm();
         public DataTKQCForm()
         {
             InitializeComponent();
             //DataTKQCHeaderPanel.BringToFront();
-            TTCDFrom.TopLevel = false;
-            TTBMFrom.TopLevel = false;
-            TTTKQCFrom.TopLevel = false;
-            hoaDonTTFrom.TopLevel = false;
-            DataTKQCContentPanel.Controls.Add(TTCDFrom);
-            DataTKQCContentPanel.Controls.Add(TTBMFrom);
-            DataTKQCContentPanel.Controls.Add(TTTKQCFrom);
-            DataTKQCContentPanel.Controls.Add(hoaDonTTFrom);
+            TTCDForm.TopLevel = false;
+            TTBMForm.TopLevel = false;
+            TTTKQCForm.TopLevel = false;
+            hoaDonTTForm.TopLevel = false;
+            duLieuPageForm.TopLevel = false;
+            DataTKQCContentPanel.Controls.Add(TTCDForm);
+            DataTKQCContentPanel.Controls.Add(TTBMForm);
+            DataTKQCContentPanel.Controls.Add(TTTKQCForm);
+            DataTKQCContentPanel.Controls.Add(hoaDonTTForm);
+            DataTKQCContentPanel.Controls.Add(duLieuPageForm);
         }
 
         private void TTCDBtn_Click(object sender, EventArgs e)
@@ -49,14 +52,17 @@ namespace AdsManager
             HoadonTTBtn.BackColor = Color.FromArgb(255, 226, 226, 226);
             HoadonTTBtn.ForeColor = Color.FromArgb(163, 163, 163);
 
+            duLieuPageBtn.BackColor = Color.FromArgb(255, 226, 226, 226);
+            duLieuPageBtn.ForeColor = Color.FromArgb(163, 163, 163);
+
             TTCDBtn.BackColor = Color.White;
             TTCDBtn.ForeColor = Color.Black;
 
             
-            //TTCDFrom.TopLevel = false;
-            //DataTKQCContentPanel.Controls.Add(TTCDFrom);
-            TTCDFrom.BringToFront();
-            TTCDFrom.Show();
+            //TTCDForm.TopLevel = false;
+            //DataTKQCContentPanel.Controls.Add(TTCDForm);
+            TTCDForm.BringToFront();
+            TTCDForm.Show();
         }
 
         private void TTBMBtn_Click(object sender, EventArgs e)
@@ -73,11 +79,13 @@ namespace AdsManager
             HoadonTTBtn.BackColor = Color.FromArgb(255, 226, 226, 226);
             HoadonTTBtn.ForeColor = Color.FromArgb(163, 163, 163);
 
-            
-            //TTBMFrom.TopLevel = false;
-            //DataTKQCContentPanel.Controls.Add(TTBMFrom);
-            TTBMFrom.BringToFront();
-            TTBMFrom.Show();
+            duLieuPageBtn.BackColor = Color.FromArgb(255, 226, 226, 226);
+            duLieuPageBtn.ForeColor = Color.FromArgb(163, 163, 163);
+
+            //TTBMForm.TopLevel = false;
+            //DataTKQCContentPanel.Controls.Add(TTBMForm);
+            TTBMForm.BringToFront();
+            TTBMForm.Show();
         }
 
         private void TTTKQCBTn_Click(object sender, EventArgs e)
@@ -94,10 +102,13 @@ namespace AdsManager
             HoadonTTBtn.BackColor = Color.FromArgb(255, 226, 226, 226);
             HoadonTTBtn.ForeColor = Color.FromArgb(163, 163, 163);
 
-            //TTTKQCFrom.TopLevel = false;
-            //DataTKQCContentPanel.Controls.Add(TTTKQCFrom);
-            TTTKQCFrom.BringToFront();
-            TTTKQCFrom.Show();
+            duLieuPageBtn.BackColor = Color.FromArgb(255, 226, 226, 226);
+            duLieuPageBtn.ForeColor = Color.FromArgb(163, 163, 163);
+
+            //TTTKQCForm.TopLevel = false;
+            //DataTKQCContentPanel.Controls.Add(TTTKQCForm);
+            TTTKQCForm.BringToFront();
+            TTTKQCForm.Show();
         }
 
         private void HoadonTTBtn_Click(object sender, EventArgs e)
@@ -114,13 +125,34 @@ namespace AdsManager
             HoadonTTBtn.BackColor = Color.White;
             HoadonTTBtn.ForeColor = Color.Black;
 
-            
-            //hoaDonTTFrom.TopLevel = false;
-            //DataTKQCContentPanel.Controls.Add(hoaDonTTFrom);
-            hoaDonTTFrom.BringToFront();
-            hoaDonTTFrom.Show();
-        }
+            duLieuPageBtn.BackColor = Color.FromArgb(255, 226, 226, 226);
+            duLieuPageBtn.ForeColor = Color.FromArgb(163, 163, 163);
 
+            //hoaDonTTForm.TopLevel = false;
+            //DataTKQCContentPanel.Controls.Add(hoaDonTTForm);
+            hoaDonTTForm.BringToFront();
+            hoaDonTTForm.Show();
+        }
+        private void duLieuPageBtn_Click(object sender, EventArgs e)
+        {
+            TTTKQCBTn.BackColor = Color.FromArgb(255, 226, 226, 226);
+            TTTKQCBTn.ForeColor = Color.FromArgb(163, 163, 163);
+
+            TTBMBtn.BackColor = Color.FromArgb(255, 226, 226, 226);
+            TTBMBtn.ForeColor = Color.FromArgb(163, 163, 163);
+
+            TTCDBtn.BackColor = Color.FromArgb(255, 226, 226, 226);
+            TTCDBtn.ForeColor = Color.FromArgb(163, 163, 163);
+
+            HoadonTTBtn.BackColor = Color.FromArgb(255, 226, 226, 226);
+            HoadonTTBtn.ForeColor = Color.FromArgb(163, 163, 163);
+
+            duLieuPageBtn.BackColor = Color.White;
+            duLieuPageBtn.ForeColor = Color.Black;
+
+            duLieuPageForm.BringToFront();
+            duLieuPageForm.Show();
+        }
         private void locTimeBtn_Click(object sender, EventArgs e)
         {
             TTTKQCInstance.filterTime = true;

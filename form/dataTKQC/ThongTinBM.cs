@@ -67,6 +67,7 @@ namespace AdsManager.form.dataTKQC
                     for (int i = 0; i < jObject["data"].Count(); i++)
                     {
                         var item = jObject["data"][i];
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
                         try
                         {
                             var TTBM = new BMInfo();
@@ -131,6 +132,7 @@ namespace AdsManager.form.dataTKQC
                         catch (Exception ex)
                         {
                         }
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
                     }
 
                     TTBM_Worker.ReportProgress(1);

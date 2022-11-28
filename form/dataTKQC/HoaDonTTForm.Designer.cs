@@ -54,13 +54,13 @@
             this.SearchTBox_HD = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.from_dateTimePicker_HD = new System.Windows.Forms.DateTimePicker();
-            this.searchBtn_HD = new AdsManager.VBButton();
             this.vbButton4 = new AdsManager.VBButton();
             this.to_dateTimePicker_HD = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerHD = new System.Windows.Forms.DateTimePicker();
+            this.elipseControl1 = new TakeCarePage.ElipseControl();
+            this.searchBtn_HD = new AdsManager.VBButton();
             this.loadingBtnHoadon = new AdsManager.VBButton();
             this.HDTT_RefeshBtn = new AdsManager.VBButton();
-            this.elipseControl1 = new TakeCarePage.ElipseControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HoaDonThanhToanDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HoaDonThanhToanToTalDataGridView)).BeginInit();
@@ -193,6 +193,7 @@
             this.HoaDonThanhToanDataGridView.EnableHeadersVisualStyles = false;
             this.HoaDonThanhToanDataGridView.Location = new System.Drawing.Point(14, 55);
             this.HoaDonThanhToanDataGridView.Name = "HoaDonThanhToanDataGridView";
+            this.HoaDonThanhToanDataGridView.ReadOnly = true;
             this.HoaDonThanhToanDataGridView.RowHeadersWidth = 60;
             this.HoaDonThanhToanDataGridView.Size = new System.Drawing.Size(1495, 573);
             this.HoaDonThanhToanDataGridView.TabIndex = 44;
@@ -204,6 +205,7 @@
             this.Status.HeaderText = "Trạng thái TKQC";
             this.Status.MinimumWidth = 6;
             this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
             this.Status.Width = 120;
             // 
             // AccName
@@ -211,6 +213,7 @@
             this.AccName.HeaderText = "Tên tài khoản";
             this.AccName.MinimumWidth = 6;
             this.AccName.Name = "AccName";
+            this.AccName.ReadOnly = true;
             this.AccName.Width = 300;
             // 
             // IDTKQC
@@ -218,6 +221,7 @@
             this.IDTKQC.HeaderText = "ID TKQC";
             this.IDTKQC.MinimumWidth = 6;
             this.IDTKQC.Name = "IDTKQC";
+            this.IDTKQC.ReadOnly = true;
             this.IDTKQC.Width = 200;
             // 
             // IDGiaoDich
@@ -225,6 +229,7 @@
             this.IDGiaoDich.HeaderText = "ID giao dịch";
             this.IDGiaoDich.MinimumWidth = 6;
             this.IDGiaoDich.Name = "IDGiaoDich";
+            this.IDGiaoDich.ReadOnly = true;
             this.IDGiaoDich.Width = 200;
             // 
             // Ngay
@@ -232,6 +237,7 @@
             this.Ngay.HeaderText = "Ngày";
             this.Ngay.MinimumWidth = 6;
             this.Ngay.Name = "Ngay";
+            this.Ngay.ReadOnly = true;
             this.Ngay.Width = 150;
             // 
             // SoTien
@@ -239,6 +245,7 @@
             this.SoTien.HeaderText = "Số tiền";
             this.SoTien.MinimumWidth = 6;
             this.SoTien.Name = "SoTien";
+            this.SoTien.ReadOnly = true;
             this.SoTien.Width = 150;
             // 
             // PhuongThucThanhToan
@@ -246,6 +253,7 @@
             this.PhuongThucThanhToan.HeaderText = "Phương thức thanh toán";
             this.PhuongThucThanhToan.MinimumWidth = 6;
             this.PhuongThucThanhToan.Name = "PhuongThucThanhToan";
+            this.PhuongThucThanhToan.ReadOnly = true;
             this.PhuongThucThanhToan.Width = 200;
             // 
             // TrangThaiThanhToan
@@ -253,6 +261,7 @@
             this.TrangThaiThanhToan.HeaderText = "Trạng thái thanh toán";
             this.TrangThaiThanhToan.MinimumWidth = 6;
             this.TrangThaiThanhToan.Name = "TrangThaiThanhToan";
+            this.TrangThaiThanhToan.ReadOnly = true;
             this.TrangThaiThanhToan.Width = 150;
             // 
             // IDHoaDonVAT
@@ -260,6 +269,7 @@
             this.IDHoaDonVAT.HeaderText = "ID Hóa đơn VAT";
             this.IDHoaDonVAT.MinimumWidth = 6;
             this.IDHoaDonVAT.Name = "IDHoaDonVAT";
+            this.IDHoaDonVAT.ReadOnly = true;
             this.IDHoaDonVAT.Width = 200;
             // 
             // HanhDong
@@ -267,6 +277,7 @@
             this.HanhDong.HeaderText = "Hành động";
             this.HanhDong.MinimumWidth = 6;
             this.HanhDong.Name = "HanhDong";
+            this.HanhDong.ReadOnly = true;
             this.HanhDong.Width = 200;
             // 
             // HoaDonThanhToanToTalDataGridView
@@ -366,27 +377,6 @@
             this.from_dateTimePicker_HD.Size = new System.Drawing.Size(81, 20);
             this.from_dateTimePicker_HD.TabIndex = 13;
             // 
-            // searchBtn_HD
-            // 
-            this.searchBtn_HD.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.searchBtn_HD.BackColor = System.Drawing.Color.Green;
-            this.searchBtn_HD.BackgroundColor = System.Drawing.Color.Green;
-            this.searchBtn_HD.BorderColor = System.Drawing.SystemColors.WindowText;
-            this.searchBtn_HD.BorderRadius = 20;
-            this.searchBtn_HD.BorderSize = 0;
-            this.searchBtn_HD.FlatAppearance.BorderSize = 0;
-            this.searchBtn_HD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchBtn_HD.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBtn_HD.ForeColor = System.Drawing.Color.Black;
-            this.searchBtn_HD.Image = global::AdsManager.Properties.Resources.Screenshot_2022_10_01_024949_removebg_preview1;
-            this.searchBtn_HD.Location = new System.Drawing.Point(328, 3);
-            this.searchBtn_HD.Name = "searchBtn_HD";
-            this.searchBtn_HD.Size = new System.Drawing.Size(56, 31);
-            this.searchBtn_HD.TabIndex = 12;
-            this.searchBtn_HD.TextColor = System.Drawing.Color.Black;
-            this.searchBtn_HD.UseVisualStyleBackColor = false;
-            this.searchBtn_HD.Click += new System.EventHandler(this.searchHD_Click);
-            // 
             // vbButton4
             // 
             this.vbButton4.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -426,6 +416,32 @@
             this.dateTimePickerHD.Size = new System.Drawing.Size(87, 20);
             this.dateTimePickerHD.TabIndex = 51;
             this.dateTimePickerHD.Visible = false;
+            // 
+            // elipseControl1
+            // 
+            this.elipseControl1.CornerRadius = 15;
+            this.elipseControl1.TargetControl = this.comboBox1;
+            // 
+            // searchBtn_HD
+            // 
+            this.searchBtn_HD.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.searchBtn_HD.BackColor = System.Drawing.Color.Green;
+            this.searchBtn_HD.BackgroundColor = System.Drawing.Color.Green;
+            this.searchBtn_HD.BorderColor = System.Drawing.SystemColors.WindowText;
+            this.searchBtn_HD.BorderRadius = 20;
+            this.searchBtn_HD.BorderSize = 0;
+            this.searchBtn_HD.FlatAppearance.BorderSize = 0;
+            this.searchBtn_HD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchBtn_HD.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBtn_HD.ForeColor = System.Drawing.Color.Black;
+            this.searchBtn_HD.Image = global::AdsManager.Properties.Resources.Screenshot_2022_10_01_024949_removebg_preview1;
+            this.searchBtn_HD.Location = new System.Drawing.Point(328, 3);
+            this.searchBtn_HD.Name = "searchBtn_HD";
+            this.searchBtn_HD.Size = new System.Drawing.Size(56, 31);
+            this.searchBtn_HD.TabIndex = 12;
+            this.searchBtn_HD.TextColor = System.Drawing.Color.Black;
+            this.searchBtn_HD.UseVisualStyleBackColor = false;
+            this.searchBtn_HD.Click += new System.EventHandler(this.searchHD_Click);
             // 
             // loadingBtnHoadon
             // 
@@ -470,11 +486,6 @@
             this.HDTT_RefeshBtn.TextColor = System.Drawing.Color.Black;
             this.HDTT_RefeshBtn.UseVisualStyleBackColor = false;
             this.HDTT_RefeshBtn.Click += new System.EventHandler(this.HDTT_RefeshBtn_Click);
-            // 
-            // elipseControl1
-            // 
-            this.elipseControl1.CornerRadius = 15;
-            this.elipseControl1.TargetControl = this.comboBox1;
             // 
             // HoaDonTTForm
             // 

@@ -16,9 +16,9 @@ namespace AdsManager
         public InfoSoftWareForm()
         {
             InitializeComponent();
-            keyBtn.Text = "Quangdeptrai";
-            Common.key = keyBtn.Text;
-            
+            Common.key = Common.GetKey();
+            keyBtn.Text = Common.key;
+            timeBtn.Text = DateTime.Now.AddYears(1).ToString();
         }
 
         private void copyKeyBtn_Click(object sender, EventArgs e)

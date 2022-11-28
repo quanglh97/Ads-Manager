@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.DataTKQCHeaderPanel = new System.Windows.Forms.Panel();
-            this.DataTKQCContentPanel = new System.Windows.Forms.Panel();
+            this.duLieuPageBtn = new AdsManager.VBButton();
             this.HoadonTTBtn = new AdsManager.VBButton();
             this.TTBMBtn = new AdsManager.VBButton();
             this.TTCDBtn = new AdsManager.VBButton();
             this.TTTKQCBTn = new AdsManager.VBButton();
+            this.DataTKQCContentPanel = new System.Windows.Forms.Panel();
             this.DataTKQCHeaderPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,6 +44,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataTKQCHeaderPanel.AutoSize = true;
             this.DataTKQCHeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(246)))), ((int)(((byte)(254)))));
+            this.DataTKQCHeaderPanel.Controls.Add(this.duLieuPageBtn);
             this.DataTKQCHeaderPanel.Controls.Add(this.HoadonTTBtn);
             this.DataTKQCHeaderPanel.Controls.Add(this.TTBMBtn);
             this.DataTKQCHeaderPanel.Controls.Add(this.TTCDBtn);
@@ -53,17 +55,24 @@
             this.DataTKQCHeaderPanel.Size = new System.Drawing.Size(1618, 50);
             this.DataTKQCHeaderPanel.TabIndex = 0;
             // 
-            // DataTKQCContentPanel
+            // duLieuPageBtn
             // 
-            this.DataTKQCContentPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DataTKQCContentPanel.AutoSize = true;
-            this.DataTKQCContentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(246)))), ((int)(((byte)(254)))));
-            this.DataTKQCContentPanel.Location = new System.Drawing.Point(-1, 48);
-            this.DataTKQCContentPanel.Name = "DataTKQCContentPanel";
-            this.DataTKQCContentPanel.Size = new System.Drawing.Size(1620, 700);
-            this.DataTKQCContentPanel.TabIndex = 1;
+            this.duLieuPageBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.duLieuPageBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.duLieuPageBtn.BorderColor = System.Drawing.Color.Purple;
+            this.duLieuPageBtn.BorderRadius = 20;
+            this.duLieuPageBtn.BorderSize = 0;
+            this.duLieuPageBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.duLieuPageBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.duLieuPageBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(163)))), ((int)(((byte)(163)))));
+            this.duLieuPageBtn.Location = new System.Drawing.Point(630, 4);
+            this.duLieuPageBtn.Name = "duLieuPageBtn";
+            this.duLieuPageBtn.Size = new System.Drawing.Size(150, 34);
+            this.duLieuPageBtn.TabIndex = 4;
+            this.duLieuPageBtn.Text = "Dữ liệu Page";
+            this.duLieuPageBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(163)))), ((int)(((byte)(163)))));
+            this.duLieuPageBtn.UseVisualStyleBackColor = false;
+            this.duLieuPageBtn.Click += new System.EventHandler(this.duLieuPageBtn_Click);
             // 
             // HoadonTTBtn
             // 
@@ -141,6 +150,18 @@
             this.TTTKQCBTn.UseVisualStyleBackColor = false;
             this.TTTKQCBTn.Click += new System.EventHandler(this.TTTKQCBTn_Click);
             // 
+            // DataTKQCContentPanel
+            // 
+            this.DataTKQCContentPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DataTKQCContentPanel.AutoSize = true;
+            this.DataTKQCContentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(246)))), ((int)(((byte)(254)))));
+            this.DataTKQCContentPanel.Location = new System.Drawing.Point(-1, 48);
+            this.DataTKQCContentPanel.Name = "DataTKQCContentPanel";
+            this.DataTKQCContentPanel.Size = new System.Drawing.Size(1620, 700);
+            this.DataTKQCContentPanel.TabIndex = 1;
+            // 
             // DataTKQCForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -169,5 +190,6 @@
         private VBButton TTCDBtn;
         private VBButton TTTKQCBTn;
         private VBButton HoadonTTBtn;
+        private VBButton duLieuPageBtn;
     }
 }

@@ -72,6 +72,7 @@ namespace TakeCarePage
 
         public static string GetIPMinProxy(string apikey)
         {
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
             try
             {
                 var client = new RestClient("https://dash.minproxy.vn/api/rotating/v1/proxy/get-new-proxy?api_key=" + apikey);
@@ -93,6 +94,7 @@ namespace TakeCarePage
             {
                 //MessageBox.Show("Get Proxy Tinsoft error: " + ex.Message, "Error");
             }
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
 
             return "";
         }
@@ -117,6 +119,7 @@ namespace TakeCarePage
 
         public static string GetProxyTinsoft(string tinsoftKey)
         {
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
             try
             {
                 var client = new RestClient("http://proxy.tinsoftsv.com/api/changeProxy.php?key=" + tinsoftKey); //TL32ysqjlmjBXSj9cB3DO1DF66QYQkDhY6NyLM
@@ -138,6 +141,7 @@ namespace TakeCarePage
             {
                 //MessageBox.Show("Get Proxy Tinsoft error: " + ex.Message, "Error");
             }
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
 
             return "";
         }
@@ -145,6 +149,7 @@ namespace TakeCarePage
 
         public static string GetCurrentProxyTinsoft(string tinsoftKey)
         {
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
             try
             {
                 var client = new RestClient("http://proxy.tinsoftsv.com/api/getProxy.php?key=" + tinsoftKey);
@@ -166,6 +171,7 @@ namespace TakeCarePage
             {
                 //MessageBox.Show("Get Proxy Tinsoft error: " + ex.Message, "Error");
             }
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
 
             return "";
         }
@@ -173,6 +179,7 @@ namespace TakeCarePage
 
         public static void ChangeIPHMA()
         {
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
             try
             {
                 // [1] Turn Off HMA
@@ -202,6 +209,7 @@ namespace TakeCarePage
                 Thread.Sleep(TimeSpan.FromSeconds(20));
             }
             catch (Exception ex) { }
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
 
         }
 

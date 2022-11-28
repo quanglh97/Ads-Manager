@@ -108,7 +108,9 @@ namespace AdsManager.form.dataTKQC
                     {
                         // update proxy for each thread if run together
                         live_thread_number++;
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.
                         AsyncCoreDoWork(TKQC);
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.
                     }
                     Thread.Sleep(5000);
                 }
@@ -149,6 +151,7 @@ namespace AdsManager.form.dataTKQC
 
         void DoTaskOne(TTTKQCInfo TKQC)
         {
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
             try
             {
                 var businessId = TKQC.taoTuBM;
@@ -168,6 +171,7 @@ namespace AdsManager.form.dataTKQC
                 JObject jObject = JObject.Parse(detailHoaDon);
                 for (int i = 0; i < jObject["data"]["node"]["billing_txns"]["edges"].Count(); i++)
                 {
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
                     try
                     {
                         if (jObject["data"]["node"]["billing_txns"]["edges"][i]["node"]["formatted_payment_status"].ToString().Contains("Không"))
@@ -191,12 +195,14 @@ namespace AdsManager.form.dataTKQC
                         HoaDonInstance.lsViewHoaDon.Add(HoaDon);
                     }
                     catch (Exception ex) { }
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
                 }
             }
             catch (Exception ex)
             {
                 //test commit nữa
             }
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
         }
 
 

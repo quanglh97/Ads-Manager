@@ -112,7 +112,9 @@ namespace AdsManager.form.dataTKQC
                     {
                         // update proxy for each thread if run together
                         live_thread_number++;
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.
                         AsyncCoreDoWork(TKQC);
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.
                     }
                     Thread.Sleep(200);
                 }
@@ -153,6 +155,7 @@ namespace AdsManager.form.dataTKQC
 
         void DoTaskOne(TTTKQCInfo TKQC)
         {
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
             try
             {
                 var businessId = TKQC.taoTuBM;
@@ -177,7 +180,9 @@ namespace AdsManager.form.dataTKQC
                 //var detailChienDich = TTCDInstance.GetDataChienDich(accId, cookie, dateFilter, businessId);
                 if(accId == "14984105")
                 {
+#pragma warning disable CS0219 // The variable 'a' is assigned but its value is never used
                     var a = 0;
+#pragma warning restore CS0219 // The variable 'a' is assigned but its value is never used
                 }
                 List<string> lsAds = new List<string>();
                 JObject objectLsAds = JObject.Parse( RequestGetListAds(accId, token, cookie));
@@ -259,6 +264,7 @@ namespace AdsManager.form.dataTKQC
                 //JObject jObject = null;
                 //JObject objectAds = null;
                 //JObject objectCampaign = null;
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
                 try
                 {
                     //try
@@ -282,6 +288,7 @@ namespace AdsManager.form.dataTKQC
                     //}
                     foreach (var AdsId in lsAds)
                     {
+#pragma warning disable CS0168 // The variable 'e' is declared but never used
                         try
                         {
                             var TTCD = new TTCDInfo();
@@ -354,18 +361,21 @@ namespace AdsManager.form.dataTKQC
                             }
                         }
                         catch (Exception e){ }
+#pragma warning restore CS0168 // The variable 'e' is declared but never used
                     }
                 }
                 catch (Exception ex)
                 {
                     return;
                 }
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
 
             }
             catch (Exception ex)
             {
 
             }
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
         }
 
         void TTCD_Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -486,7 +496,9 @@ namespace AdsManager.form.dataTKQC
                 else
                 {
                     return "";
+#pragma warning disable CS0162 // Unreachable code detected
                     url = $"https://business.facebook.com/adsmanager/manage/campaigns?act={accId}";
+#pragma warning restore CS0162 // Unreachable code detected
                 }
                 var httpRequest = (HttpWebRequest)WebRequest.Create(url);
 
@@ -521,7 +533,9 @@ namespace AdsManager.form.dataTKQC
                 else
                 {
                     return "";
+#pragma warning disable CS0162 // Unreachable code detected
                     url = $"https://business.facebook.com/adsmanager/manage/campaigns?act={accId}";
+#pragma warning restore CS0162 // Unreachable code detected
                 }
                 var httpRequest = (HttpWebRequest)WebRequest.Create(url);
 

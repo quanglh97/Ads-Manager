@@ -61,6 +61,16 @@ namespace AdsManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] black_display_204513_1c02239a9b12 {
+            get {
+                object obj = ResourceManager.GetObject("black_display_204513_1c02239a9b12", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap blue {

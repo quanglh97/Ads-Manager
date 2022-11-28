@@ -30,7 +30,7 @@ namespace AdsManager
             AccountDataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             AccountDataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(255, 10, 147, 66); ;//10, 147, 66
             AccountDataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-
+            AccountDataGridView.ReadOnly = false;
 
             //UidTBox.TextAlign = HorizontalAlignment.Center;
             //PassTBox.TextAlign = HorizontalAlignment.Center;
@@ -179,6 +179,7 @@ namespace AdsManager
                     {
                         return;
                     }
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
                     try
                     {
                         File.Delete(fileVia);
@@ -198,6 +199,7 @@ namespace AdsManager
                     {
 
                     }
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
 
                     ViaInstances.ImportVia();
 
@@ -265,6 +267,7 @@ namespace AdsManager
                 {
                     return;
                 }
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
                 try
                 {
                     File.Delete(fileVia);
@@ -284,6 +287,7 @@ namespace AdsManager
                 {
 
                 }
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
 
                 ViaInstances.ImportVia();
 
@@ -322,5 +326,7 @@ namespace AdsManager
         {
             System.Diagnostics.Process.Start(AppDomain.CurrentDomain.BaseDirectory + "data//");
         }
+
+
     }
 }

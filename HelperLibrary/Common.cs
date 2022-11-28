@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DeviceId;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,38 @@ namespace AdsManager.HelperLibrary
     {
         public static string key { get; set; }
 
+        public static string GetKey()
+        {
+            string deviceId = new DeviceIdBuilder().AddMachineName()
+                                                    .AddOsVersion()
+                                                    .OnWindows(windows => windows
+                                                        //.AddProcessorId()
+                                                        .AddMotherboardSerialNumber()
+                                                        .AddSystemSerialDriveNumber())
+                                                    .ToString();
+
+            if (deviceId == null || deviceId.Length <= 0)
+                return null;
+
+            // Use input string to calculate MD5 hash
+            deviceId += "AdsManager";
+            using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
+            {
+                byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(deviceId);
+                byte[] hashBytes = md5.ComputeHash(inputBytes);
+
+                // Convert the byte array to hexadecimal string
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < hashBytes.Length; i++)
+                {
+                    sb.Append(hashBytes[i].ToString("X2"));
+                }
+
+                string sKey = sb.ToString();
+
+                return sKey;
+            }
+        }
 
         public static string parseStringDate(string stringDate)
         {

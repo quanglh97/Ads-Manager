@@ -75,9 +75,9 @@
             this.searchKTQCBtn = new AdsManager.VBButton();
             this.vbButton4 = new AdsManager.VBButton();
             this.to_dateTimePicker_TKQC = new System.Windows.Forms.DateTimePicker();
+            this.elipseControl1 = new TakeCarePage.ElipseControl();
             this.loadingBtnTKQC = new AdsManager.VBButton();
             this.TTTKQC_RefreshBtn = new AdsManager.VBButton();
-            this.elipseControl1 = new TakeCarePage.ElipseControl();
             ((System.ComponentModel.ISupportInitialize)(this.thongTinTKQCToTalDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thongTinTKQCDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
@@ -157,6 +157,7 @@
             this.thongTinTKQCDataGridView.EnableHeadersVisualStyles = false;
             this.thongTinTKQCDataGridView.Location = new System.Drawing.Point(12, 55);
             this.thongTinTKQCDataGridView.Name = "thongTinTKQCDataGridView";
+            this.thongTinTKQCDataGridView.ReadOnly = true;
             this.thongTinTKQCDataGridView.Size = new System.Drawing.Size(1560, 586);
             this.thongTinTKQCDataGridView.TabIndex = 30;
             this.thongTinTKQCDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.thongTinTKQCDataGridView_CellFormatting);
@@ -552,6 +553,11 @@
             this.to_dateTimePicker_TKQC.Size = new System.Drawing.Size(87, 20);
             this.to_dateTimePicker_TKQC.TabIndex = 11;
             // 
+            // elipseControl1
+            // 
+            this.elipseControl1.CornerRadius = 15;
+            this.elipseControl1.TargetControl = this.TTTKQCComboBox;
+            // 
             // loadingBtnTKQC
             // 
             this.loadingBtnTKQC.BackColor = System.Drawing.SystemColors.Window;
@@ -595,11 +601,6 @@
             this.TTTKQC_RefreshBtn.TextColor = System.Drawing.Color.Black;
             this.TTTKQC_RefreshBtn.UseVisualStyleBackColor = false;
             this.TTTKQC_RefreshBtn.Click += new System.EventHandler(this.TTTKQC_RefreshBtn_Click);
-            // 
-            // elipseControl1
-            // 
-            this.elipseControl1.CornerRadius = 15;
-            this.elipseControl1.TargetControl = this.TTTKQCComboBox;
             // 
             // ThongTinTKQCForm
             // 
