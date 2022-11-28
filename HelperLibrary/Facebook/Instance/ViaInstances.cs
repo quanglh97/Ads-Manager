@@ -48,6 +48,7 @@ namespace TakeCarePage
             {
                 return;
             }
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
             try
             {
                 string[] data = File.ReadAllText(fileVia).Trim().Split('\n');
@@ -77,11 +78,13 @@ namespace TakeCarePage
             {
 
             }
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
 
         }
 
         public static void OnNewAccAdded(AccInfo newacc)
         {
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
             try
             {
                 EventHandler<ViaEventArgs> newAccountAdded = ViaInstances.NewAccountAdded;
@@ -97,6 +100,7 @@ namespace TakeCarePage
             {
                 return;
             }
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
         }
 
 

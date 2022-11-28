@@ -524,7 +524,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Role;
         private System.Windows.Forms.DataGridViewTextBoxColumn Limit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Verified;
+#pragma warning disable CS0108 // 'ThongTinBM.Created' hides inherited member 'Control.Created'. Use the new keyword if hiding was intended.
         private System.Windows.Forms.DataGridViewTextBoxColumn Created;
+#pragma warning restore CS0108 // 'ThongTinBM.Created' hides inherited member 'Control.Created'. Use the new keyword if hiding was intended.
         private System.Windows.Forms.DataGridViewTextBoxColumn IDBM;
         private System.Windows.Forms.DataGridViewTextBoxColumn SLAdmin;
         private System.Windows.Forms.DataGridViewTextBoxColumn AdminAn;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdsManager.HelperLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace TakeCarePage
         [STAThread]
         static void Main()
         {
+            //Logger.ReadEntries();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMain());

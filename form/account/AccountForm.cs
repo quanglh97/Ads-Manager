@@ -179,6 +179,7 @@ namespace AdsManager
                     {
                         return;
                     }
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
                     try
                     {
                         File.Delete(fileVia);
@@ -198,6 +199,7 @@ namespace AdsManager
                     {
 
                     }
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
 
                     ViaInstances.ImportVia();
 
@@ -265,6 +267,7 @@ namespace AdsManager
                 {
                     return;
                 }
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
                 try
                 {
                     File.Delete(fileVia);
@@ -284,6 +287,7 @@ namespace AdsManager
                 {
 
                 }
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
 
                 ViaInstances.ImportVia();
 

@@ -59,6 +59,7 @@ namespace TakeCarePage
 
         public void SaveAccount(string text, string fileName)
         {
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
             try
             {
                 using (StreamWriter streamWriter = new StreamWriter(this.subFolderPath + "\\" + fileName + ".txt", true))
@@ -69,6 +70,7 @@ namespace TakeCarePage
                 Thread.Sleep(100);
                 this.SaveAccount(text, fileName);
             }
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
         }
 
         public void Base64ToImage(string base64String, string fileName)
@@ -90,6 +92,8 @@ namespace TakeCarePage
 
         public void CreateOstatok(HashSet<string> tmpArray)
         {
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
             try
             {
                 if (File.Exists(this.subFolderPath + "\\Remains.txt"))
@@ -107,6 +111,8 @@ namespace TakeCarePage
                 Thread.Sleep(100);
                 this.CreateOstatok(tmpArray);
             }
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
         }
 
         public void DeleteEmptyFolder()

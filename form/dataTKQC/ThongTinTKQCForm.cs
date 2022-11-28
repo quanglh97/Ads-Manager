@@ -143,7 +143,9 @@ namespace AdsManager
                         {
                             // update proxy for each thread if run together
                             live_thread_number++;
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.
                             AsyncCoreDoWork(item, cookie, token, dtsg);
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.
                         }
 
                         Thread.Sleep(200);
@@ -185,6 +187,7 @@ namespace AdsManager
 
         void DoTaskOne(JToken item, string cookie, string token, string dtsg)
         {
+#pragma warning disable CS0168 // The variable 'ex' is declared but never used
             try
             {
                 var TKQC = new TTTKQCInfo();
@@ -282,6 +285,7 @@ namespace AdsManager
             {
 
             }
+#pragma warning restore CS0168 // The variable 'ex' is declared but never used
         }
 
 
