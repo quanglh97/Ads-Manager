@@ -159,9 +159,11 @@
     <Compile Include="HelperLibrary\Facebook\Info\AccInfo.cs" />
     <Compile Include="HelperLibrary\Facebook\Info\BMInfo.cs" />
     <Compile Include="HelperLibrary\Facebook\Core.cs" />
+    <Compile Include="HelperLibrary\Facebook\Info\DataPageInfo.cs" />
     <Compile Include="HelperLibrary\Facebook\Info\HoaDonInfo.cs" />
     <Compile Include="HelperLibrary\Facebook\Info\TTCDInfo.cs" />
     <Compile Include="HelperLibrary\Facebook\Instance\BMInstance.cs" />
+    <Compile Include="HelperLibrary\Facebook\Instance\DataPageInstance.cs" />
     <Compile Include="HelperLibrary\Facebook\Instance\HoaDonInstance.cs" />
     <Compile Include="HelperLibrary\Facebook\Instance\ViaInstances.cs" />
     <Compile Include="HelperLibrary\Facebook\Info\TTTKQCInfo.cs" />

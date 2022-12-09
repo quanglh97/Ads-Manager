@@ -885,7 +885,7 @@ namespace AdsManager.form.dataTKQC
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "Excel Documents (*.xls)|*.xls";
-            sfd.FileName = "ThongTinChienDich.xls";
+            sfd.FileName = $"ThongTinChienDich_{DateTime.Now.ToShortDateString().Replace('/', '_')}.xls";
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 // Copy DataGridView results to clipboard
@@ -940,6 +940,11 @@ namespace AdsManager.form.dataTKQC
                 e.SortResult = double.Parse(e.CellValue1.ToString()).CompareTo(double.Parse(e.CellValue2.ToString()));
                 e.Handled = true;//pass by the default sorting
             }
+        }
+
+        private void ThongTinChienDichDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 

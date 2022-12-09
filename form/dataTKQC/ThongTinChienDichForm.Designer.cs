@@ -98,6 +98,7 @@
             this.ThongTinChienDichDataGridView.RowHeadersWidth = 51;
             this.ThongTinChienDichDataGridView.Size = new System.Drawing.Size(1546, 622);
             this.ThongTinChienDichDataGridView.TabIndex = 0;
+            this.ThongTinChienDichDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ThongTinChienDichDataGridView_CellContentClick);
             this.ThongTinChienDichDataGridView.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.ThongTinChienDichDataGridView_RowPrePaint);
             this.ThongTinChienDichDataGridView.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.ThongTinChienDichDataGridView_SortCompare);
             // 

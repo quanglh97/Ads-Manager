@@ -47,6 +47,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.AccAddBtn = new AdsManager.VBButton();
+            this.AccUpdateBtn = new AdsManager.VBButton();
             this.label8 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -60,10 +62,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.AccountDataGridView = new System.Windows.Forms.DataGridView();
-            this.vbButton1 = new AdsManager.VBButton();
-            this.Account_RefreshBtn = new AdsManager.VBButton();
-            this.AccAddBtn = new AdsManager.VBButton();
-            this.AccUpdateBtn = new AdsManager.VBButton();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tick = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.TenHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,6 +71,8 @@
             this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cookie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Token = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vbButton1 = new AdsManager.VBButton();
+            this.Account_RefreshBtn = new AdsManager.VBButton();
             elipseControl2 = new TakeCarePage.ElipseControl();
             elipseControl3 = new TakeCarePage.ElipseControl();
             elipseControl4 = new TakeCarePage.ElipseControl();
@@ -82,6 +82,11 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AccountDataGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // elipseControl2
+            // 
+            elipseControl2.CornerRadius = 10;
+            elipseControl2.TargetControl = this.UidTBox;
             // 
             // UidTBox
             // 
@@ -95,6 +100,11 @@
             this.UidTBox.Size = new System.Drawing.Size(467, 30);
             this.UidTBox.TabIndex = 22;
             // 
+            // elipseControl3
+            // 
+            elipseControl3.CornerRadius = 10;
+            elipseControl3.TargetControl = this.PassTBox;
+            // 
             // PassTBox
             // 
             this.PassTBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(234)))), ((int)(((byte)(185)))));
@@ -107,6 +117,11 @@
             this.PassTBox.Size = new System.Drawing.Size(467, 30);
             this.PassTBox.TabIndex = 20;
             // 
+            // elipseControl4
+            // 
+            elipseControl4.CornerRadius = 10;
+            elipseControl4.TargetControl = this.CodeTBox;
+            // 
             // CodeTBox
             // 
             this.CodeTBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
@@ -118,6 +133,11 @@
             this.CodeTBox.Name = "CodeTBox";
             this.CodeTBox.Size = new System.Drawing.Size(467, 30);
             this.CodeTBox.TabIndex = 21;
+            // 
+            // elipseControl5
+            // 
+            elipseControl5.CornerRadius = 10;
+            elipseControl5.TargetControl = this.CookieTBox;
             // 
             // CookieTBox
             // 
@@ -132,6 +152,11 @@
             this.CookieTBox.Size = new System.Drawing.Size(500, 30);
             this.CookieTBox.TabIndex = 23;
             // 
+            // elipseControl6
+            // 
+            elipseControl6.CornerRadius = 10;
+            elipseControl6.TargetControl = this.TokenTBox;
+            // 
             // TokenTBox
             // 
             this.TokenTBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -144,6 +169,11 @@
             this.TokenTBox.Name = "TokenTBox";
             this.TokenTBox.Size = new System.Drawing.Size(500, 30);
             this.TokenTBox.TabIndex = 24;
+            // 
+            // elipseControl7
+            // 
+            elipseControl7.CornerRadius = 10;
+            elipseControl7.TargetControl = this.StatusTBox;
             // 
             // StatusTBox
             // 
@@ -254,6 +284,48 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(568, 2);
             this.label16.TabIndex = 28;
+            // 
+            // AccAddBtn
+            // 
+            this.AccAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AccAddBtn.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.AccAddBtn.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
+            this.AccAddBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.AccAddBtn.BorderRadius = 20;
+            this.AccAddBtn.BorderSize = 0;
+            this.AccAddBtn.FlatAppearance.BorderSize = 0;
+            this.AccAddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AccAddBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AccAddBtn.ForeColor = System.Drawing.Color.White;
+            this.AccAddBtn.Location = new System.Drawing.Point(1610, 272);
+            this.AccAddBtn.Name = "AccAddBtn";
+            this.AccAddBtn.Size = new System.Drawing.Size(115, 31);
+            this.AccAddBtn.TabIndex = 27;
+            this.AccAddBtn.Text = "Add";
+            this.AccAddBtn.TextColor = System.Drawing.Color.White;
+            this.AccAddBtn.UseVisualStyleBackColor = false;
+            this.AccAddBtn.Click += new System.EventHandler(this.AddAccBtn_Click);
+            // 
+            // AccUpdateBtn
+            // 
+            this.AccUpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AccUpdateBtn.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.AccUpdateBtn.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
+            this.AccUpdateBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.AccUpdateBtn.BorderRadius = 20;
+            this.AccUpdateBtn.BorderSize = 0;
+            this.AccUpdateBtn.FlatAppearance.BorderSize = 0;
+            this.AccUpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AccUpdateBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AccUpdateBtn.ForeColor = System.Drawing.Color.White;
+            this.AccUpdateBtn.Location = new System.Drawing.Point(1731, 272);
+            this.AccUpdateBtn.Name = "AccUpdateBtn";
+            this.AccUpdateBtn.Size = new System.Drawing.Size(115, 31);
+            this.AccUpdateBtn.TabIndex = 26;
+            this.AccUpdateBtn.Text = "Update";
+            this.AccUpdateBtn.TextColor = System.Drawing.Color.White;
+            this.AccUpdateBtn.UseVisualStyleBackColor = false;
+            this.AccUpdateBtn.Click += new System.EventHandler(this.AccUpdateBtn_Click);
             // 
             // label8
             // 
@@ -395,122 +467,6 @@
             this.AccountDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AccountDataGridView_CellContentClick);
             this.AccountDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.AccountDataGridView_CellFormatting);
             // 
-            // vbButton1
-            // 
-            this.vbButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.vbButton1.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.vbButton1.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
-            this.vbButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.vbButton1.BorderRadius = 20;
-            this.vbButton1.BorderSize = 0;
-            this.vbButton1.FlatAppearance.BorderSize = 0;
-            this.vbButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.vbButton1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vbButton1.ForeColor = System.Drawing.Color.White;
-            this.vbButton1.Location = new System.Drawing.Point(1723, 912);
-            this.vbButton1.Name = "vbButton1";
-            this.vbButton1.Size = new System.Drawing.Size(120, 27);
-            this.vbButton1.TabIndex = 44;
-            this.vbButton1.Text = "Mở mục cài đặt";
-            this.vbButton1.TextColor = System.Drawing.Color.White;
-            this.vbButton1.UseVisualStyleBackColor = false;
-            this.vbButton1.Click += new System.EventHandler(this.vbButton1_Click);
-            // 
-            // Account_RefreshBtn
-            // 
-            this.Account_RefreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Account_RefreshBtn.BackColor = System.Drawing.SystemColors.Window;
-            this.Account_RefreshBtn.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.Account_RefreshBtn.BorderColor = System.Drawing.SystemColors.WindowText;
-            this.Account_RefreshBtn.BorderRadius = 19;
-            this.Account_RefreshBtn.BorderSize = 1;
-            this.Account_RefreshBtn.FlatAppearance.BorderSize = 0;
-            this.Account_RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Account_RefreshBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Account_RefreshBtn.ForeColor = System.Drawing.Color.Black;
-            this.Account_RefreshBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Account_RefreshBtn.Location = new System.Drawing.Point(7, 912);
-            this.Account_RefreshBtn.Name = "Account_RefreshBtn";
-            this.Account_RefreshBtn.Size = new System.Drawing.Size(112, 26);
-            this.Account_RefreshBtn.TabIndex = 43;
-            this.Account_RefreshBtn.Text = "Làm mới dữ liệu";
-            this.Account_RefreshBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Account_RefreshBtn.TextColor = System.Drawing.Color.Black;
-            this.Account_RefreshBtn.UseVisualStyleBackColor = false;
-            this.Account_RefreshBtn.Click += new System.EventHandler(this.Account_RefreshBtn_Click);
-            // 
-            // AccAddBtn
-            // 
-            this.AccAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AccAddBtn.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.AccAddBtn.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
-            this.AccAddBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.AccAddBtn.BorderRadius = 20;
-            this.AccAddBtn.BorderSize = 0;
-            this.AccAddBtn.FlatAppearance.BorderSize = 0;
-            this.AccAddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AccAddBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AccAddBtn.ForeColor = System.Drawing.Color.White;
-            this.AccAddBtn.Location = new System.Drawing.Point(1625, 273);
-            this.AccAddBtn.Name = "AccAddBtn";
-            this.AccAddBtn.Size = new System.Drawing.Size(115, 31);
-            this.AccAddBtn.TabIndex = 27;
-            this.AccAddBtn.Text = "Add";
-            this.AccAddBtn.TextColor = System.Drawing.Color.White;
-            this.AccAddBtn.UseVisualStyleBackColor = false;
-            this.AccAddBtn.Click += new System.EventHandler(this.AddAccBtn_Click);
-            // 
-            // AccUpdateBtn
-            // 
-            this.AccUpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AccUpdateBtn.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.AccUpdateBtn.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
-            this.AccUpdateBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.AccUpdateBtn.BorderRadius = 20;
-            this.AccUpdateBtn.BorderSize = 0;
-            this.AccUpdateBtn.FlatAppearance.BorderSize = 0;
-            this.AccUpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AccUpdateBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AccUpdateBtn.ForeColor = System.Drawing.Color.White;
-            this.AccUpdateBtn.Location = new System.Drawing.Point(1746, 273);
-            this.AccUpdateBtn.Name = "AccUpdateBtn";
-            this.AccUpdateBtn.Size = new System.Drawing.Size(115, 31);
-            this.AccUpdateBtn.TabIndex = 26;
-            this.AccUpdateBtn.Text = "Update";
-            this.AccUpdateBtn.TextColor = System.Drawing.Color.White;
-            this.AccUpdateBtn.UseVisualStyleBackColor = false;
-            this.AccUpdateBtn.Click += new System.EventHandler(this.AccUpdateBtn_Click);
-            // 
-            // elipseControl2
-            // 
-            elipseControl2.CornerRadius = 10;
-            elipseControl2.TargetControl = this.UidTBox;
-            // 
-            // elipseControl3
-            // 
-            elipseControl3.CornerRadius = 10;
-            elipseControl3.TargetControl = this.PassTBox;
-            // 
-            // elipseControl4
-            // 
-            elipseControl4.CornerRadius = 10;
-            elipseControl4.TargetControl = this.CodeTBox;
-            // 
-            // elipseControl5
-            // 
-            elipseControl5.CornerRadius = 10;
-            elipseControl5.TargetControl = this.CookieTBox;
-            // 
-            // elipseControl6
-            // 
-            elipseControl6.CornerRadius = 10;
-            elipseControl6.TargetControl = this.TokenTBox;
-            // 
-            // elipseControl7
-            // 
-            elipseControl7.CornerRadius = 10;
-            elipseControl7.TargetControl = this.StatusTBox;
-            // 
             // Status
             // 
             this.Status.HeaderText = "Trạng thái Account";
@@ -581,6 +537,50 @@
             this.Token.Name = "Token";
             this.Token.ReadOnly = true;
             this.Token.Width = 400;
+            // 
+            // vbButton1
+            // 
+            this.vbButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.vbButton1.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.vbButton1.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
+            this.vbButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.vbButton1.BorderRadius = 20;
+            this.vbButton1.BorderSize = 0;
+            this.vbButton1.FlatAppearance.BorderSize = 0;
+            this.vbButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.vbButton1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vbButton1.ForeColor = System.Drawing.Color.White;
+            this.vbButton1.Location = new System.Drawing.Point(1723, 912);
+            this.vbButton1.Name = "vbButton1";
+            this.vbButton1.Size = new System.Drawing.Size(120, 27);
+            this.vbButton1.TabIndex = 44;
+            this.vbButton1.Text = "Mở mục cài đặt";
+            this.vbButton1.TextColor = System.Drawing.Color.White;
+            this.vbButton1.UseVisualStyleBackColor = false;
+            this.vbButton1.Click += new System.EventHandler(this.vbButton1_Click);
+            // 
+            // Account_RefreshBtn
+            // 
+            this.Account_RefreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Account_RefreshBtn.BackColor = System.Drawing.SystemColors.Window;
+            this.Account_RefreshBtn.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.Account_RefreshBtn.BorderColor = System.Drawing.SystemColors.WindowText;
+            this.Account_RefreshBtn.BorderRadius = 19;
+            this.Account_RefreshBtn.BorderSize = 1;
+            this.Account_RefreshBtn.FlatAppearance.BorderSize = 0;
+            this.Account_RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Account_RefreshBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Account_RefreshBtn.ForeColor = System.Drawing.Color.Black;
+            this.Account_RefreshBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Account_RefreshBtn.Location = new System.Drawing.Point(7, 912);
+            this.Account_RefreshBtn.Name = "Account_RefreshBtn";
+            this.Account_RefreshBtn.Size = new System.Drawing.Size(112, 26);
+            this.Account_RefreshBtn.TabIndex = 43;
+            this.Account_RefreshBtn.Text = "Làm mới dữ liệu";
+            this.Account_RefreshBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Account_RefreshBtn.TextColor = System.Drawing.Color.Black;
+            this.Account_RefreshBtn.UseVisualStyleBackColor = false;
+            this.Account_RefreshBtn.Click += new System.EventHandler(this.Account_RefreshBtn_Click);
             // 
             // AccountForm
             // 

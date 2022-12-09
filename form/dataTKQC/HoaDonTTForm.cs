@@ -475,7 +475,7 @@ namespace AdsManager.form.dataTKQC
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "Excel Documents (*.xls)|*.xls";
-            sfd.FileName = "ThongTinHoaDon.xls";
+            sfd.FileName = $"ThongTinHoaDon_{DateTime.Now.ToShortDateString().Replace('/', '_')}.xls";
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 // Copy DataGridView results to clipboard

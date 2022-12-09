@@ -75,5 +75,14 @@ namespace TakeCarePage
         }
     }
 
+    public class DataPageEventArgs : EventArgs
+    {
+        public DataPageInfo Info { get; set; }
+        public DataPageEventArgs(DataPageInfo info)
+        {
+            this.Info = info;
+        }
+    }
+
 
 }
