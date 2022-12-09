@@ -32,6 +32,8 @@
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenTKQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDTKQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HKD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenChienDich = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDChienDich = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenNhomQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,6 +83,8 @@
             this.TrangThai,
             this.TenTKQC,
             this.IDTKQC,
+            this.MKT,
+            this.HKD,
             this.TenChienDich,
             this.IDChienDich,
             this.TenNhomQC,
@@ -98,6 +102,7 @@
             this.ThongTinChienDichDataGridView.RowHeadersWidth = 51;
             this.ThongTinChienDichDataGridView.Size = new System.Drawing.Size(1546, 622);
             this.ThongTinChienDichDataGridView.TabIndex = 0;
+            this.ThongTinChienDichDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ThongTinChienDichDataGridView_CellContentClick);
             this.ThongTinChienDichDataGridView.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.ThongTinChienDichDataGridView_RowPrePaint);
             this.ThongTinChienDichDataGridView.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.ThongTinChienDichDataGridView_SortCompare);
             // 
@@ -124,6 +129,18 @@
             this.IDTKQC.Name = "IDTKQC";
             this.IDTKQC.ReadOnly = true;
             this.IDTKQC.Width = 150;
+            // 
+            // MKT
+            // 
+            this.MKT.HeaderText = "MKT";
+            this.MKT.Name = "MKT";
+            this.MKT.ReadOnly = true;
+            // 
+            // HKD
+            // 
+            this.HKD.HeaderText = "HKD";
+            this.HKD.Name = "HKD";
+            this.HKD.ReadOnly = true;
             // 
             // TenChienDich
             // 
@@ -603,6 +620,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenTKQC;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDTKQC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MKT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HKD;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenChienDich;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDChienDich;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNhomQC;

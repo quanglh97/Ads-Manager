@@ -28,149 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.vbButton23 = new AdsManager.VBButton();
-            this.vbButton1 = new AdsManager.VBButton();
-            this.vbButton2 = new AdsManager.VBButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.HoaDonThanhToanDataGridView = new System.Windows.Forms.DataGridView();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AccName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDTKQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDGiaoDich = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HKD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ngay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhuongThucThanhToan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrangThaiThanhToan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDHoaDonVAT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HanhDong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaThamChieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoaDonThanhToanToTalDataGridView = new System.Windows.Forms.DataGridView();
             this.TongHoaDon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongTienToTal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.locTimeBtn = new AdsManager.VBButton();
             this.SearchTBox_HD = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.from_dateTimePicker_HD = new System.Windows.Forms.DateTimePicker();
-            this.vbButton4 = new AdsManager.VBButton();
             this.to_dateTimePicker_HD = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerHD = new System.Windows.Forms.DateTimePicker();
-            this.elipseControl1 = new TakeCarePage.ElipseControl();
-            this.searchBtn_HD = new AdsManager.VBButton();
+            this.HoaDonTKQCdataGridView = new System.Windows.Forms.DataGridView();
+            this.modeShowBtn = new AdsManager.VBButton();
             this.loadingBtnHoadon = new AdsManager.VBButton();
+            this.locTimeBtn = new AdsManager.VBButton();
+            this.vbButton1 = new AdsManager.VBButton();
+            this.searchBtn_HD = new AdsManager.VBButton();
+            this.vbButton4 = new AdsManager.VBButton();
             this.HDTT_RefeshBtn = new AdsManager.VBButton();
-            this.panel1.SuspendLayout();
+            this.TrangThaiTKQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenTK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDTKQC2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MKT_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HKD_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TONGTIENGOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TienTe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.HoaDonThanhToanDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HoaDonThanhToanToTalDataGridView)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HoaDonTKQCdataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.vbButton23);
-            this.panel1.Controls.Add(this.vbButton1);
-            this.panel1.Controls.Add(this.vbButton2);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Location = new System.Drawing.Point(1136, 692);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(373, 34);
-            this.panel1.TabIndex = 46;
-            this.panel1.Visible = false;
-            // 
-            // vbButton23
-            // 
-            this.vbButton23.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.vbButton23.BackColor = System.Drawing.Color.White;
-            this.vbButton23.BackgroundColor = System.Drawing.Color.White;
-            this.vbButton23.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.vbButton23.BorderRadius = 10;
-            this.vbButton23.BorderSize = 1;
-            this.vbButton23.Enabled = false;
-            this.vbButton23.FlatAppearance.BorderSize = 0;
-            this.vbButton23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.vbButton23.ForeColor = System.Drawing.Color.Black;
-            this.vbButton23.Location = new System.Drawing.Point(187, 6);
-            this.vbButton23.Name = "vbButton23";
-            this.vbButton23.Size = new System.Drawing.Size(33, 22);
-            this.vbButton23.TabIndex = 33;
-            this.vbButton23.Text = "10";
-            this.vbButton23.TextColor = System.Drawing.Color.Black;
-            this.vbButton23.UseVisualStyleBackColor = false;
-            // 
-            // vbButton1
-            // 
-            this.vbButton1.BackColor = System.Drawing.SystemColors.Window;
-            this.vbButton1.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.vbButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.vbButton1.BorderRadius = 12;
-            this.vbButton1.BorderSize = 1;
-            this.vbButton1.FlatAppearance.BorderSize = 0;
-            this.vbButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.vbButton1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vbButton1.ForeColor = System.Drawing.Color.Black;
-            this.vbButton1.Location = new System.Drawing.Point(256, 6);
-            this.vbButton1.Name = "vbButton1";
-            this.vbButton1.Size = new System.Drawing.Size(25, 23);
-            this.vbButton1.TabIndex = 31;
-            this.vbButton1.Text = "<";
-            this.vbButton1.TextColor = System.Drawing.Color.Black;
-            this.vbButton1.UseVisualStyleBackColor = false;
-            // 
-            // vbButton2
-            // 
-            this.vbButton2.BackColor = System.Drawing.SystemColors.Window;
-            this.vbButton2.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.vbButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.vbButton2.BorderRadius = 12;
-            this.vbButton2.BorderSize = 1;
-            this.vbButton2.FlatAppearance.BorderSize = 0;
-            this.vbButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.vbButton2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vbButton2.ForeColor = System.Drawing.Color.Black;
-            this.vbButton2.Location = new System.Drawing.Point(343, 5);
-            this.vbButton2.Name = "vbButton2";
-            this.vbButton2.Size = new System.Drawing.Size(25, 23);
-            this.vbButton2.TabIndex = 32;
-            this.vbButton2.Text = ">";
-            this.vbButton2.TextColor = System.Drawing.Color.Black;
-            this.vbButton2.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(293, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 14);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "10/50";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(129, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 14);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Trang";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.comboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(4, 7);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(115, 21);
-            this.comboBox1.TabIndex = 23;
-            this.comboBox1.Text = "Row";
             // 
             // HoaDonThanhToanDataGridView
             // 
@@ -184,12 +85,14 @@
             this.AccName,
             this.IDTKQC,
             this.IDGiaoDich,
+            this.MKT,
+            this.HKD,
             this.Ngay,
             this.SoTien,
             this.PhuongThucThanhToan,
             this.TrangThaiThanhToan,
             this.IDHoaDonVAT,
-            this.HanhDong});
+            this.MaThamChieu});
             this.HoaDonThanhToanDataGridView.EnableHeadersVisualStyles = false;
             this.HoaDonThanhToanDataGridView.Location = new System.Drawing.Point(14, 55);
             this.HoaDonThanhToanDataGridView.Name = "HoaDonThanhToanDataGridView";
@@ -232,6 +135,18 @@
             this.IDGiaoDich.ReadOnly = true;
             this.IDGiaoDich.Width = 200;
             // 
+            // MKT
+            // 
+            this.MKT.HeaderText = "MKT";
+            this.MKT.Name = "MKT";
+            this.MKT.ReadOnly = true;
+            // 
+            // HKD
+            // 
+            this.HKD.HeaderText = "HKD";
+            this.HKD.Name = "HKD";
+            this.HKD.ReadOnly = true;
+            // 
             // Ngay
             // 
             this.Ngay.HeaderText = "Ngày";
@@ -272,13 +187,13 @@
             this.IDHoaDonVAT.ReadOnly = true;
             this.IDHoaDonVAT.Width = 200;
             // 
-            // HanhDong
+            // MaThamChieu
             // 
-            this.HanhDong.HeaderText = "Hành động";
-            this.HanhDong.MinimumWidth = 6;
-            this.HanhDong.Name = "HanhDong";
-            this.HanhDong.ReadOnly = true;
-            this.HanhDong.Width = 200;
+            this.MaThamChieu.HeaderText = "Mã tham chiếu";
+            this.MaThamChieu.MinimumWidth = 6;
+            this.MaThamChieu.Name = "MaThamChieu";
+            this.MaThamChieu.ReadOnly = true;
+            this.MaThamChieu.Width = 200;
             // 
             // HoaDonThanhToanToTalDataGridView
             // 
@@ -289,7 +204,7 @@
             this.TongHoaDon,
             this.TongTienToTal});
             this.HoaDonThanhToanToTalDataGridView.EnableHeadersVisualStyles = false;
-            this.HoaDonThanhToanToTalDataGridView.Location = new System.Drawing.Point(454, 634);
+            this.HoaDonThanhToanToTalDataGridView.Location = new System.Drawing.Point(1109, 634);
             this.HoaDonThanhToanToTalDataGridView.Name = "HoaDonThanhToanToTalDataGridView";
             this.HoaDonThanhToanToTalDataGridView.RowHeadersWidth = 51;
             this.HoaDonThanhToanToTalDataGridView.RowTemplate.Height = 40;
@@ -314,6 +229,7 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.locTimeBtn);
+            this.panel2.Controls.Add(this.vbButton1);
             this.panel2.Controls.Add(this.SearchTBox_HD);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.from_dateTimePicker_HD);
@@ -321,30 +237,10 @@
             this.panel2.Controls.Add(this.vbButton4);
             this.panel2.Controls.Add(this.to_dateTimePicker_HD);
             this.panel2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(604, 12);
+            this.panel2.Location = new System.Drawing.Point(406, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(905, 37);
+            this.panel2.Size = new System.Drawing.Size(1103, 37);
             this.panel2.TabIndex = 50;
-            // 
-            // locTimeBtn
-            // 
-            this.locTimeBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.locTimeBtn.BackColor = System.Drawing.Color.Green;
-            this.locTimeBtn.BackgroundColor = System.Drawing.Color.Green;
-            this.locTimeBtn.BorderColor = System.Drawing.SystemColors.WindowText;
-            this.locTimeBtn.BorderRadius = 20;
-            this.locTimeBtn.BorderSize = 0;
-            this.locTimeBtn.FlatAppearance.BorderSize = 0;
-            this.locTimeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.locTimeBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.locTimeBtn.ForeColor = System.Drawing.Color.Black;
-            this.locTimeBtn.Location = new System.Drawing.Point(623, 3);
-            this.locTimeBtn.Name = "locTimeBtn";
-            this.locTimeBtn.Size = new System.Drawing.Size(61, 31);
-            this.locTimeBtn.TabIndex = 27;
-            this.locTimeBtn.Text = "Lọc";
-            this.locTimeBtn.TextColor = System.Drawing.Color.Black;
-            this.locTimeBtn.UseVisualStyleBackColor = false;
             // 
             // SearchTBox_HD
             // 
@@ -362,7 +258,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(485, 12);
+            this.label3.Location = new System.Drawing.Point(500, 11);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 14);
             this.label3.TabIndex = 14;
@@ -372,37 +268,16 @@
             // 
             this.from_dateTimePicker_HD.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.from_dateTimePicker_HD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.from_dateTimePicker_HD.Location = new System.Drawing.Point(394, 8);
+            this.from_dateTimePicker_HD.Location = new System.Drawing.Point(409, 7);
             this.from_dateTimePicker_HD.Name = "from_dateTimePicker_HD";
             this.from_dateTimePicker_HD.Size = new System.Drawing.Size(81, 20);
             this.from_dateTimePicker_HD.TabIndex = 13;
-            // 
-            // vbButton4
-            // 
-            this.vbButton4.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.vbButton4.BackColor = System.Drawing.Color.Green;
-            this.vbButton4.BackgroundColor = System.Drawing.Color.Green;
-            this.vbButton4.BorderColor = System.Drawing.SystemColors.WindowText;
-            this.vbButton4.BorderRadius = 20;
-            this.vbButton4.BorderSize = 0;
-            this.vbButton4.FlatAppearance.BorderSize = 0;
-            this.vbButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.vbButton4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vbButton4.ForeColor = System.Drawing.Color.Black;
-            this.vbButton4.Location = new System.Drawing.Point(767, 3);
-            this.vbButton4.Name = "vbButton4";
-            this.vbButton4.Size = new System.Drawing.Size(129, 31);
-            this.vbButton4.TabIndex = 1;
-            this.vbButton4.Text = "Xuất Excel";
-            this.vbButton4.TextColor = System.Drawing.Color.Black;
-            this.vbButton4.UseVisualStyleBackColor = false;
-            this.vbButton4.Click += new System.EventHandler(this.vbButton4_Click);
             // 
             // to_dateTimePicker_HD
             // 
             this.to_dateTimePicker_HD.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.to_dateTimePicker_HD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.to_dateTimePicker_HD.Location = new System.Drawing.Point(530, 8);
+            this.to_dateTimePicker_HD.Location = new System.Drawing.Point(545, 7);
             this.to_dateTimePicker_HD.Name = "to_dateTimePicker_HD";
             this.to_dateTimePicker_HD.Size = new System.Drawing.Size(87, 20);
             this.to_dateTimePicker_HD.TabIndex = 11;
@@ -411,37 +286,59 @@
             // 
             this.dateTimePickerHD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dateTimePickerHD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerHD.Location = new System.Drawing.Point(322, 703);
+            this.dateTimePickerHD.Location = new System.Drawing.Point(12, 667);
             this.dateTimePickerHD.Name = "dateTimePickerHD";
             this.dateTimePickerHD.Size = new System.Drawing.Size(87, 20);
             this.dateTimePickerHD.TabIndex = 51;
             this.dateTimePickerHD.Visible = false;
             // 
-            // elipseControl1
+            // HoaDonTKQCdataGridView
             // 
-            this.elipseControl1.CornerRadius = 15;
-            this.elipseControl1.TargetControl = this.comboBox1;
+            this.HoaDonTKQCdataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.HoaDonTKQCdataGridView.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.HoaDonTKQCdataGridView.ColumnHeadersHeight = 40;
+            this.HoaDonTKQCdataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TrangThaiTKQC,
+            this.TenTK,
+            this.IDTKQC2,
+            this.MKT_,
+            this.HKD_,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.TONGTIENGOC,
+            this.TienTe});
+            this.HoaDonTKQCdataGridView.EnableHeadersVisualStyles = false;
+            this.HoaDonTKQCdataGridView.Location = new System.Drawing.Point(24, 72);
+            this.HoaDonTKQCdataGridView.Name = "HoaDonTKQCdataGridView";
+            this.HoaDonTKQCdataGridView.RowHeadersWidth = 51;
+            this.HoaDonTKQCdataGridView.RowTemplate.Height = 40;
+            this.HoaDonTKQCdataGridView.Size = new System.Drawing.Size(1476, 543);
+            this.HoaDonTKQCdataGridView.TabIndex = 52;
+            this.HoaDonTKQCdataGridView.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.HoaDonTKQCdataGridView_RowPrePaint);
             // 
-            // searchBtn_HD
+            // modeShowBtn
             // 
-            this.searchBtn_HD.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.searchBtn_HD.BackColor = System.Drawing.Color.Green;
-            this.searchBtn_HD.BackgroundColor = System.Drawing.Color.Green;
-            this.searchBtn_HD.BorderColor = System.Drawing.SystemColors.WindowText;
-            this.searchBtn_HD.BorderRadius = 20;
-            this.searchBtn_HD.BorderSize = 0;
-            this.searchBtn_HD.FlatAppearance.BorderSize = 0;
-            this.searchBtn_HD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchBtn_HD.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBtn_HD.ForeColor = System.Drawing.Color.Black;
-            this.searchBtn_HD.Image = global::AdsManager.Properties.Resources.Screenshot_2022_10_01_024949_removebg_preview1;
-            this.searchBtn_HD.Location = new System.Drawing.Point(328, 3);
-            this.searchBtn_HD.Name = "searchBtn_HD";
-            this.searchBtn_HD.Size = new System.Drawing.Size(56, 31);
-            this.searchBtn_HD.TabIndex = 12;
-            this.searchBtn_HD.TextColor = System.Drawing.Color.Black;
-            this.searchBtn_HD.UseVisualStyleBackColor = false;
-            this.searchBtn_HD.Click += new System.EventHandler(this.searchHD_Click);
+            this.modeShowBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.modeShowBtn.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.modeShowBtn.BackgroundColor = System.Drawing.SystemColors.MenuHighlight;
+            this.modeShowBtn.BorderColor = System.Drawing.SystemColors.WindowText;
+            this.modeShowBtn.BorderRadius = 19;
+            this.modeShowBtn.BorderSize = 1;
+            this.modeShowBtn.FlatAppearance.BorderSize = 0;
+            this.modeShowBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.modeShowBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modeShowBtn.ForeColor = System.Drawing.Color.Black;
+            this.modeShowBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.modeShowBtn.Location = new System.Drawing.Point(170, 693);
+            this.modeShowBtn.Name = "modeShowBtn";
+            this.modeShowBtn.Size = new System.Drawing.Size(137, 33);
+            this.modeShowBtn.TabIndex = 53;
+            this.modeShowBtn.Text = "Hiện Theo TKQC";
+            this.modeShowBtn.TextColor = System.Drawing.Color.Black;
+            this.modeShowBtn.UseVisualStyleBackColor = false;
+            this.modeShowBtn.Click += new System.EventHandler(this.modeShowBtn_Click);
             // 
             // loadingBtnHoadon
             // 
@@ -462,6 +359,90 @@
             this.loadingBtnHoadon.TextColor = System.Drawing.Color.White;
             this.loadingBtnHoadon.UseVisualStyleBackColor = false;
             this.loadingBtnHoadon.Visible = false;
+            // 
+            // locTimeBtn
+            // 
+            this.locTimeBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.locTimeBtn.BackColor = System.Drawing.Color.Green;
+            this.locTimeBtn.BackgroundColor = System.Drawing.Color.Green;
+            this.locTimeBtn.BorderColor = System.Drawing.SystemColors.WindowText;
+            this.locTimeBtn.BorderRadius = 20;
+            this.locTimeBtn.BorderSize = 0;
+            this.locTimeBtn.FlatAppearance.BorderSize = 0;
+            this.locTimeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.locTimeBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.locTimeBtn.ForeColor = System.Drawing.Color.Black;
+            this.locTimeBtn.Location = new System.Drawing.Point(638, 2);
+            this.locTimeBtn.Name = "locTimeBtn";
+            this.locTimeBtn.Size = new System.Drawing.Size(61, 31);
+            this.locTimeBtn.TabIndex = 27;
+            this.locTimeBtn.Text = "Lọc";
+            this.locTimeBtn.TextColor = System.Drawing.Color.Black;
+            this.locTimeBtn.UseVisualStyleBackColor = false;
+            this.locTimeBtn.Click += new System.EventHandler(this.locTimeBtn_Click);
+            // 
+            // vbButton1
+            // 
+            this.vbButton1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.vbButton1.BackColor = System.Drawing.Color.Green;
+            this.vbButton1.BackgroundColor = System.Drawing.Color.Green;
+            this.vbButton1.BorderColor = System.Drawing.SystemColors.WindowText;
+            this.vbButton1.BorderRadius = 20;
+            this.vbButton1.BorderSize = 0;
+            this.vbButton1.FlatAppearance.BorderSize = 0;
+            this.vbButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.vbButton1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vbButton1.ForeColor = System.Drawing.Color.Black;
+            this.vbButton1.Location = new System.Drawing.Point(721, 2);
+            this.vbButton1.Name = "vbButton1";
+            this.vbButton1.Size = new System.Drawing.Size(179, 31);
+            this.vbButton1.TabIndex = 28;
+            this.vbButton1.Text = "Xuất Excel bảng tổng";
+            this.vbButton1.TextColor = System.Drawing.Color.Black;
+            this.vbButton1.UseVisualStyleBackColor = false;
+            this.vbButton1.Click += new System.EventHandler(this.vbButton1_Click_1);
+            // 
+            // searchBtn_HD
+            // 
+            this.searchBtn_HD.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.searchBtn_HD.BackColor = System.Drawing.Color.Green;
+            this.searchBtn_HD.BackgroundColor = System.Drawing.Color.Green;
+            this.searchBtn_HD.BorderColor = System.Drawing.SystemColors.WindowText;
+            this.searchBtn_HD.BorderRadius = 20;
+            this.searchBtn_HD.BorderSize = 0;
+            this.searchBtn_HD.FlatAppearance.BorderSize = 0;
+            this.searchBtn_HD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchBtn_HD.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBtn_HD.ForeColor = System.Drawing.Color.Black;
+            this.searchBtn_HD.Image = global::AdsManager.Properties.Resources.Screenshot_2022_10_01_024949_removebg_preview1;
+            this.searchBtn_HD.Location = new System.Drawing.Point(343, 2);
+            this.searchBtn_HD.Name = "searchBtn_HD";
+            this.searchBtn_HD.Size = new System.Drawing.Size(56, 31);
+            this.searchBtn_HD.TabIndex = 12;
+            this.searchBtn_HD.TextColor = System.Drawing.Color.Black;
+            this.searchBtn_HD.UseVisualStyleBackColor = false;
+            this.searchBtn_HD.Click += new System.EventHandler(this.searchHD_Click);
+            // 
+            // vbButton4
+            // 
+            this.vbButton4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.vbButton4.BackColor = System.Drawing.Color.Green;
+            this.vbButton4.BackgroundColor = System.Drawing.Color.Green;
+            this.vbButton4.BorderColor = System.Drawing.SystemColors.WindowText;
+            this.vbButton4.BorderRadius = 20;
+            this.vbButton4.BorderSize = 0;
+            this.vbButton4.FlatAppearance.BorderSize = 0;
+            this.vbButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.vbButton4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vbButton4.ForeColor = System.Drawing.Color.Black;
+            this.vbButton4.Location = new System.Drawing.Point(917, 3);
+            this.vbButton4.Name = "vbButton4";
+            this.vbButton4.Size = new System.Drawing.Size(177, 31);
+            this.vbButton4.TabIndex = 1;
+            this.vbButton4.Text = "Xuất Excel bảng chi tiết";
+            this.vbButton4.TextColor = System.Drawing.Color.Black;
+            this.vbButton4.UseVisualStyleBackColor = false;
+            this.vbButton4.Click += new System.EventHandler(this.vbButton4_Click);
             // 
             // HDTT_RefeshBtn
             // 
@@ -487,6 +468,59 @@
             this.HDTT_RefeshBtn.UseVisualStyleBackColor = false;
             this.HDTT_RefeshBtn.Click += new System.EventHandler(this.HDTT_RefeshBtn_Click);
             // 
+            // TrangThaiTKQC
+            // 
+            this.TrangThaiTKQC.HeaderText = "Trạng Thái TKQC";
+            this.TrangThaiTKQC.Name = "TrangThaiTKQC";
+            this.TrangThaiTKQC.Width = 200;
+            // 
+            // TenTK
+            // 
+            this.TenTK.HeaderText = "Tên tài khoản";
+            this.TenTK.Name = "TenTK";
+            this.TenTK.Width = 600;
+            // 
+            // IDTKQC2
+            // 
+            this.IDTKQC2.HeaderText = "ID TKQC";
+            this.IDTKQC2.Name = "IDTKQC2";
+            this.IDTKQC2.Width = 200;
+            // 
+            // MKT_
+            // 
+            this.MKT_.HeaderText = "MKT";
+            this.MKT_.Name = "MKT_";
+            // 
+            // HKD_
+            // 
+            this.HKD_.HeaderText = "HKD";
+            this.HKD_.Name = "HKD_";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "TỔNG HÓA ĐƠN";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "TỔNG TIỀN QUY DỔI";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 300;
+            // 
+            // TONGTIENGOC
+            // 
+            this.TONGTIENGOC.HeaderText = "TỔNG TIỀN GỐC";
+            this.TONGTIENGOC.Name = "TONGTIENGOC";
+            this.TONGTIENGOC.Width = 300;
+            // 
+            // TienTe
+            // 
+            this.TienTe.HeaderText = "TIỀN TỆ";
+            this.TienTe.Name = "TienTe";
+            // 
             // HoaDonTTForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -494,51 +528,33 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(246)))), ((int)(((byte)(254)))));
             this.ClientSize = new System.Drawing.Size(1528, 735);
             this.ControlBox = false;
+            this.Controls.Add(this.modeShowBtn);
+            this.Controls.Add(this.loadingBtnHoadon);
+            this.Controls.Add(this.HoaDonTKQCdataGridView);
             this.Controls.Add(this.dateTimePickerHD);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.loadingBtnHoadon);
             this.Controls.Add(this.HDTT_RefeshBtn);
             this.Controls.Add(this.HoaDonThanhToanToTalDataGridView);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.HoaDonThanhToanDataGridView);
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "HoaDonTTForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HoaDonThanhToanDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HoaDonThanhToanToTalDataGridView)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.HoaDonTKQCdataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private VBButton vbButton23;
-        private VBButton vbButton1;
-        private VBButton vbButton2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridView HoaDonThanhToanDataGridView;
         private System.Windows.Forms.DataGridView HoaDonThanhToanToTalDataGridView;
-        private TakeCarePage.ElipseControl elipseControl1;
         private VBButton HDTT_RefeshBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TongHoaDon;
         private System.Windows.Forms.DataGridViewTextBoxColumn TongTienToTal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AccName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDTKQC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDGiaoDich;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ngay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoTien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PhuongThucThanhToan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TrangThaiThanhToan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDHoaDonVAT;
         private System.Windows.Forms.DataGridViewTextBoxColumn HanhDong;
         private VBButton loadingBtnHoadon;
         private System.Windows.Forms.Panel panel2;
@@ -550,5 +566,29 @@
         private VBButton vbButton4;
         private System.Windows.Forms.DateTimePicker to_dateTimePicker_HD;
         private System.Windows.Forms.DateTimePicker dateTimePickerHD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AccName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDTKQC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDGiaoDich;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MKT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HKD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ngay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoTien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PhuongThucThanhToan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TrangThaiThanhToan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDHoaDonVAT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaThamChieu;
+        private System.Windows.Forms.DataGridView HoaDonTKQCdataGridView;
+        private VBButton vbButton1;
+        private VBButton modeShowBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TrangThaiTKQC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenTK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDTKQC2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MKT_;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HKD_;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TONGTIENGOC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TienTe;
     }
 }

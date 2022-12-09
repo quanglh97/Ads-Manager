@@ -156,7 +156,8 @@ namespace AdsManager
         private void locTimeBtn_Click(object sender, EventArgs e)
         {
             TTTKQCInstance.filterTime = true;
-            //locTimeBtn.Enabled = false;
+            //
+            //.Enabled = false;
             //while (TTTKQCInstance.filterTime == true)
             //{
             //    Thread.Sleep(500);

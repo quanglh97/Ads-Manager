@@ -1,16 +1,21 @@
 ﻿using DeviceId;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TakeCarePage.HelperLibrary.Facebook;
+using TakeCarePage;
+using AdsManager.HelperLibrary.Facebook.Info;
 
 namespace AdsManager.HelperLibrary
 {
     public class Common
     {
         public static string key { get; set; }
-
+        public static List<MKTInfo> lsMKTInfo = new List<MKTInfo>();
         public static string GetKey()
         {
             string deviceId = new DeviceIdBuilder().AddMachineName()
@@ -80,11 +85,12 @@ namespace AdsManager.HelperLibrary
             return newStringDate;
         }
 
-        public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
+        public static DateTime UnixTimeStampToDateTime(double unixTimeStamp, int soTimeZone)
         {
             // Unix timestamp is seconds past epoch
             DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-            dateTime = dateTime.AddSeconds(unixTimeStamp).ToLocalTime();
+            var timeNumber = unixTimeStamp + soTimeZone * 60 * 60;
+            dateTime = dateTime.AddSeconds(timeNumber).ToUniversalTime();
             return dateTime;
         }
 
@@ -109,6 +115,32 @@ namespace AdsManager.HelperLibrary
             {
                 return false;
             }
+        }
+
+        public static void ImportMKTInfo()
+        {
+            lsMKTInfo.Clear();
+
+            var dataFolder = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data");
+            if (!Directory.Exists(dataFolder))
+            {
+                Directory.CreateDirectory(dataFolder);
+            }
+            var fileMKT = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "ThongTinMKT_HKD.txt");
+            if (!File.Exists(fileMKT))
+            {
+                return;
+            }
+            try
+            {
+                string[] data = File.ReadAllText(fileMKT).Trim().Split('\n');
+                for (int i = 0; i < data.Length; i++)
+                {
+                    MKTInfo item = new MKTInfo(data[i]);
+                    lsMKTInfo.Add(item);
+                }   
+            }
+            catch { }
         }
     }
 }

@@ -17,6 +17,9 @@ namespace AdsManager.HelperLibrary.Facebook.Info
         public string PTThanhToan { get; set; }
         public string TrangThaiThanhToan { get; set; }
         public string IDHoaDonVAT { get; set; }
-        public string HanhDong { get; set; }
+        public string MaThamChieu { get; set; }
+
+        public string MKT { get; set; }
+        public string HKD { get; set; }
     }
 }

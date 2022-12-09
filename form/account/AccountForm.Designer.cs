@@ -47,6 +47,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.AccAddBtn = new AdsManager.VBButton();
+            this.AccUpdateBtn = new AdsManager.VBButton();
             this.label8 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -60,10 +62,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.AccountDataGridView = new System.Windows.Forms.DataGridView();
-            this.vbButton1 = new AdsManager.VBButton();
-            this.Account_RefreshBtn = new AdsManager.VBButton();
-            this.AccAddBtn = new AdsManager.VBButton();
-            this.AccUpdateBtn = new AdsManager.VBButton();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tick = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.TenHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,6 +71,8 @@
             this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cookie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Token = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vbButton1 = new AdsManager.VBButton();
+            this.Account_RefreshBtn = new AdsManager.VBButton();
             elipseControl2 = new TakeCarePage.ElipseControl();
             elipseControl3 = new TakeCarePage.ElipseControl();
             elipseControl4 = new TakeCarePage.ElipseControl();
@@ -82,6 +82,11 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AccountDataGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // elipseControl2
+            // 
+            elipseControl2.CornerRadius = 10;
+            elipseControl2.TargetControl = this.UidTBox;
             // 
             // UidTBox
             // 
@@ -95,6 +100,11 @@
             this.UidTBox.Size = new System.Drawing.Size(467, 30);
             this.UidTBox.TabIndex = 22;
             // 
+            // elipseControl3
+            // 
+            elipseControl3.CornerRadius = 10;
+            elipseControl3.TargetControl = this.PassTBox;
+            // 
             // PassTBox
             // 
             this.PassTBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(234)))), ((int)(((byte)(185)))));
@@ -106,6 +116,11 @@
             this.PassTBox.Name = "PassTBox";
             this.PassTBox.Size = new System.Drawing.Size(467, 30);
             this.PassTBox.TabIndex = 20;
+            // 
+            // elipseControl4
+            // 
+            elipseControl4.CornerRadius = 10;
+            elipseControl4.TargetControl = this.CodeTBox;
             // 
             // CodeTBox
             // 
@@ -119,18 +134,28 @@
             this.CodeTBox.Size = new System.Drawing.Size(467, 30);
             this.CodeTBox.TabIndex = 21;
             // 
+            // elipseControl5
+            // 
+            elipseControl5.CornerRadius = 10;
+            elipseControl5.TargetControl = this.CookieTBox;
+            // 
             // CookieTBox
             // 
             this.CookieTBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CookieTBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(237)))), ((int)(((byte)(227)))));
             this.CookieTBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CookieTBox.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CookieTBox.Location = new System.Drawing.Point(1046, 6);
+            this.CookieTBox.Location = new System.Drawing.Point(904, 6);
             this.CookieTBox.MaximumSize = new System.Drawing.Size(500, 25);
             this.CookieTBox.MinimumSize = new System.Drawing.Size(316, 30);
             this.CookieTBox.Name = "CookieTBox";
             this.CookieTBox.Size = new System.Drawing.Size(500, 30);
             this.CookieTBox.TabIndex = 23;
+            // 
+            // elipseControl6
+            // 
+            elipseControl6.CornerRadius = 10;
+            elipseControl6.TargetControl = this.TokenTBox;
             // 
             // TokenTBox
             // 
@@ -138,12 +163,17 @@
             this.TokenTBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(217)))), ((int)(((byte)(202)))));
             this.TokenTBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TokenTBox.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TokenTBox.Location = new System.Drawing.Point(1046, 48);
+            this.TokenTBox.Location = new System.Drawing.Point(904, 48);
             this.TokenTBox.MaximumSize = new System.Drawing.Size(500, 25);
             this.TokenTBox.MinimumSize = new System.Drawing.Size(316, 30);
             this.TokenTBox.Name = "TokenTBox";
             this.TokenTBox.Size = new System.Drawing.Size(500, 30);
             this.TokenTBox.TabIndex = 24;
+            // 
+            // elipseControl7
+            // 
+            elipseControl7.CornerRadius = 10;
+            elipseControl7.TargetControl = this.StatusTBox;
             // 
             // StatusTBox
             // 
@@ -151,7 +181,7 @@
             this.StatusTBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(242)))), ((int)(((byte)(211)))));
             this.StatusTBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.StatusTBox.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StatusTBox.Location = new System.Drawing.Point(1046, 91);
+            this.StatusTBox.Location = new System.Drawing.Point(904, 91);
             this.StatusTBox.MaximumSize = new System.Drawing.Size(500, 25);
             this.StatusTBox.MinimumSize = new System.Drawing.Size(316, 30);
             this.StatusTBox.Name = "StatusTBox";
@@ -160,6 +190,8 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.AutoSize = true;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(246)))), ((int)(((byte)(254)))));
             this.panel2.Controls.Add(this.HKDTBox);
@@ -188,11 +220,10 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1861, 948);
+            this.panel2.Size = new System.Drawing.Size(1719, 306);
             this.panel2.TabIndex = 23;
             // 
             // HKDTBox
@@ -255,6 +286,48 @@
             this.label16.Size = new System.Drawing.Size(568, 2);
             this.label16.TabIndex = 28;
             // 
+            // AccAddBtn
+            // 
+            this.AccAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AccAddBtn.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.AccAddBtn.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
+            this.AccAddBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.AccAddBtn.BorderRadius = 20;
+            this.AccAddBtn.BorderSize = 0;
+            this.AccAddBtn.FlatAppearance.BorderSize = 0;
+            this.AccAddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AccAddBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AccAddBtn.ForeColor = System.Drawing.Color.White;
+            this.AccAddBtn.Location = new System.Drawing.Point(1468, 272);
+            this.AccAddBtn.Name = "AccAddBtn";
+            this.AccAddBtn.Size = new System.Drawing.Size(115, 31);
+            this.AccAddBtn.TabIndex = 27;
+            this.AccAddBtn.Text = "Add";
+            this.AccAddBtn.TextColor = System.Drawing.Color.White;
+            this.AccAddBtn.UseVisualStyleBackColor = false;
+            this.AccAddBtn.Click += new System.EventHandler(this.AddAccBtn_Click);
+            // 
+            // AccUpdateBtn
+            // 
+            this.AccUpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AccUpdateBtn.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.AccUpdateBtn.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
+            this.AccUpdateBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.AccUpdateBtn.BorderRadius = 20;
+            this.AccUpdateBtn.BorderSize = 0;
+            this.AccUpdateBtn.FlatAppearance.BorderSize = 0;
+            this.AccUpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AccUpdateBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AccUpdateBtn.ForeColor = System.Drawing.Color.White;
+            this.AccUpdateBtn.Location = new System.Drawing.Point(1589, 272);
+            this.AccUpdateBtn.Name = "AccUpdateBtn";
+            this.AccUpdateBtn.Size = new System.Drawing.Size(115, 31);
+            this.AccUpdateBtn.TabIndex = 26;
+            this.AccUpdateBtn.Text = "Update";
+            this.AccUpdateBtn.TextColor = System.Drawing.Color.White;
+            this.AccUpdateBtn.UseVisualStyleBackColor = false;
+            this.AccUpdateBtn.Click += new System.EventHandler(this.AccUpdateBtn_Click);
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -269,7 +342,7 @@
             // 
             this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label14.Location = new System.Drawing.Point(954, 126);
+            this.label14.Location = new System.Drawing.Point(812, 126);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(592, 2);
             this.label14.TabIndex = 16;
@@ -279,7 +352,7 @@
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(951, 104);
+            this.label13.Location = new System.Drawing.Point(809, 104);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(66, 15);
             this.label13.TabIndex = 10;
@@ -290,7 +363,7 @@
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(951, 68);
+            this.label12.Location = new System.Drawing.Point(809, 68);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(41, 15);
             this.label12.TabIndex = 9;
@@ -301,7 +374,7 @@
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(951, 25);
+            this.label11.Location = new System.Drawing.Point(809, 25);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(46, 15);
             this.label11.TabIndex = 8;
@@ -331,7 +404,7 @@
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label7.Location = new System.Drawing.Point(953, 84);
+            this.label7.Location = new System.Drawing.Point(811, 84);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(592, 2);
             this.label7.TabIndex = 4;
@@ -340,7 +413,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Location = new System.Drawing.Point(954, 41);
+            this.label5.Location = new System.Drawing.Point(812, 41);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(592, 2);
             this.label5.TabIndex = 3;
@@ -390,126 +463,10 @@
             this.AccountDataGridView.Location = new System.Drawing.Point(7, 320);
             this.AccountDataGridView.Name = "AccountDataGridView";
             this.AccountDataGridView.RowHeadersWidth = 51;
-            this.AccountDataGridView.Size = new System.Drawing.Size(1839, 586);
+            this.AccountDataGridView.Size = new System.Drawing.Size(1712, 508);
             this.AccountDataGridView.TabIndex = 31;
             this.AccountDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AccountDataGridView_CellContentClick);
             this.AccountDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.AccountDataGridView_CellFormatting);
-            // 
-            // vbButton1
-            // 
-            this.vbButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.vbButton1.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.vbButton1.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
-            this.vbButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.vbButton1.BorderRadius = 20;
-            this.vbButton1.BorderSize = 0;
-            this.vbButton1.FlatAppearance.BorderSize = 0;
-            this.vbButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.vbButton1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vbButton1.ForeColor = System.Drawing.Color.White;
-            this.vbButton1.Location = new System.Drawing.Point(1723, 912);
-            this.vbButton1.Name = "vbButton1";
-            this.vbButton1.Size = new System.Drawing.Size(120, 27);
-            this.vbButton1.TabIndex = 44;
-            this.vbButton1.Text = "Mở mục cài đặt";
-            this.vbButton1.TextColor = System.Drawing.Color.White;
-            this.vbButton1.UseVisualStyleBackColor = false;
-            this.vbButton1.Click += new System.EventHandler(this.vbButton1_Click);
-            // 
-            // Account_RefreshBtn
-            // 
-            this.Account_RefreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Account_RefreshBtn.BackColor = System.Drawing.SystemColors.Window;
-            this.Account_RefreshBtn.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.Account_RefreshBtn.BorderColor = System.Drawing.SystemColors.WindowText;
-            this.Account_RefreshBtn.BorderRadius = 19;
-            this.Account_RefreshBtn.BorderSize = 1;
-            this.Account_RefreshBtn.FlatAppearance.BorderSize = 0;
-            this.Account_RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Account_RefreshBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Account_RefreshBtn.ForeColor = System.Drawing.Color.Black;
-            this.Account_RefreshBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Account_RefreshBtn.Location = new System.Drawing.Point(7, 912);
-            this.Account_RefreshBtn.Name = "Account_RefreshBtn";
-            this.Account_RefreshBtn.Size = new System.Drawing.Size(112, 26);
-            this.Account_RefreshBtn.TabIndex = 43;
-            this.Account_RefreshBtn.Text = "Làm mới dữ liệu";
-            this.Account_RefreshBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Account_RefreshBtn.TextColor = System.Drawing.Color.Black;
-            this.Account_RefreshBtn.UseVisualStyleBackColor = false;
-            this.Account_RefreshBtn.Click += new System.EventHandler(this.Account_RefreshBtn_Click);
-            // 
-            // AccAddBtn
-            // 
-            this.AccAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AccAddBtn.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.AccAddBtn.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
-            this.AccAddBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.AccAddBtn.BorderRadius = 20;
-            this.AccAddBtn.BorderSize = 0;
-            this.AccAddBtn.FlatAppearance.BorderSize = 0;
-            this.AccAddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AccAddBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AccAddBtn.ForeColor = System.Drawing.Color.White;
-            this.AccAddBtn.Location = new System.Drawing.Point(1625, 273);
-            this.AccAddBtn.Name = "AccAddBtn";
-            this.AccAddBtn.Size = new System.Drawing.Size(115, 31);
-            this.AccAddBtn.TabIndex = 27;
-            this.AccAddBtn.Text = "Add";
-            this.AccAddBtn.TextColor = System.Drawing.Color.White;
-            this.AccAddBtn.UseVisualStyleBackColor = false;
-            this.AccAddBtn.Click += new System.EventHandler(this.AddAccBtn_Click);
-            // 
-            // AccUpdateBtn
-            // 
-            this.AccUpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AccUpdateBtn.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.AccUpdateBtn.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
-            this.AccUpdateBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.AccUpdateBtn.BorderRadius = 20;
-            this.AccUpdateBtn.BorderSize = 0;
-            this.AccUpdateBtn.FlatAppearance.BorderSize = 0;
-            this.AccUpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AccUpdateBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AccUpdateBtn.ForeColor = System.Drawing.Color.White;
-            this.AccUpdateBtn.Location = new System.Drawing.Point(1746, 273);
-            this.AccUpdateBtn.Name = "AccUpdateBtn";
-            this.AccUpdateBtn.Size = new System.Drawing.Size(115, 31);
-            this.AccUpdateBtn.TabIndex = 26;
-            this.AccUpdateBtn.Text = "Update";
-            this.AccUpdateBtn.TextColor = System.Drawing.Color.White;
-            this.AccUpdateBtn.UseVisualStyleBackColor = false;
-            this.AccUpdateBtn.Click += new System.EventHandler(this.AccUpdateBtn_Click);
-            // 
-            // elipseControl2
-            // 
-            elipseControl2.CornerRadius = 10;
-            elipseControl2.TargetControl = this.UidTBox;
-            // 
-            // elipseControl3
-            // 
-            elipseControl3.CornerRadius = 10;
-            elipseControl3.TargetControl = this.PassTBox;
-            // 
-            // elipseControl4
-            // 
-            elipseControl4.CornerRadius = 10;
-            elipseControl4.TargetControl = this.CodeTBox;
-            // 
-            // elipseControl5
-            // 
-            elipseControl5.CornerRadius = 10;
-            elipseControl5.TargetControl = this.CookieTBox;
-            // 
-            // elipseControl6
-            // 
-            elipseControl6.CornerRadius = 10;
-            elipseControl6.TargetControl = this.TokenTBox;
-            // 
-            // elipseControl7
-            // 
-            elipseControl7.CornerRadius = 10;
-            elipseControl7.TargetControl = this.StatusTBox;
             // 
             // Status
             // 
@@ -582,13 +539,57 @@
             this.Token.ReadOnly = true;
             this.Token.Width = 400;
             // 
+            // vbButton1
+            // 
+            this.vbButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.vbButton1.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.vbButton1.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
+            this.vbButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.vbButton1.BorderRadius = 20;
+            this.vbButton1.BorderSize = 0;
+            this.vbButton1.FlatAppearance.BorderSize = 0;
+            this.vbButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.vbButton1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vbButton1.ForeColor = System.Drawing.Color.White;
+            this.vbButton1.Location = new System.Drawing.Point(1594, 833);
+            this.vbButton1.Name = "vbButton1";
+            this.vbButton1.Size = new System.Drawing.Size(120, 27);
+            this.vbButton1.TabIndex = 44;
+            this.vbButton1.Text = "Mở mục cài đặt";
+            this.vbButton1.TextColor = System.Drawing.Color.White;
+            this.vbButton1.UseVisualStyleBackColor = false;
+            this.vbButton1.Click += new System.EventHandler(this.vbButton1_Click);
+            // 
+            // Account_RefreshBtn
+            // 
+            this.Account_RefreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Account_RefreshBtn.BackColor = System.Drawing.SystemColors.Window;
+            this.Account_RefreshBtn.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.Account_RefreshBtn.BorderColor = System.Drawing.SystemColors.WindowText;
+            this.Account_RefreshBtn.BorderRadius = 19;
+            this.Account_RefreshBtn.BorderSize = 1;
+            this.Account_RefreshBtn.FlatAppearance.BorderSize = 0;
+            this.Account_RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Account_RefreshBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Account_RefreshBtn.ForeColor = System.Drawing.Color.Black;
+            this.Account_RefreshBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Account_RefreshBtn.Location = new System.Drawing.Point(7, 834);
+            this.Account_RefreshBtn.Name = "Account_RefreshBtn";
+            this.Account_RefreshBtn.Size = new System.Drawing.Size(112, 26);
+            this.Account_RefreshBtn.TabIndex = 43;
+            this.Account_RefreshBtn.Text = "Làm mới dữ liệu";
+            this.Account_RefreshBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Account_RefreshBtn.TextColor = System.Drawing.Color.Black;
+            this.Account_RefreshBtn.UseVisualStyleBackColor = false;
+            this.Account_RefreshBtn.Click += new System.EventHandler(this.Account_RefreshBtn_Click);
+            // 
             // AccountForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(246)))), ((int)(((byte)(254)))));
-            this.ClientSize = new System.Drawing.Size(1861, 948);
+            this.ClientSize = new System.Drawing.Size(1734, 861);
             this.ControlBox = false;
             this.Controls.Add(this.vbButton1);
             this.Controls.Add(this.Account_RefreshBtn);

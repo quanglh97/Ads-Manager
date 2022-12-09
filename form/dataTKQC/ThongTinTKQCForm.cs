@@ -268,14 +268,30 @@ namespace AdsManager
                 TKQC.liDoDisable = jObjectMoreInfo["disable_reason"].ToString() == "1" ? "ADS_INTEGRITY_POLICY" : jObjectMoreInfo["disable_reason"].ToString() == "3" ? "RISK_PAYMENT" : jObjectMoreInfo["disable_reason"].ToString() == "6" ? "BUSINESS_INTEGRITY_RAR" : "";
                 var utc = jObjectMoreInfo["timezone_offset_hours_utc"].ToString().Contains("-") ? jObjectMoreInfo["timezone_offset_hours_utc"].ToString() : "+" + jObjectMoreInfo["timezone_offset_hours_utc"].ToString();
                 TKQC.timeZone = jObjectMoreInfo["timezone_name"].ToString() + "/ " + utc;
+                TKQC.soTimeZone = int.Parse(utc);
                 try { TKQC.taoTuBM = jObjectMoreInfo["owner_business"]["id"].ToString(); }
                 catch { TKQC.taoTuBM = ""; }
                 try { TKQC.quocGiaTKQC = jObjectMoreInfo["business_country_code"].ToString(); }
                 catch { TKQC.quocGiaTKQC = "-"; }
+
+                for(int i = 0; i < Common.lsMKTInfo.Count; i++)
+                {
+                    if (TKQC.tenTK.Contains(Common.lsMKTInfo[i].MaMKT))
+                    {
+                        TKQC.MKT = Common.lsMKTInfo[i].MKT;
+                        TKQC.HKD = Common.lsMKTInfo[i].HKD;
+                        break;
+                    }
+                    else if(TKQC.ID.Contains(Common.lsMKTInfo[i].MaMKT))
+                    {
+                        TKQC.MKT = Common.lsMKTInfo[i].MKT;
+                        TKQC.HKD = Common.lsMKTInfo[i].HKD;
+                        break;
+                    }
+                }
+
                 if (TTTKQCInstance.lsTKQC.Find(x => x.ID == TKQC.ID) == null)
                 {
-
-
                     TTTKQCInstance.OnNewAccAdded(TKQC);
                     TTTKQCInstance.lsTKQC.Add(TKQC);
                     TTTKQCInstance.lsViewTKQC.Add(TKQC);
@@ -376,6 +392,8 @@ namespace AdsManager
                                                     e.InfoAccount.trangThai != null ? e.InfoAccount.trangThai : "",
                                                     e.InfoAccount.ID != null ? e.InfoAccount.ID : "",
                                                     e.InfoAccount.tenTK != null ? e.InfoAccount.tenTK : "",
+                                                    e.InfoAccount.MKT != null ? e.InfoAccount.MKT : "",
+                                                    e.InfoAccount.HKD != null ? e.InfoAccount.HKD : "",
                                                     e.InfoAccount.soDu != null ? double.Parse(e.InfoAccount.soDu).ToString("N", nfi).Split(new string[] { ".00" }, StringSplitOptions.None)[0] : "",
                                                     e.InfoAccount.Nguong != null ? double.Parse(e.InfoAccount.Nguong).ToString("N", nfi).Split(new string[] { ".00" }, StringSplitOptions.None)[0] : "",
                                                     e.InfoAccount.Limit != null && e.InfoAccount.Limit != "-1" ? double.Parse(e.InfoAccount.Limit).ToString("N", nfi).Split(new string[] { ".00" }, StringSplitOptions.None)[0] : "No Limit",
@@ -403,7 +421,7 @@ namespace AdsManager
 
             TTTKQCInstance.tiGia = RequestTiGiaNgoaiTe();
             ViaInstances.ImportVia();
-            
+            Common.ImportMKTInfo();
             if (!TTTKQCComboBox.SelectedValue.ToString().Contains("MAX"))
                 TTTKQCInstance.limit = Int32.Parse(TTTKQCComboBox.SelectedValue.ToString());
             else
@@ -854,87 +872,97 @@ namespace AdsManager
                         TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
                         TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
                     }
-                    else if (TTTKQCInstance.lsTKQC[i].tenTK != null && TTTKQCInstance.lsTKQC[i].tenTK.Contains(TTTKQCInstance.searchData))
+                    else if (TTTKQCInstance.lsTKQC[i].tenTK != null && TTTKQCInstance.lsTKQC[i].tenTK.ToLower().Contains(TTTKQCInstance.searchData.ToLower()))
                     {
                         TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
                         TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
                     }
-                    else if (TTTKQCInstance.lsTKQC[i].soDu != null && TTTKQCInstance.lsTKQC[i].soDu.Contains(TTTKQCInstance.searchData))
+                    else if (TTTKQCInstance.lsTKQC[i].MKT != null && TTTKQCInstance.lsTKQC[i].MKT.ToLower().Contains(TTTKQCInstance.searchData.ToLower()))
                     {
                         TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
                         TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
                     }
-                    else if (TTTKQCInstance.lsTKQC[i].Nguong != null && TTTKQCInstance.lsTKQC[i].Nguong.Contains(TTTKQCInstance.searchData))
+                    else if (TTTKQCInstance.lsTKQC[i].HKD != null && TTTKQCInstance.lsTKQC[i].HKD.ToLower().Contains(TTTKQCInstance.searchData.ToLower()))
                     {
                         TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
                         TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
                     }
-                    else if (TTTKQCInstance.lsTKQC[i].Limit != null && TTTKQCInstance.lsTKQC[i].Limit.Contains(TTTKQCInstance.searchData))
+                    else if (TTTKQCInstance.lsTKQC[i].soDu != null && TTTKQCInstance.lsTKQC[i].soDu.ToLower().Contains(TTTKQCInstance.searchData.ToLower()))
                     {
                         TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
                         TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
                     }
-                    else if (TTTKQCInstance.lsTKQC[i].nguongConLai != null && TTTKQCInstance.lsTKQC[i].nguongConLai.Contains(TTTKQCInstance.searchData))
+                    else if (TTTKQCInstance.lsTKQC[i].Nguong != null && TTTKQCInstance.lsTKQC[i].Nguong.ToLower().Contains(TTTKQCInstance.searchData.ToLower()))
                     {
                         TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
                         TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
                     }
-                    else if (TTTKQCInstance.lsTKQC[i].tongTieu != null && TTTKQCInstance.lsTKQC[i].tongTieu.Contains(TTTKQCInstance.searchData))
+                    else if (TTTKQCInstance.lsTKQC[i].Limit != null && TTTKQCInstance.lsTKQC[i].Limit.ToLower().Contains(TTTKQCInstance.searchData.ToLower()))
                     {
                         TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
                         TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
                     }
-                    else if (TTTKQCInstance.lsTKQC[i].tienTe != null && TTTKQCInstance.lsTKQC[i].tienTe.Contains(TTTKQCInstance.searchData))
+                    else if (TTTKQCInstance.lsTKQC[i].nguongConLai != null && TTTKQCInstance.lsTKQC[i].nguongConLai.ToLower().Contains(TTTKQCInstance.searchData.ToLower()))
                     {
                         TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
                         TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
                     }
-                    else if (TTTKQCInstance.lsTKQC[i].role != null && TTTKQCInstance.lsTKQC[i].role.Contains(TTTKQCInstance.searchData))
+                    else if (TTTKQCInstance.lsTKQC[i].tongTieu != null && TTTKQCInstance.lsTKQC[i].tongTieu.ToLower().Contains(TTTKQCInstance.searchData.ToLower()))
                     {
                         TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
                         TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
                     }
-                    else if (TTTKQCInstance.lsTKQC[i].timeZone != null && TTTKQCInstance.lsTKQC[i].timeZone.Contains(TTTKQCInstance.searchData))
+                    else if (TTTKQCInstance.lsTKQC[i].tienTe != null && TTTKQCInstance.lsTKQC[i].tienTe.ToLower().Contains(TTTKQCInstance.searchData.ToLower()))
                     {
                         TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
                         TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
                     }
-                    else if (TTTKQCInstance.lsTKQC[i].quocGiaTKQC != null && TTTKQCInstance.lsTKQC[i].quocGiaTKQC.Contains(TTTKQCInstance.searchData))
+                    else if (TTTKQCInstance.lsTKQC[i].role != null && TTTKQCInstance.lsTKQC[i].role.ToLower().Contains(TTTKQCInstance.searchData.ToLower()))
                     {
                         TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
                         TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
                     }
-                    else if (TTTKQCInstance.lsTKQC[i].loaiTK != null && TTTKQCInstance.lsTKQC[i].loaiTK.Contains(TTTKQCInstance.searchData))
+                    else if (TTTKQCInstance.lsTKQC[i].timeZone != null && TTTKQCInstance.lsTKQC[i].timeZone.ToLower().Contains(TTTKQCInstance.searchData.ToLower()))
                     {
                         TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
                         TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
                     }
-                    else if (TTTKQCInstance.lsTKQC[i].taoTuBM != null && TTTKQCInstance.lsTKQC[i].taoTuBM.Contains(TTTKQCInstance.searchData))
+                    else if (TTTKQCInstance.lsTKQC[i].quocGiaTKQC != null && TTTKQCInstance.lsTKQC[i].quocGiaTKQC.ToLower().Contains(TTTKQCInstance.searchData.ToLower()))
                     {
                         TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
                         TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
                     }
-                    else if (TTTKQCInstance.lsTKQC[i].ngayTaoTK != null && TTTKQCInstance.lsTKQC[i].ngayTaoTK.Contains(TTTKQCInstance.searchData))
+                    else if (TTTKQCInstance.lsTKQC[i].loaiTK != null && TTTKQCInstance.lsTKQC[i].loaiTK.ToLower().Contains(TTTKQCInstance.searchData.ToLower()))
                     {
                         TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
                         TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
                     }
-                    else if (TTTKQCInstance.lsTKQC[i].slThe != null && TTTKQCInstance.lsTKQC[i].slThe.Contains(TTTKQCInstance.searchData))
+                    else if (TTTKQCInstance.lsTKQC[i].taoTuBM != null && TTTKQCInstance.lsTKQC[i].taoTuBM.ToLower().Contains(TTTKQCInstance.searchData.ToLower()))
                     {
                         TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
                         TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
                     }
-                    else if (TTTKQCInstance.lsTKQC[i].duoiThe != null && TTTKQCInstance.lsTKQC[i].duoiThe.Contains(TTTKQCInstance.searchData))
+                    else if (TTTKQCInstance.lsTKQC[i].ngayTaoTK != null && TTTKQCInstance.lsTKQC[i].ngayTaoTK.ToLower().Contains(TTTKQCInstance.searchData.ToLower()))
                     {
                         TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
                         TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
                     }
-                    else if (TTTKQCInstance.lsTKQC[i].soNgayDenKyTT != null && TTTKQCInstance.lsTKQC[i].soNgayDenKyTT.Contains(TTTKQCInstance.searchData))
+                    else if (TTTKQCInstance.lsTKQC[i].slThe != null && TTTKQCInstance.lsTKQC[i].slThe.ToLower().Contains(TTTKQCInstance.searchData.ToLower()))
                     {
                         TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
                         TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
                     }
-                    else if (TTTKQCInstance.lsTKQC[i].liDoDisable != null && TTTKQCInstance.lsTKQC[i].liDoDisable.Contains(TTTKQCInstance.searchData))
+                    else if (TTTKQCInstance.lsTKQC[i].duoiThe != null && TTTKQCInstance.lsTKQC[i].duoiThe.ToLower().Contains(TTTKQCInstance.searchData.ToLower()))
+                    {
+                        TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
+                        TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
+                    }
+                    else if (TTTKQCInstance.lsTKQC[i].soNgayDenKyTT != null && TTTKQCInstance.lsTKQC[i].soNgayDenKyTT.ToLower().Contains(TTTKQCInstance.searchData.ToLower()))
+                    {
+                        TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
+                        TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
+                    }
+                    else if (TTTKQCInstance.lsTKQC[i].liDoDisable != null && TTTKQCInstance.lsTKQC[i].liDoDisable.ToLower().Contains(TTTKQCInstance.searchData.ToLower()))
                     {
                         TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
                         TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
@@ -981,7 +1009,7 @@ namespace AdsManager
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "Excel Documents (*.xls)|*.xls";
-            sfd.FileName = "ThongTinTKQC.xls";
+            sfd.FileName = $"ThongTinTKQC_{DateTime.Now.ToShortDateString().Replace('/', '_')}.xls";
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 // Copy DataGridView results to clipboard
@@ -1031,8 +1059,8 @@ namespace AdsManager
 
         private void thongTinTKQCDataGridView_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
         {
-            if (e.Column.Index == 3|| e.Column.Index == 4 || e.Column.Index == 5 || e.Column.Index == 6 ||
-                e.Column.Index == 7)
+            if (e.Column.Index == 5|| e.Column.Index == 6 || e.Column.Index == 7 || e.Column.Index ==8||
+                e.Column.Index == 9)
             {
                 try
                 {

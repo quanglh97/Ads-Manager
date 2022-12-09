@@ -353,6 +353,36 @@ namespace AdsManager.form.dataTKQC
                             }
                             // }
 
+                            for (int i = 0; i < Common.lsMKTInfo.Count; i++)
+                            {
+                                if (TTCD.TenChienDich.Contains(Common.lsMKTInfo[i].MaMKT))
+                                {
+                                    TTCD.MKT = Common.lsMKTInfo[i].MKT;
+                                    TTCD.HKD = Common.lsMKTInfo[i].HKD;
+                                    break;
+                                }
+                                else if(TTCD.TenNhomQC.Contains(Common.lsMKTInfo[i].MaMKT))
+                                {
+                                    TTCD.MKT = Common.lsMKTInfo[i].MKT;
+                                    TTCD.HKD = Common.lsMKTInfo[i].HKD;
+                                    break;
+                                }
+                                else if (TTCD.TenQC.Contains(Common.lsMKTInfo[i].MaMKT))
+                                {
+                                    TTCD.MKT = Common.lsMKTInfo[i].MKT;
+                                    TTCD.HKD = Common.lsMKTInfo[i].HKD;
+                                    break;
+                                }
+                            }
+                            if(TTCD.MKT == ""|| TTCD.MKT == null)
+                            {
+                                TTCD.MKT = TKQC.MKT;
+                            }
+                            if (TTCD.HKD == "" || TTCD.HKD == null)
+                            {
+                                TTCD.HKD = TKQC.HKD;
+                            }
+
                             if (TTCDInstance.lsTTCD.Find(x => x.IdQC == TTCD.IdQC) == null)
                             {
                                 TTCDInstance.OnNewAccAdded(TTCD);
@@ -421,6 +451,8 @@ namespace AdsManager.form.dataTKQC
                                                     e.Info.TrangThai != null ? e.Info.TrangThai : "",
                                                     e.Info.TenTKQC != null ? e.Info.TenTKQC : "",
                                                     e.Info.IdTKQC != null ? e.Info.IdTKQC : "",
+                                                    e.Info.MKT != null ? e.Info.MKT : "",
+                                                    e.Info.HKD != null ? e.Info.HKD : "",
                                                     e.Info.TenChienDich != null ? e.Info.TenChienDich : "",
                                                     e.Info.IdChienDich != null ? e.Info.IdChienDich : "",
                                                     e.Info.TenNhomQC != null ? e.Info.TenNhomQC : "",
@@ -765,57 +797,67 @@ namespace AdsManager.form.dataTKQC
                 for (int i = 0; i < TTCDInstance.lsTTCD.Count; i++)
                 {
 
-                    if (TTCDInstance.lsTTCD[i].TrangThai != null && TTCDInstance.lsTTCD[i].TrangThai.Contains(TTCDInstance.searchData))
+                    if (TTCDInstance.lsTTCD[i].TrangThai != null && TTCDInstance.lsTTCD[i].TrangThai.ToLower().Contains(TTCDInstance.searchData.ToLower()))
                     {
                         TTCDInstance.OnNewAccAdded(TTCDInstance.lsTTCD[i]);
                         TTCDInstance.lsViewTTCD.Add(TTCDInstance.lsTTCD[i]);
                     }
-                    else if (TTCDInstance.lsTTCD[i].TenTKQC != null && TTCDInstance.lsTTCD[i].TenTKQC.Contains(TTCDInstance.searchData))
+                    else if (TTCDInstance.lsTTCD[i].TenTKQC != null && TTCDInstance.lsTTCD[i].TenTKQC.ToLower().Contains(TTCDInstance.searchData.ToLower()))
                     {
                         TTCDInstance.OnNewAccAdded(TTCDInstance.lsTTCD[i]);
                         TTCDInstance.lsViewTTCD.Add(TTCDInstance.lsTTCD[i]);
                     }
-                    else if (TTCDInstance.lsTTCD[i].IdTKQC != null && TTCDInstance.lsTTCD[i].IdTKQC.Contains(TTCDInstance.searchData))
+                    else if (TTCDInstance.lsTTCD[i].IdTKQC != null && TTCDInstance.lsTTCD[i].IdTKQC.ToLower().Contains(TTCDInstance.searchData.ToLower()))
                     {
                         TTCDInstance.OnNewAccAdded(TTCDInstance.lsTTCD[i]);
                         TTCDInstance.lsViewTTCD.Add(TTCDInstance.lsTTCD[i]);
                     }
-                    else if (TTCDInstance.lsTTCD[i].TenChienDich != null && TTCDInstance.lsTTCD[i].TenChienDich.Contains(TTCDInstance.searchData))
+                    else if (TTCDInstance.lsTTCD[i].MKT != null && TTCDInstance.lsTTCD[i].MKT.ToLower().Contains(TTCDInstance.searchData.ToLower()))
                     {
                         TTCDInstance.OnNewAccAdded(TTCDInstance.lsTTCD[i]);
                         TTCDInstance.lsViewTTCD.Add(TTCDInstance.lsTTCD[i]);
                     }
-                    else if (TTCDInstance.lsTTCD[i].IdChienDich != null && TTCDInstance.lsTTCD[i].IdChienDich.Contains(TTCDInstance.searchData))
+                    else if (TTCDInstance.lsTTCD[i].HKD != null && TTCDInstance.lsTTCD[i].HKD.ToLower().Contains(TTCDInstance.searchData.ToLower()))
                     {
                         TTCDInstance.OnNewAccAdded(TTCDInstance.lsTTCD[i]);
                         TTCDInstance.lsViewTTCD.Add(TTCDInstance.lsTTCD[i]);
                     }
-                    else if (TTCDInstance.lsTTCD[i].TenNhomQC != null && TTCDInstance.lsTTCD[i].TenNhomQC.Contains(TTCDInstance.searchData))
+                    else if (TTCDInstance.lsTTCD[i].TenChienDich != null && TTCDInstance.lsTTCD[i].TenChienDich.ToLower().Contains(TTCDInstance.searchData.ToLower()))
                     {
                         TTCDInstance.OnNewAccAdded(TTCDInstance.lsTTCD[i]);
                         TTCDInstance.lsViewTTCD.Add(TTCDInstance.lsTTCD[i]);
                     }
-                    else if (TTCDInstance.lsTTCD[i].IdNhomQC != null && TTCDInstance.lsTTCD[i].IdNhomQC.Contains(TTCDInstance.searchData))
+                    else if (TTCDInstance.lsTTCD[i].IdChienDich != null && TTCDInstance.lsTTCD[i].IdChienDich.ToLower().Contains(TTCDInstance.searchData.ToLower()))
                     {
                         TTCDInstance.OnNewAccAdded(TTCDInstance.lsTTCD[i]);
                         TTCDInstance.lsViewTTCD.Add(TTCDInstance.lsTTCD[i]);
                     }
-                    else if (TTCDInstance.lsTTCD[i].TenQC != null && TTCDInstance.lsTTCD[i].TenQC.Contains(TTCDInstance.searchData))
+                    else if (TTCDInstance.lsTTCD[i].TenNhomQC != null && TTCDInstance.lsTTCD[i].TenNhomQC.ToLower().Contains(TTCDInstance.searchData.ToLower()))
                     {
                         TTCDInstance.OnNewAccAdded(TTCDInstance.lsTTCD[i]);
                         TTCDInstance.lsViewTTCD.Add(TTCDInstance.lsTTCD[i]);
                     }
-                    else if (TTCDInstance.lsTTCD[i].chiPhiQC != null && TTCDInstance.lsTTCD[i].chiPhiQC.Contains(TTCDInstance.searchData))
+                    else if (TTCDInstance.lsTTCD[i].IdNhomQC != null && TTCDInstance.lsTTCD[i].IdNhomQC.ToLower().Contains(TTCDInstance.searchData.ToLower()))
                     {
                         TTCDInstance.OnNewAccAdded(TTCDInstance.lsTTCD[i]);
                         TTCDInstance.lsViewTTCD.Add(TTCDInstance.lsTTCD[i]);
                     }
-                    else if (TTCDInstance.lsTTCD[i].ngayTaoQC != null && TTCDInstance.lsTTCD[i].ngayTaoQC.Contains(TTCDInstance.searchData))
+                    else if (TTCDInstance.lsTTCD[i].TenQC != null && TTCDInstance.lsTTCD[i].TenQC.ToLower().Contains(TTCDInstance.searchData.ToLower()))
                     {
                         TTCDInstance.OnNewAccAdded(TTCDInstance.lsTTCD[i]);
                         TTCDInstance.lsViewTTCD.Add(TTCDInstance.lsTTCD[i]);
                     }
-                    else if (TTCDInstance.lsTTCD[i].tienTe != null && TTCDInstance.lsTTCD[i].tienTe.Contains(TTCDInstance.searchData))
+                    else if (TTCDInstance.lsTTCD[i].chiPhiQC != null && TTCDInstance.lsTTCD[i].chiPhiQC.ToLower().Contains(TTCDInstance.searchData.ToLower()))
+                    {
+                        TTCDInstance.OnNewAccAdded(TTCDInstance.lsTTCD[i]);
+                        TTCDInstance.lsViewTTCD.Add(TTCDInstance.lsTTCD[i]);
+                    }
+                    else if (TTCDInstance.lsTTCD[i].ngayTaoQC != null && TTCDInstance.lsTTCD[i].ngayTaoQC.ToLower().Contains(TTCDInstance.searchData.ToLower()))
+                    {
+                        TTCDInstance.OnNewAccAdded(TTCDInstance.lsTTCD[i]);
+                        TTCDInstance.lsViewTTCD.Add(TTCDInstance.lsTTCD[i]);
+                    }
+                    else if (TTCDInstance.lsTTCD[i].tienTe != null && TTCDInstance.lsTTCD[i].tienTe.ToLower().Contains(TTCDInstance.searchData.ToLower()))
                     {
                         TTCDInstance.OnNewAccAdded(TTCDInstance.lsTTCD[i]);
                         TTCDInstance.lsViewTTCD.Add(TTCDInstance.lsTTCD[i]);
@@ -885,7 +927,7 @@ namespace AdsManager.form.dataTKQC
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "Excel Documents (*.xls)|*.xls";
-            sfd.FileName = "ThongTinChienDich.xls";
+            sfd.FileName = $"ThongTinChienDich_{DateTime.Now.ToShortDateString().Replace('/', '_')}.xls";
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 // Copy DataGridView results to clipboard
@@ -935,11 +977,16 @@ namespace AdsManager.form.dataTKQC
 
         private void ThongTinChienDichDataGridView_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
         {
-            if (e.Column.Index == 10)
+            if (e.Column.Index == 12)
             {
                 e.SortResult = double.Parse(e.CellValue1.ToString()).CompareTo(double.Parse(e.CellValue2.ToString()));
                 e.Handled = true;//pass by the default sorting
             }
+        }
+
+        private void ThongTinChienDichDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 

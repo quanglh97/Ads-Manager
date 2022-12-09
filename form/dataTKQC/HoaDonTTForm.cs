@@ -39,6 +39,12 @@ namespace AdsManager.form.dataTKQC
             HoaDonThanhToanDataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(255, 10, 147, 66); ;//10, 147, 66
             HoaDonThanhToanDataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
 
+
+            HoaDonTKQCdataGridView.RowHeadersVisible = false;
+            HoaDonTKQCdataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            HoaDonTKQCdataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(255, 10, 147, 66); ;//10, 147, 66
+            HoaDonTKQCdataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
             HoaDonThanhToanToTalDataGridView.RowHeadersVisible = false;
             HoaDonThanhToanToTalDataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             HoaDonThanhToanToTalDataGridView.Columns[0].HeaderCell.Style.BackColor = Color.FromArgb(255, 45, 127, 104);
@@ -53,6 +59,7 @@ namespace AdsManager.form.dataTKQC
             Hoadon_Worker.WorkerSupportsCancellation = true;
 
             HoaDonInstance.NewAccountAdded += this.Statistic_newAccountAdded;
+            HoaDonTKQCdataGridView.Visible = false;
         }
 
         void Worker_DoWork(object sender, DoWorkEventArgs e)
@@ -188,8 +195,12 @@ namespace AdsManager.form.dataTKQC
                         HoaDon.PTThanhToan = jObject["data"]["node"]["billing_txns"]["edges"][i]["node"]["payment_method_label"].ToString();
                         HoaDon.TrangThaiThanhToan = jObject["data"]["node"]["billing_txns"]["edges"][i]["node"]["formatted_payment_status"].ToString();
                         HoaDon.IDHoaDonVAT = jObject["data"]["node"]["billing_txns"]["edges"][i]["node"]["vat_invoice_id"].ToString();
-                        HoaDon.HanhDong = "";
-                        HoaDon.Ngay = Common.UnixTimeStampToDateTime(double.Parse(HoaDon.Ngay)).ToString();
+                        HoaDon.MaThamChieu = jObject["data"]["node"]["billing_txns"]["edges"][i]["node"]["tracking_id"].ToString();
+                        HoaDon.Ngay = Common.UnixTimeStampToDateTime(double.Parse(HoaDon.Ngay), TKQC.soTimeZone).ToString();
+
+                        HoaDon.MKT = TKQC.MKT;
+                        HoaDon.HKD = TKQC.HKD;
+
                         HoaDonInstance.OnNewAccAdded(HoaDon);
                         HoaDonInstance.lsHoaDon.Add(HoaDon);
                         HoaDonInstance.lsViewHoaDon.Add(HoaDon);
@@ -238,14 +249,16 @@ namespace AdsManager.form.dataTKQC
                                                     e.Info.TenTaiKhoan != null ? e.Info.TenTaiKhoan : "",
                                                     e.Info.IDTKQC != null ? e.Info.IDTKQC : "",
                                                     e.Info.IDGiaoDich != null ? e.Info.IDGiaoDich : "",
+                                                    e.Info.MKT != null ? e.Info.MKT : "",
+                                                    e.Info.HKD != null ? e.Info.HKD : "",
                                                     e.Info.Ngay != null ? e.Info.Ngay : "",
                                                     e.Info.SoTien != null ? e.Info.SoTien : "",
                                                     e.Info.PTThanhToan != null ? e.Info.PTThanhToan : "",
                                                     e.Info.TrangThaiThanhToan != null ? e.Info.TrangThaiThanhToan : "",
                                                     e.Info.IDHoaDonVAT != null ? e.Info.IDHoaDonVAT : "",
-                                                    e.Info.HanhDong != null ? e.Info.HanhDong : ""
+                                                    e.Info.MaThamChieu != null ? e.Info.MaThamChieu : ""
                                                     );
-            
+
         }
 
         void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -261,23 +274,32 @@ namespace AdsManager.form.dataTKQC
             HoaDonInstance.tongTien = 0;
             for (int i = 0; i < HoaDonInstance.lsHoaDon.Count; i++)
             {
-                var tien = "";
+                var tien = HoaDonInstance.lsHoaDon[i].SoTien;
                 if (HoaDonInstance.lsHoaDon[i].SoTien.Contains("$"))
                 {
-                    tien = HoaDonInstance.lsHoaDon[i].SoTien.Replace("$", "").Trim();
-                    if (HoaDonInstance.lsHoaDon[i].SoTien.Contains('.'))
+                    tien = tien.Replace("$", "").Trim();
+                    if (tien.Contains('.'))
                     {
-                        tien = HoaDonInstance.lsHoaDon[i].SoTien.Replace(".", "");
+                        tien = tien.Replace(".", "");
                     }
-
-                    HoaDonInstance.tongTien += double.Parse(tien) *TTTKQCInstance.tiGia["USD"];
+                    if (tien.Contains(','))
+                    {
+                        tien = tien.Replace(",", ".");
+                    }
+                    HoaDonInstance.tongTien += double.Parse(tien) * TTTKQCInstance.tiGia["USD"];
                 }
                 else
                 {
-                    
-                    if (HoaDonInstance.lsHoaDon[i].SoTien.Contains('.')){
-                        tien = HoaDonInstance.lsHoaDon[i].SoTien.Replace(".", "");
+
+                    if (tien.Contains('.'))
+                    {
+                        tien = tien.Replace(".", "");
                     }
+                    if (tien.Contains(','))
+                    {
+                        tien = tien.Replace(",", ".");
+                    }
+                    
                     if (tien.Contains("₫"))
                     {
                         tien = tien.Replace("₫", "").Trim();
@@ -286,12 +308,78 @@ namespace AdsManager.form.dataTKQC
                     {
                         HoaDonInstance.tongTien += double.Parse(tien.Replace(" ", ""));
                     }
-                }   
+                }
             }
             HoaDonThanhToanToTalDataGridView.Rows.Clear();
             HoaDonThanhToanToTalDataGridView.Rows.Insert(HoaDonThanhToanToTalDataGridView.Rows.Count - 1,
                                                     HoaDonInstance.tongHoaDon.ToString("N", nfi).Split(new string[] { ".00" }, StringSplitOptions.None)[0],
                                                      HoaDonInstance.tongTien.ToString("N", nfi).Split(new string[] { ".00" }, StringSplitOptions.None)[0]);
+
+            HoaDonTKQCdataGridView.Rows.Clear();
+
+
+            for (int j = 0; j < TTTKQCInstance.lsTKQC.Count; j++)
+            {
+                TTTKQCInstance.lsTKQC[j].tongTien = 0;
+                TTTKQCInstance.lsTKQC[j].tongTienGoc = 0;
+                TTTKQCInstance.lsTKQC[j].tongHoaDon = 0;
+                for (int i = 0; i < HoaDonInstance.lsHoaDon.Count; i++)
+                {
+                    if (TTTKQCInstance.lsTKQC[j].ID == HoaDonInstance.lsHoaDon[i].IDTKQC)
+                    {
+                        var tien = HoaDonInstance.lsHoaDon[i].SoTien;
+                        if (tien.Contains("$"))
+                        {
+                            tien = tien.Replace("$", "").Trim();
+                            if (tien.Contains('.'))
+                            {
+                                tien = tien.Replace(".", "");
+                            }
+                            if (tien.Contains(','))
+                            {
+                                tien = tien.Replace(",", ".");
+                            }
+                            TTTKQCInstance.lsTKQC[j].tongTien += double.Parse(tien) * TTTKQCInstance.tiGia["USD"];
+                            TTTKQCInstance.lsTKQC[j].tongTienGoc += double.Parse(tien);
+                        }
+                        else
+                        {
+
+                            if (tien.Contains('.'))
+                            {
+                                tien = tien.Replace(".", "");
+                            }
+                            if (tien.Contains(','))
+                            {
+                                tien = tien.Replace(",", ".");
+                            }
+                            if (tien.Contains("₫"))
+                            {
+                                tien = tien.Replace("₫", "").Trim();
+                            }
+                            if (tien != "")
+                            {
+                                TTTKQCInstance.lsTKQC[j].tongTien += double.Parse(tien.Replace(" ", ""));
+                                TTTKQCInstance.lsTKQC[j].tongTienGoc += double.Parse(tien.Replace(" ", ""));
+                            }
+                        }
+                        TTTKQCInstance.lsTKQC[j].tongHoaDon++;
+                    }
+                }
+                HoaDonTKQCdataGridView.Rows.Insert(HoaDonTKQCdataGridView.Rows.Count - 1,
+                    TTTKQCInstance.lsTKQC[j].trangThai,
+                    TTTKQCInstance.lsTKQC[j].tenTK,
+                    TTTKQCInstance.lsTKQC[j].ID,
+                    TTTKQCInstance.lsTKQC[j].MKT,
+                    TTTKQCInstance.lsTKQC[j].HKD,
+                    TTTKQCInstance.lsTKQC[j].tongHoaDon.ToString("N", nfi).Split(new string[] { ".00" }, StringSplitOptions.None)[0],
+                    TTTKQCInstance.lsTKQC[j].tongTien.ToString("N", nfi).Split(new string[] { ".00" }, StringSplitOptions.None)[0],
+                    TTTKQCInstance.lsTKQC[j].tongTienGoc.ToString("N", nfi).Split(new string[] { ".00" }, StringSplitOptions.None)[0],
+                    TTTKQCInstance.lsTKQC[j].tienTe);
+                modeShowBtn.Enabled = true;
+            }
+
+
 
             //TTTKQCInstance.tongTK.ToString("N", nfi).Split(new string[] { ".00" }, StringSplitOptions.None)[0],
             loadingBtnHoadon.Visible = false;
@@ -300,51 +388,79 @@ namespace AdsManager.form.dataTKQC
         private void HDTT_RefeshBtn_Click(object sender, EventArgs e)
         {
             loadingBtnHoadon.Visible = true;
+            HoaDonTKQCdataGridView.Visible = false;
+            modeShowBtn.Text = "Hiện theo TKQC";
+            modeShowBtn.Enabled = false;
+            HoaDonThanhToanDataGridView.Visible = true;
             HoaDonThanhToanDataGridView.Rows.Clear();
+            HoaDonTKQCdataGridView.Rows.Clear();
             HDTT_RefeshBtn.BackgroundColor = Color.FromArgb(255, 198, 65, 24);
 
             HoaDonInstance.startTime = dateTimePickerHD.Value.AddYears(-15).ToUniversalTime();
             HoaDonInstance.endTime = dateTimePickerHD.Value.ToUniversalTime();
-            
+
             Hoadon_Worker.RunWorkerAsync();
         }
 
-        public static string GetDataHoaDon(string cookie, string dtsg, string accId, string startTime, string endTime)
+        public static string GetDataHoaDon(string stringCookie, string dtsg, string accId, string startTime, string endTime)
         {
             try
             {
-                var url = "https://business.facebook.com/api/graphql/";
-
-                var httpRequest = (HttpWebRequest)WebRequest.Create(url);
-                var variables = "{\"count\":10000,\"cursor\":null,\"end_time\":"+ endTime + ",\"filters\":[],\"start_time\":"+startTime+",\"id\":\"" + accId + "\"}";
-                var postData = "variables=" + variables;
-                postData += "&doc_id=" + "5088279497901543";
-                postData += "&fb_dtsg=" + dtsg;
-
-                var data = Encoding.UTF8.GetBytes(postData);
-
-                httpRequest.Method = "POST";
-
-                httpRequest.Headers["cookie"] = cookie;
-                httpRequest.Headers["sec-fetch-site"] = "same-origin";
-                httpRequest.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36";
-                httpRequest.ContentType = "application/x-www-form-urlencoded";
-
-                using (var stream = httpRequest.GetRequestStream())
+                var id = "";
+                var client = new RestClient("https://business.facebook.com/api/graphql/");
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                var cookies = stringCookie.Split(';');
+                foreach (string cookie in cookies)
                 {
-                    stream.Write(data, 0, data.Length);
+                    if (cookie == "") break;
+                    var datacookie = cookie.Trim().Split('=');
+                    request.AddCookie(datacookie[0].Trim(), datacookie[1].Trim());
+                }
+                request.AddHeader("sec-fetch-site", "same-origin");
+                client.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36";
+                request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+                request.AddParameter("__ccg", "EXCELLENT");
+                request.AddParameter("fb_dtsg", dtsg);
+                request.AddParameter("fb_api_caller_class", "RelayModern");
+                request.AddParameter("fb_api_req_friendly_name", "BillingTransactionTableQuery");
+                var variables = "{\"paymentAccountID\":\"" + accId +
+                    "\",\"count\":10,\"cursor\":null,\"filters\":[],\"start_time\":" + startTime +
+                    ",\"end_time\":" + endTime + "}";
+                request.AddParameter("variables", variables);
+                request.AddParameter("server_timestamps", "true");
+                request.AddParameter("doc_id", "5041460922628774");
+                IRestResponse response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    JObject jObject = JObject.Parse(response.Content);
+                    id = jObject["data"]["billable_account_by_payment_account"]["billing_payment_account"]["id"].ToString();
                 }
 
-                var httpResponse = (HttpWebResponse)httpRequest.GetResponse();
-                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                client = new RestClient("https://business.facebook.com/api/graphql/");
+                client.Timeout = -1;
+                request = new RestRequest(Method.POST);
+                foreach (string cookie in cookies)
                 {
-                    var result = streamReader.ReadToEnd();
-                    if (httpResponse.StatusCode == HttpStatusCode.OK)
-                    {
-                        return result;
-                    }
+                    if (cookie == "") break;
+                    var datacookie = cookie.Trim().Split('=');
+                    request.AddCookie(datacookie[0].Trim(), datacookie[1].Trim());
                 }
-
+                request.AddHeader("sec-fetch-site", "same-origin");
+                client.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36";
+                request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+                request.AddParameter("fb_dtsg", dtsg);
+                request.AddParameter("fb_api_caller_class", "RelayModern");
+                request.AddParameter("fb_api_req_friendly_name", "BillingTransactionTableConnection");
+                variables = "{\"count\":1000,\"cursor\":null,\"end_time\":" + endTime + ",\"filters\":[],\"start_time\":" + startTime + ",\"id\":\"" + id + "\"}";
+                request.AddParameter("variables", variables);
+                request.AddParameter("server_timestamps", "true");
+                request.AddParameter("doc_id", "5088279497901543");
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    return response.Content;
+                }
                 return "";
 
             }
@@ -394,40 +510,57 @@ namespace AdsManager.form.dataTKQC
                 for (int i = 0; i < HoaDonInstance.lsHoaDon.Count; i++)
                 {
 
-                    if (HoaDonInstance.lsHoaDon[i].TrangThaiTKQC != null && HoaDonInstance.lsHoaDon[i].TrangThaiTKQC.Contains(HoaDonInstance.searchData))
+                    if (HoaDonInstance.lsHoaDon[i].TrangThaiTKQC != null && HoaDonInstance.lsHoaDon[i].TrangThaiTKQC.ToLower().Contains(HoaDonInstance.searchData.ToLower()))
                     {
                         HoaDonInstance.OnNewAccAdded(HoaDonInstance.lsHoaDon[i]);
                         HoaDonInstance.lsViewHoaDon.Add(HoaDonInstance.lsHoaDon[i]);
                     }
-                    else if (HoaDonInstance.lsHoaDon[i].TenTaiKhoan != null && HoaDonInstance.lsHoaDon[i].TenTaiKhoan.Contains(HoaDonInstance.searchData))
+                    else if (HoaDonInstance.lsHoaDon[i].TenTaiKhoan != null && HoaDonInstance.lsHoaDon[i].TenTaiKhoan.ToLower().Contains(HoaDonInstance.searchData.ToLower()))
                     {
                         HoaDonInstance.OnNewAccAdded(HoaDonInstance.lsHoaDon[i]);
                         HoaDonInstance.lsViewHoaDon.Add(HoaDonInstance.lsHoaDon[i]);
-                    }else if (HoaDonInstance.lsHoaDon[i].IDTKQC != null && HoaDonInstance.lsHoaDon[i].IDTKQC.Contains(HoaDonInstance.searchData))
+                    }
+                    else if (HoaDonInstance.lsHoaDon[i].IDTKQC != null && HoaDonInstance.lsHoaDon[i].IDTKQC.ToLower().Contains(HoaDonInstance.searchData.ToLower()))
                     {
                         HoaDonInstance.OnNewAccAdded(HoaDonInstance.lsHoaDon[i]);
                         HoaDonInstance.lsViewHoaDon.Add(HoaDonInstance.lsHoaDon[i]);
-                    }else if (HoaDonInstance.lsHoaDon[i].IDGiaoDich != null && HoaDonInstance.lsHoaDon[i].IDGiaoDich.Contains(HoaDonInstance.searchData))
+                    }
+                    else if (HoaDonInstance.lsHoaDon[i].IDGiaoDich != null && HoaDonInstance.lsHoaDon[i].IDGiaoDich.ToLower().Contains(HoaDonInstance.searchData.ToLower()))
                     {
                         HoaDonInstance.OnNewAccAdded(HoaDonInstance.lsHoaDon[i]);
                         HoaDonInstance.lsViewHoaDon.Add(HoaDonInstance.lsHoaDon[i]);
-                    }else if (HoaDonInstance.lsHoaDon[i].Ngay != null && HoaDonInstance.lsHoaDon[i].Ngay.Contains(HoaDonInstance.searchData))
+                    }
+                    else if (HoaDonInstance.lsHoaDon[i].MKT != null && HoaDonInstance.lsHoaDon[i].MKT.ToLower().Contains(HoaDonInstance.searchData.ToLower()))
                     {
                         HoaDonInstance.OnNewAccAdded(HoaDonInstance.lsHoaDon[i]);
                         HoaDonInstance.lsViewHoaDon.Add(HoaDonInstance.lsHoaDon[i]);
-                    }else if (HoaDonInstance.lsHoaDon[i].SoTien != null && HoaDonInstance.lsHoaDon[i].SoTien.Contains(HoaDonInstance.searchData))
+                    }
+                    else if (HoaDonInstance.lsHoaDon[i].HKD != null && HoaDonInstance.lsHoaDon[i].HKD.ToLower().Contains(HoaDonInstance.searchData.ToLower()))
                     {
                         HoaDonInstance.OnNewAccAdded(HoaDonInstance.lsHoaDon[i]);
                         HoaDonInstance.lsViewHoaDon.Add(HoaDonInstance.lsHoaDon[i]);
-                    }else if (HoaDonInstance.lsHoaDon[i].PTThanhToan != null && HoaDonInstance.lsHoaDon[i].PTThanhToan.Contains(HoaDonInstance.searchData))
+                    }
+                    else if (HoaDonInstance.lsHoaDon[i].Ngay != null && HoaDonInstance.lsHoaDon[i].Ngay.ToLower().Contains(HoaDonInstance.searchData.ToLower()))
                     {
                         HoaDonInstance.OnNewAccAdded(HoaDonInstance.lsHoaDon[i]);
                         HoaDonInstance.lsViewHoaDon.Add(HoaDonInstance.lsHoaDon[i]);
-                    }else if (HoaDonInstance.lsHoaDon[i].TrangThaiThanhToan != null && HoaDonInstance.lsHoaDon[i].TrangThaiThanhToan.Contains(HoaDonInstance.searchData))
+                    }
+                    else if (HoaDonInstance.lsHoaDon[i].SoTien != null && HoaDonInstance.lsHoaDon[i].SoTien.ToLower().Contains(HoaDonInstance.searchData.ToLower()))
                     {
                         HoaDonInstance.OnNewAccAdded(HoaDonInstance.lsHoaDon[i]);
                         HoaDonInstance.lsViewHoaDon.Add(HoaDonInstance.lsHoaDon[i]);
-                    }else if (HoaDonInstance.lsHoaDon[i].IDHoaDonVAT != null && HoaDonInstance.lsHoaDon[i].IDHoaDonVAT.Contains(HoaDonInstance.searchData))
+                    }
+                    else if (HoaDonInstance.lsHoaDon[i].PTThanhToan != null && HoaDonInstance.lsHoaDon[i].PTThanhToan.ToLower().Contains(HoaDonInstance.searchData.ToLower()))
+                    {
+                        HoaDonInstance.OnNewAccAdded(HoaDonInstance.lsHoaDon[i]);
+                        HoaDonInstance.lsViewHoaDon.Add(HoaDonInstance.lsHoaDon[i]);
+                    }
+                    else if (HoaDonInstance.lsHoaDon[i].TrangThaiThanhToan != null && HoaDonInstance.lsHoaDon[i].TrangThaiThanhToan.ToLower().Contains(HoaDonInstance.searchData.ToLower()))
+                    {
+                        HoaDonInstance.OnNewAccAdded(HoaDonInstance.lsHoaDon[i]);
+                        HoaDonInstance.lsViewHoaDon.Add(HoaDonInstance.lsHoaDon[i]);
+                    }
+                    else if (HoaDonInstance.lsHoaDon[i].IDHoaDonVAT != null && HoaDonInstance.lsHoaDon[i].IDHoaDonVAT.ToLower().Contains(HoaDonInstance.searchData.ToLower()))
                     {
                         HoaDonInstance.OnNewAccAdded(HoaDonInstance.lsHoaDon[i]);
                         HoaDonInstance.lsViewHoaDon.Add(HoaDonInstance.lsHoaDon[i]);
@@ -454,6 +587,15 @@ namespace AdsManager.form.dataTKQC
             if (dataObj != null)
                 Clipboard.SetDataObject(dataObj);
         }
+
+        private void copyAlltoClipboardforTKQC()
+        {
+            HoaDonTKQCdataGridView.SelectAll();
+            DataObject dataObj = HoaDonTKQCdataGridView.GetClipboardContent();
+            if (dataObj != null)
+                Clipboard.SetDataObject(dataObj);
+        }
+
         private void releaseObject(object obj)
         {
             try
@@ -475,7 +617,7 @@ namespace AdsManager.form.dataTKQC
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "Excel Documents (*.xls)|*.xls";
-            sfd.FileName = "ThongTinHoaDon.xls";
+            sfd.FileName = $"ThongTinHoaDon_{DateTime.Now.ToShortDateString().Replace('/', '_')}.xls";
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 // Copy DataGridView results to clipboard
@@ -520,6 +662,103 @@ namespace AdsManager.form.dataTKQC
                 // Open the newly saved excel file
                 if (File.Exists(sfd.FileName))
                     System.Diagnostics.Process.Start(sfd.FileName);
+            }
+        }
+
+        private void locTimeBtn_Click(object sender, EventArgs e)
+        {
+            loadingBtnHoadon.Visible = true;
+            HoaDonTKQCdataGridView.Visible = false;
+            modeShowBtn.Text = "Hiện theo TKQC";
+            modeShowBtn.Enabled = false;
+            HoaDonThanhToanDataGridView.Visible = true;
+            HoaDonThanhToanDataGridView.Rows.Clear();
+            HoaDonTKQCdataGridView.Rows.Clear();
+            HDTT_RefeshBtn.BackgroundColor = Color.FromArgb(255, 198, 65, 24);
+
+            HoaDonInstance.startTime = from_dateTimePicker_HD.Value.ToUniversalTime();
+            HoaDonInstance.endTime = to_dateTimePicker_HD.Value.AddDays(1).ToUniversalTime();
+            if(!Hoadon_Worker.IsBusy)
+                Hoadon_Worker.RunWorkerAsync();
+        }
+
+        private void vbButton1_Click_1(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Excel Documents (*.xls)|*.xls";
+            sfd.FileName = $"ThongTinHoaDonTheoTKQC_{DateTime.Now.ToShortDateString().Replace('/', '_')}.xls";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                // Copy DataGridView results to clipboard
+                copyAlltoClipboardforTKQC();
+
+                object misValue = System.Reflection.Missing.Value;
+                Excel.Application xlexcel = new Excel.Application();
+
+                xlexcel.DisplayAlerts = false; // Without this you will get two confirm overwrite prompts
+                Excel.Workbook xlWorkBook = xlexcel.Workbooks.Add(misValue);
+                Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+                // Format column D as text before pasting results, this was required for my data
+                Excel.Range rng = xlWorkSheet.get_Range("D:D").Cells;
+                rng.NumberFormat = "@";
+
+                // Paste clipboard results to worksheet range
+                Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[1, 1];
+                CR.Select();
+                xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+
+                // For some reason column A is always blank in the worksheet. ¯\_(ツ)_/¯
+                // Delete blank column A and select cell A1
+                Excel.Range delRng = xlWorkSheet.get_Range("A:A").Cells;
+                delRng.Delete(Type.Missing);
+                xlWorkSheet.get_Range("A1").Select();
+
+                // Save the excel file under the captured location from the SaveFileDialog
+                xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlexcel.DisplayAlerts = true;
+                xlWorkBook.Close(true, misValue, misValue);
+                xlexcel.Quit();
+
+                releaseObject(xlWorkSheet);
+                releaseObject(xlWorkBook);
+                releaseObject(xlexcel);
+
+                // Clear Clipboard and DataGridView selection
+                Clipboard.Clear();
+                HoaDonThanhToanDataGridView.ClearSelection();
+
+                // Open the newly saved excel file
+                if (File.Exists(sfd.FileName))
+                    System.Diagnostics.Process.Start(sfd.FileName);
+            }
+        }
+
+        private void modeShowBtn_Click(object sender, EventArgs e)
+        {
+            if (modeShowBtn.Text.Contains("TKQC"))
+            {
+                HoaDonTKQCdataGridView.Visible = true;
+                HoaDonThanhToanDataGridView.Visible = false;
+                modeShowBtn.Text = "Hiện chi tiết";
+            }
+            else
+            {
+                HoaDonTKQCdataGridView.Visible = false;
+                HoaDonThanhToanDataGridView.Visible = true;
+                modeShowBtn.Text = "Hiện theo TKQC";
+            }
+        }
+
+        private void HoaDonTKQCdataGridView_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            if (e.RowIndex % 2 == 0)
+            {
+                HoaDonTKQCdataGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(255, 217, 235, 237);
+            }
+            else
+            {
+                HoaDonTKQCdataGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 255, 255);
             }
         }
     }

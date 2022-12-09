@@ -21,5 +21,8 @@ namespace AdsManager.HelperLibrary.Facebook.Info
         public string chiPhiQC { get; set; }
         public string ngayTaoQC { get; set; }
         public string tienTe { get; set; }
+
+        public string MKT { get; set; }
+        public string HKD { get; set; }
     }
 }

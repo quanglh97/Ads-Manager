@@ -87,6 +87,8 @@ namespace TakeCarePage
 
             checkLicense_Worker.RunWorkerAsync();
 
+            Common.ImportMKTInfo();
+
         }
 
         void Worker_DoWork(object sender, DoWorkEventArgs e)

@@ -35,6 +35,13 @@ namespace AdsManager.HelperLibrary.Facebook
         public string cookie { get; set; }
         public string token { get; set; }
         public string dtsg { get; set; }
+        public string MKT { get; set; }
+        public string HKD { get; set; }
+        public int soTimeZone { get; set; }
+        public int tongHoaDon = 0;
+        public double tongTien = 0;
+        public double tongTienGoc = 0;
+
 
 
         public TTTKQCInfo()
@@ -66,6 +73,9 @@ namespace AdsManager.HelperLibrary.Facebook
             this.cookie = item.cookie;
             this.token = item.token;
             this.dtsg = item.dtsg;
+            this.MKT = item.MKT;
+            this.HKD = item.HKD;
+            this.soTimeZone = item.soTimeZone;
         }
         //public TTTKQCInfo(string newAccount)
         //{
