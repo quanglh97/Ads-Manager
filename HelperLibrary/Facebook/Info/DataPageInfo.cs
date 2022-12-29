@@ -21,6 +21,7 @@ namespace AdsManager.HelperLibrary.Facebook.Info
         public string linkPage { get; set; }
 
         public string MKT { get; set; }
+        public string MaMKT { get; set; }
         public string HKD { get; set; }
 
         public DataPageInfo() { }

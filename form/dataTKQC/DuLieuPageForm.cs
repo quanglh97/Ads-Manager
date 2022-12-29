@@ -185,6 +185,7 @@ namespace AdsManager.form.dataTKQC
                             dataPage.linkPage = "https://www.facebook.com/" + dataPage.idPage;
 
                             dataPage.MKT = TKQC.MKT;
+                            dataPage.MaMKT = TKQC.MaMKT;
                             dataPage.HKD = TKQC.HKD;
 
                             DataPageInstance.OnNewAccAdded(dataPage);
@@ -242,6 +243,7 @@ namespace AdsManager.form.dataTKQC
                                                     e.Info.trangThai != null ? e.Info.trangThai : "",
                                                     e.Info.tenTKQC != null ? e.Info.tenTKQC : "",
                                                     e.Info.idTKQC != null ? e.Info.idTKQC : "",
+                                                    e.Info.MaMKT != null ? e.Info.MaMKT : "",
                                                     e.Info.MKT != null ? e.Info.MKT : "",
                                                     e.Info.HKD != null ? e.Info.HKD : "",
                                                     e.Info.tenPage != null ? e.Info.tenPage : "",

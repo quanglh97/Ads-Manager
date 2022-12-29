@@ -358,18 +358,21 @@ namespace AdsManager.form.dataTKQC
                                 if (TTCD.TenChienDich.Contains(Common.lsMKTInfo[i].MaMKT))
                                 {
                                     TTCD.MKT = Common.lsMKTInfo[i].MKT;
+                                    TTCD.MaMKT = Common.lsMKTInfo[i].MaMKT;
                                     TTCD.HKD = Common.lsMKTInfo[i].HKD;
                                     break;
                                 }
                                 else if(TTCD.TenNhomQC.Contains(Common.lsMKTInfo[i].MaMKT))
                                 {
                                     TTCD.MKT = Common.lsMKTInfo[i].MKT;
+                                    TTCD.MaMKT = Common.lsMKTInfo[i].MaMKT;
                                     TTCD.HKD = Common.lsMKTInfo[i].HKD;
                                     break;
                                 }
                                 else if (TTCD.TenQC.Contains(Common.lsMKTInfo[i].MaMKT))
                                 {
                                     TTCD.MKT = Common.lsMKTInfo[i].MKT;
+                                    TTCD.MaMKT = Common.lsMKTInfo[i].MaMKT;
                                     TTCD.HKD = Common.lsMKTInfo[i].HKD;
                                     break;
                                 }
@@ -377,6 +380,10 @@ namespace AdsManager.form.dataTKQC
                             if(TTCD.MKT == ""|| TTCD.MKT == null)
                             {
                                 TTCD.MKT = TKQC.MKT;
+                            }
+                            if (TTCD.MaMKT == "" || TTCD.MaMKT == null)
+                            {
+                                TTCD.MaMKT = TKQC.MaMKT;
                             }
                             if (TTCD.HKD == "" || TTCD.HKD == null)
                             {
@@ -451,6 +458,7 @@ namespace AdsManager.form.dataTKQC
                                                     e.Info.TrangThai != null ? e.Info.TrangThai : "",
                                                     e.Info.TenTKQC != null ? e.Info.TenTKQC : "",
                                                     e.Info.IdTKQC != null ? e.Info.IdTKQC : "",
+                                                    e.Info.MaMKT != null ? e.Info.MaMKT : "",
                                                     e.Info.MKT != null ? e.Info.MKT : "",
                                                     e.Info.HKD != null ? e.Info.HKD : "",
                                                     e.Info.TenChienDich != null ? e.Info.TenChienDich : "",

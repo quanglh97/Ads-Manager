@@ -199,6 +199,7 @@ namespace AdsManager.form.dataTKQC
                         HoaDon.Ngay = Common.UnixTimeStampToDateTime(double.Parse(HoaDon.Ngay), TKQC.soTimeZone).ToString();
 
                         HoaDon.MKT = TKQC.MKT;
+                        HoaDon.MaMKT = TKQC.MaMKT;
                         HoaDon.HKD = TKQC.HKD;
 
                         HoaDonInstance.OnNewAccAdded(HoaDon);
@@ -249,6 +250,7 @@ namespace AdsManager.form.dataTKQC
                                                     e.Info.TenTaiKhoan != null ? e.Info.TenTaiKhoan : "",
                                                     e.Info.IDTKQC != null ? e.Info.IDTKQC : "",
                                                     e.Info.IDGiaoDich != null ? e.Info.IDGiaoDich : "",
+                                                    e.Info.MaMKT != null ? e.Info.MaMKT : "",
                                                     e.Info.MKT != null ? e.Info.MKT : "",
                                                     e.Info.HKD != null ? e.Info.HKD : "",
                                                     e.Info.Ngay != null ? e.Info.Ngay : "",
@@ -363,13 +365,14 @@ namespace AdsManager.form.dataTKQC
                                 TTTKQCInstance.lsTKQC[j].tongTienGoc += double.Parse(tien.Replace(" ", ""));
                             }
                         }
-                        TTTKQCInstance.lsTKQC[j].tongHoaDon++; 
+                        TTTKQCInstance.lsTKQC[j].tongHoaDon++;
                     }
                 }
                 HoaDonTKQCdataGridView.Rows.Insert(HoaDonTKQCdataGridView.Rows.Count - 1,
                     TTTKQCInstance.lsTKQC[j].trangThai,
                     TTTKQCInstance.lsTKQC[j].tenTK,
                     TTTKQCInstance.lsTKQC[j].ID,
+                    TTTKQCInstance.lsTKQC[j].MaMKT,
                     TTTKQCInstance.lsTKQC[j].MKT,
                     TTTKQCInstance.lsTKQC[j].HKD,
                     TTTKQCInstance.lsTKQC[j].tongHoaDon.ToString("N", nfi).Split(new string[] { ".00" }, StringSplitOptions.None)[0],

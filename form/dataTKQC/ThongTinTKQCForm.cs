@@ -279,12 +279,14 @@ namespace AdsManager
                     if (TKQC.tenTK.Contains(Common.lsMKTInfo[i].MaMKT))
                     {
                         TKQC.MKT = Common.lsMKTInfo[i].MKT;
+                        TKQC.MaMKT = Common.lsMKTInfo[i].MaMKT;
                         TKQC.HKD = Common.lsMKTInfo[i].HKD;
                         break;
                     }
                     else if(TKQC.ID.Contains(Common.lsMKTInfo[i].MaMKT))
                     {
                         TKQC.MKT = Common.lsMKTInfo[i].MKT;
+                        TKQC.MaMKT = Common.lsMKTInfo[i].MaMKT;
                         TKQC.HKD = Common.lsMKTInfo[i].HKD;
                         break;
                     }
@@ -392,6 +394,7 @@ namespace AdsManager
                                                     e.InfoAccount.trangThai != null ? e.InfoAccount.trangThai : "",
                                                     e.InfoAccount.ID != null ? e.InfoAccount.ID : "",
                                                     e.InfoAccount.tenTK != null ? e.InfoAccount.tenTK : "",
+                                                    e.InfoAccount.MaMKT != null ? e.InfoAccount.MaMKT : "",
                                                     e.InfoAccount.MKT != null ? e.InfoAccount.MKT : "",
                                                     e.InfoAccount.HKD != null ? e.InfoAccount.HKD : "",
                                                     e.InfoAccount.soDu != null ? double.Parse(e.InfoAccount.soDu).ToString("N", nfi).Split(new string[] { ".00" }, StringSplitOptions.None)[0] : "",

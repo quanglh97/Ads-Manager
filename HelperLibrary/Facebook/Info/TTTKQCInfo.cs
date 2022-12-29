@@ -36,6 +36,7 @@ namespace AdsManager.HelperLibrary.Facebook
         public string token { get; set; }
         public string dtsg { get; set; }
         public string MKT { get; set; }
+        public string MaMKT { get; set; }
         public string HKD { get; set; }
         public int soTimeZone { get; set; }
         public int tongHoaDon = 0;

@@ -29,21 +29,6 @@
         private void InitializeComponent()
         {
             this.ThongTinChienDichDataGridView = new System.Windows.Forms.DataGridView();
-            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenTKQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDTKQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HKD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenChienDich = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDChienDich = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenNhomQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDNhomQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.XemQC = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.ChiPhiQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayTaoQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TienTe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.vbButton23 = new AdsManager.VBButton();
             this.vbButton1 = new AdsManager.VBButton();
@@ -67,6 +52,22 @@
             this.loadingBtnTTCD = new AdsManager.VBButton();
             this.TTCD_RefreshBtn = new AdsManager.VBButton();
             this.elipseControl1 = new TakeCarePage.ElipseControl();
+            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenTKQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDTKQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaMKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HKD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenChienDich = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDChienDich = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNhomQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDNhomQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.XemQC = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.ChiPhiQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayTaoQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TienTe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ThongTinChienDichDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -83,6 +84,7 @@
             this.TrangThai,
             this.TenTKQC,
             this.IDTKQC,
+            this.MaMKT,
             this.MKT,
             this.HKD,
             this.TenChienDich,
@@ -105,124 +107,6 @@
             this.ThongTinChienDichDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ThongTinChienDichDataGridView_CellContentClick);
             this.ThongTinChienDichDataGridView.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.ThongTinChienDichDataGridView_RowPrePaint);
             this.ThongTinChienDichDataGridView.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.ThongTinChienDichDataGridView_SortCompare);
-            // 
-            // TrangThai
-            // 
-            this.TrangThai.HeaderText = "Trạng Thái";
-            this.TrangThai.MinimumWidth = 6;
-            this.TrangThai.Name = "TrangThai";
-            this.TrangThai.ReadOnly = true;
-            this.TrangThai.Width = 125;
-            // 
-            // TenTKQC
-            // 
-            this.TenTKQC.HeaderText = "Tên TKQC";
-            this.TenTKQC.MinimumWidth = 6;
-            this.TenTKQC.Name = "TenTKQC";
-            this.TenTKQC.ReadOnly = true;
-            this.TenTKQC.Width = 200;
-            // 
-            // IDTKQC
-            // 
-            this.IDTKQC.HeaderText = "ID TKQC";
-            this.IDTKQC.MinimumWidth = 6;
-            this.IDTKQC.Name = "IDTKQC";
-            this.IDTKQC.ReadOnly = true;
-            this.IDTKQC.Width = 150;
-            // 
-            // MKT
-            // 
-            this.MKT.HeaderText = "MKT";
-            this.MKT.Name = "MKT";
-            this.MKT.ReadOnly = true;
-            // 
-            // HKD
-            // 
-            this.HKD.HeaderText = "HKD";
-            this.HKD.Name = "HKD";
-            this.HKD.ReadOnly = true;
-            // 
-            // TenChienDich
-            // 
-            this.TenChienDich.HeaderText = "Tên chiến dịch";
-            this.TenChienDich.MinimumWidth = 6;
-            this.TenChienDich.Name = "TenChienDich";
-            this.TenChienDich.ReadOnly = true;
-            this.TenChienDich.Width = 200;
-            // 
-            // IDChienDich
-            // 
-            this.IDChienDich.HeaderText = "ID chiến dịch";
-            this.IDChienDich.MinimumWidth = 6;
-            this.IDChienDich.Name = "IDChienDich";
-            this.IDChienDich.ReadOnly = true;
-            this.IDChienDich.Width = 150;
-            // 
-            // TenNhomQC
-            // 
-            this.TenNhomQC.HeaderText = "Tên nhóm QC";
-            this.TenNhomQC.MinimumWidth = 6;
-            this.TenNhomQC.Name = "TenNhomQC";
-            this.TenNhomQC.ReadOnly = true;
-            this.TenNhomQC.Width = 200;
-            // 
-            // IDNhomQC
-            // 
-            this.IDNhomQC.HeaderText = "ID nhóm QC";
-            this.IDNhomQC.MinimumWidth = 6;
-            this.IDNhomQC.Name = "IDNhomQC";
-            this.IDNhomQC.ReadOnly = true;
-            this.IDNhomQC.Width = 150;
-            // 
-            // TenQC
-            // 
-            this.TenQC.HeaderText = "Tên quảng cáo";
-            this.TenQC.MinimumWidth = 6;
-            this.TenQC.Name = "TenQC";
-            this.TenQC.ReadOnly = true;
-            this.TenQC.Width = 200;
-            // 
-            // IDQC
-            // 
-            this.IDQC.HeaderText = "ID quảng cáo";
-            this.IDQC.MinimumWidth = 6;
-            this.IDQC.Name = "IDQC";
-            this.IDQC.ReadOnly = true;
-            this.IDQC.Width = 150;
-            // 
-            // XemQC
-            // 
-            this.XemQC.HeaderText = "Xem QC";
-            this.XemQC.MinimumWidth = 6;
-            this.XemQC.Name = "XemQC";
-            this.XemQC.ReadOnly = true;
-            this.XemQC.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.XemQC.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.XemQC.Width = 125;
-            // 
-            // ChiPhiQC
-            // 
-            this.ChiPhiQC.HeaderText = "Chi phí QC";
-            this.ChiPhiQC.MinimumWidth = 6;
-            this.ChiPhiQC.Name = "ChiPhiQC";
-            this.ChiPhiQC.ReadOnly = true;
-            this.ChiPhiQC.Width = 150;
-            // 
-            // NgayTaoQC
-            // 
-            this.NgayTaoQC.HeaderText = "Ngày tạo QC";
-            this.NgayTaoQC.MinimumWidth = 6;
-            this.NgayTaoQC.Name = "NgayTaoQC";
-            this.NgayTaoQC.ReadOnly = true;
-            this.NgayTaoQC.Width = 150;
-            // 
-            // TienTe
-            // 
-            this.TienTe.HeaderText = "Tiền tệ";
-            this.TienTe.MinimumWidth = 6;
-            this.TienTe.Name = "TienTe";
-            this.TienTe.ReadOnly = true;
-            this.TienTe.Width = 125;
             // 
             // panel1
             // 
@@ -565,6 +449,130 @@
             this.elipseControl1.CornerRadius = 15;
             this.elipseControl1.TargetControl = this.TTCDComboBox;
             // 
+            // TrangThai
+            // 
+            this.TrangThai.HeaderText = "Trạng Thái";
+            this.TrangThai.MinimumWidth = 6;
+            this.TrangThai.Name = "TrangThai";
+            this.TrangThai.ReadOnly = true;
+            this.TrangThai.Width = 125;
+            // 
+            // TenTKQC
+            // 
+            this.TenTKQC.HeaderText = "Tên TKQC";
+            this.TenTKQC.MinimumWidth = 6;
+            this.TenTKQC.Name = "TenTKQC";
+            this.TenTKQC.ReadOnly = true;
+            this.TenTKQC.Width = 200;
+            // 
+            // IDTKQC
+            // 
+            this.IDTKQC.HeaderText = "ID TKQC";
+            this.IDTKQC.MinimumWidth = 6;
+            this.IDTKQC.Name = "IDTKQC";
+            this.IDTKQC.ReadOnly = true;
+            this.IDTKQC.Width = 150;
+            // 
+            // MaMKT
+            // 
+            this.MaMKT.HeaderText = "Mã MKT";
+            this.MaMKT.Name = "MaMKT";
+            this.MaMKT.ReadOnly = true;
+            // 
+            // MKT
+            // 
+            this.MKT.HeaderText = "MKT";
+            this.MKT.Name = "MKT";
+            this.MKT.ReadOnly = true;
+            // 
+            // HKD
+            // 
+            this.HKD.HeaderText = "HKD";
+            this.HKD.Name = "HKD";
+            this.HKD.ReadOnly = true;
+            // 
+            // TenChienDich
+            // 
+            this.TenChienDich.HeaderText = "Tên chiến dịch";
+            this.TenChienDich.MinimumWidth = 6;
+            this.TenChienDich.Name = "TenChienDich";
+            this.TenChienDich.ReadOnly = true;
+            this.TenChienDich.Width = 200;
+            // 
+            // IDChienDich
+            // 
+            this.IDChienDich.HeaderText = "ID chiến dịch";
+            this.IDChienDich.MinimumWidth = 6;
+            this.IDChienDich.Name = "IDChienDich";
+            this.IDChienDich.ReadOnly = true;
+            this.IDChienDich.Width = 150;
+            // 
+            // TenNhomQC
+            // 
+            this.TenNhomQC.HeaderText = "Tên nhóm QC";
+            this.TenNhomQC.MinimumWidth = 6;
+            this.TenNhomQC.Name = "TenNhomQC";
+            this.TenNhomQC.ReadOnly = true;
+            this.TenNhomQC.Width = 200;
+            // 
+            // IDNhomQC
+            // 
+            this.IDNhomQC.HeaderText = "ID nhóm QC";
+            this.IDNhomQC.MinimumWidth = 6;
+            this.IDNhomQC.Name = "IDNhomQC";
+            this.IDNhomQC.ReadOnly = true;
+            this.IDNhomQC.Width = 150;
+            // 
+            // TenQC
+            // 
+            this.TenQC.HeaderText = "Tên quảng cáo";
+            this.TenQC.MinimumWidth = 6;
+            this.TenQC.Name = "TenQC";
+            this.TenQC.ReadOnly = true;
+            this.TenQC.Width = 200;
+            // 
+            // IDQC
+            // 
+            this.IDQC.HeaderText = "ID quảng cáo";
+            this.IDQC.MinimumWidth = 6;
+            this.IDQC.Name = "IDQC";
+            this.IDQC.ReadOnly = true;
+            this.IDQC.Width = 150;
+            // 
+            // XemQC
+            // 
+            this.XemQC.HeaderText = "Xem QC";
+            this.XemQC.MinimumWidth = 6;
+            this.XemQC.Name = "XemQC";
+            this.XemQC.ReadOnly = true;
+            this.XemQC.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.XemQC.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.XemQC.Width = 125;
+            // 
+            // ChiPhiQC
+            // 
+            this.ChiPhiQC.HeaderText = "Chi phí QC";
+            this.ChiPhiQC.MinimumWidth = 6;
+            this.ChiPhiQC.Name = "ChiPhiQC";
+            this.ChiPhiQC.ReadOnly = true;
+            this.ChiPhiQC.Width = 150;
+            // 
+            // NgayTaoQC
+            // 
+            this.NgayTaoQC.HeaderText = "Ngày tạo QC";
+            this.NgayTaoQC.MinimumWidth = 6;
+            this.NgayTaoQC.Name = "NgayTaoQC";
+            this.NgayTaoQC.ReadOnly = true;
+            this.NgayTaoQC.Width = 150;
+            // 
+            // TienTe
+            // 
+            this.TienTe.HeaderText = "Tiền tệ";
+            this.TienTe.MinimumWidth = 6;
+            this.TienTe.Name = "TienTe";
+            this.TienTe.ReadOnly = true;
+            this.TienTe.Width = 125;
+            // 
             // ThongTinChienDichForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -620,6 +628,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenTKQC;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDTKQC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaMKT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MKT;
         private System.Windows.Forms.DataGridViewTextBoxColumn HKD;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenChienDich;

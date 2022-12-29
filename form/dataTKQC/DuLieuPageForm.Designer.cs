@@ -43,6 +43,7 @@
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenTKQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDTKQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaMKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HKD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenPage = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -187,6 +188,7 @@
             this.TrangThai,
             this.TenTKQC,
             this.IDTKQC,
+            this.MaMKT,
             this.MKT,
             this.HKD,
             this.TenPage,
@@ -286,6 +288,12 @@
             this.IDTKQC.Name = "IDTKQC";
             this.IDTKQC.ReadOnly = true;
             this.IDTKQC.Width = 150;
+            // 
+            // MaMKT
+            // 
+            this.MaMKT.HeaderText = "Mã MKT";
+            this.MaMKT.Name = "MaMKT";
+            this.MaMKT.ReadOnly = true;
             // 
             // MKT
             // 
@@ -403,6 +411,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenTKQC;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDTKQC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaMKT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MKT;
         private System.Windows.Forms.DataGridViewTextBoxColumn HKD;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenPage;
