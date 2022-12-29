@@ -1,33 +1,17 @@
-﻿using AdsManager.HelperLibrary;
-using AdsManager.HelperLibrary.Facebook;
-using AdsManager.HelperLibrary.Facebook.Info;
-using AdsManager.HelperLibrary.Facebook.Instance;
-using Newtonsoft.Json.Linq;
-using RestSharp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Globalization;
-using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TakeCarePage;
-using Excel = Microsoft.Office.Interop.Excel;
 
 namespace AdsManager.form.dataTKQC
 {
     public partial class DuLieuPageForm : Form
     {
-        BackgroundWorker dataPage_Worker = null;
-
-        volatile int live_thread_number = 0;
-        Queue<int> qu_position_pro5 = new Queue<int>();
-
         public DuLieuPageForm()
         {
             InitializeComponent();
