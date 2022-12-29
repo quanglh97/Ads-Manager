@@ -14,7 +14,7 @@ namespace AdsManager.HelperLibrary.Facebook.Info
 
         public MKTInfo()
         { }
-        public MKTInfo(string newInfo)
+        public MKTInfo(string newInfo) //test commit
         {
             try
             {
