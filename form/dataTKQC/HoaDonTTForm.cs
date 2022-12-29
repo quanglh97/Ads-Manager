@@ -363,7 +363,7 @@ namespace AdsManager.form.dataTKQC
                                 TTTKQCInstance.lsTKQC[j].tongTienGoc += double.Parse(tien.Replace(" ", ""));
                             }
                         }
-                        TTTKQCInstance.lsTKQC[j].tongHoaDon++; 
+                        TTTKQCInstance.lsTKQC[j].tongHoaDon++;
                     }
                 }
                 HoaDonTKQCdataGridView.Rows.Insert(HoaDonTKQCdataGridView.Rows.Count - 1,
