@@ -184,10 +184,27 @@ namespace AdsManager.form.dataTKQC
                             dataPage.tienTe = tienTe;
                             dataPage.linkPage = "https://www.facebook.com/" + dataPage.idPage;
 
-                            dataPage.MKT = TKQC.MKT;
-                            dataPage.MaMKT = TKQC.MaMKT;
-                            dataPage.HKD = TKQC.HKD;
+                            //dataPage.MKT = TKQC.MKT;
+                            //dataPage.MaMKT = TKQC.MaMKT;
+                            //dataPage.HKD = TKQC.HKD;
 
+                            for (int i = 0; i < Common.lsPageMKTInfo.Count; i++)
+                            {
+                                if (dataPage.tenPage.Contains(Common.lsPageMKTInfo[i].MaMKT))
+                                {
+                                    dataPage.MKT = Common.lsPageMKTInfo[i].MKT;
+                                    dataPage.MaMKT = Common.lsPageMKTInfo[i].MaMKT;
+                                    dataPage.HKD = Common.lsPageMKTInfo[i].HKD;
+                                    break;
+                                }
+                                else if (dataPage.idPage.Contains(Common.lsPageMKTInfo[i].IdPage))
+                                {
+                                    dataPage.MKT = Common.lsPageMKTInfo[i].MKT;
+                                    dataPage.MaMKT = Common.lsPageMKTInfo[i].MaMKT;
+                                    dataPage.HKD = Common.lsPageMKTInfo[i].HKD;
+                                    break;
+                                }
+                            }
                             DataPageInstance.OnNewAccAdded(dataPage);
                             DataPageInstance.lsDataPage.Add(dataPage);
                             DataPageInstance.lsViewDataPage.Add(dataPage);
@@ -285,7 +302,8 @@ namespace AdsManager.form.dataTKQC
             {
                 if (cookie == "") break;
                 var datacookie = cookie.Trim().Split('=');
-                request.AddCookie(datacookie[0].Trim(), datacookie[1].Trim());
+                if(datacookie.Length>1)
+                    request.AddCookie(datacookie[0].Trim(), datacookie[1].Trim());
             }
             request.AddHeader("origin", "https://business.facebook.com");
             request.AddHeader("referer", "https://business.facebook.com/");
@@ -309,7 +327,7 @@ namespace AdsManager.form.dataTKQC
             loadingBtn.Visible = true;
             DuLieuPageDataGridView.Rows.Clear();
             DuLieuPage_RefreshBtn.BackgroundColor = Color.FromArgb(255, 198, 65, 24);
-
+            Common.ImportMKTInfo();
             DataPageInstance.fromDate = dateTimePicker1.Value.AddDays(-3000).ToShortDateString();
             DataPageInstance.toDate = dateTimePicker1.Value.ToShortDateString();
 

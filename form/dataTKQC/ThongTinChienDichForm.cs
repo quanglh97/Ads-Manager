@@ -359,7 +359,7 @@ namespace AdsManager.form.dataTKQC
                                 {
                                     TTCD.MKT = Common.lsMKTInfo[i].MKT;
                                     TTCD.MaMKT = Common.lsMKTInfo[i].MaMKT;
-                                    TTCD.HKD = Common.lsMKTInfo[i].HKD;
+                                    TTCD.HKD = Common.lsMKTInfo[i].HKD;  
                                     break;
                                 }
                                 else if(TTCD.TenNhomQC.Replace(" ", "").Contains(Common.lsMKTInfo[i].MaMKT))

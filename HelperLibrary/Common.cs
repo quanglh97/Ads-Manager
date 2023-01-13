@@ -16,6 +16,7 @@ namespace AdsManager.HelperLibrary
     {
         public static string key { get; set; }
         public static List<MKTInfo> lsMKTInfo = new List<MKTInfo>();
+        public static List<PageMKTInfo> lsPageMKTInfo = new List<PageMKTInfo>();
         public static string GetKey()
         {
             string deviceId = new DeviceIdBuilder().AddMachineName()
@@ -120,6 +121,7 @@ namespace AdsManager.HelperLibrary
         public static void ImportMKTInfo()
         {
             lsMKTInfo.Clear();
+            lsPageMKTInfo.Clear();
 
             var dataFolder = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data");
             if (!Directory.Exists(dataFolder))
@@ -127,6 +129,7 @@ namespace AdsManager.HelperLibrary
                 Directory.CreateDirectory(dataFolder);
             }
             var fileMKT = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "ThongTinMKT_HKD.txt");
+            var filePageMKT = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "ThongTinPageMKT_HKD.txt");
             if (!File.Exists(fileMKT))
             {
                 return;
@@ -139,6 +142,20 @@ namespace AdsManager.HelperLibrary
                     MKTInfo item = new MKTInfo(data[i]);
                     lsMKTInfo.Add(item);
                 }   
+            }
+            catch { }
+            if (!File.Exists(filePageMKT))
+            {
+                return;
+            }
+            try
+            {
+                string[] data = File.ReadAllText(filePageMKT).Trim().Split('\n');
+                for (int i = 0; i < data.Length; i++)
+                {
+                    PageMKTInfo item = new PageMKTInfo(data[i]);
+                    lsPageMKTInfo.Add(item);
+                }
             }
             catch { }
         }

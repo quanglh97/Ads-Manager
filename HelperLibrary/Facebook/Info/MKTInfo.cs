@@ -48,4 +48,47 @@ namespace AdsManager.HelperLibrary.Facebook.Info
             }
         }
     }
+
+    public class PageMKTInfo
+    {
+        public string IdPage { get; set; }
+        public string MaMKT { get; set; }
+        public string MKT { get; set; }
+        public string HKD { get; set; }
+
+        public PageMKTInfo()
+        { }
+        public PageMKTInfo(string newInfo) //test commit
+        {
+            try
+            {
+                var elementInfo = newInfo.Split('|');
+                if (elementInfo.Length == 4)
+                {
+                    this.IdPage = elementInfo[0].Trim();
+                    this.MaMKT = elementInfo[1].Trim();
+                    this.MKT = elementInfo[2].Trim();
+                    this.HKD = elementInfo[3].Trim();
+                }
+                else if (elementInfo.Length == 3)
+                {
+                    this.IdPage = elementInfo[0].Trim();
+                    this.MaMKT = elementInfo[1].Trim();
+                    this.MKT = elementInfo[2].Trim();
+                    this.HKD = "";
+                }
+                else if (elementInfo.Length == 2)
+                {
+                    this.IdPage = elementInfo[0].Trim();
+                    this.MaMKT = elementInfo[1].Trim();
+                    this.MKT = "";
+
+                }
+            }
+            catch
+            {
+
+            }
+        }
+    }
 }
