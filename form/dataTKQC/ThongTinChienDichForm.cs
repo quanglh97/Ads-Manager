@@ -355,21 +355,21 @@ namespace AdsManager.form.dataTKQC
 
                             for (int i = 0; i < Common.lsMKTInfo.Count; i++)
                             {
-                                if (TTCD.TenChienDich.Contains(Common.lsMKTInfo[i].MaMKT))
+                                if (TTCD.TenChienDich.Replace(" ", ""). Contains(Common.lsMKTInfo[i].MaMKT))
                                 {
                                     TTCD.MKT = Common.lsMKTInfo[i].MKT;
                                     TTCD.MaMKT = Common.lsMKTInfo[i].MaMKT;
                                     TTCD.HKD = Common.lsMKTInfo[i].HKD;
                                     break;
                                 }
-                                else if(TTCD.TenNhomQC.Contains(Common.lsMKTInfo[i].MaMKT))
+                                else if(TTCD.TenNhomQC.Replace(" ", "").Contains(Common.lsMKTInfo[i].MaMKT))
                                 {
                                     TTCD.MKT = Common.lsMKTInfo[i].MKT;
                                     TTCD.MaMKT = Common.lsMKTInfo[i].MaMKT;
                                     TTCD.HKD = Common.lsMKTInfo[i].HKD;
                                     break;
                                 }
-                                else if (TTCD.TenQC.Contains(Common.lsMKTInfo[i].MaMKT))
+                                else if (TTCD.TenQC.Replace(" ", "").Contains(Common.lsMKTInfo[i].MaMKT))
                                 {
                                     TTCD.MKT = Common.lsMKTInfo[i].MKT;
                                     TTCD.MaMKT = Common.lsMKTInfo[i].MaMKT;
@@ -380,13 +380,7 @@ namespace AdsManager.form.dataTKQC
                             if(TTCD.MKT == ""|| TTCD.MKT == null)
                             {
                                 TTCD.MKT = TKQC.MKT;
-                            }
-                            if (TTCD.MaMKT == "" || TTCD.MaMKT == null)
-                            {
                                 TTCD.MaMKT = TKQC.MaMKT;
-                            }
-                            if (TTCD.HKD == "" || TTCD.HKD == null)
-                            {
                                 TTCD.HKD = TKQC.HKD;
                             }
 
@@ -985,7 +979,7 @@ namespace AdsManager.form.dataTKQC
 
         private void ThongTinChienDichDataGridView_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
         {
-            if (e.Column.Index == 12)
+            if (e.Column.Index == 13)
             {
                 e.SortResult = double.Parse(e.CellValue1.ToString()).CompareTo(double.Parse(e.CellValue2.ToString()));
                 e.Handled = true;//pass by the default sorting

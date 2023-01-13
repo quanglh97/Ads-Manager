@@ -75,6 +75,7 @@ namespace AdsManager.HelperLibrary.Facebook
             this.token = item.token;
             this.dtsg = item.dtsg;
             this.MKT = item.MKT;
+            this.MaMKT = item.MaMKT;
             this.HKD = item.HKD;
             this.soTimeZone = item.soTimeZone;
         }

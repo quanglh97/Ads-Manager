@@ -35,6 +35,28 @@
             this.TongTieuToTal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongSoDu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.thongTinTKQCDataGridView = new System.Windows.Forms.DataGridView();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaMKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HKD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nguong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Limmit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NguongConLai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongTieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TienTe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeZone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuocGiaTKQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LoaiTK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TaoTuBM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaytaoTK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SLThe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DuoiThe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoNgayDenKiTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LiDoDisable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.vbButton23 = new AdsManager.VBButton();
             this.vbButton1 = new AdsManager.VBButton();
@@ -59,28 +81,6 @@
             this.elipseControl1 = new TakeCarePage.ElipseControl();
             this.loadingBtnTKQC = new AdsManager.VBButton();
             this.TTTKQC_RefreshBtn = new AdsManager.VBButton();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaMKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HKD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nguong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Limmit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NguongConLai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TongTieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TienTe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TimeZone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QuocGiaTKQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LoaiTK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TaoTuBM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgaytaoTK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SLThe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DuoiThe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoNgayDenKiTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LiDoDisable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.thongTinTKQCToTalDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thongTinTKQCDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
@@ -170,6 +170,153 @@
             this.thongTinTKQCDataGridView.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.thongTinTKQCDataGridView_RowPrePaint);
             this.thongTinTKQCDataGridView.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.thongTinTKQCDataGridView_SortCompare);
             this.thongTinTKQCDataGridView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.thongTinTKQCDataGridView_MouseDown);
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Trạng thái";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 150;
+            // 
+            // AccName
+            // 
+            this.AccName.HeaderText = "Tên tài khoản";
+            this.AccName.Name = "AccName";
+            this.AccName.ReadOnly = true;
+            this.AccName.Width = 150;
+            // 
+            // MaMKT
+            // 
+            this.MaMKT.HeaderText = "Mã MKT";
+            this.MaMKT.Name = "MaMKT";
+            this.MaMKT.ReadOnly = true;
+            // 
+            // MKT
+            // 
+            this.MKT.HeaderText = "MKT";
+            this.MKT.Name = "MKT";
+            this.MKT.ReadOnly = true;
+            // 
+            // HKD
+            // 
+            this.HKD.HeaderText = "HKD";
+            this.HKD.Name = "HKD";
+            this.HKD.ReadOnly = true;
+            // 
+            // Sodu
+            // 
+            this.Sodu.HeaderText = "Số dư";
+            this.Sodu.Name = "Sodu";
+            this.Sodu.ReadOnly = true;
+            this.Sodu.Width = 80;
+            // 
+            // Nguong
+            // 
+            this.Nguong.HeaderText = "Ngưỡng";
+            this.Nguong.Name = "Nguong";
+            this.Nguong.ReadOnly = true;
+            this.Nguong.Width = 80;
+            // 
+            // Limmit
+            // 
+            this.Limmit.HeaderText = "Limit";
+            this.Limmit.Name = "Limmit";
+            this.Limmit.ReadOnly = true;
+            this.Limmit.Width = 80;
+            // 
+            // NguongConLai
+            // 
+            this.NguongConLai.HeaderText = "Ngưỡng còn lại";
+            this.NguongConLai.Name = "NguongConLai";
+            this.NguongConLai.ReadOnly = true;
+            this.NguongConLai.Width = 130;
+            // 
+            // TongTieu
+            // 
+            this.TongTieu.HeaderText = "Tổng tiêu";
+            this.TongTieu.Name = "TongTieu";
+            this.TongTieu.ReadOnly = true;
+            this.TongTieu.Width = 180;
+            // 
+            // TienTe
+            // 
+            this.TienTe.HeaderText = "Tiền tệ";
+            this.TienTe.Name = "TienTe";
+            this.TienTe.ReadOnly = true;
+            // 
+            // Role
+            // 
+            this.Role.HeaderText = "Role";
+            this.Role.Name = "Role";
+            this.Role.ReadOnly = true;
+            this.Role.Width = 80;
+            // 
+            // TimeZone
+            // 
+            this.TimeZone.HeaderText = "Time zone";
+            this.TimeZone.Name = "TimeZone";
+            this.TimeZone.ReadOnly = true;
+            this.TimeZone.Width = 150;
+            // 
+            // QuocGiaTKQC
+            // 
+            this.QuocGiaTKQC.HeaderText = "Quốc gia TKQC";
+            this.QuocGiaTKQC.Name = "QuocGiaTKQC";
+            this.QuocGiaTKQC.ReadOnly = true;
+            this.QuocGiaTKQC.Width = 150;
+            // 
+            // LoaiTK
+            // 
+            this.LoaiTK.HeaderText = "Loại TK";
+            this.LoaiTK.Name = "LoaiTK";
+            this.LoaiTK.ReadOnly = true;
+            // 
+            // TaoTuBM
+            // 
+            this.TaoTuBM.HeaderText = "Tạo từ BM";
+            this.TaoTuBM.Name = "TaoTuBM";
+            this.TaoTuBM.ReadOnly = true;
+            this.TaoTuBM.Width = 150;
+            // 
+            // NgaytaoTK
+            // 
+            this.NgaytaoTK.HeaderText = "Ngày tạo tài khoản";
+            this.NgaytaoTK.Name = "NgaytaoTK";
+            this.NgaytaoTK.ReadOnly = true;
+            this.NgaytaoTK.Width = 150;
+            // 
+            // SLThe
+            // 
+            this.SLThe.HeaderText = "SL thẻ";
+            this.SLThe.Name = "SLThe";
+            this.SLThe.ReadOnly = true;
+            // 
+            // DuoiThe
+            // 
+            this.DuoiThe.HeaderText = "Đuôi thẻ";
+            this.DuoiThe.Name = "DuoiThe";
+            this.DuoiThe.ReadOnly = true;
+            this.DuoiThe.Width = 150;
+            // 
+            // SoNgayDenKiTT
+            // 
+            this.SoNgayDenKiTT.HeaderText = "Số ngày đến kì TT";
+            this.SoNgayDenKiTT.Name = "SoNgayDenKiTT";
+            this.SoNgayDenKiTT.ReadOnly = true;
+            this.SoNgayDenKiTT.Width = 150;
+            // 
+            // LiDoDisable
+            // 
+            this.LiDoDisable.HeaderText = "Lí do Disable";
+            this.LiDoDisable.Name = "LiDoDisable";
+            this.LiDoDisable.ReadOnly = true;
+            this.LiDoDisable.Width = 150;
             // 
             // panel1
             // 
@@ -497,153 +644,6 @@
             this.TTTKQC_RefreshBtn.TextColor = System.Drawing.Color.Black;
             this.TTTKQC_RefreshBtn.UseVisualStyleBackColor = false;
             this.TTTKQC_RefreshBtn.Click += new System.EventHandler(this.TTTKQC_RefreshBtn_Click);
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Trạng thái";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 150;
-            // 
-            // AccName
-            // 
-            this.AccName.HeaderText = "Tên tài khoản";
-            this.AccName.Name = "AccName";
-            this.AccName.ReadOnly = true;
-            this.AccName.Width = 150;
-            // 
-            // MaMKT
-            // 
-            this.MaMKT.HeaderText = "Mã MKT";
-            this.MaMKT.Name = "MaMKT";
-            this.MaMKT.ReadOnly = true;
-            // 
-            // MKT
-            // 
-            this.MKT.HeaderText = "MKT";
-            this.MKT.Name = "MKT";
-            this.MKT.ReadOnly = true;
-            // 
-            // HKD
-            // 
-            this.HKD.HeaderText = "HKD";
-            this.HKD.Name = "HKD";
-            this.HKD.ReadOnly = true;
-            // 
-            // Sodu
-            // 
-            this.Sodu.HeaderText = "Số dư";
-            this.Sodu.Name = "Sodu";
-            this.Sodu.ReadOnly = true;
-            this.Sodu.Width = 80;
-            // 
-            // Nguong
-            // 
-            this.Nguong.HeaderText = "Ngưỡng";
-            this.Nguong.Name = "Nguong";
-            this.Nguong.ReadOnly = true;
-            this.Nguong.Width = 80;
-            // 
-            // Limmit
-            // 
-            this.Limmit.HeaderText = "Limit";
-            this.Limmit.Name = "Limmit";
-            this.Limmit.ReadOnly = true;
-            this.Limmit.Width = 80;
-            // 
-            // NguongConLai
-            // 
-            this.NguongConLai.HeaderText = "Ngưỡng còn lại";
-            this.NguongConLai.Name = "NguongConLai";
-            this.NguongConLai.ReadOnly = true;
-            this.NguongConLai.Width = 130;
-            // 
-            // TongTieu
-            // 
-            this.TongTieu.HeaderText = "Tổng tiêu";
-            this.TongTieu.Name = "TongTieu";
-            this.TongTieu.ReadOnly = true;
-            this.TongTieu.Width = 180;
-            // 
-            // TienTe
-            // 
-            this.TienTe.HeaderText = "Tiền tệ";
-            this.TienTe.Name = "TienTe";
-            this.TienTe.ReadOnly = true;
-            // 
-            // Role
-            // 
-            this.Role.HeaderText = "Role";
-            this.Role.Name = "Role";
-            this.Role.ReadOnly = true;
-            this.Role.Width = 80;
-            // 
-            // TimeZone
-            // 
-            this.TimeZone.HeaderText = "Time zone";
-            this.TimeZone.Name = "TimeZone";
-            this.TimeZone.ReadOnly = true;
-            this.TimeZone.Width = 150;
-            // 
-            // QuocGiaTKQC
-            // 
-            this.QuocGiaTKQC.HeaderText = "Quốc gia TKQC";
-            this.QuocGiaTKQC.Name = "QuocGiaTKQC";
-            this.QuocGiaTKQC.ReadOnly = true;
-            this.QuocGiaTKQC.Width = 150;
-            // 
-            // LoaiTK
-            // 
-            this.LoaiTK.HeaderText = "Loại TK";
-            this.LoaiTK.Name = "LoaiTK";
-            this.LoaiTK.ReadOnly = true;
-            // 
-            // TaoTuBM
-            // 
-            this.TaoTuBM.HeaderText = "Tạo từ BM";
-            this.TaoTuBM.Name = "TaoTuBM";
-            this.TaoTuBM.ReadOnly = true;
-            this.TaoTuBM.Width = 150;
-            // 
-            // NgaytaoTK
-            // 
-            this.NgaytaoTK.HeaderText = "Ngày tạo tài khoản";
-            this.NgaytaoTK.Name = "NgaytaoTK";
-            this.NgaytaoTK.ReadOnly = true;
-            this.NgaytaoTK.Width = 150;
-            // 
-            // SLThe
-            // 
-            this.SLThe.HeaderText = "SL thẻ";
-            this.SLThe.Name = "SLThe";
-            this.SLThe.ReadOnly = true;
-            // 
-            // DuoiThe
-            // 
-            this.DuoiThe.HeaderText = "Đuôi thẻ";
-            this.DuoiThe.Name = "DuoiThe";
-            this.DuoiThe.ReadOnly = true;
-            this.DuoiThe.Width = 150;
-            // 
-            // SoNgayDenKiTT
-            // 
-            this.SoNgayDenKiTT.HeaderText = "Số ngày đến kì TT";
-            this.SoNgayDenKiTT.Name = "SoNgayDenKiTT";
-            this.SoNgayDenKiTT.ReadOnly = true;
-            this.SoNgayDenKiTT.Width = 150;
-            // 
-            // LiDoDisable
-            // 
-            this.LiDoDisable.HeaderText = "Lí do Disable";
-            this.LiDoDisable.Name = "LiDoDisable";
-            this.LiDoDisable.ReadOnly = true;
-            this.LiDoDisable.Width = 150;
             // 
             // ThongTinTKQCForm
             // 

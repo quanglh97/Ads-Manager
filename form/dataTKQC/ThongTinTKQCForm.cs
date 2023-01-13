@@ -283,7 +283,7 @@ namespace AdsManager
                         TKQC.HKD = Common.lsMKTInfo[i].HKD;
                         break;
                     }
-                    else if(TKQC.ID.Contains(Common.lsMKTInfo[i].MaMKT))
+                    else if(TKQC.ID.Contains(Common.lsMKTInfo[i].IdTKQC))
                     {
                         TKQC.MKT = Common.lsMKTInfo[i].MKT;
                         TKQC.MaMKT = Common.lsMKTInfo[i].MaMKT;
@@ -1062,8 +1062,8 @@ namespace AdsManager
 
         private void thongTinTKQCDataGridView_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
         {
-            if (e.Column.Index == 5|| e.Column.Index == 6 || e.Column.Index == 7 || e.Column.Index ==8||
-                e.Column.Index == 9)
+            if (e.Column.Index == 6|| e.Column.Index == 7 || e.Column.Index == 8|| e.Column.Index ==9||
+                e.Column.Index == 10)
             {
                 try
                 {

@@ -530,7 +530,7 @@ namespace AdsManager.form.dataTKQC
 
         private void DuLieuPageDataGridView_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
         {
-            if (e.Column.Index == 5 || e.Column.Index == 6 || e.Column.Index == 7 || e.Column.Index == 8)
+            if (e.Column.Index == 6 || e.Column.Index == 7 || e.Column.Index == 8 || e.Column.Index == 9)
             {
                 e.SortResult = double.Parse(e.CellValue1.ToString()).CompareTo(double.Parse(e.CellValue2.ToString()));
                 e.Handled = true;//pass by the default sorting
