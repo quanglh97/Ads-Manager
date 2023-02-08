@@ -124,7 +124,7 @@ namespace TakeCarePage
                 }
                 if (!existKey)
                 {
-                    Logger.CreateEntry(Common.key);
+                    //Logger.CreateEntry(Common.key);
                 }
                 Thread.Sleep(10000);
             }

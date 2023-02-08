@@ -334,6 +334,11 @@ namespace AdsManager.form.dataTKQC
                             TTCD.IdTKQC = TKQC.ID;
                             TTCD.TenTKQC = TKQC.tenTK;
                             TTCD.tienTe = TKQC.tienTe;
+
+                            DateTime dateNgayTaoQC = DateTime.ParseExact(TTCD.ngayTaoQC, "MM/dd/yyyy",System.Globalization.CultureInfo.InvariantCulture);
+
+                            TTCD.ngayTaoQC = dateNgayTaoQC.AddHours(int.Parse(TKQC.timeZone.Split('/')[2]) - 7).ToShortDateString();
+
                             //if (postAds.ContainsKey(AdsId))
                             //{
                             //    TTCD.xemQC = "https://fb.com/" + postAds[AdsId];
@@ -633,7 +638,7 @@ namespace AdsManager.form.dataTKQC
         {
             try
             {
-                var url = $"https://graph.facebook.com/v13.0/?access_token={token}&__business_id={businessId}&fields=%5B%22account_id%22%2C%22ad_creation_package_config%22%2C%22ad_strategy_group_id%22%2C%22ad_strategy_id%22%2C%22adlabels%22%2C%22benchmark_report_count%22%2C%22bid_strategy%22%2C%22boosted_component_client_app_id%22%2C%22boosted_component_product%22%2C%22boosted_page_id%22%2C%22brand_lift_studies%22%2C%22budget_remaining%22%2C%22buying_type%22%2C%22can_use_spend_cap%22%2C%22collaborative_ads_partner_info%22%2C%22created_time%22%2C%22daily_budget%22%2C%22effective_status%22%2C%22has_secondary_skadnetwork_reporting%22%2C%22id%22%2C%22is_autobid%22%2C%22is_average_price_pacing%22%2C%22is_job_openning_post%22%2C%22is_odax_campaign_group%22%2C%22is_skadnetwork_attribution%22%2C%22is_using_l3_schedule%22%2C%22last_budget_toggling_time%22%2C%22lifetime_budget%22%2C%22lifetime_spent%22%2C%22name%22%2C%22naming_template_custom_fields%22%2C%22objective%22%2C%22pacing_type%22%2C%22primary_attribution%22%2C%22promoted_object%22%2C%22smart_promotion_type%22%2C%22special_ad_categories%22%2C%22special_ad_category%22%2C%22special_ad_category_country%22%2C%22spend_cap%22%2C%22split_test_config%22%2C%22split_test_status%22%2C%22start_time%22%2C%22status%22%2C%22stop_time%22%2C%22study_ids%22%2C%22today_spent%22%2C%22topline_id%22%2C%22updated_time%22%2C%22yesterday_spent%22%5D&ids={lsIds}";
+                var url = $"https://graph.facebook.com/v14.0/?access_token={token}&__business_id={businessId}&fields=%5B%22account_id%22%2C%22ad_creation_package_config%22%2C%22ad_strategy_group_id%22%2C%22ad_strategy_id%22%2C%22adlabels%22%2C%22benchmark_report_count%22%2C%22bid_strategy%22%2C%22boosted_component_client_app_id%22%2C%22boosted_component_product%22%2C%22boosted_page_id%22%2C%22brand_lift_studies%22%2C%22budget_remaining%22%2C%22buying_type%22%2C%22can_use_spend_cap%22%2C%22collaborative_ads_partner_info%22%2C%22created_time%22%2C%22daily_budget%22%2C%22effective_status%22%2C%22has_secondary_skadnetwork_reporting%22%2C%22id%22%2C%22is_autobid%22%2C%22is_average_price_pacing%22%2C%22is_job_openning_post%22%2C%22is_odax_campaign_group%22%2C%22is_skadnetwork_attribution%22%2C%22is_using_l3_schedule%22%2C%22last_budget_toggling_time%22%2C%22lifetime_budget%22%2C%22lifetime_spent%22%2C%22name%22%2C%22naming_template_custom_fields%22%2C%22objective%22%2C%22pacing_type%22%2C%22primary_attribution%22%2C%22promoted_object%22%2C%22smart_promotion_type%22%2C%22special_ad_categories%22%2C%22special_ad_category%22%2C%22special_ad_category_country%22%2C%22spend_cap%22%2C%22split_test_config%22%2C%22split_test_status%22%2C%22start_time%22%2C%22status%22%2C%22stop_time%22%2C%22study_ids%22%2C%22today_spent%22%2C%22topline_id%22%2C%22updated_time%22%2C%22yesterday_spent%22%5D&ids={lsIds}";
 
                 var httpRequest = (HttpWebRequest)WebRequest.Create(url);
 
@@ -860,6 +865,11 @@ namespace AdsManager.form.dataTKQC
                         TTCDInstance.lsViewTTCD.Add(TTCDInstance.lsTTCD[i]);
                     }
                     else if (TTCDInstance.lsTTCD[i].tienTe != null && TTCDInstance.lsTTCD[i].tienTe.ToLower().Contains(TTCDInstance.searchData.ToLower()))
+                    {
+                        TTCDInstance.OnNewAccAdded(TTCDInstance.lsTTCD[i]);
+                        TTCDInstance.lsViewTTCD.Add(TTCDInstance.lsTTCD[i]);
+                    }
+                    else if (TTCDInstance.lsTTCD[i].xemQC != null && TTCDInstance.lsTTCD[i].xemQC.ToLower().Contains(TTCDInstance.searchData.ToLower()))
                     {
                         TTCDInstance.OnNewAccAdded(TTCDInstance.lsTTCD[i]);
                         TTCDInstance.lsViewTTCD.Add(TTCDInstance.lsTTCD[i]);

@@ -190,14 +190,15 @@ namespace AdsManager.form.dataTKQC
 
                             for (int i = 0; i < Common.lsPageMKTInfo.Count; i++)
                             {
-                                if (dataPage.tenPage.Contains(Common.lsPageMKTInfo[i].MaMKT))
-                                {
-                                    dataPage.MKT = Common.lsPageMKTInfo[i].MKT;
-                                    dataPage.MaMKT = Common.lsPageMKTInfo[i].MaMKT;
-                                    dataPage.HKD = Common.lsPageMKTInfo[i].HKD;
-                                    break;
-                                }
-                                else if (dataPage.idPage.Contains(Common.lsPageMKTInfo[i].IdPage))
+                                //if (dataPage.tenPage.Contains(Common.lsPageMKTInfo[i].MaMKT))
+                                //{
+                                //    dataPage.MKT = Common.lsPageMKTInfo[i].MKT;
+                                //    dataPage.MaMKT = Common.lsPageMKTInfo[i].MaMKT;
+                                //    dataPage.HKD = Common.lsPageMKTInfo[i].HKD;
+                                //    break;
+                                //}
+                                //else 
+                                if (dataPage.idPage.Contains(Common.lsPageMKTInfo[i].IdPage))
                                 {
                                     dataPage.MKT = Common.lsPageMKTInfo[i].MKT;
                                     dataPage.MaMKT = Common.lsPageMKTInfo[i].MaMKT;
@@ -548,7 +549,7 @@ namespace AdsManager.form.dataTKQC
 
         private void DuLieuPageDataGridView_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
         {
-            if (e.Column.Index == 6 || e.Column.Index == 7 || e.Column.Index == 8 || e.Column.Index == 9)
+            if ( e.Column.Index == 7 || e.Column.Index == 8 || e.Column.Index == 9)
             {
                 e.SortResult = double.Parse(e.CellValue1.ToString()).CompareTo(double.Parse(e.CellValue2.ToString()));
                 e.Handled = true;//pass by the default sorting

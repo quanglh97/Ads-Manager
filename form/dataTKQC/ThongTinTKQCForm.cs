@@ -439,7 +439,7 @@ namespace AdsManager
 
         public static string RequestTTTKQCAsync(string userId, string token, string cookie)
         {
-            var url = $"https://graph.facebook.com/v13.0/me/adaccounts?limit={TTTKQCInstance.limit.ToString()}&fields=name,account_id,account_status,userpermissions.user({userId})%7Brole%7D&access_token={token}&summary=1&locale=en_US";
+            var url = $"https://graph.facebook.com/v14.0/me/adaccounts?limit={TTTKQCInstance.limit.ToString()}&fields=name,account_id,account_status,userpermissions.user({userId})%7Brole%7D&access_token={token}&summary=1&locale=en_US";
 
             var httpRequest = (HttpWebRequest)WebRequest.Create(url);
 
@@ -457,7 +457,7 @@ namespace AdsManager
 
         public static string RequestFullInfoTTTKQCAsync(string accId, string token, string coookie)
         {
-            var url = $"https://graph.facebook.com/v13.0/act_{accId}?fields=account_id,owner_business,created_time,next_bill_date,currency,adtrust_dsl,timezone_name,timezone_offset_hours_utc,business_country_code,disable_reason,adspaymentcycle{{threshold_amount}},balance,is_prepay_account,owner,all_payment_methods{{pm_credit_card{{display_string}}}},insights.date_preset(maximum){{spend}}&access_token={token}&locale=en_US";
+            var url = $"https://graph.facebook.com/v14.0/act_{accId}?fields=account_id,owner_business,created_time,next_bill_date,currency,adtrust_dsl,timezone_name,timezone_offset_hours_utc,business_country_code,disable_reason,adspaymentcycle{{threshold_amount}},balance,is_prepay_account,owner,all_payment_methods{{pm_credit_card{{display_string}}}},insights.date_preset(maximum){{spend}}&access_token={token}&locale=en_US";
 
             var httpRequest = (HttpWebRequest)WebRequest.Create(url);
 

@@ -221,7 +221,7 @@ namespace AdsManager.form.dataTKQC
 
         public static string RequestTTBM(string userId, string token, string cookie)
         {
-            var url = $"https://graph.facebook.com/v13.0/me/businesses?fields=name,id,verification_status,business_users,allow_page_management_in_www,sharing_eligibility_status,created_time,permitted_roles,client_ad_accounts.summary(1),owned_ad_accounts.summary(1)&limit=500&access_token={token}&locale=en_US";
+            var url = $"https://graph.facebook.com/v14.0/me/businesses?fields=name,id,verification_status,business_users,allow_page_management_in_www,sharing_eligibility_status,created_time,permitted_roles,client_ad_accounts.summary(1),owned_ad_accounts.summary(1)&limit=500&access_token={token}&locale=en_US";
 
             var httpRequest = (HttpWebRequest)WebRequest.Create(url);
 
@@ -239,7 +239,7 @@ namespace AdsManager.form.dataTKQC
 
         public static string RequestFullInfoTTBM(string accId, string token, string coookie)
         {
-            var url = $"https://graph.facebook.com/v13.0/act_{accId}?fields=account_id,owner_business,created_time,next_bill_date,currency,adtrust_dsl,timezone_name,timezone_offset_hours_utc,business_country_code,disable_reason,adspaymentcycle{{threshold_amount}},balance,is_prepay_account,owner,insights.date_preset(maximum){{spend}}&access_token={token}&locale=en_US";
+            var url = $"https://graph.facebook.com/v14.0/act_{accId}?fields=account_id,owner_business,created_time,next_bill_date,currency,adtrust_dsl,timezone_name,timezone_offset_hours_utc,business_country_code,disable_reason,adspaymentcycle{{threshold_amount}},balance,is_prepay_account,owner,insights.date_preset(maximum){{spend}}&access_token={token}&locale=en_US";
 
             var httpRequest = (HttpWebRequest)WebRequest.Create(url);
 
