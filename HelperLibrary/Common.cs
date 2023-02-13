@@ -139,8 +139,12 @@ namespace AdsManager.HelperLibrary
                 string[] data = File.ReadAllText(fileMKT).Trim().Split('\n');
                 for (int i = 0; i < data.Length; i++)
                 {
-                    MKTInfo item = new MKTInfo(data[i]);
-                    lsMKTInfo.Add(item);
+                    if (data[i].Length != 0 && data[i] != null)
+                    {
+                        MKTInfo item = new MKTInfo(data[i]);
+                        lsMKTInfo.Add(item);
+                    }
+                    
                 }   
             }
             catch { }

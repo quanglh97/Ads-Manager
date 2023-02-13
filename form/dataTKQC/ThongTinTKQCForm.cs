@@ -885,6 +885,11 @@ namespace AdsManager
                         TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
                         TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
                     }
+                    else if (TTTKQCInstance.lsTKQC[i].MaMKT != null && TTTKQCInstance.lsTKQC[i].MaMKT.ToLower().Contains(TTTKQCInstance.searchData.ToLower()))
+                    {
+                        TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);
+                        TTTKQCInstance.lsViewTKQC.Add(TTTKQCInstance.lsTKQC[i]);
+                    }
                     else if (TTTKQCInstance.lsTKQC[i].HKD != null && TTTKQCInstance.lsTKQC[i].HKD.ToLower().Contains(TTTKQCInstance.searchData.ToLower()))
                     {
                         TTTKQCInstance.OnNewAccAdded(TTTKQCInstance.lsTKQC[i]);

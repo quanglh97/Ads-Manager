@@ -538,6 +538,11 @@ namespace AdsManager.form.dataTKQC
                         HoaDonInstance.OnNewAccAdded(HoaDonInstance.lsHoaDon[i]);
                         HoaDonInstance.lsViewHoaDon.Add(HoaDonInstance.lsHoaDon[i]);
                     }
+                    else if (HoaDonInstance.lsHoaDon[i].MaMKT != null && HoaDonInstance.lsHoaDon[i].MaMKT.ToLower().Contains(HoaDonInstance.searchData.ToLower()))
+                    {
+                        HoaDonInstance.OnNewAccAdded(HoaDonInstance.lsHoaDon[i]);
+                        HoaDonInstance.lsViewHoaDon.Add(HoaDonInstance.lsHoaDon[i]);
+                    }
                     else if (HoaDonInstance.lsHoaDon[i].HKD != null && HoaDonInstance.lsHoaDon[i].HKD.ToLower().Contains(HoaDonInstance.searchData.ToLower()))
                     {
                         HoaDonInstance.OnNewAccAdded(HoaDonInstance.lsHoaDon[i]);

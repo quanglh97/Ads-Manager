@@ -412,6 +412,11 @@ namespace AdsManager.form.dataTKQC
                         DataPageInstance.OnNewAccAdded(DataPageInstance.lsDataPage[i]);
                         DataPageInstance.lsViewDataPage.Add(DataPageInstance.lsDataPage[i]);
                     }
+                    else if (DataPageInstance.lsDataPage[i].MaMKT != null && DataPageInstance.lsDataPage[i].MaMKT.ToLower().Contains(DataPageInstance.searchData.ToLower()))
+                    {
+                        DataPageInstance.OnNewAccAdded(DataPageInstance.lsDataPage[i]);
+                        DataPageInstance.lsViewDataPage.Add(DataPageInstance.lsDataPage[i]);
+                    }
                     else if (DataPageInstance.lsDataPage[i].HKD != null && DataPageInstance.lsDataPage[i].HKD.ToLower().Contains(DataPageInstance.searchData.ToLower()))
                     {
                         DataPageInstance.OnNewAccAdded(DataPageInstance.lsDataPage[i]);

@@ -824,6 +824,11 @@ namespace AdsManager.form.dataTKQC
                         TTCDInstance.OnNewAccAdded(TTCDInstance.lsTTCD[i]);
                         TTCDInstance.lsViewTTCD.Add(TTCDInstance.lsTTCD[i]);
                     }
+                    else if (TTCDInstance.lsTTCD[i].MaMKT != null && TTCDInstance.lsTTCD[i].MaMKT.ToLower().Contains(TTCDInstance.searchData.ToLower()))
+                    {
+                        TTCDInstance.OnNewAccAdded(TTCDInstance.lsTTCD[i]);
+                        TTCDInstance.lsViewTTCD.Add(TTCDInstance.lsTTCD[i]);
+                    }
                     else if (TTCDInstance.lsTTCD[i].HKD != null && TTCDInstance.lsTTCD[i].HKD.ToLower().Contains(TTCDInstance.searchData.ToLower()))
                     {
                         TTCDInstance.OnNewAccAdded(TTCDInstance.lsTTCD[i]);
