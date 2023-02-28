@@ -56,6 +56,7 @@
             this.vbButton3 = new AdsManager.VBButton();
             this.label4 = new System.Windows.Forms.Label();
             this.filterTimeBtn_TTCD = new AdsManager.VBButton();
+            this.TTCD_RefreshBtn = new AdsManager.VBButton();
             this.label3 = new System.Windows.Forms.Label();
             this.from_dateTimePicker_TTCD_search = new System.Windows.Forms.DateTimePicker();
             this.SearchTBox_TTCD = new System.Windows.Forms.TextBox();
@@ -66,7 +67,6 @@
             this.to_dateTimePicker_TTCD = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.loadingBtnTTCD = new AdsManager.VBButton();
-            this.TTCD_RefreshBtn = new AdsManager.VBButton();
             this.elipseControl1 = new TakeCarePage.ElipseControl();
             ((System.ComponentModel.ISupportInitialize)(this.ThongTinChienDichDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
@@ -343,6 +343,7 @@
             this.panel2.Controls.Add(this.vbButton3);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.filterTimeBtn_TTCD);
+            this.panel2.Controls.Add(this.TTCD_RefreshBtn);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.from_dateTimePicker_TTCD_search);
             this.panel2.Controls.Add(this.SearchTBox_TTCD);
@@ -352,9 +353,9 @@
             this.panel2.Controls.Add(this.vbButton4);
             this.panel2.Controls.Add(this.to_dateTimePicker_TTCD);
             this.panel2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(216, 12);
+            this.panel2.Location = new System.Drawing.Point(12, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1343, 37);
+            this.panel2.Size = new System.Drawing.Size(1547, 37);
             this.panel2.TabIndex = 46;
             // 
             // vbButton3
@@ -369,7 +370,7 @@
             this.vbButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.vbButton3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vbButton3.ForeColor = System.Drawing.Color.Black;
-            this.vbButton3.Location = new System.Drawing.Point(629, 3);
+            this.vbButton3.Location = new System.Drawing.Point(833, 3);
             this.vbButton3.Name = "vbButton3";
             this.vbButton3.Size = new System.Drawing.Size(129, 31);
             this.vbButton3.TabIndex = 50;
@@ -382,7 +383,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(923, 15);
+            this.label4.Location = new System.Drawing.Point(1127, 15);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 14);
             this.label4.TabIndex = 49;
@@ -400,7 +401,7 @@
             this.filterTimeBtn_TTCD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.filterTimeBtn_TTCD.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filterTimeBtn_TTCD.ForeColor = System.Drawing.Color.Black;
-            this.filterTimeBtn_TTCD.Location = new System.Drawing.Point(1061, 3);
+            this.filterTimeBtn_TTCD.Location = new System.Drawing.Point(1265, 3);
             this.filterTimeBtn_TTCD.Name = "filterTimeBtn_TTCD";
             this.filterTimeBtn_TTCD.Size = new System.Drawing.Size(129, 31);
             this.filterTimeBtn_TTCD.TabIndex = 27;
@@ -409,11 +410,35 @@
             this.filterTimeBtn_TTCD.UseVisualStyleBackColor = false;
             this.filterTimeBtn_TTCD.Click += new System.EventHandler(this.filterTimeBtn_TTCD_Click);
             // 
+            // TTCD_RefreshBtn
+            // 
+            this.TTCD_RefreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.TTCD_RefreshBtn.BackColor = System.Drawing.SystemColors.Window;
+            this.TTCD_RefreshBtn.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.TTCD_RefreshBtn.BorderColor = System.Drawing.SystemColors.WindowText;
+            this.TTCD_RefreshBtn.BorderRadius = 19;
+            this.TTCD_RefreshBtn.BorderSize = 1;
+            this.TTCD_RefreshBtn.FlatAppearance.BorderSize = 0;
+            this.TTCD_RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TTCD_RefreshBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TTCD_RefreshBtn.ForeColor = System.Drawing.Color.Black;
+            this.TTCD_RefreshBtn.Image = global::AdsManager.Properties.Resources.reload2;
+            this.TTCD_RefreshBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TTCD_RefreshBtn.Location = new System.Drawing.Point(25, 1);
+            this.TTCD_RefreshBtn.Name = "TTCD_RefreshBtn";
+            this.TTCD_RefreshBtn.Size = new System.Drawing.Size(138, 33);
+            this.TTCD_RefreshBtn.TabIndex = 43;
+            this.TTCD_RefreshBtn.Text = "Làm mới dữ liệu";
+            this.TTCD_RefreshBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TTCD_RefreshBtn.TextColor = System.Drawing.Color.Black;
+            this.TTCD_RefreshBtn.UseVisualStyleBackColor = false;
+            this.TTCD_RefreshBtn.Click += new System.EventHandler(this.vbButton3_Click);
+            // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(491, 14);
+            this.label3.Location = new System.Drawing.Point(679, 14);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 14);
             this.label3.TabIndex = 14;
@@ -424,29 +449,31 @@
             this.from_dateTimePicker_TTCD_search.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.from_dateTimePicker_TTCD_search.CustomFormat = "MM/dd/yyyy";
             this.from_dateTimePicker_TTCD_search.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.from_dateTimePicker_TTCD_search.Location = new System.Drawing.Point(832, 11);
+            this.from_dateTimePicker_TTCD_search.Location = new System.Drawing.Point(1036, 11);
             this.from_dateTimePicker_TTCD_search.Name = "from_dateTimePicker_TTCD_search";
             this.from_dateTimePicker_TTCD_search.Size = new System.Drawing.Size(81, 20);
             this.from_dateTimePicker_TTCD_search.TabIndex = 48;
             // 
             // SearchTBox_TTCD
             // 
+            this.SearchTBox_TTCD.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.SearchTBox_TTCD.BackColor = System.Drawing.Color.Gainsboro;
             this.SearchTBox_TTCD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SearchTBox_TTCD.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchTBox_TTCD.Location = new System.Drawing.Point(6, 6);
+            this.SearchTBox_TTCD.Location = new System.Drawing.Point(210, 6);
             this.SearchTBox_TTCD.MaximumSize = new System.Drawing.Size(350, 25);
             this.SearchTBox_TTCD.MinimumSize = new System.Drawing.Size(316, 25);
             this.SearchTBox_TTCD.Name = "SearchTBox_TTCD";
             this.SearchTBox_TTCD.Size = new System.Drawing.Size(316, 25);
             this.SearchTBox_TTCD.TabIndex = 26;
+            this.SearchTBox_TTCD.TextChanged += new System.EventHandler(this.SearchTBox_TTCD_TextChanged);
             // 
             // from_dateTimePicker_TTCD
             // 
-            this.from_dateTimePicker_TTCD.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.from_dateTimePicker_TTCD.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.from_dateTimePicker_TTCD.CustomFormat = "MM/dd/yyyy";
             this.from_dateTimePicker_TTCD.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.from_dateTimePicker_TTCD.Location = new System.Drawing.Point(400, 10);
+            this.from_dateTimePicker_TTCD.Location = new System.Drawing.Point(595, 10);
             this.from_dateTimePicker_TTCD.Name = "from_dateTimePicker_TTCD";
             this.from_dateTimePicker_TTCD.Size = new System.Drawing.Size(81, 20);
             this.from_dateTimePicker_TTCD.TabIndex = 13;
@@ -456,7 +483,7 @@
             this.to_dateTimePicker_TTCD_search.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.to_dateTimePicker_TTCD_search.CustomFormat = "MM/dd/yyyy";
             this.to_dateTimePicker_TTCD_search.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.to_dateTimePicker_TTCD_search.Location = new System.Drawing.Point(968, 11);
+            this.to_dateTimePicker_TTCD_search.Location = new System.Drawing.Point(1172, 11);
             this.to_dateTimePicker_TTCD_search.Name = "to_dateTimePicker_TTCD_search";
             this.to_dateTimePicker_TTCD_search.Size = new System.Drawing.Size(87, 20);
             this.to_dateTimePicker_TTCD_search.TabIndex = 47;
@@ -474,7 +501,7 @@
             this.searchBtn_TTCD.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchBtn_TTCD.ForeColor = System.Drawing.Color.Black;
             this.searchBtn_TTCD.Image = global::AdsManager.Properties.Resources.Screenshot_2022_10_01_024949_removebg_preview1;
-            this.searchBtn_TTCD.Location = new System.Drawing.Point(328, 3);
+            this.searchBtn_TTCD.Location = new System.Drawing.Point(532, 3);
             this.searchBtn_TTCD.Name = "searchBtn_TTCD";
             this.searchBtn_TTCD.Size = new System.Drawing.Size(56, 31);
             this.searchBtn_TTCD.TabIndex = 12;
@@ -494,7 +521,7 @@
             this.vbButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.vbButton4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vbButton4.ForeColor = System.Drawing.Color.Black;
-            this.vbButton4.Location = new System.Drawing.Point(1205, 3);
+            this.vbButton4.Location = new System.Drawing.Point(1409, 3);
             this.vbButton4.Name = "vbButton4";
             this.vbButton4.Size = new System.Drawing.Size(129, 31);
             this.vbButton4.TabIndex = 1;
@@ -505,10 +532,10 @@
             // 
             // to_dateTimePicker_TTCD
             // 
-            this.to_dateTimePicker_TTCD.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.to_dateTimePicker_TTCD.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.to_dateTimePicker_TTCD.CustomFormat = "MM/dd/yyyy";
             this.to_dateTimePicker_TTCD.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.to_dateTimePicker_TTCD.Location = new System.Drawing.Point(536, 10);
+            this.to_dateTimePicker_TTCD.Location = new System.Drawing.Point(731, 10);
             this.to_dateTimePicker_TTCD.Name = "to_dateTimePicker_TTCD";
             this.to_dateTimePicker_TTCD.Size = new System.Drawing.Size(87, 20);
             this.to_dateTimePicker_TTCD.TabIndex = 11;
@@ -544,30 +571,6 @@
             this.loadingBtnTTCD.UseVisualStyleBackColor = false;
             this.loadingBtnTTCD.Visible = false;
             // 
-            // TTCD_RefreshBtn
-            // 
-            this.TTCD_RefreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TTCD_RefreshBtn.BackColor = System.Drawing.SystemColors.Window;
-            this.TTCD_RefreshBtn.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.TTCD_RefreshBtn.BorderColor = System.Drawing.SystemColors.WindowText;
-            this.TTCD_RefreshBtn.BorderRadius = 19;
-            this.TTCD_RefreshBtn.BorderSize = 1;
-            this.TTCD_RefreshBtn.FlatAppearance.BorderSize = 0;
-            this.TTCD_RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TTCD_RefreshBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TTCD_RefreshBtn.ForeColor = System.Drawing.Color.Black;
-            this.TTCD_RefreshBtn.Image = global::AdsManager.Properties.Resources.reload2;
-            this.TTCD_RefreshBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TTCD_RefreshBtn.Location = new System.Drawing.Point(12, 708);
-            this.TTCD_RefreshBtn.Name = "TTCD_RefreshBtn";
-            this.TTCD_RefreshBtn.Size = new System.Drawing.Size(138, 33);
-            this.TTCD_RefreshBtn.TabIndex = 43;
-            this.TTCD_RefreshBtn.Text = "Làm mới dữ liệu";
-            this.TTCD_RefreshBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.TTCD_RefreshBtn.TextColor = System.Drawing.Color.Black;
-            this.TTCD_RefreshBtn.UseVisualStyleBackColor = false;
-            this.TTCD_RefreshBtn.Click += new System.EventHandler(this.vbButton3_Click);
-            // 
             // elipseControl1
             // 
             this.elipseControl1.CornerRadius = 15;
@@ -583,7 +586,6 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.loadingBtnTTCD);
-            this.Controls.Add(this.TTCD_RefreshBtn);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ThongTinChienDichDataGridView);
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

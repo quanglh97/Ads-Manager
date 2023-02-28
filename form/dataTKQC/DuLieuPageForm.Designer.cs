@@ -37,9 +37,6 @@
             this.vbButton4 = new AdsManager.VBButton();
             this.to_dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.DuLieuPageDataGridView = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.loadingBtn = new AdsManager.VBButton();
-            this.DuLieuPage_RefreshBtn = new AdsManager.VBButton();
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenTKQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDTKQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +51,9 @@
             this.ChiPhiQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TienTe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LinkPage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.loadingBtn = new AdsManager.VBButton();
+            this.DuLieuPage_RefreshBtn = new AdsManager.VBButton();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DuLieuPageDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -63,15 +63,16 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.locTimeBtn);
             this.panel2.Controls.Add(this.SearchTBox);
+            this.panel2.Controls.Add(this.DuLieuPage_RefreshBtn);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.from_dateTimePicker);
             this.panel2.Controls.Add(this.searchBtn);
             this.panel2.Controls.Add(this.vbButton4);
             this.panel2.Controls.Add(this.to_dateTimePicker);
             this.panel2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(560, 12);
+            this.panel2.Location = new System.Drawing.Point(341, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(905, 37);
+            this.panel2.Size = new System.Drawing.Size(1124, 37);
             this.panel2.TabIndex = 51;
             // 
             // locTimeBtn
@@ -86,7 +87,7 @@
             this.locTimeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.locTimeBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.locTimeBtn.ForeColor = System.Drawing.Color.Black;
-            this.locTimeBtn.Location = new System.Drawing.Point(623, 3);
+            this.locTimeBtn.Location = new System.Drawing.Point(842, 3);
             this.locTimeBtn.Name = "locTimeBtn";
             this.locTimeBtn.Size = new System.Drawing.Size(61, 31);
             this.locTimeBtn.TabIndex = 27;
@@ -97,10 +98,11 @@
             // 
             // SearchTBox
             // 
+            this.SearchTBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.SearchTBox.BackColor = System.Drawing.Color.Gainsboro;
             this.SearchTBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SearchTBox.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchTBox.Location = new System.Drawing.Point(6, 6);
+            this.SearchTBox.Location = new System.Drawing.Point(225, 7);
             this.SearchTBox.MaximumSize = new System.Drawing.Size(350, 25);
             this.SearchTBox.MinimumSize = new System.Drawing.Size(316, 25);
             this.SearchTBox.Name = "SearchTBox";
@@ -111,7 +113,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(485, 12);
+            this.label3.Location = new System.Drawing.Point(704, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 14);
             this.label3.TabIndex = 14;
@@ -121,7 +123,7 @@
             // 
             this.from_dateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.from_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.from_dateTimePicker.Location = new System.Drawing.Point(394, 8);
+            this.from_dateTimePicker.Location = new System.Drawing.Point(613, 8);
             this.from_dateTimePicker.Name = "from_dateTimePicker";
             this.from_dateTimePicker.Size = new System.Drawing.Size(81, 20);
             this.from_dateTimePicker.TabIndex = 13;
@@ -139,7 +141,7 @@
             this.searchBtn.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchBtn.ForeColor = System.Drawing.Color.Black;
             this.searchBtn.Image = global::AdsManager.Properties.Resources.Screenshot_2022_10_01_024949_removebg_preview1;
-            this.searchBtn.Location = new System.Drawing.Point(328, 3);
+            this.searchBtn.Location = new System.Drawing.Point(547, 3);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(56, 31);
             this.searchBtn.TabIndex = 12;
@@ -159,7 +161,7 @@
             this.vbButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.vbButton4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vbButton4.ForeColor = System.Drawing.Color.Black;
-            this.vbButton4.Location = new System.Drawing.Point(767, 3);
+            this.vbButton4.Location = new System.Drawing.Point(986, 3);
             this.vbButton4.Name = "vbButton4";
             this.vbButton4.Size = new System.Drawing.Size(129, 31);
             this.vbButton4.TabIndex = 1;
@@ -172,7 +174,7 @@
             // 
             this.to_dateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.to_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.to_dateTimePicker.Location = new System.Drawing.Point(530, 8);
+            this.to_dateTimePicker.Location = new System.Drawing.Point(749, 8);
             this.to_dateTimePicker.Name = "to_dateTimePicker";
             this.to_dateTimePicker.Size = new System.Drawing.Size(87, 20);
             this.to_dateTimePicker.TabIndex = 11;
@@ -209,61 +211,6 @@
             this.DuLieuPageDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DuLieuPageDataGridView_CellFormatting);
             this.DuLieuPageDataGridView.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.DuLieuPageDataGridView_RowPrePaint);
             this.DuLieuPageDataGridView.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.DuLieuPageDataGridView_SortCompare);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.dateTimePicker1.CustomFormat = "MM/dd/yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(175, 783);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(81, 20);
-            this.dateTimePicker1.TabIndex = 55;
-            this.dateTimePicker1.Visible = false;
-            // 
-            // loadingBtn
-            // 
-            this.loadingBtn.BackColor = System.Drawing.SystemColors.Window;
-            this.loadingBtn.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.loadingBtn.BorderColor = System.Drawing.Color.DarkOrange;
-            this.loadingBtn.BorderRadius = 40;
-            this.loadingBtn.BorderSize = 2;
-            this.loadingBtn.FlatAppearance.BorderSize = 0;
-            this.loadingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.loadingBtn.ForeColor = System.Drawing.Color.White;
-            this.loadingBtn.Image = global::AdsManager.Properties.Resources.loading1;
-            this.loadingBtn.Location = new System.Drawing.Point(728, 344);
-            this.loadingBtn.Name = "loadingBtn";
-            this.loadingBtn.Size = new System.Drawing.Size(249, 244);
-            this.loadingBtn.TabIndex = 54;
-            this.loadingBtn.Text = "vbButton3";
-            this.loadingBtn.TextColor = System.Drawing.Color.White;
-            this.loadingBtn.UseVisualStyleBackColor = false;
-            this.loadingBtn.Visible = false;
-            // 
-            // DuLieuPage_RefreshBtn
-            // 
-            this.DuLieuPage_RefreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DuLieuPage_RefreshBtn.BackColor = System.Drawing.SystemColors.Window;
-            this.DuLieuPage_RefreshBtn.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.DuLieuPage_RefreshBtn.BorderColor = System.Drawing.SystemColors.WindowText;
-            this.DuLieuPage_RefreshBtn.BorderRadius = 19;
-            this.DuLieuPage_RefreshBtn.BorderSize = 1;
-            this.DuLieuPage_RefreshBtn.FlatAppearance.BorderSize = 0;
-            this.DuLieuPage_RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DuLieuPage_RefreshBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DuLieuPage_RefreshBtn.ForeColor = System.Drawing.Color.Black;
-            this.DuLieuPage_RefreshBtn.Image = global::AdsManager.Properties.Resources.reload2;
-            this.DuLieuPage_RefreshBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DuLieuPage_RefreshBtn.Location = new System.Drawing.Point(12, 770);
-            this.DuLieuPage_RefreshBtn.Name = "DuLieuPage_RefreshBtn";
-            this.DuLieuPage_RefreshBtn.Size = new System.Drawing.Size(138, 33);
-            this.DuLieuPage_RefreshBtn.TabIndex = 53;
-            this.DuLieuPage_RefreshBtn.Text = "Làm mới dữ liệu";
-            this.DuLieuPage_RefreshBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.DuLieuPage_RefreshBtn.TextColor = System.Drawing.Color.Black;
-            this.DuLieuPage_RefreshBtn.UseVisualStyleBackColor = false;
-            this.DuLieuPage_RefreshBtn.Click += new System.EventHandler(this.DuLieuPage_RefreshBtn_Click);
             // 
             // TrangThai
             // 
@@ -371,6 +318,61 @@
             this.LinkPage.ReadOnly = true;
             this.LinkPage.Width = 250;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.dateTimePicker1.CustomFormat = "MM/dd/yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(175, 783);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(81, 20);
+            this.dateTimePicker1.TabIndex = 55;
+            this.dateTimePicker1.Visible = false;
+            // 
+            // loadingBtn
+            // 
+            this.loadingBtn.BackColor = System.Drawing.SystemColors.Window;
+            this.loadingBtn.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.loadingBtn.BorderColor = System.Drawing.Color.DarkOrange;
+            this.loadingBtn.BorderRadius = 40;
+            this.loadingBtn.BorderSize = 2;
+            this.loadingBtn.FlatAppearance.BorderSize = 0;
+            this.loadingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loadingBtn.ForeColor = System.Drawing.Color.White;
+            this.loadingBtn.Image = global::AdsManager.Properties.Resources.loading1;
+            this.loadingBtn.Location = new System.Drawing.Point(728, 344);
+            this.loadingBtn.Name = "loadingBtn";
+            this.loadingBtn.Size = new System.Drawing.Size(249, 244);
+            this.loadingBtn.TabIndex = 54;
+            this.loadingBtn.Text = "vbButton3";
+            this.loadingBtn.TextColor = System.Drawing.Color.White;
+            this.loadingBtn.UseVisualStyleBackColor = false;
+            this.loadingBtn.Visible = false;
+            // 
+            // DuLieuPage_RefreshBtn
+            // 
+            this.DuLieuPage_RefreshBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.DuLieuPage_RefreshBtn.BackColor = System.Drawing.SystemColors.Window;
+            this.DuLieuPage_RefreshBtn.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.DuLieuPage_RefreshBtn.BorderColor = System.Drawing.SystemColors.WindowText;
+            this.DuLieuPage_RefreshBtn.BorderRadius = 19;
+            this.DuLieuPage_RefreshBtn.BorderSize = 1;
+            this.DuLieuPage_RefreshBtn.FlatAppearance.BorderSize = 0;
+            this.DuLieuPage_RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DuLieuPage_RefreshBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DuLieuPage_RefreshBtn.ForeColor = System.Drawing.Color.Black;
+            this.DuLieuPage_RefreshBtn.Image = global::AdsManager.Properties.Resources.reload2;
+            this.DuLieuPage_RefreshBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DuLieuPage_RefreshBtn.Location = new System.Drawing.Point(3, 2);
+            this.DuLieuPage_RefreshBtn.Name = "DuLieuPage_RefreshBtn";
+            this.DuLieuPage_RefreshBtn.Size = new System.Drawing.Size(138, 33);
+            this.DuLieuPage_RefreshBtn.TabIndex = 53;
+            this.DuLieuPage_RefreshBtn.Text = "Làm mới dữ liệu";
+            this.DuLieuPage_RefreshBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.DuLieuPage_RefreshBtn.TextColor = System.Drawing.Color.Black;
+            this.DuLieuPage_RefreshBtn.UseVisualStyleBackColor = false;
+            this.DuLieuPage_RefreshBtn.Click += new System.EventHandler(this.DuLieuPage_RefreshBtn_Click);
+            // 
             // DuLieuPageForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -380,7 +382,6 @@
             this.ClientSize = new System.Drawing.Size(1477, 815);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.loadingBtn);
-            this.Controls.Add(this.DuLieuPage_RefreshBtn);
             this.Controls.Add(this.DuLieuPageDataGridView);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold);

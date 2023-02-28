@@ -15,6 +15,7 @@ namespace AdsManager.HelperLibrary.Facebook
         public static List<TTTKQCInfo> lsTKQC = new List<TTTKQCInfo>();
         public static List<TTTKQCInfo> lsViewTKQC = new List<TTTKQCInfo>();
         public static int limit = 0;
+        public static bool serviceBG = false;
         public static int tongTK = 0;
         public static double tongNguong = 0;
         public static double tongTieu = 0;

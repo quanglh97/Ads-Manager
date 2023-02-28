@@ -72,13 +72,14 @@ namespace AdsManager
 
             List<string> listItem = new List<string>()
             {
+                "MAX",
                  "1",
                  "5",
                  "10",
                  "50",
                  "100",
-                 "500",
-                 "MAX"
+                 "500"
+                 
             };
             TTTKQCComboBox.DataSource = listItem;
         }
@@ -159,13 +160,14 @@ namespace AdsManager
 
                     TTTKQC_Worker.ReportProgress(1);
                     TTTKQC_Worker.ReportProgress(0, ProxyInstances.Http);
-
                 }
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
         async Task AsyncCoreDoWork(JToken item, string cookie, string token, string dtsg)
         {
@@ -274,7 +276,7 @@ namespace AdsManager
                 try { TKQC.quocGiaTKQC = jObjectMoreInfo["business_country_code"].ToString(); }
                 catch { TKQC.quocGiaTKQC = "-"; }
 
-                for(int i = 0; i < Common.lsMKTInfo.Count; i++)
+                for (int i = 0; i < Common.lsMKTInfo.Count; i++)
                 {
                     if (TKQC.tenTK.Contains(Common.lsMKTInfo[i].MaMKT))
                     {
@@ -283,7 +285,7 @@ namespace AdsManager
                         TKQC.HKD = Common.lsMKTInfo[i].HKD;
                         break;
                     }
-                    else if(TKQC.ID.Contains(Common.lsMKTInfo[i].IdTKQC))
+                    else if (TKQC.ID.Contains(Common.lsMKTInfo[i].IdTKQC))
                     {
                         TKQC.MKT = Common.lsMKTInfo[i].MKT;
                         TKQC.MaMKT = Common.lsMKTInfo[i].MaMKT;
@@ -417,30 +419,77 @@ namespace AdsManager
 
         private void TTTKQC_RefreshBtn_Click(object sender, EventArgs e)
         {
-            loadingBtnTKQC.Visible = true;
-            TTTKQC_RefreshBtn.Enabled = false;
-            TTTKQC_RefreshBtn.BackgroundColor = Color.FromArgb(255, 198, 65, 24);
-            thongTinTKQCDataGridView.Rows.Clear();
-
-            TTTKQCInstance.tiGia = RequestTiGiaNgoaiTe();
-            ViaInstances.ImportVia();
-            Common.ImportMKTInfo();
-            if (!TTTKQCComboBox.SelectedValue.ToString().Contains("MAX"))
-                TTTKQCInstance.limit = Int32.Parse(TTTKQCComboBox.SelectedValue.ToString());
-            else
-                TTTKQCInstance.limit = 100000;
-            
-            if (!TTTKQC_Worker.IsBusy)
+            if (ServiceBGCBox.Checked == false)
             {
-                TTTKQC_Worker.RunWorkerAsync();
+                loadingBtnTKQC.Visible = true;
+                TTTKQC_RefreshBtn.Enabled = false;
+                TTTKQC_RefreshBtn.BackgroundColor = Color.FromArgb(255, 198, 65, 24);
+                thongTinTKQCDataGridView.Rows.Clear();
+
+                TTTKQCInstance.tiGia = RequestTiGiaNgoaiTe();
+                ViaInstances.ImportVia();
+                Common.ImportMKTInfo();
+                if (!TTTKQCComboBox.SelectedValue.ToString().Contains("MAX"))
+                    TTTKQCInstance.limit = Int32.Parse(TTTKQCComboBox.SelectedValue.ToString());
+                else
+                    TTTKQCInstance.limit = 100000;
+
+                if (ServiceBGCBox.Checked)
+                {
+                    TTTKQCInstance.serviceBG = true;
+                }
+                else
+                {
+                    TTTKQCInstance.serviceBG = false;
+                }
+
+                if (!TTTKQC_Worker.IsBusy)
+                {
+                    TTTKQC_Worker.RunWorkerAsync();
+                }
+            }
+            else
+            {
+                while (true)
+                {
+                    loadingBtnTKQC.Visible = true;
+                    TTTKQC_RefreshBtn.Enabled = false;
+                    TTTKQC_RefreshBtn.BackgroundColor = Color.FromArgb(255, 198, 65, 24);
+                    thongTinTKQCDataGridView.Rows.Clear();
+
+                    TTTKQCInstance.tiGia = RequestTiGiaNgoaiTe();
+                    ViaInstances.ImportVia();
+                    Common.ImportMKTInfo();
+                    if (!TTTKQCComboBox.SelectedValue.ToString().Contains("MAX"))
+                        TTTKQCInstance.limit = Int32.Parse(TTTKQCComboBox.SelectedValue.ToString());
+                    else
+                        TTTKQCInstance.limit = 100000;
+
+                    if (ServiceBGCBox.Checked)
+                    {
+                        TTTKQCInstance.serviceBG = true;
+                    }
+                    else
+                    {
+                        TTTKQCInstance.serviceBG = false;
+                    }
+
+                    if (!TTTKQC_Worker.IsBusy)
+                    {
+                        TTTKQC_Worker.RunWorkerAsync();
+                    }
+                }
             }
         }
 
-
         public static string RequestTTTKQCAsync(string userId, string token, string cookie)
         {
-            var url = $"https://graph.facebook.com/v14.0/me/adaccounts?limit={TTTKQCInstance.limit.ToString()}&fields=name,account_id,account_status,userpermissions.user({userId})%7Brole%7D&access_token={token}&summary=1&locale=en_US";
 
+            var url = $"https://graph.facebook.com/v14.0/me/adaccounts?limit={TTTKQCInstance.limit.ToString()}&fields=name,account_id,account_status,userpermissions.user({userId})%7Brole%7D&access_token={token}&summary=1&locale=en_US";
+            if (TTTKQCInstance.serviceBG == true)
+            {
+                url = $"https://graph.facebook.com/v14.0/me/adaccounts?limit=100000&fields=name,account_id,account_status,userpermissions.user({userId})%7Brole%7D&access_token={token}&summary=1&locale=en_US";
+            }
             var httpRequest = (HttpWebRequest)WebRequest.Create(url);
 
             httpRequest.Headers["authority"] = "business.facebook.com";
@@ -787,7 +836,7 @@ namespace AdsManager
                     {
                         //var lsBody = dataFilterTime.Split(new string[] { " \"body\": ", "},\r\n   {" }, StringSplitOptions.None);
                         //var pattern = @"account_id\\"": \\""(\d+).*spend\\"": \\""(\d+?.\d+)\\"",";
-                        for(int i = 0; i< dataFilter["data"].Count(); i++)
+                        for (int i = 0; i < dataFilter["data"].Count(); i++)
                         {
                             var itemBody = dataFilter["data"][i]["body"].ToString();
                             if (itemBody.Contains("spend"))
@@ -1067,14 +1116,14 @@ namespace AdsManager
 
         private void thongTinTKQCDataGridView_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
         {
-            if (e.Column.Index == 6|| e.Column.Index == 7 || e.Column.Index == 8|| e.Column.Index ==9||
+            if (e.Column.Index == 6 || e.Column.Index == 7 || e.Column.Index == 8 || e.Column.Index == 9 ||
                 e.Column.Index == 10)
             {
                 try
                 {
                     string a = "0";
                     string b = "0";
-                    if(e.CellValue1.ToString() == "No Limit")
+                    if (e.CellValue1.ToString() == "No Limit")
                     {
                         a = "999999999";
                     }

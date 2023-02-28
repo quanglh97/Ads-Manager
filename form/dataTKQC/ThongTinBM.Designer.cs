@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.TTBM_RefreshBtn = new AdsManager.VBButton();
             this.TTBMTotalBMBtn = new AdsManager.VBButton();
             this.ThongTinBMdataGridView = new System.Windows.Forms.DataGridView();
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,12 +57,10 @@
             this.SearchTBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.from_dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.SearchBtn = new AdsManager.VBButton();
             this.vbButton4 = new AdsManager.VBButton();
             this.to_dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.loadingBtnTTBM = new AdsManager.VBButton();
-            this.SearchBtn = new AdsManager.VBButton();
-            this.TTBM_RefreshBtn = new AdsManager.VBButton();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ThongTinBMdataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -70,12 +69,34 @@
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel2.Controls.Add(this.TTBM_RefreshBtn);
-            this.panel2.Controls.Add(this.TTBMTotalBMBtn);
             this.panel2.Location = new System.Drawing.Point(12, 699);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(332, 47);
             this.panel2.TabIndex = 37;
+            // 
+            // TTBM_RefreshBtn
+            // 
+            this.TTBM_RefreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.TTBM_RefreshBtn.BackColor = System.Drawing.SystemColors.Window;
+            this.TTBM_RefreshBtn.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.TTBM_RefreshBtn.BorderColor = System.Drawing.SystemColors.WindowText;
+            this.TTBM_RefreshBtn.BorderRadius = 19;
+            this.TTBM_RefreshBtn.BorderSize = 1;
+            this.TTBM_RefreshBtn.FlatAppearance.BorderSize = 0;
+            this.TTBM_RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TTBM_RefreshBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TTBM_RefreshBtn.ForeColor = System.Drawing.Color.Black;
+            this.TTBM_RefreshBtn.Image = global::AdsManager.Properties.Resources.reload2;
+            this.TTBM_RefreshBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TTBM_RefreshBtn.Location = new System.Drawing.Point(21, 2);
+            this.TTBM_RefreshBtn.Name = "TTBM_RefreshBtn";
+            this.TTBM_RefreshBtn.Size = new System.Drawing.Size(150, 33);
+            this.TTBM_RefreshBtn.TabIndex = 43;
+            this.TTBM_RefreshBtn.Text = "    Làm mới dữ liệu";
+            this.TTBM_RefreshBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TTBM_RefreshBtn.TextColor = System.Drawing.Color.Black;
+            this.TTBM_RefreshBtn.UseVisualStyleBackColor = false;
+            this.TTBM_RefreshBtn.Click += new System.EventHandler(this.TTBM_RefreshBtn_Click);
             // 
             // TTBMTotalBMBtn
             // 
@@ -89,7 +110,7 @@
             this.TTBMTotalBMBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TTBMTotalBMBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TTBMTotalBMBtn.ForeColor = System.Drawing.Color.White;
-            this.TTBMTotalBMBtn.Location = new System.Drawing.Point(155, 7);
+            this.TTBMTotalBMBtn.Location = new System.Drawing.Point(177, 2);
             this.TTBMTotalBMBtn.Name = "TTBMTotalBMBtn";
             this.TTBMTotalBMBtn.Size = new System.Drawing.Size(173, 33);
             this.TTBMTotalBMBtn.TabIndex = 41;
@@ -322,7 +343,9 @@
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.TTBM_RefreshBtn);
             this.panel3.Controls.Add(this.locTimeBtn);
+            this.panel3.Controls.Add(this.TTBMTotalBMBtn);
             this.panel3.Controls.Add(this.SearchTBox);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.from_dateTimePicker);
@@ -330,9 +353,9 @@
             this.panel3.Controls.Add(this.vbButton4);
             this.panel3.Controls.Add(this.to_dateTimePicker);
             this.panel3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(698, 12);
+            this.panel3.Location = new System.Drawing.Point(267, 12);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(905, 37);
+            this.panel3.Size = new System.Drawing.Size(1336, 37);
             this.panel3.TabIndex = 46;
             // 
             // locTimeBtn
@@ -347,7 +370,7 @@
             this.locTimeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.locTimeBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.locTimeBtn.ForeColor = System.Drawing.Color.Black;
-            this.locTimeBtn.Location = new System.Drawing.Point(623, 3);
+            this.locTimeBtn.Location = new System.Drawing.Point(1054, 3);
             this.locTimeBtn.Name = "locTimeBtn";
             this.locTimeBtn.Size = new System.Drawing.Size(61, 31);
             this.locTimeBtn.TabIndex = 27;
@@ -358,10 +381,11 @@
             // 
             // SearchTBox
             // 
+            this.SearchTBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.SearchTBox.BackColor = System.Drawing.Color.Gainsboro;
             this.SearchTBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SearchTBox.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchTBox.Location = new System.Drawing.Point(6, 6);
+            this.SearchTBox.Location = new System.Drawing.Point(437, 6);
             this.SearchTBox.MaximumSize = new System.Drawing.Size(350, 25);
             this.SearchTBox.MinimumSize = new System.Drawing.Size(316, 25);
             this.SearchTBox.Name = "SearchTBox";
@@ -372,7 +396,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(485, 12);
+            this.label3.Location = new System.Drawing.Point(916, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 14);
             this.label3.TabIndex = 14;
@@ -382,10 +406,31 @@
             // 
             this.from_dateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.from_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.from_dateTimePicker.Location = new System.Drawing.Point(394, 8);
+            this.from_dateTimePicker.Location = new System.Drawing.Point(825, 8);
             this.from_dateTimePicker.Name = "from_dateTimePicker";
             this.from_dateTimePicker.Size = new System.Drawing.Size(81, 20);
             this.from_dateTimePicker.TabIndex = 13;
+            // 
+            // SearchBtn
+            // 
+            this.SearchBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.SearchBtn.BackColor = System.Drawing.Color.Green;
+            this.SearchBtn.BackgroundColor = System.Drawing.Color.Green;
+            this.SearchBtn.BorderColor = System.Drawing.SystemColors.WindowText;
+            this.SearchBtn.BorderRadius = 20;
+            this.SearchBtn.BorderSize = 0;
+            this.SearchBtn.FlatAppearance.BorderSize = 0;
+            this.SearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SearchBtn.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchBtn.ForeColor = System.Drawing.Color.Black;
+            this.SearchBtn.Image = global::AdsManager.Properties.Resources.Screenshot_2022_10_01_024949_removebg_preview1;
+            this.SearchBtn.Location = new System.Drawing.Point(759, 3);
+            this.SearchBtn.Name = "SearchBtn";
+            this.SearchBtn.Size = new System.Drawing.Size(56, 31);
+            this.SearchBtn.TabIndex = 12;
+            this.SearchBtn.TextColor = System.Drawing.Color.Black;
+            this.SearchBtn.UseVisualStyleBackColor = false;
+            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
             // 
             // vbButton4
             // 
@@ -399,7 +444,7 @@
             this.vbButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.vbButton4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vbButton4.ForeColor = System.Drawing.Color.Black;
-            this.vbButton4.Location = new System.Drawing.Point(767, 3);
+            this.vbButton4.Location = new System.Drawing.Point(1198, 3);
             this.vbButton4.Name = "vbButton4";
             this.vbButton4.Size = new System.Drawing.Size(129, 31);
             this.vbButton4.TabIndex = 1;
@@ -412,7 +457,7 @@
             // 
             this.to_dateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.to_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.to_dateTimePicker.Location = new System.Drawing.Point(530, 8);
+            this.to_dateTimePicker.Location = new System.Drawing.Point(961, 8);
             this.to_dateTimePicker.Name = "to_dateTimePicker";
             this.to_dateTimePicker.Size = new System.Drawing.Size(87, 20);
             this.to_dateTimePicker.TabIndex = 11;
@@ -437,51 +482,6 @@
             this.loadingBtnTTBM.UseVisualStyleBackColor = false;
             this.loadingBtnTTBM.Visible = false;
             // 
-            // SearchBtn
-            // 
-            this.SearchBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.SearchBtn.BackColor = System.Drawing.Color.Green;
-            this.SearchBtn.BackgroundColor = System.Drawing.Color.Green;
-            this.SearchBtn.BorderColor = System.Drawing.SystemColors.WindowText;
-            this.SearchBtn.BorderRadius = 20;
-            this.SearchBtn.BorderSize = 0;
-            this.SearchBtn.FlatAppearance.BorderSize = 0;
-            this.SearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchBtn.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchBtn.ForeColor = System.Drawing.Color.Black;
-            this.SearchBtn.Image = global::AdsManager.Properties.Resources.Screenshot_2022_10_01_024949_removebg_preview1;
-            this.SearchBtn.Location = new System.Drawing.Point(328, 3);
-            this.SearchBtn.Name = "SearchBtn";
-            this.SearchBtn.Size = new System.Drawing.Size(56, 31);
-            this.SearchBtn.TabIndex = 12;
-            this.SearchBtn.TextColor = System.Drawing.Color.Black;
-            this.SearchBtn.UseVisualStyleBackColor = false;
-            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
-            // 
-            // TTBM_RefreshBtn
-            // 
-            this.TTBM_RefreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TTBM_RefreshBtn.BackColor = System.Drawing.SystemColors.Window;
-            this.TTBM_RefreshBtn.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.TTBM_RefreshBtn.BorderColor = System.Drawing.SystemColors.WindowText;
-            this.TTBM_RefreshBtn.BorderRadius = 19;
-            this.TTBM_RefreshBtn.BorderSize = 1;
-            this.TTBM_RefreshBtn.FlatAppearance.BorderSize = 0;
-            this.TTBM_RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TTBM_RefreshBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TTBM_RefreshBtn.ForeColor = System.Drawing.Color.Black;
-            this.TTBM_RefreshBtn.Image = global::AdsManager.Properties.Resources.reload2;
-            this.TTBM_RefreshBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TTBM_RefreshBtn.Location = new System.Drawing.Point(3, 7);
-            this.TTBM_RefreshBtn.Name = "TTBM_RefreshBtn";
-            this.TTBM_RefreshBtn.Size = new System.Drawing.Size(146, 33);
-            this.TTBM_RefreshBtn.TabIndex = 43;
-            this.TTBM_RefreshBtn.Text = "    Làm mới dữ liệu";
-            this.TTBM_RefreshBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.TTBM_RefreshBtn.TextColor = System.Drawing.Color.Black;
-            this.TTBM_RefreshBtn.UseVisualStyleBackColor = false;
-            this.TTBM_RefreshBtn.Click += new System.EventHandler(this.TTBM_RefreshBtn_Click);
-            // 
             // ThongTinBM
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -499,7 +499,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ThongTinBM";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ThongTinBMdataGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

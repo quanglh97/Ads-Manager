@@ -1005,6 +1005,11 @@ namespace AdsManager.form.dataTKQC
         {
 
         }
+
+        private void SearchTBox_TTCD_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
     class TTCDThreadState

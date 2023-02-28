@@ -195,6 +195,7 @@
             this.panel2.AutoSize = true;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(246)))), ((int)(((byte)(254)))));
             this.panel2.Controls.Add(this.HKDTBox);
+            this.panel2.Controls.Add(this.Account_RefreshBtn);
             this.panel2.Controls.Add(this.TenHTTBox);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label2);
@@ -298,7 +299,7 @@
             this.AccAddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AccAddBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AccAddBtn.ForeColor = System.Drawing.Color.White;
-            this.AccAddBtn.Location = new System.Drawing.Point(1468, 272);
+            this.AccAddBtn.Location = new System.Drawing.Point(723, 272);
             this.AccAddBtn.Name = "AccAddBtn";
             this.AccAddBtn.Size = new System.Drawing.Size(115, 31);
             this.AccAddBtn.TabIndex = 27;
@@ -319,7 +320,7 @@
             this.AccUpdateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AccUpdateBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AccUpdateBtn.ForeColor = System.Drawing.Color.White;
-            this.AccUpdateBtn.Location = new System.Drawing.Point(1589, 272);
+            this.AccUpdateBtn.Location = new System.Drawing.Point(844, 272);
             this.AccUpdateBtn.Name = "AccUpdateBtn";
             this.AccUpdateBtn.Size = new System.Drawing.Size(115, 31);
             this.AccUpdateBtn.TabIndex = 26;
@@ -573,9 +574,9 @@
             this.Account_RefreshBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Account_RefreshBtn.ForeColor = System.Drawing.Color.Black;
             this.Account_RefreshBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Account_RefreshBtn.Location = new System.Drawing.Point(7, 834);
+            this.Account_RefreshBtn.Location = new System.Drawing.Point(535, 272);
             this.Account_RefreshBtn.Name = "Account_RefreshBtn";
-            this.Account_RefreshBtn.Size = new System.Drawing.Size(112, 26);
+            this.Account_RefreshBtn.Size = new System.Drawing.Size(118, 31);
             this.Account_RefreshBtn.TabIndex = 43;
             this.Account_RefreshBtn.Text = "Làm mới dữ liệu";
             this.Account_RefreshBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -592,7 +593,6 @@
             this.ClientSize = new System.Drawing.Size(1734, 861);
             this.ControlBox = false;
             this.Controls.Add(this.vbButton1);
-            this.Controls.Add(this.Account_RefreshBtn);
             this.Controls.Add(this.AccountDataGridView);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
