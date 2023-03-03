@@ -165,7 +165,7 @@ namespace AdsManager
                 acc.token = token;
                 acc.TenHT = tenHT;
                 acc.HKD = HKD;
-                acc.Account = acc.userId + "|" + acc.pass + "|" + acc.key2fa + "|" + acc.cookie + "|" + acc.TenHT + "|" + acc.HKD;
+                acc.Account = acc.userId + "|" + acc.pass + "|" + acc.key2fa + "|" + acc.cookie + "|" + acc.token + "|"+ acc.TenHT + "|" + acc.HKD;
                 if (ViaInstances.lsAccVia.Find(x => x.userId == acc.userId) == null)
                 {
                     ViaInstances.lsAccVia.Add(acc);
@@ -250,12 +250,13 @@ namespace AdsManager
                 Via.cookie = CookieTBox.Text.Trim();
                 Via.pass = PassTBox.Text.Trim();
                 Via.key2fa = CodeTBox.Text.Trim();
+                Via.token = TokenTBox.Text.Trim();
                 var tenHT = TenHTTBox.Text;
                 var HKD = HKDTBox.Text;
                 Via.TenHT = tenHT;
                 Via.HKD = HKD;
                 var tick = Via.tick ? "1" : "0";
-                Via.Account = Via.userId + "|" + Via.pass + "|" + Via.key2fa + "|" + Via.cookie + "|" + Via.TenHT + "|" + Via.HKD + "|" + tick;
+                Via.Account = Via.userId + "|" + Via.pass + "|" + Via.key2fa + "|" + Via.cookie + "|"+ Via.token +"|"+ Via.TenHT + "|" + Via.HKD + "|" + tick;
 
                 var dataFolder = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data");
                 if (!Directory.Exists(dataFolder))

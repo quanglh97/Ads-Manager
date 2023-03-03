@@ -46,10 +46,12 @@
             this.TongHoaDon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongTienToTal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.modeShowBtn = new AdsManager.VBButton();
             this.locTimeBtn = new AdsManager.VBButton();
             this.vbButton1 = new AdsManager.VBButton();
             this.SearchTBox_HD = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.HDTT_RefeshBtn = new AdsManager.VBButton();
             this.from_dateTimePicker_HD = new System.Windows.Forms.DateTimePicker();
             this.searchBtn_HD = new AdsManager.VBButton();
             this.vbButton4 = new AdsManager.VBButton();
@@ -66,9 +68,7 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TONGTIENGOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TienTe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modeShowBtn = new AdsManager.VBButton();
             this.loadingBtnHoadon = new AdsManager.VBButton();
-            this.HDTT_RefeshBtn = new AdsManager.VBButton();
             ((System.ComponentModel.ISupportInitialize)(this.HoaDonThanhToanDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HoaDonThanhToanToTalDataGridView)).BeginInit();
             this.panel2.SuspendLayout();
@@ -248,10 +248,32 @@
             this.panel2.Controls.Add(this.vbButton4);
             this.panel2.Controls.Add(this.to_dateTimePicker_HD);
             this.panel2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(87, 12);
+            this.panel2.Location = new System.Drawing.Point(239, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1422, 37);
+            this.panel2.Size = new System.Drawing.Size(1270, 37);
             this.panel2.TabIndex = 50;
+            // 
+            // modeShowBtn
+            // 
+            this.modeShowBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.modeShowBtn.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.modeShowBtn.BackgroundColor = System.Drawing.SystemColors.MenuHighlight;
+            this.modeShowBtn.BorderColor = System.Drawing.SystemColors.WindowText;
+            this.modeShowBtn.BorderRadius = 19;
+            this.modeShowBtn.BorderSize = 1;
+            this.modeShowBtn.FlatAppearance.BorderSize = 0;
+            this.modeShowBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.modeShowBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modeShowBtn.ForeColor = System.Drawing.Color.Black;
+            this.modeShowBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.modeShowBtn.Location = new System.Drawing.Point(162, 2);
+            this.modeShowBtn.Name = "modeShowBtn";
+            this.modeShowBtn.Size = new System.Drawing.Size(112, 33);
+            this.modeShowBtn.TabIndex = 53;
+            this.modeShowBtn.Text = "Hiện Theo TKQC";
+            this.modeShowBtn.TextColor = System.Drawing.Color.Black;
+            this.modeShowBtn.UseVisualStyleBackColor = false;
+            this.modeShowBtn.Click += new System.EventHandler(this.modeShowBtn_Click);
             // 
             // locTimeBtn
             // 
@@ -265,7 +287,7 @@
             this.locTimeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.locTimeBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.locTimeBtn.ForeColor = System.Drawing.Color.Black;
-            this.locTimeBtn.Location = new System.Drawing.Point(957, 2);
+            this.locTimeBtn.Location = new System.Drawing.Point(898, 2);
             this.locTimeBtn.Name = "locTimeBtn";
             this.locTimeBtn.Size = new System.Drawing.Size(61, 31);
             this.locTimeBtn.TabIndex = 27;
@@ -286,9 +308,9 @@
             this.vbButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.vbButton1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vbButton1.ForeColor = System.Drawing.Color.Black;
-            this.vbButton1.Location = new System.Drawing.Point(1040, 2);
+            this.vbButton1.Location = new System.Drawing.Point(962, 3);
             this.vbButton1.Name = "vbButton1";
-            this.vbButton1.Size = new System.Drawing.Size(179, 31);
+            this.vbButton1.Size = new System.Drawing.Size(143, 31);
             this.vbButton1.TabIndex = 28;
             this.vbButton1.Text = "Xuất Excel bảng tổng";
             this.vbButton1.TextColor = System.Drawing.Color.Black;
@@ -301,7 +323,7 @@
             this.SearchTBox_HD.BackColor = System.Drawing.Color.Gainsboro;
             this.SearchTBox_HD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SearchTBox_HD.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchTBox_HD.Location = new System.Drawing.Point(340, 7);
+            this.SearchTBox_HD.Location = new System.Drawing.Point(281, 7);
             this.SearchTBox_HD.MaximumSize = new System.Drawing.Size(350, 25);
             this.SearchTBox_HD.MinimumSize = new System.Drawing.Size(316, 25);
             this.SearchTBox_HD.Name = "SearchTBox_HD";
@@ -312,17 +334,41 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(819, 11);
+            this.label3.Location = new System.Drawing.Point(760, 11);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 14);
             this.label3.TabIndex = 14;
             this.label3.Text = "Đến";
             // 
+            // HDTT_RefeshBtn
+            // 
+            this.HDTT_RefeshBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.HDTT_RefeshBtn.BackColor = System.Drawing.SystemColors.Window;
+            this.HDTT_RefeshBtn.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.HDTT_RefeshBtn.BorderColor = System.Drawing.SystemColors.WindowText;
+            this.HDTT_RefeshBtn.BorderRadius = 19;
+            this.HDTT_RefeshBtn.BorderSize = 1;
+            this.HDTT_RefeshBtn.FlatAppearance.BorderSize = 0;
+            this.HDTT_RefeshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HDTT_RefeshBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HDTT_RefeshBtn.ForeColor = System.Drawing.Color.Black;
+            this.HDTT_RefeshBtn.Image = global::AdsManager.Properties.Resources.reload2;
+            this.HDTT_RefeshBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.HDTT_RefeshBtn.Location = new System.Drawing.Point(6, 2);
+            this.HDTT_RefeshBtn.Name = "HDTT_RefeshBtn";
+            this.HDTT_RefeshBtn.Size = new System.Drawing.Size(137, 33);
+            this.HDTT_RefeshBtn.TabIndex = 48;
+            this.HDTT_RefeshBtn.Text = "Làm mới dữ liệu";
+            this.HDTT_RefeshBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.HDTT_RefeshBtn.TextColor = System.Drawing.Color.Black;
+            this.HDTT_RefeshBtn.UseVisualStyleBackColor = false;
+            this.HDTT_RefeshBtn.Click += new System.EventHandler(this.HDTT_RefeshBtn_Click);
+            // 
             // from_dateTimePicker_HD
             // 
             this.from_dateTimePicker_HD.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.from_dateTimePicker_HD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.from_dateTimePicker_HD.Location = new System.Drawing.Point(728, 7);
+            this.from_dateTimePicker_HD.Location = new System.Drawing.Point(669, 7);
             this.from_dateTimePicker_HD.Name = "from_dateTimePicker_HD";
             this.from_dateTimePicker_HD.Size = new System.Drawing.Size(81, 20);
             this.from_dateTimePicker_HD.TabIndex = 13;
@@ -340,7 +386,7 @@
             this.searchBtn_HD.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchBtn_HD.ForeColor = System.Drawing.Color.Black;
             this.searchBtn_HD.Image = global::AdsManager.Properties.Resources.Screenshot_2022_10_01_024949_removebg_preview1;
-            this.searchBtn_HD.Location = new System.Drawing.Point(662, 2);
+            this.searchBtn_HD.Location = new System.Drawing.Point(603, 2);
             this.searchBtn_HD.Name = "searchBtn_HD";
             this.searchBtn_HD.Size = new System.Drawing.Size(56, 31);
             this.searchBtn_HD.TabIndex = 12;
@@ -360,9 +406,9 @@
             this.vbButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.vbButton4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vbButton4.ForeColor = System.Drawing.Color.Black;
-            this.vbButton4.Location = new System.Drawing.Point(1236, 3);
+            this.vbButton4.Location = new System.Drawing.Point(1111, 3);
             this.vbButton4.Name = "vbButton4";
-            this.vbButton4.Size = new System.Drawing.Size(177, 31);
+            this.vbButton4.Size = new System.Drawing.Size(150, 31);
             this.vbButton4.TabIndex = 1;
             this.vbButton4.Text = "Xuất Excel bảng chi tiết";
             this.vbButton4.TextColor = System.Drawing.Color.Black;
@@ -373,7 +419,7 @@
             // 
             this.to_dateTimePicker_HD.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.to_dateTimePicker_HD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.to_dateTimePicker_HD.Location = new System.Drawing.Point(864, 7);
+            this.to_dateTimePicker_HD.Location = new System.Drawing.Point(805, 7);
             this.to_dateTimePicker_HD.Name = "to_dateTimePicker_HD";
             this.to_dateTimePicker_HD.Size = new System.Drawing.Size(87, 20);
             this.to_dateTimePicker_HD.TabIndex = 11;
@@ -484,28 +530,6 @@
             this.TienTe.Name = "TienTe";
             this.TienTe.ReadOnly = true;
             // 
-            // modeShowBtn
-            // 
-            this.modeShowBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.modeShowBtn.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.modeShowBtn.BackgroundColor = System.Drawing.SystemColors.MenuHighlight;
-            this.modeShowBtn.BorderColor = System.Drawing.SystemColors.WindowText;
-            this.modeShowBtn.BorderRadius = 19;
-            this.modeShowBtn.BorderSize = 1;
-            this.modeShowBtn.FlatAppearance.BorderSize = 0;
-            this.modeShowBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.modeShowBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modeShowBtn.ForeColor = System.Drawing.Color.Black;
-            this.modeShowBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.modeShowBtn.Location = new System.Drawing.Point(166, 1);
-            this.modeShowBtn.Name = "modeShowBtn";
-            this.modeShowBtn.Size = new System.Drawing.Size(137, 33);
-            this.modeShowBtn.TabIndex = 53;
-            this.modeShowBtn.Text = "Hiện Theo TKQC";
-            this.modeShowBtn.TextColor = System.Drawing.Color.Black;
-            this.modeShowBtn.UseVisualStyleBackColor = false;
-            this.modeShowBtn.Click += new System.EventHandler(this.modeShowBtn_Click);
-            // 
             // loadingBtnHoadon
             // 
             this.loadingBtnHoadon.BackColor = System.Drawing.SystemColors.Window;
@@ -525,30 +549,6 @@
             this.loadingBtnHoadon.TextColor = System.Drawing.Color.White;
             this.loadingBtnHoadon.UseVisualStyleBackColor = false;
             this.loadingBtnHoadon.Visible = false;
-            // 
-            // HDTT_RefeshBtn
-            // 
-            this.HDTT_RefeshBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.HDTT_RefeshBtn.BackColor = System.Drawing.SystemColors.Window;
-            this.HDTT_RefeshBtn.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.HDTT_RefeshBtn.BorderColor = System.Drawing.SystemColors.WindowText;
-            this.HDTT_RefeshBtn.BorderRadius = 19;
-            this.HDTT_RefeshBtn.BorderSize = 1;
-            this.HDTT_RefeshBtn.FlatAppearance.BorderSize = 0;
-            this.HDTT_RefeshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HDTT_RefeshBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HDTT_RefeshBtn.ForeColor = System.Drawing.Color.Black;
-            this.HDTT_RefeshBtn.Image = global::AdsManager.Properties.Resources.reload2;
-            this.HDTT_RefeshBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.HDTT_RefeshBtn.Location = new System.Drawing.Point(10, 1);
-            this.HDTT_RefeshBtn.Name = "HDTT_RefeshBtn";
-            this.HDTT_RefeshBtn.Size = new System.Drawing.Size(137, 33);
-            this.HDTT_RefeshBtn.TabIndex = 48;
-            this.HDTT_RefeshBtn.Text = "Làm mới dữ liệu";
-            this.HDTT_RefeshBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.HDTT_RefeshBtn.TextColor = System.Drawing.Color.Black;
-            this.HDTT_RefeshBtn.UseVisualStyleBackColor = false;
-            this.HDTT_RefeshBtn.Click += new System.EventHandler(this.HDTT_RefeshBtn_Click);
             // 
             // HoaDonTTForm
             // 

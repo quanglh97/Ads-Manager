@@ -65,9 +65,6 @@ namespace AdsManager
             TTTKQC_Worker.WorkerReportsProgress = true;
             TTTKQC_Worker.WorkerSupportsCancellation = true;
 
-
-
-
             TTTKQCInstance.NewAccountAdded += this.Statistic_newAccountAdded;
 
             List<string> listItem = new List<string>()
@@ -79,7 +76,7 @@ namespace AdsManager
                  "50",
                  "100",
                  "500"
-                 
+
             };
             TTTKQCComboBox.DataSource = listItem;
         }
@@ -427,7 +424,7 @@ namespace AdsManager
                 thongTinTKQCDataGridView.Rows.Clear();
 
                 TTTKQCInstance.tiGia = RequestTiGiaNgoaiTe();
-                ViaInstances.ImportVia();
+                //ViaInstances.ImportVia();
                 Common.ImportMKTInfo();
                 if (!TTTKQCComboBox.SelectedValue.ToString().Contains("MAX"))
                     TTTKQCInstance.limit = Int32.Parse(TTTKQCComboBox.SelectedValue.ToString());
@@ -458,7 +455,7 @@ namespace AdsManager
                     thongTinTKQCDataGridView.Rows.Clear();
 
                     TTTKQCInstance.tiGia = RequestTiGiaNgoaiTe();
-                    ViaInstances.ImportVia();
+                    //ViaInstances.ImportVia();
                     Common.ImportMKTInfo();
                     if (!TTTKQCComboBox.SelectedValue.ToString().Contains("MAX"))
                         TTTKQCInstance.limit = Int32.Parse(TTTKQCComboBox.SelectedValue.ToString());
@@ -513,13 +510,33 @@ namespace AdsManager
             httpRequest.Headers["authority"] = "business.facebook.com";
             httpRequest.Headers["cookie"] = coookie;
 
-
-            var httpResponse = (HttpWebResponse)httpRequest.GetResponse();
-            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            try
             {
-                var result = streamReader.ReadToEnd();
-                return result.ToString();
+                var httpResponse = (HttpWebResponse)httpRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
+                    return result.ToString();
+                }
             }
+            catch
+            {
+                url = $"https://graph.facebook.com/v14.0/act_{accId}?fields=account_id,owner_business,created_time,next_bill_date,currency,adtrust_dsl,timezone_name,timezone_offset_hours_utc,business_country_code,disable_reason,adspaymentcycle{{threshold_amount}},balance,owner&access_token={token}&locale=en_US";
+                var httpRequest2 = (HttpWebRequest)WebRequest.Create(url);
+                httpRequest2.Headers["authority"] = "business.facebook.com";
+                httpRequest2.Headers["cookie"] = coookie;
+                var httpResponse = (HttpWebResponse)httpRequest2.GetResponse();
+
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
+                    return result.ToString();
+                }
+
+            }
+
+            return null;
+
         }
 
         public static IDictionary<string, double> RequestTiGiaNgoaiTe()
@@ -559,10 +576,6 @@ namespace AdsManager
             //    TTTKQCInstance.limit = cl;
             //}
         }
-
-
-
-
 
         private void thongTinTKQCDataGridView_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
         {
@@ -789,7 +802,6 @@ namespace AdsManager
 
         private void locTimeTKQCBtn_Click(object sender, EventArgs e)
         {
-
             Thread.Sleep(1000);
             //searchTTTKQC_Worker.ReportProgress(0);
             thongTinTKQCDataGridView.Rows.Clear();

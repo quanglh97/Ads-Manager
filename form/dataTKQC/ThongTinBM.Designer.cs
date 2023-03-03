@@ -370,7 +370,7 @@
             this.locTimeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.locTimeBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.locTimeBtn.ForeColor = System.Drawing.Color.Black;
-            this.locTimeBtn.Location = new System.Drawing.Point(1054, 3);
+            this.locTimeBtn.Location = new System.Drawing.Point(1152, 4);
             this.locTimeBtn.Name = "locTimeBtn";
             this.locTimeBtn.Size = new System.Drawing.Size(61, 31);
             this.locTimeBtn.TabIndex = 27;
@@ -385,7 +385,7 @@
             this.SearchTBox.BackColor = System.Drawing.Color.Gainsboro;
             this.SearchTBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SearchTBox.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchTBox.Location = new System.Drawing.Point(437, 6);
+            this.SearchTBox.Location = new System.Drawing.Point(535, 7);
             this.SearchTBox.MaximumSize = new System.Drawing.Size(350, 25);
             this.SearchTBox.MinimumSize = new System.Drawing.Size(316, 25);
             this.SearchTBox.Name = "SearchTBox";
@@ -396,7 +396,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(916, 12);
+            this.label3.Location = new System.Drawing.Point(1014, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 14);
             this.label3.TabIndex = 14;
@@ -406,7 +406,7 @@
             // 
             this.from_dateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.from_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.from_dateTimePicker.Location = new System.Drawing.Point(825, 8);
+            this.from_dateTimePicker.Location = new System.Drawing.Point(923, 9);
             this.from_dateTimePicker.Name = "from_dateTimePicker";
             this.from_dateTimePicker.Size = new System.Drawing.Size(81, 20);
             this.from_dateTimePicker.TabIndex = 13;
@@ -424,7 +424,7 @@
             this.SearchBtn.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchBtn.ForeColor = System.Drawing.Color.Black;
             this.SearchBtn.Image = global::AdsManager.Properties.Resources.Screenshot_2022_10_01_024949_removebg_preview1;
-            this.SearchBtn.Location = new System.Drawing.Point(759, 3);
+            this.SearchBtn.Location = new System.Drawing.Point(857, 4);
             this.SearchBtn.Name = "SearchBtn";
             this.SearchBtn.Size = new System.Drawing.Size(56, 31);
             this.SearchBtn.TabIndex = 12;
@@ -444,9 +444,9 @@
             this.vbButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.vbButton4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vbButton4.ForeColor = System.Drawing.Color.Black;
-            this.vbButton4.Location = new System.Drawing.Point(1198, 3);
+            this.vbButton4.Location = new System.Drawing.Point(1219, 3);
             this.vbButton4.Name = "vbButton4";
-            this.vbButton4.Size = new System.Drawing.Size(129, 31);
+            this.vbButton4.Size = new System.Drawing.Size(108, 31);
             this.vbButton4.TabIndex = 1;
             this.vbButton4.Text = "Xuất Excel";
             this.vbButton4.TextColor = System.Drawing.Color.Black;
@@ -457,7 +457,7 @@
             // 
             this.to_dateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.to_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.to_dateTimePicker.Location = new System.Drawing.Point(961, 8);
+            this.to_dateTimePicker.Location = new System.Drawing.Point(1059, 9);
             this.to_dateTimePicker.Name = "to_dateTimePicker";
             this.to_dateTimePicker.Size = new System.Drawing.Size(87, 20);
             this.to_dateTimePicker.TabIndex = 11;
