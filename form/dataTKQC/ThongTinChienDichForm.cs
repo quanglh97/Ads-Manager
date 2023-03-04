@@ -335,6 +335,10 @@ namespace AdsManager.form.dataTKQC
                             TTCD.TenTKQC = TKQC.tenTK;
                             TTCD.tienTe = TKQC.tienTe;
 
+                            if (TTCD.ngayTaoQC[1] == '/')
+                            {
+                                TTCD.ngayTaoQC = "0" + TTCD.ngayTaoQC;
+                            }
                             DateTime dateNgayTaoQC = DateTime.ParseExact(TTCD.ngayTaoQC, "MM/dd/yyyy",System.Globalization.CultureInfo.InvariantCulture);
 
                             TTCD.ngayTaoQC = dateNgayTaoQC.AddHours(int.Parse(TKQC.timeZone.Split('/')[2]) - 7).ToShortDateString();

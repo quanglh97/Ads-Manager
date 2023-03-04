@@ -46,6 +46,7 @@
             this.Limmit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NguongConLai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongTieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongTieu24Hour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TienTe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimeZone = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,9 +80,9 @@
             this.TTTKQC_RefreshBtn = new AdsManager.VBButton();
             this.vbButton4 = new AdsManager.VBButton();
             this.to_dateTimePicker_TKQC = new System.Windows.Forms.DateTimePicker();
-            this.ServiceBGCBox = new System.Windows.Forms.CheckBox();
             this.loadingBtnTKQC = new AdsManager.VBButton();
             this.elipseControl1 = new TakeCarePage.ElipseControl();
+            this.checkDataBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.thongTinTKQCToTalDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thongTinTKQCDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
@@ -150,6 +151,7 @@
             this.Limmit,
             this.NguongConLai,
             this.TongTieu,
+            this.TongTieu24Hour,
             this.TienTe,
             this.Role,
             this.TimeZone,
@@ -244,6 +246,12 @@
             this.TongTieu.Name = "TongTieu";
             this.TongTieu.ReadOnly = true;
             this.TongTieu.Width = 180;
+            // 
+            // TongTieu24Hour
+            // 
+            this.TongTieu24Hour.HeaderText = "Tổng tiêu 24h";
+            this.TongTieu24Hour.Name = "TongTieu24Hour";
+            this.TongTieu24Hour.ReadOnly = true;
             // 
             // TienTe
             // 
@@ -623,17 +631,6 @@
             this.to_dateTimePicker_TKQC.Size = new System.Drawing.Size(87, 20);
             this.to_dateTimePicker_TKQC.TabIndex = 11;
             // 
-            // ServiceBGCBox
-            // 
-            this.ServiceBGCBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.ServiceBGCBox.AutoSize = true;
-            this.ServiceBGCBox.Location = new System.Drawing.Point(1061, 715);
-            this.ServiceBGCBox.Name = "ServiceBGCBox";
-            this.ServiceBGCBox.Size = new System.Drawing.Size(131, 18);
-            this.ServiceBGCBox.TabIndex = 46;
-            this.ServiceBGCBox.Text = "Kiểm tra hàng ngày";
-            this.ServiceBGCBox.UseVisualStyleBackColor = true;
-            // 
             // loadingBtnTKQC
             // 
             this.loadingBtnTKQC.BackColor = System.Drawing.SystemColors.Window;
@@ -659,6 +656,16 @@
             this.elipseControl1.CornerRadius = 15;
             this.elipseControl1.TargetControl = this.TTTKQCComboBox;
             // 
+            // checkDataBtn
+            // 
+            this.checkDataBtn.Location = new System.Drawing.Point(35, 713);
+            this.checkDataBtn.Name = "checkDataBtn";
+            this.checkDataBtn.Size = new System.Drawing.Size(169, 23);
+            this.checkDataBtn.TabIndex = 46;
+            this.checkDataBtn.Text = "Check Chi tiêu 24H";
+            this.checkDataBtn.UseVisualStyleBackColor = true;
+            this.checkDataBtn.Click += new System.EventHandler(this.checkDataBtn_Click);
+            // 
             // ThongTinTKQCForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -666,7 +673,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(246)))), ((int)(((byte)(254)))));
             this.ClientSize = new System.Drawing.Size(1584, 746);
             this.ControlBox = false;
-            this.Controls.Add(this.ServiceBGCBox);
+            this.Controls.Add(this.checkDataBtn);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.loadingBtnTKQC);
             this.Controls.Add(this.panel1);
@@ -684,7 +691,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -730,6 +736,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Limmit;
         private System.Windows.Forms.DataGridViewTextBoxColumn NguongConLai;
         private System.Windows.Forms.DataGridViewTextBoxColumn TongTieu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TongTieu24Hour;
         private System.Windows.Forms.DataGridViewTextBoxColumn TienTe;
         private System.Windows.Forms.DataGridViewTextBoxColumn Role;
         private System.Windows.Forms.DataGridViewTextBoxColumn TimeZone;
@@ -741,6 +748,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DuoiThe;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoNgayDenKiTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn LiDoDisable;
-        private System.Windows.Forms.CheckBox ServiceBGCBox;
+        private System.Windows.Forms.Button checkDataBtn;
     }
 }

@@ -560,7 +560,7 @@
             this.loadingBtnTTCD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loadingBtnTTCD.ForeColor = System.Drawing.Color.White;
             this.loadingBtnTTCD.Image = global::AdsManager.Properties.Resources.loading1;
-            this.loadingBtnTTCD.Location = new System.Drawing.Point(782, 285);
+            this.loadingBtnTTCD.Location = new System.Drawing.Point(894, 304);
             this.loadingBtnTTCD.Name = "loadingBtnTTCD";
             this.loadingBtnTTCD.Size = new System.Drawing.Size(249, 244);
             this.loadingBtnTTCD.TabIndex = 45;
@@ -581,9 +581,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(246)))), ((int)(((byte)(254)))));
             this.ClientSize = new System.Drawing.Size(1571, 747);
             this.ControlBox = false;
+            this.Controls.Add(this.loadingBtnTTCD);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.loadingBtnTTCD);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ThongTinChienDichDataGridView);
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -32,6 +32,7 @@ namespace AdsManager
     public partial class ThongTinTKQCForm : Form
     {
         BackgroundWorker TTTKQC_Worker = null;
+        BackgroundWorker TTTKQC_WorkerLoop = null;
         volatile int live_thread_number = 0;
         Queue<int> qu_position_pro5 = new Queue<int>();
 
@@ -64,6 +65,13 @@ namespace AdsManager
             TTTKQC_Worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(TTTKQC_Worker_RunWorkerCompleted);
             TTTKQC_Worker.WorkerReportsProgress = true;
             TTTKQC_Worker.WorkerSupportsCancellation = true;
+
+
+            TTTKQC_WorkerLoop = new BackgroundWorker();
+            TTTKQC_WorkerLoop.DoWork += new DoWorkEventHandler(TTTKQC_Worker_DoWorkLoop);
+            TTTKQC_Worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(TTTKQC_Worker_RunWorkerCompletedLoop);
+            TTTKQC_WorkerLoop.WorkerReportsProgress = true;
+            TTTKQC_WorkerLoop.WorkerSupportsCancellation = true;
 
             TTTKQCInstance.NewAccountAdded += this.Statistic_newAccountAdded;
 
@@ -389,6 +397,16 @@ namespace AdsManager
             {
                 tongTieu = "0";
             }
+
+            var tongTieu24h = "0";
+            try
+            {
+                tongTieu24h = e.InfoAccount.tongTieu24h != null ? double.Parse(e.InfoAccount.tongTieu24h).ToString("N", nfi).Split(new string[] { ".00" }, StringSplitOptions.None)[0] : "0";
+            }
+            catch
+            {
+                tongTieu24h = "0";
+            }
             thongTinTKQCDataGridView.Rows.Insert(thongTinTKQCDataGridView.Rows.Count - 1,
                                                     e.InfoAccount.trangThai != null ? e.InfoAccount.trangThai : "",
                                                     e.InfoAccount.ID != null ? e.InfoAccount.ID : "",
@@ -401,6 +419,7 @@ namespace AdsManager
                                                     e.InfoAccount.Limit != null && e.InfoAccount.Limit != "-1" ? double.Parse(e.InfoAccount.Limit).ToString("N", nfi).Split(new string[] { ".00" }, StringSplitOptions.None)[0] : "No Limit",
                                                     e.InfoAccount.nguongConLai != null ? double.Parse(e.InfoAccount.nguongConLai).ToString("N", nfi).Split(new string[] { ".00" }, StringSplitOptions.None)[0] : "",
                                                     tongTieu,
+                                                    tongTieu24h,
                                                     e.InfoAccount.tienTe != null ? e.InfoAccount.tienTe : "",
                                                     e.InfoAccount.role != null ? e.InfoAccount.role : "",
                                                     e.InfoAccount.timeZone != null ? e.InfoAccount.timeZone : "",
@@ -416,66 +435,22 @@ namespace AdsManager
 
         private void TTTKQC_RefreshBtn_Click(object sender, EventArgs e)
         {
-            if (ServiceBGCBox.Checked == false)
-            {
-                loadingBtnTKQC.Visible = true;
-                TTTKQC_RefreshBtn.Enabled = false;
-                TTTKQC_RefreshBtn.BackgroundColor = Color.FromArgb(255, 198, 65, 24);
-                thongTinTKQCDataGridView.Rows.Clear();
+            loadingBtnTKQC.Visible = true;
+            TTTKQC_RefreshBtn.Enabled = false;
+            TTTKQC_RefreshBtn.BackgroundColor = Color.FromArgb(255, 198, 65, 24);
+            thongTinTKQCDataGridView.Rows.Clear();
 
-                TTTKQCInstance.tiGia = RequestTiGiaNgoaiTe();
-                //ViaInstances.ImportVia();
-                Common.ImportMKTInfo();
-                if (!TTTKQCComboBox.SelectedValue.ToString().Contains("MAX"))
-                    TTTKQCInstance.limit = Int32.Parse(TTTKQCComboBox.SelectedValue.ToString());
-                else
-                    TTTKQCInstance.limit = 100000;
-
-                if (ServiceBGCBox.Checked)
-                {
-                    TTTKQCInstance.serviceBG = true;
-                }
-                else
-                {
-                    TTTKQCInstance.serviceBG = false;
-                }
-
-                if (!TTTKQC_Worker.IsBusy)
-                {
-                    TTTKQC_Worker.RunWorkerAsync();
-                }
-            }
+            TTTKQCInstance.tiGia = RequestTiGiaNgoaiTe();
+            //ViaInstances.ImportVia();
+            Common.ImportMKTInfo();
+            if (!TTTKQCComboBox.SelectedValue.ToString().Contains("MAX"))
+                TTTKQCInstance.limit = Int32.Parse(TTTKQCComboBox.SelectedValue.ToString());
             else
+                TTTKQCInstance.limit = 100000;
+
+            if (!TTTKQC_Worker.IsBusy)
             {
-                while (true)
-                {
-                    loadingBtnTKQC.Visible = true;
-                    TTTKQC_RefreshBtn.Enabled = false;
-                    TTTKQC_RefreshBtn.BackgroundColor = Color.FromArgb(255, 198, 65, 24);
-                    thongTinTKQCDataGridView.Rows.Clear();
-
-                    TTTKQCInstance.tiGia = RequestTiGiaNgoaiTe();
-                    //ViaInstances.ImportVia();
-                    Common.ImportMKTInfo();
-                    if (!TTTKQCComboBox.SelectedValue.ToString().Contains("MAX"))
-                        TTTKQCInstance.limit = Int32.Parse(TTTKQCComboBox.SelectedValue.ToString());
-                    else
-                        TTTKQCInstance.limit = 100000;
-
-                    if (ServiceBGCBox.Checked)
-                    {
-                        TTTKQCInstance.serviceBG = true;
-                    }
-                    else
-                    {
-                        TTTKQCInstance.serviceBG = false;
-                    }
-
-                    if (!TTTKQC_Worker.IsBusy)
-                    {
-                        TTTKQC_Worker.RunWorkerAsync();
-                    }
-                }
+                TTTKQC_Worker.RunWorkerAsync();
             }
         }
 
@@ -800,6 +775,7 @@ namespace AdsManager
             return "";
         }
 
+
         private void locTimeTKQCBtn_Click(object sender, EventArgs e)
         {
             Thread.Sleep(1000);
@@ -918,6 +894,124 @@ namespace AdsManager
                                                     TTTKQCInstance.tongSoDu.ToString("N", nfi).Split(new string[] { ".00" }, StringSplitOptions.None)[0]);
             loadingBtnTKQC.Visible = false;
         }
+        void TTTKQC_Worker_DoWorkLoop(object sender, DoWorkEventArgs e)
+        {
+            LoopCheck24Hour();
+        }
+        void TTTKQC_Worker_RunWorkerCompletedLoop(object sender, RunWorkerCompletedEventArgs e)
+        {
+            checkDataBtn.Enabled = true;
+        }
+
+        public void LoopCheck24Hour()
+        {
+            while (true)
+            {
+                try
+                {
+                    var timeNow = DateTime.Now;
+                    if (timeNow.Minute <= 59 && timeNow.Minute >= 55)
+                    {
+                        thongTinTKQCDataGridView.Rows.Clear();
+                        loadingBtnTKQC.Visible = true;
+
+                        foreach (var item in TTTKQCInstance.lsViewTKQC)
+                        {
+                            item.tongTieu = "0";
+                        }
+                        var timeSince = Common.parseStringDateToFilter2(from_dateTimePicker_TKQC.Value.ToShortDateString());
+                        var timeUntil = Common.parseStringDateToFilter2(to_dateTimePicker_TKQC.Value.ToShortDateString());
+
+                        for (int index = 0; index < ViaInstances.lsAccVia.Count; index++)
+                        {
+                            var cookie = ViaInstances.lsAccVia[index].cookie;
+                            List<TTTKQCInfo> lsTKQC = new List<TTTKQCInfo>();
+                            ConcurrentQueue<List<TTTKQCInfo>> queue = new ConcurrentQueue<List<TTTKQCInfo>>();
+                            foreach (var tkqc in TTTKQCInstance.lsTKQC)
+                            {
+
+                                if (tkqc.cookie == cookie) { lsTKQC.Add(tkqc); }
+                                if (lsTKQC.Count == 50)
+                                {
+                                    List<TTTKQCInfo> lsTKQCClone = new List<TTTKQCInfo>(lsTKQC.Count);
+                                    lsTKQC.ForEach((item) =>
+                                    {
+                                        lsTKQCClone.Add(new TTTKQCInfo(item));
+                                    });
+                                    queue.Enqueue(lsTKQCClone);
+                                    lsTKQC.Clear();
+                                }
+                            }
+                            if (lsTKQC.Count > 0)
+                                queue.Enqueue(lsTKQC);
+
+                            while (queue.Count > 0)
+                            {
+                                List<TTTKQCInfo> tempLsTKQC = new List<TTTKQCInfo>();
+                                queue.TryDequeue(out tempLsTKQC);
+                                var dataFilterTime = GetDataFilterTime(ViaInstances.lsAccVia[index].token, cookie, timeSince, timeUntil, tempLsTKQC);
+                                dataFilterTime = "{\"data\":" + dataFilterTime + "}";
+                                JObject dataFilter = JObject.Parse(dataFilterTime);
+                                if (dataFilter != null)
+                                {
+                                    for (int i = 0; i < dataFilter["data"].Count(); i++)
+                                    {
+                                        var itemBody = dataFilter["data"][i]["body"].ToString();
+                                        if (itemBody.Contains("spend"))
+                                        {
+                                            try
+                                            {
+                                                JObject dataFilterItem = JObject.Parse(itemBody);
+                                                //var match = Regex.Match(item, pattern);
+                                                var tempId = dataFilterItem["account_id"].ToString();
+                                                var tempTongTieu = dataFilterItem["insights"]["data"][0]["spend"].ToString();
+                                                TTTKQCInfo tkqc = TTTKQCInstance.lsViewTKQC.Find(x => x.ID == tempId);
+                                                if (tkqc != null)
+                                                {
+                                                    if (tkqc.soTimeZone == 7 && timeNow.Hour == 23)
+                                                    {
+                                                        tkqc.tongTieu24h = tempTongTieu;
+                                                        tkqc.tongTieu24hBefore = 0.ToString();
+                                                        tkqc.tongTieu24h_Plus7 = tempTongTieu;
+                                                    }
+                                                    else if (tkqc.soTimeZone != 7 && timeNow.Hour == 23)
+                                                    {
+                                                        tkqc.tongTieu24h = (double.Parse(tempTongTieu) + double.Parse(tkqc.tongTieu24hBefore)).ToString();
+                                                        tkqc.tongTieu24hBefore = 0.ToString();
+                                                        tkqc.tongTieu24h_Plus7 = tempTongTieu;
+                                                    }
+                                                    else if (tkqc.soTimeZone != 7 && timeNow.Hour != 23)
+                                                    {
+                                                        int mocGio = 7 - tkqc.soTimeZone > 0 ? 7 - tkqc.soTimeZone : 24 + 7 - tkqc.soTimeZone;
+                                                        if (timeNow.Hour == mocGio)
+                                                        {
+                                                            tkqc.tongTieu24hBefore = (double.Parse(tempTongTieu) - double.Parse(tkqc.tongTieu24h_Plus7)).ToString();
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            catch { }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                        foreach (var item in TTTKQCInstance.lsViewTKQC)
+                        {
+                            TTTKQCInstance.OnNewAccAdded(item);
+                        }
+                        loadingBtnTKQC.Visible = false;
+                    }
+                    Thread.Sleep(5 * 60 * 1000);
+                }
+                catch { }
+            }
+        }
+
+
+
+
 
         private void searchKTQCBtn_Click(object sender, EventArgs e)
         {
@@ -1129,7 +1223,7 @@ namespace AdsManager
         private void thongTinTKQCDataGridView_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
         {
             if (e.Column.Index == 6 || e.Column.Index == 7 || e.Column.Index == 8 || e.Column.Index == 9 ||
-                e.Column.Index == 10)
+                e.Column.Index == 10 || e.Column.Index == 11)
             {
                 try
                 {
@@ -1160,6 +1254,17 @@ namespace AdsManager
                     e.Handled = true;
                 }
             }
+        }
+
+        private void checkDataBtn_Click(object sender, EventArgs e)
+        {
+            if (!TTTKQC_WorkerLoop.IsBusy)
+            {
+                checkDataBtn.Enabled = false;
+                TTTKQC_WorkerLoop.RunWorkerAsync();
+            }
+
+
         }
     }
 

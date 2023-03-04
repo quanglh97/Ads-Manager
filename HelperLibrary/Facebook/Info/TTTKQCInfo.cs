@@ -18,6 +18,9 @@ namespace AdsManager.HelperLibrary.Facebook
         public string Nguong { get; set; }
         public string Limit { get; set; }
         public string tongTieu { get; set; }
+        public string tongTieu24h { get; set; }
+        public string tongTieu24hBefore { get; set; }
+        public string tongTieu24h_Plus7 { get; set; }
         public string tienTe { get; set; }
         public string slThe { get; set; }
         public string role { get; set; }
@@ -57,6 +60,9 @@ namespace AdsManager.HelperLibrary.Facebook
             this.Nguong = item.Nguong;
             this.Limit = item.Limit;
             this.tongTieu = item.tongTieu;
+            this.tongTieu24h = item.tongTieu24h;
+            this.tongTieu24hBefore = item.tongTieu24hBefore;
+            this.tongTieu24h_Plus7 = item.tongTieu24h_Plus7;
             this.tienTe = item.tienTe;
             this.slThe = item.slThe;
             this.role = item.role;
