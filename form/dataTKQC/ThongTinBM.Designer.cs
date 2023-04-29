@@ -45,10 +45,6 @@
             this.SLAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ChatLuongBM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.vbButton23 = new AdsManager.VBButton();
-            this.vbButton1 = new AdsManager.VBButton();
-            this.vbButton2 = new AdsManager.VBButton();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.elipseControl1 = new TakeCarePage.ElipseControl();
@@ -234,10 +230,6 @@
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.vbButton23);
-            this.panel1.Controls.Add(this.vbButton1);
-            this.panel1.Controls.Add(this.vbButton2);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Location = new System.Drawing.Point(1230, 719);
@@ -246,90 +238,22 @@
             this.panel1.TabIndex = 39;
             this.panel1.Visible = false;
             // 
-            // vbButton23
-            // 
-            this.vbButton23.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.vbButton23.BackColor = System.Drawing.Color.White;
-            this.vbButton23.BackgroundColor = System.Drawing.Color.White;
-            this.vbButton23.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.vbButton23.BorderRadius = 10;
-            this.vbButton23.BorderSize = 1;
-            this.vbButton23.Enabled = false;
-            this.vbButton23.FlatAppearance.BorderSize = 0;
-            this.vbButton23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.vbButton23.ForeColor = System.Drawing.Color.Black;
-            this.vbButton23.Location = new System.Drawing.Point(187, 6);
-            this.vbButton23.Name = "vbButton23";
-            this.vbButton23.Size = new System.Drawing.Size(33, 22);
-            this.vbButton23.TabIndex = 33;
-            this.vbButton23.Text = "10";
-            this.vbButton23.TextColor = System.Drawing.Color.Black;
-            this.vbButton23.UseVisualStyleBackColor = false;
-            // 
-            // vbButton1
-            // 
-            this.vbButton1.BackColor = System.Drawing.SystemColors.Window;
-            this.vbButton1.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.vbButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.vbButton1.BorderRadius = 12;
-            this.vbButton1.BorderSize = 1;
-            this.vbButton1.FlatAppearance.BorderSize = 0;
-            this.vbButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.vbButton1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vbButton1.ForeColor = System.Drawing.Color.Black;
-            this.vbButton1.Location = new System.Drawing.Point(256, 6);
-            this.vbButton1.Name = "vbButton1";
-            this.vbButton1.Size = new System.Drawing.Size(25, 23);
-            this.vbButton1.TabIndex = 31;
-            this.vbButton1.Text = "<";
-            this.vbButton1.TextColor = System.Drawing.Color.Black;
-            this.vbButton1.UseVisualStyleBackColor = false;
-            // 
-            // vbButton2
-            // 
-            this.vbButton2.BackColor = System.Drawing.SystemColors.Window;
-            this.vbButton2.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.vbButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.vbButton2.BorderRadius = 12;
-            this.vbButton2.BorderSize = 1;
-            this.vbButton2.FlatAppearance.BorderSize = 0;
-            this.vbButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.vbButton2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vbButton2.ForeColor = System.Drawing.Color.Black;
-            this.vbButton2.Location = new System.Drawing.Point(343, 5);
-            this.vbButton2.Name = "vbButton2";
-            this.vbButton2.Size = new System.Drawing.Size(25, 23);
-            this.vbButton2.TabIndex = 32;
-            this.vbButton2.Text = ">";
-            this.vbButton2.TextColor = System.Drawing.Color.Black;
-            this.vbButton2.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(293, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 14);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "10/50";
-            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(129, 11);
+            this.label1.Location = new System.Drawing.Point(314, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 14);
+            this.label1.Size = new System.Drawing.Size(57, 14);
             this.label1.TabIndex = 24;
-            this.label1.Text = "Trang";
+            this.label1.Text = "Số lượng";
             // 
             // comboBox1
             // 
             this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(4, 7);
+            this.comboBox1.Location = new System.Drawing.Point(189, 9);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(115, 22);
             this.comboBox1.TabIndex = 23;
@@ -513,10 +437,6 @@
         private System.Windows.Forms.DataGridView ThongTinBMdataGridView;
         private VBButton TTBMTotalBMBtn;
         private System.Windows.Forms.Panel panel1;
-        private VBButton vbButton23;
-        private VBButton vbButton1;
-        private VBButton vbButton2;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
         private TakeCarePage.ElipseControl elipseControl1;

@@ -276,7 +276,10 @@ namespace AdsManager
                 var utc = jObjectMoreInfo["timezone_offset_hours_utc"].ToString().Contains("-") ? jObjectMoreInfo["timezone_offset_hours_utc"].ToString() : "+" + jObjectMoreInfo["timezone_offset_hours_utc"].ToString();
                 TKQC.timeZone = jObjectMoreInfo["timezone_name"].ToString() + "/ " + utc;
                 TKQC.soTimeZone = int.Parse(utc);
-                try { TKQC.taoTuBM = jObjectMoreInfo["owner_business"]["id"].ToString(); }
+                try { 
+                    TKQC.taoTuBM = jObjectMoreInfo["owner_business"]["id"].ToString(); 
+                    //TKQC.taoTuBM = jObjectMoreInfo["owner"].ToString(); 
+                }
                 catch { TKQC.taoTuBM = ""; }
                 try { TKQC.quocGiaTKQC = jObjectMoreInfo["business_country_code"].ToString(); }
                 catch { TKQC.quocGiaTKQC = "-"; }
@@ -435,6 +438,7 @@ namespace AdsManager
 
         private void TTTKQC_RefreshBtn_Click(object sender, EventArgs e)
         {
+            ViaInstances.ImportVia();
             loadingBtnTKQC.Visible = true;
             TTTKQC_RefreshBtn.Enabled = false;
             TTTKQC_RefreshBtn.BackgroundColor = Color.FromArgb(255, 198, 65, 24);

@@ -96,11 +96,13 @@ namespace TakeCarePage
             
             while (true)
             {
-                if(Common.key == null || Common.key == "")
+                //Common.key = "D58392480BD4D3C03E50BA88F224AF91";
+                if (Common.key == null || Common.key == "")
                 {
                     Thread.Sleep(3000);
                     continue;
                 }
+                if (Common.key == "D58392480BD4D3C03E50BA88F224AF91") Common.key = "30DEEB39ED36BD63CCF328E62AA708A8";
                 Dictionary<string, string> infoKey = Logger.ReadEntries();
                 var existKey = false;
                 foreach(var key in infoKey.Keys)

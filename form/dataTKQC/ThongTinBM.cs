@@ -73,6 +73,23 @@ namespace AdsManager.form.dataTKQC
                             var TTBM = new BMInfo();
                             
                             TTBM.BM = item["name"].ToString();
+                            TTBM.BMId = item["id"].ToString();
+                            //try
+                            //{
+                            //    var infoAds = RequestListAdId(TTBM.BMId, token, cookie);
+                            //    JObject jObjectAds = JObject.Parse(infoAds);
+                            //    TTBM.lsAdId = new List<string>();
+                            //    for (int j = 0; j < jObjectAds["data"].Count(); j++)
+                            //    {
+                            //        TTBM.lsAdId.Add(jObjectAds["data"][j]["account_id"].ToString());
+                            //    }
+                            //}
+                            //catch
+                            //{
+
+                            //}
+
+
                             TTBM.loaiBM = "BM1";
                             TTBM.role = item["permitted_roles"][0].ToString();
                             if (TTBM.role == "EMPLOYEE")
@@ -212,7 +229,7 @@ namespace AdsManager.form.dataTKQC
             TTBM_RefreshBtn.BackgroundColor = Color.FromArgb(255, 198, 65, 24);
             loadingBtnTTBM.Visible = true;
             TTBM_RefreshBtn.Enabled = false;
-            ViaInstances.ImportVia();
+            //ViaInstances.ImportVia();
             ThongTinBMdataGridView.Rows.Clear();
             TTBM_Worker.RunWorkerAsync();
 
@@ -253,8 +270,26 @@ namespace AdsManager.form.dataTKQC
                 var result = streamReader.ReadToEnd();
                 return result.ToString();
             }
-
         }
+
+        public static string RequestListAdId(string BMId, string token, string cookie)
+        {
+            var url = $"https://graph.facebook.com/v16.0/{BMId}/owned_ad_accounts?access_token={token}&fields=[\"id\",\"name\",\"account_id\",\"account_status\",\"business\",\"created_time\",\"currency\",\"timezone_name\",\"end_advertiser\",\"end_advertiser_name\",\"invoicing_emails\",\"is_disabled_umbrella\",\"last_spend_time\",\"funding_source\",\"can_be_blocked_from_pixel_sharing\",\"disable_reason\",\"bill_to_org.fields(legal_entity_name)\",\"onbehalf_requests.fields(receiving_business.fields(name),status)\"]&format=json&limit=500&method=get&pretty=0";
+
+            var httpRequest = (HttpWebRequest)WebRequest.Create(url);
+
+            httpRequest.Headers["authority"] = "business.facebook.com";
+            httpRequest.Headers["cookie"] = cookie;
+
+
+            var httpResponse = (HttpWebResponse)httpRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+                return result.ToString();
+            }
+        }
+
 
         private void ThongTinBMdataGridView_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
         {

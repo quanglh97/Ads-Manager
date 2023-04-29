@@ -10,6 +10,7 @@ namespace AdsManager.HelperLibrary.Facebook
     {
         public string trangThai { get; set; }
         public string BM { get; set; }
+        public string BMId { get; set; }
         public string loaiBM { get; set; }
         public string role { get; set; }
         public string limit { get; set; }
@@ -20,6 +21,7 @@ namespace AdsManager.HelperLibrary.Facebook
         public string adminAn { get; set; }
         public string slAccount { get; set; }
         public string chatLuongBM { get; set; }
+        public List<string> lsAdId { get; set; }
         public BMInfo()
         {
            

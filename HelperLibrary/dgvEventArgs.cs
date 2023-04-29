@@ -84,5 +84,13 @@ namespace TakeCarePage
         }
     }
 
+    public class QCCCEventArgs : EventArgs
+    {
+        public QCCCInfo_Tong Info { get; set; }
+        public QCCCEventArgs(QCCCInfo_Tong info)
+        {
+            this.Info = info;
+        }
+    }
 
 }

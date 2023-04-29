@@ -1,4 +1,5 @@
-﻿using Google.Apis.Drive.v3.Data;
+﻿using AdsManager.HelperLibrary.Facebook.Login;
+using Google.Apis.Drive.v3.Data;
 using Newtonsoft.Json.Linq;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -68,14 +69,38 @@ namespace TakeCarePage.HelperLibrary.Facebook
                     try
                     {
                         var tick = elementAccount[7].Trim();
-                        if(tick == "1")
+                        if (tick == "1")
                         {
                             this.tick = true;
                         }
                     }
                     catch { }
+                    try
+                    {
+                        this.status = elementAccount[8].Trim(); ;
+                    }
+                    catch { }
 
-                    if(this.token != "")
+                }
+                var request = new Request();
+                if (this.cookie == null || this.cookie == "")
+                {
+                    Login.LoginMethodMFB(request, this.userId, this.pass, this.key2fa);
+                }
+
+                if (!Login.CheckLogin(request, this.cookie))
+                {
+                    this.status = "Checkpoint";
+                }
+                else
+                {
+                    this.cookie = request.GetCookie();
+                    if (this.token == null || this.token == "")
+                    {
+                        request.AddCookie(this.cookie);
+                        this.token = Login.getTokenRequest(request, this.userId, this.key2fa);
+                    }
+                    if (this.token != null)
                     {
                         this.status = "Hoạt động";
                     }
@@ -84,8 +109,35 @@ namespace TakeCarePage.HelperLibrary.Facebook
                         this.status = "Checkpoint";
                     }
                 }
-                    
-            }
+                
+                
+
+                    //if (this.status != "Hoạt động")
+                    //{
+                    //    var request = new Request();
+                    //    var checklogin = Login.LoginMethodMFB(request, this.userId, this.pass, this.key2fa);
+                    //    var tokenEAAG = "";
+                    //    if (checklogin)
+                    //    {
+                    //        tokenEAAG = Login.getTokenRequest(request, this.userId, this.key2fa);
+                    //        if (tokenEAAG != null)
+                    //        {
+                    //            this.token = tokenEAAG;
+                    //            this.cookie = request.GetCookie();
+                    //            this.status = "Hoạt động";
+                    //        }
+                    //        else
+                    //        {
+                    //            this.status = "Checkpoint";
+                    //        }
+                    //    }
+                    //    else
+                    //    {
+                    //        this.status = "Checkpoint";
+                    //    }
+                    //}
+
+                }
             catch
             {
 

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.DataTKQCHeaderPanel = new System.Windows.Forms.Panel();
+            this.DuLieuQCBtn = new AdsManager.VBButton();
             this.duLieuPageBtn = new AdsManager.VBButton();
             this.HoadonTTBtn = new AdsManager.VBButton();
             this.TTBMBtn = new AdsManager.VBButton();
@@ -44,6 +45,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataTKQCHeaderPanel.AutoSize = true;
             this.DataTKQCHeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(246)))), ((int)(((byte)(254)))));
+            this.DataTKQCHeaderPanel.Controls.Add(this.DuLieuQCBtn);
             this.DataTKQCHeaderPanel.Controls.Add(this.duLieuPageBtn);
             this.DataTKQCHeaderPanel.Controls.Add(this.HoadonTTBtn);
             this.DataTKQCHeaderPanel.Controls.Add(this.TTBMBtn);
@@ -54,6 +56,25 @@
             this.DataTKQCHeaderPanel.Name = "DataTKQCHeaderPanel";
             this.DataTKQCHeaderPanel.Size = new System.Drawing.Size(1618, 50);
             this.DataTKQCHeaderPanel.TabIndex = 0;
+            // 
+            // DuLieuQCBtn
+            // 
+            this.DuLieuQCBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.DuLieuQCBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.DuLieuQCBtn.BorderColor = System.Drawing.Color.Purple;
+            this.DuLieuQCBtn.BorderRadius = 20;
+            this.DuLieuQCBtn.BorderSize = 0;
+            this.DuLieuQCBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DuLieuQCBtn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DuLieuQCBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(163)))), ((int)(((byte)(163)))));
+            this.DuLieuQCBtn.Location = new System.Drawing.Point(786, 4);
+            this.DuLieuQCBtn.Name = "DuLieuQCBtn";
+            this.DuLieuQCBtn.Size = new System.Drawing.Size(150, 34);
+            this.DuLieuQCBtn.TabIndex = 5;
+            this.DuLieuQCBtn.Text = "Dữ liệu quảng cáo";
+            this.DuLieuQCBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(163)))), ((int)(((byte)(163)))));
+            this.DuLieuQCBtn.UseVisualStyleBackColor = false;
+            this.DuLieuQCBtn.Click += new System.EventHandler(this.DuLieuQCBtn_Click);
             // 
             // duLieuPageBtn
             // 
@@ -191,5 +212,6 @@
         private VBButton TTTKQCBTn;
         private VBButton HoadonTTBtn;
         private VBButton duLieuPageBtn;
+        private VBButton DuLieuQCBtn;
     }
 }

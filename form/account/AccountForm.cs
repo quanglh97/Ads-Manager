@@ -151,7 +151,7 @@ namespace AdsManager
                 var tenHT = TenHTTBox.Text;
                 var HKD = HKDTBox.Text;
 
-                if (uid == "" || pass == "" || cookie == "")
+                if (uid == "" || pass == "" )
                 {
                     AccAddBtn.Text = "lost Info";
                     return;
@@ -165,7 +165,7 @@ namespace AdsManager
                 acc.token = token;
                 acc.TenHT = tenHT;
                 acc.HKD = HKD;
-                acc.Account = acc.userId + "|" + acc.pass + "|" + acc.key2fa + "|" + acc.cookie + "|" + acc.token + "|"+ acc.TenHT + "|" + acc.HKD;
+                acc.Account = acc.userId + "|" + acc.pass + "|" + acc.key2fa + "|" + acc.cookie + "|" + acc.token + "|" + acc.TenHT + "|" + acc.HKD;
                 if (ViaInstances.lsAccVia.Find(x => x.userId == acc.userId) == null)
                 {
                     ViaInstances.lsAccVia.Add(acc);
@@ -256,7 +256,7 @@ namespace AdsManager
                 Via.TenHT = tenHT;
                 Via.HKD = HKD;
                 var tick = Via.tick ? "1" : "0";
-                Via.Account = Via.userId + "|" + Via.pass + "|" + Via.key2fa + "|" + Via.cookie + "|"+ Via.token +"|"+ Via.TenHT + "|" + Via.HKD + "|" + tick;
+                Via.Account = Via.userId + "|" + Via.pass + "|" + Via.key2fa + "|" + Via.cookie  + "|" + Via.token + "|" + Via.TenHT + "|" + Via.HKD + "|" + tick+ "|" + Via.status;
 
                 var dataFolder = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data");
                 if (!Directory.Exists(dataFolder))

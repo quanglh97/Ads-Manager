@@ -25,6 +25,7 @@ namespace AdsManager
         ThongTinTKQCForm TTTKQCForm = new ThongTinTKQCForm();
         HoaDonTTForm hoaDonTTForm = new HoaDonTTForm();
         DuLieuPageForm duLieuPageForm = new DuLieuPageForm();
+        ThongTinQCChiTietForm duLieuQCForm = new ThongTinQCChiTietForm(); 
         public DataTKQCForm()
         {
             InitializeComponent();
@@ -34,11 +35,13 @@ namespace AdsManager
             TTTKQCForm.TopLevel = false;
             hoaDonTTForm.TopLevel = false;
             duLieuPageForm.TopLevel = false;
+            duLieuQCForm.TopLevel = false;
             DataTKQCContentPanel.Controls.Add(TTCDForm);
             DataTKQCContentPanel.Controls.Add(TTBMForm);
             DataTKQCContentPanel.Controls.Add(TTTKQCForm);
             DataTKQCContentPanel.Controls.Add(hoaDonTTForm);
             DataTKQCContentPanel.Controls.Add(duLieuPageForm);
+            DataTKQCContentPanel.Controls.Add(duLieuQCForm);
         }
 
         private void TTCDBtn_Click(object sender, EventArgs e)
@@ -58,7 +61,10 @@ namespace AdsManager
             TTCDBtn.BackColor = Color.White;
             TTCDBtn.ForeColor = Color.Black;
 
-            
+            DuLieuQCBtn.BackColor = Color.FromArgb(255, 226, 226, 226);
+            DuLieuQCBtn.ForeColor = Color.FromArgb(163, 163, 163);
+
+
             //TTCDForm.TopLevel = false;
             //DataTKQCContentPanel.Controls.Add(TTCDForm);
             TTCDForm.BringToFront();
@@ -81,6 +87,9 @@ namespace AdsManager
 
             duLieuPageBtn.BackColor = Color.FromArgb(255, 226, 226, 226);
             duLieuPageBtn.ForeColor = Color.FromArgb(163, 163, 163);
+
+            DuLieuQCBtn.BackColor = Color.FromArgb(255, 226, 226, 226);
+            DuLieuQCBtn.ForeColor = Color.FromArgb(163, 163, 163);
 
             //TTBMForm.TopLevel = false;
             //DataTKQCContentPanel.Controls.Add(TTBMForm);
@@ -105,6 +114,9 @@ namespace AdsManager
             duLieuPageBtn.BackColor = Color.FromArgb(255, 226, 226, 226);
             duLieuPageBtn.ForeColor = Color.FromArgb(163, 163, 163);
 
+            DuLieuQCBtn.BackColor = Color.FromArgb(255, 226, 226, 226);
+            DuLieuQCBtn.ForeColor = Color.FromArgb(163, 163, 163);
+
             //TTTKQCForm.TopLevel = false;
             //DataTKQCContentPanel.Controls.Add(TTTKQCForm);
             TTTKQCForm.BringToFront();
@@ -128,6 +140,9 @@ namespace AdsManager
             duLieuPageBtn.BackColor = Color.FromArgb(255, 226, 226, 226);
             duLieuPageBtn.ForeColor = Color.FromArgb(163, 163, 163);
 
+            DuLieuQCBtn.BackColor = Color.FromArgb(255, 226, 226, 226);
+            DuLieuQCBtn.ForeColor = Color.FromArgb(163, 163, 163);
+
             //hoaDonTTForm.TopLevel = false;
             //DataTKQCContentPanel.Controls.Add(hoaDonTTForm);
             hoaDonTTForm.BringToFront();
@@ -150,8 +165,35 @@ namespace AdsManager
             duLieuPageBtn.BackColor = Color.White;
             duLieuPageBtn.ForeColor = Color.Black;
 
+            DuLieuQCBtn.BackColor =  Color.FromArgb(255, 226, 226, 226);
+            DuLieuQCBtn.ForeColor =  Color.FromArgb(163, 163, 163);
+
             duLieuPageForm.BringToFront();
             duLieuPageForm.Show();
+        }
+
+        private void DuLieuQCBtn_Click(object sender, EventArgs e)
+        {
+            TTTKQCBTn.BackColor = Color.FromArgb(255, 226, 226, 226);
+            TTTKQCBTn.ForeColor = Color.FromArgb(163, 163, 163);
+
+            TTBMBtn.BackColor = Color.FromArgb(255, 226, 226, 226);
+            TTBMBtn.ForeColor = Color.FromArgb(163, 163, 163);
+
+            TTCDBtn.BackColor = Color.FromArgb(255, 226, 226, 226);
+            TTCDBtn.ForeColor = Color.FromArgb(163, 163, 163);
+
+            HoadonTTBtn.BackColor = Color.FromArgb(255, 226, 226, 226);
+            HoadonTTBtn.ForeColor = Color.FromArgb(163, 163, 163);
+
+            duLieuPageBtn.BackColor = Color.FromArgb(255, 226, 226, 226);
+            duLieuPageBtn.ForeColor = Color.FromArgb(163, 163, 163);
+
+            DuLieuQCBtn.BackColor = Color.White;
+            DuLieuQCBtn.ForeColor = Color.Black;
+
+            duLieuQCForm.BringToFront();
+            duLieuQCForm.Show();
         }
         private void locTimeBtn_Click(object sender, EventArgs e)
         {
@@ -165,6 +207,6 @@ namespace AdsManager
             //locTimeBtn.Enabled = true;
         }
 
-       
+        
     }
 }

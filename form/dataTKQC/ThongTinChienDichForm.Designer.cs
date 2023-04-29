@@ -46,10 +46,6 @@
             this.NgayTaoQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TienTe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.vbButton23 = new AdsManager.VBButton();
-            this.vbButton1 = new AdsManager.VBButton();
-            this.vbButton2 = new AdsManager.VBButton();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TTCDComboBox = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -68,6 +64,8 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.loadingBtnTTCD = new AdsManager.VBButton();
             this.elipseControl1 = new TakeCarePage.ElipseControl();
+            this.numChienDichTBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ThongTinChienDichDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -234,10 +232,6 @@
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.vbButton23);
-            this.panel1.Controls.Add(this.vbButton1);
-            this.panel1.Controls.Add(this.vbButton2);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.TTCDComboBox);
             this.panel1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -247,90 +241,22 @@
             this.panel1.TabIndex = 44;
             this.panel1.Visible = false;
             // 
-            // vbButton23
-            // 
-            this.vbButton23.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.vbButton23.BackColor = System.Drawing.Color.White;
-            this.vbButton23.BackgroundColor = System.Drawing.Color.White;
-            this.vbButton23.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.vbButton23.BorderRadius = 10;
-            this.vbButton23.BorderSize = 1;
-            this.vbButton23.Enabled = false;
-            this.vbButton23.FlatAppearance.BorderSize = 0;
-            this.vbButton23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.vbButton23.ForeColor = System.Drawing.Color.Black;
-            this.vbButton23.Location = new System.Drawing.Point(187, 6);
-            this.vbButton23.Name = "vbButton23";
-            this.vbButton23.Size = new System.Drawing.Size(33, 22);
-            this.vbButton23.TabIndex = 33;
-            this.vbButton23.Text = "10";
-            this.vbButton23.TextColor = System.Drawing.Color.Black;
-            this.vbButton23.UseVisualStyleBackColor = false;
-            // 
-            // vbButton1
-            // 
-            this.vbButton1.BackColor = System.Drawing.SystemColors.Window;
-            this.vbButton1.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.vbButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.vbButton1.BorderRadius = 12;
-            this.vbButton1.BorderSize = 1;
-            this.vbButton1.FlatAppearance.BorderSize = 0;
-            this.vbButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.vbButton1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vbButton1.ForeColor = System.Drawing.Color.Black;
-            this.vbButton1.Location = new System.Drawing.Point(256, 6);
-            this.vbButton1.Name = "vbButton1";
-            this.vbButton1.Size = new System.Drawing.Size(25, 23);
-            this.vbButton1.TabIndex = 31;
-            this.vbButton1.Text = "<";
-            this.vbButton1.TextColor = System.Drawing.Color.Black;
-            this.vbButton1.UseVisualStyleBackColor = false;
-            // 
-            // vbButton2
-            // 
-            this.vbButton2.BackColor = System.Drawing.SystemColors.Window;
-            this.vbButton2.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.vbButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.vbButton2.BorderRadius = 12;
-            this.vbButton2.BorderSize = 1;
-            this.vbButton2.FlatAppearance.BorderSize = 0;
-            this.vbButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.vbButton2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.vbButton2.ForeColor = System.Drawing.Color.Black;
-            this.vbButton2.Location = new System.Drawing.Point(343, 5);
-            this.vbButton2.Name = "vbButton2";
-            this.vbButton2.Size = new System.Drawing.Size(25, 23);
-            this.vbButton2.TabIndex = 32;
-            this.vbButton2.Text = ">";
-            this.vbButton2.TextColor = System.Drawing.Color.Black;
-            this.vbButton2.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(293, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 14);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "10/50";
-            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(129, 11);
+            this.label1.Location = new System.Drawing.Point(307, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 14);
+            this.label1.Size = new System.Drawing.Size(57, 14);
             this.label1.TabIndex = 24;
-            this.label1.Text = "Trang";
+            this.label1.Text = "Số lượng";
             // 
             // TTCDComboBox
             // 
             this.TTCDComboBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.TTCDComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TTCDComboBox.FormattingEnabled = true;
-            this.TTCDComboBox.Location = new System.Drawing.Point(4, 7);
+            this.TTCDComboBox.Location = new System.Drawing.Point(182, 5);
             this.TTCDComboBox.Name = "TTCDComboBox";
             this.TTCDComboBox.Size = new System.Drawing.Size(115, 22);
             this.TTCDComboBox.TabIndex = 23;
@@ -574,6 +500,25 @@
             this.elipseControl1.CornerRadius = 15;
             this.elipseControl1.TargetControl = this.TTCDComboBox;
             // 
+            // numChienDichTBox
+            // 
+            this.numChienDichTBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.numChienDichTBox.Location = new System.Drawing.Point(589, 708);
+            this.numChienDichTBox.Name = "numChienDichTBox";
+            this.numChienDichTBox.Size = new System.Drawing.Size(100, 20);
+            this.numChienDichTBox.TabIndex = 48;
+            this.numChienDichTBox.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(501, 714);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 14);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "Số bản ghi ";
+            // 
             // ThongTinChienDichForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -581,6 +526,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(246)))), ((int)(((byte)(254)))));
             this.ClientSize = new System.Drawing.Size(1571, 747);
             this.ControlBox = false;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.numChienDichTBox);
             this.Controls.Add(this.loadingBtnTTCD);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.panel2);
@@ -596,6 +543,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -603,10 +551,6 @@
 
         private System.Windows.Forms.DataGridView ThongTinChienDichDataGridView;
         private System.Windows.Forms.Panel panel1;
-        private VBButton vbButton23;
-        private VBButton vbButton1;
-        private VBButton vbButton2;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox TTCDComboBox;
         private TakeCarePage.ElipseControl elipseControl1;
@@ -641,5 +585,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ChiPhiQC;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayTaoQC;
         private System.Windows.Forms.DataGridViewTextBoxColumn TienTe;
+        private System.Windows.Forms.TextBox numChienDichTBox;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -104,7 +104,7 @@
       <HintPath>packages\Selenium.WebDriver.4.3.0\lib\net47\WebDriver.dll</HintPath>
     </Reference>
     <Reference Include="xNet">
-      <HintPath>..\GetCookieFB\GetCookieFBTool\xNet.dll</HintPath>
+      <HintPath>.\xNet.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +142,12 @@
     <Compile Include="form\dataTKQC\ThongTinBM.Designer.cs">
       <DependentUpon>ThongTinBM.cs</DependentUpon>
     </Compile>
+    <Compile Include="form\dataTKQC\ThongTinQCChiTietForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\dataTKQC\ThongTinQCChiTietForm.Designer.cs">
+      <DependentUpon>ThongTinQCChiTietForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="form\dataTKQC\ThongTinChienDichForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,14 +168,20 @@
     <Compile Include="HelperLibrary\Facebook\Info\DataPageInfo.cs" />
     <Compile Include="HelperLibrary\Facebook\Info\HoaDonInfo.cs" />
     <Compile Include="HelperLibrary\Facebook\Info\MKTInfo.cs" />
+    <Compile Include="HelperLibrary\Facebook\Info\QCCCInfo.cs" />
     <Compile Include="HelperLibrary\Facebook\Info\TTCDInfo.cs" />
     <Compile Include="HelperLibrary\Facebook\Instance\BMInstance.cs" />
     <Compile Include="HelperLibrary\Facebook\Instance\DataPageInstance.cs" />
     <Compile Include="HelperLibrary\Facebook\Instance\HoaDonInstance.cs" />
+    <Compile Include="HelperLibrary\Facebook\Instance\LinkQCInstance.cs" />
+    <Compile Include="HelperLibrary\Facebook\Instance\QCCCInstance.cs" />
     <Compile Include="HelperLibrary\Facebook\Instance\ViaInstances.cs" />
     <Compile Include="HelperLibrary\Facebook\Info\TTTKQCInfo.cs" />
     <Compile Include="HelperLibrary\Facebook\Instance\TTCDInstance.cs" />
     <Compile Include="HelperLibrary\Facebook\Instance\TTTKQCInstance.cs" />
+    <Compile Include="HelperLibrary\Facebook\Login\FacebookData.cs" />
+    <Compile Include="HelperLibrary\Facebook\Login\Login.cs" />
+    <Compile Include="HelperLibrary\Facebook\Login\Request.cs" />
     <Compile Include="HelperLibrary\FileLoader.cs" />
     <Compile Include="HelperLibrary\HelperProxy\ChangeIPHelper.cs" />
     <Compile Include="HelperLibrary\HelperProxy\CoreProxy.cs" />
@@ -218,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form\dataTKQC\ThongTinBM.resx">
       <DependentUpon>ThongTinBM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\dataTKQC\ThongTinQCChiTietForm.resx">
+      <DependentUpon>ThongTinQCChiTietForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form\dataTKQC\ThongTinChienDichForm.resx">
       <DependentUpon>ThongTinChienDichForm.cs</DependentUpon>

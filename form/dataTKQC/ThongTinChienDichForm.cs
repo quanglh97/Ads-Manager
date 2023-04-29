@@ -74,7 +74,7 @@ namespace AdsManager.form.dataTKQC
                     lsTKQCClone.Add(new TTTKQCInfo(item));
                 });
 
-                if(TTCDInstance.businessId == "")
+                if (TTCDInstance.businessId == "")
                 {
                     TTCDInstance.getBusinessId(lsTKQCClone[0].token, lsTKQCClone[0].cookie);
                 }
@@ -158,34 +158,19 @@ namespace AdsManager.form.dataTKQC
 #pragma warning disable CS0168 // The variable 'ex' is declared but never used
             try
             {
+                //if (TKQC.ID != "785361802039899") return;
                 var businessId = TKQC.taoTuBM;
                 var accId = TKQC.ID;
                 var cookie = TKQC.cookie;
                 var token = TKQC.token;
-                //var arIds = RequestGetListCampainsIds(businessId, accId, token, cookie);
-                //var arIds = RequestGetListIds(businessId, accId, token, cookie);
-                //if (arIds == "" || arIds == null)
-                //{
-                //    return;
-                //}
-                //Thread.Sleep(3000);
-                //var detailChienDich = RequestGetListDetailChiendich(businessId, token, cookie, arIds);
-                //var detailChienDich = RequestGetListDetailAds(businessId, token, cookie, arIds);
 
                 var dateFilter = Common.parseStringDateToFilter(TTCDInstance.fromDate, TTCDInstance.toDate);
 
                 var dateSince = Common.parseStringDateToFilter2(TTCDInstance.fromDate);
                 var dateUntil = Common.parseStringDateToFilter2(TTCDInstance.toDate);
 
-                //var detailChienDich = TTCDInstance.GetDataChienDich(accId, cookie, dateFilter, businessId);
-                if(accId == "14984105")
-                {
-#pragma warning disable CS0219 // The variable 'a' is assigned but its value is never used
-                    var a = 0;
-#pragma warning restore CS0219 // The variable 'a' is assigned but its value is never used
-                }
                 List<string> lsAds = new List<string>();
-                JObject objectLsAds = JObject.Parse( RequestGetListAds(accId, token, cookie));
+                JObject objectLsAds = JObject.Parse(RequestGetListAds(accId, token, cookie));
                 for (int i = 0; i < objectLsAds["data"].Count(); i++)
                 {
                     try
@@ -195,45 +180,32 @@ namespace AdsManager.form.dataTKQC
                     }
                     catch { return; }
                 }
-                //return;
-                //var arIds = detailChienDich.Split(new string[] { "window.__preloaderData[\"AdsPEAdObjectTableDataManagerPreloader\"]=[{\"get\\/v14.0\\/{\\\"ids\\\":\\\"" }, StringSplitOptions.None)[1];
-                //arIds = arIds.Split('\\')[0];   //
 
-                //var arTongTieu = detailChienDich.Split(new string[] { ",\"atomic_values\":[\"" }, StringSplitOptions.None);
-                //Dictionary<string, string> tongTieuAds = new Dictionary<string, string>();
-                //for (int i = 0; i < arTongTieu.Length; i++)
+                //var resultIdPostAds = GetIdPostAds(accId, cookie, token);
+                //JObject objectResultIdPostAds = JObject.Parse(resultIdPostAds);
+                //Dictionary<string, string> postAds = new Dictionary<string, string>();
+
+                //for (int i = 0; i < objectResultIdPostAds["ads"]["data"].Count(); i++)
                 //{
-                //    if (arTongTieu[i].Contains("dimension_values"))
+                //    try
                 //    {
-                //        var adsTongTieu = arTongTieu[i];
-                //        var tongTieu = adsTongTieu.Split('"')[0];
-                //        adsTongTieu = adsTongTieu.Split(new string[] { "dimension_values" }, StringSplitOptions.None)[1];
-                //        var checkAdsId = adsTongTieu.Split(',')[2].Replace('"', ' ').Trim();
-                //        tongTieuAds.Add(checkAdsId, tongTieu);
-                //    }
+                //        var id = objectResultIdPostAds["ads"]["data"][i]["id"].ToString();
+                //        var postId = objectResultIdPostAds["ads"]["data"][i]["creative"]["object_story_id"].ToString();
 
+                //        postAds.Add(id, postId);
+                //    }
+                //    catch { }
                 //}
 
-                var resultIdPostAds = GetIdPostAds(accId, cookie, token);
-                JObject objectResultIdPostAds = JObject.Parse(resultIdPostAds);
-                Dictionary<string, string> postAds = new Dictionary<string, string>();
-                
-                for (int i = 0; i < objectResultIdPostAds["ads"]["data"].Count(); i++)
-                {
-                    try
-                    {
-                        var id = objectResultIdPostAds["ads"]["data"][i]["id"].ToString();
-                        var postId = objectResultIdPostAds["ads"]["data"][i]["creative"]["object_story_id"].ToString();
-
-                        postAds.Add(id, postId);
-                    }
-                    catch { }
-                }
-
-                  var resultCostAds = getCostAds(accId, cookie, token, dateSince, dateUntil);
+                var resultCostAds = getCostAds(accId, cookie, token, dateSince, dateUntil);
                 JObject objectresultCostAds = JObject.Parse(resultCostAds);
                 Dictionary<string, string> costAds = new Dictionary<string, string>();
-               
+                Dictionary<string, string> cpmAds = new Dictionary<string, string>();
+                Dictionary<string, string> ctrAds = new Dictionary<string, string>();
+                Dictionary<string, string> commentAds = new Dictionary<string, string>();
+                Dictionary<string, string> messAds = new Dictionary<string, string>();
+                Dictionary<string, string> chuyenDoiAds = new Dictionary<string, string>();
+
                 for (int i = 0; i < objectresultCostAds["data"].Count(); i++)
                 {
                     try
@@ -241,87 +213,39 @@ namespace AdsManager.form.dataTKQC
                         var id = objectresultCostAds["data"][i]["ad_id"].ToString();
                         var impression = objectresultCostAds["data"][i]["impressions"].ToString();
                         var cpm = objectresultCostAds["data"][i]["cpm"].ToString();
+                        var ctr = objectresultCostAds["data"][i]["ctr"].ToString();
                         var cost = double.Parse(impression) * double.Parse(cpm) / 1000;
                         costAds.Add(id, cost.ToString());
+                        cpmAds.Add(id, cpm);
+                        ctrAds.Add(id, ctr);
+                        for (int j = 0; j < objectresultCostAds["data"][i]["actions"].Count(); j++)
+                        {
+                            if (objectresultCostAds["data"][i]["actions"][j]["action_type"].ToString() == "comment")
+                            {
+                                commentAds.Add(id, objectresultCostAds["data"][i]["actions"][j]["value"].ToString());
+                            }
+                            if (objectresultCostAds["data"][i]["actions"][j]["action_type"].ToString() == "onsite_conversion.messaging_conversation_started_7d")
+                            {
+                                messAds.Add(id, objectresultCostAds["data"][i]["actions"][j]["value"].ToString());
+                            }
+                            if (objectresultCostAds["data"][i]["actions"][j]["action_type"].ToString() == "omni_complete_registration")
+                            {
+                                chuyenDoiAds.Add(id, objectresultCostAds["data"][i]["actions"][j]["value"].ToString());
+                            }
+                        }
                     }
                     catch
                     {
                         continue;
                     }
                 }
-
-
-                //detailChienDich.Split(new string[] { "window.__preloaderData[\"AdsPEAdObjectTableDataManagerPreloader\"]=[" }, StringSplitOptions.None);
-                //string regexString = @"window\.__preloaderData\[""AdsPEAdObjectTableDataManagerPreloader""\]=\[(.*),new Date\(\)\.getTime\(\)\];window";
-                //Regex r = new Regex(regexString, RegexOptions.IgnoreCase);
-                //Match m = r.Match(detailChienDich);
-                //var detailData = "";
-
-                //if (m.Success)
-                //{
-                //    detailData = m.Groups[1].Value;
-                //}
-                //JObject jObject = null;
-                //JObject objectAds = null;
-                //JObject objectCampaign = null;
-#pragma warning disable CS0168 // The variable 'ex' is declared but never used
                 try
                 {
-                    //try
-                    //{
-                    //    jObject = JObject.Parse(detailData);
-
-                    //    List<string> listDetail = new List<string>();
-                    //    foreach (var a in jObject)
-                    //    {
-                    //        var b = a.Value.ToString();
-                    //        listDetail.Add(b);
-                    //    }
-                    //    //ads
-
-                    //    objectAds = JObject.Parse(listDetail[0]);
-                    //    objectCampaign = JObject.Parse(listDetail[2]);
-                    //}
-                    //catch
-                    //{
-
-                    //}
                     foreach (var AdsId in lsAds)
                     {
-#pragma warning disable CS0168 // The variable 'e' is declared but never used
                         try
                         {
                             var TTCD = new TTCDInfo();
-                            //if (jObject != null)
-                            //{
-                            //    TTCD.IdQC = AdsId;
-                            //    TTCD.TenQC = objectAds[AdsId]["name"].ToString();
-                            //    TTCD.IdNhomQC = objectAds[AdsId]["adset"]["id"].ToString();
-                            //    TTCD.TenNhomQC = objectAds[AdsId]["adset"]["name"].ToString();
-                            //    TTCD.IdChienDich = objectAds[AdsId]["campaign_id"].ToString();
-                            //    TTCD.TrangThai = objectAds[AdsId]["status"].ToString();
-                            //    //TTCD.ngayTaoQC = objectAds[AdsId]["created_time"].ToString().Split(' ')[0];
-                            //    TTCD.TenChienDich = objectCampaign[TTCD.IdChienDich]["name"].ToString();
-                            //    TTCD.IdTKQC = TKQC.ID;
-                            //    TTCD.TenTKQC = TKQC.tenTK;
-                            //    TTCD.tienTe = TKQC.tienTe;
-
-                            //    if (postAds.ContainsKey(AdsId))
-                            //    {
-                            //        TTCD.xemQC = "https://fb.com/" + postAds[AdsId];
-                            //    }
-
-                            //    if (costAds.ContainsKey(TTCD.IdNhomQC))
-                            //    {
-                            //        TTCD.chiPhiQC = costAds[TTCD.IdNhomQC];
-                            //    }
-                            //    else
-                            //    {
-                            //        TTCD.chiPhiQC = "0";
-                            //    }
-                            //}
-                            //if (TTCD.xemQC == null || TTCD.xemQC == "")
-                            //{
                             var tempObject = JObject.Parse(RequestGetDetailAds(token, cookie, AdsId));
                             TTCD.IdQC = AdsId;
                             TTCD.TenQC = tempObject[AdsId]["name"].ToString();
@@ -335,23 +259,60 @@ namespace AdsManager.form.dataTKQC
                             TTCD.TenTKQC = TKQC.tenTK;
                             TTCD.tienTe = TKQC.tienTe;
 
-                            if (TTCD.ngayTaoQC[1] == '/')
-                            {
-                                TTCD.ngayTaoQC = "0" + TTCD.ngayTaoQC;
-                            }
-                            DateTime dateNgayTaoQC = DateTime.ParseExact(TTCD.ngayTaoQC, "MM/dd/yyyy",System.Globalization.CultureInfo.InvariantCulture);
-
-                            TTCD.ngayTaoQC = dateNgayTaoQC.AddHours(int.Parse(TKQC.timeZone.Split('/')[2]) - 7).ToShortDateString();
-
-                            //if (postAds.ContainsKey(AdsId))
-                            //{
-                            //    TTCD.xemQC = "https://fb.com/" + postAds[AdsId];
-                            //}
+                            DateTime dateNgayTaoQC;
+                            var formatStringsTime = new string[] { "MM/dd/yyyy", "M/d/yyyy", "MM/d/yyyy", "M/dd/yyyy" };
                             try
                             {
-                                TTCD.xemQC = "https://fb.com/" + tempObject[AdsId]["creative"]["effective_object_story_id"].ToString();
+                                DateTime.TryParseExact(TTCD.ngayTaoQC, formatStringsTime, System.Globalization.CultureInfo.InvariantCulture, DateTimeStyles.None, out dateNgayTaoQC);
+                            }
+                            catch
+                            {
+                                dateNgayTaoQC = new DateTime();
+                            }
+
+
+                            TTCD.ngayTaoQC = dateNgayTaoQC.AddHours(int.Parse(TKQC.timeZone.Split('/')[2]) - 7).ToShortDateString();
+                            try
+                            {
+                                JArray temp = (JArray)tempObject[AdsId]["tracking_and_conversion_with_defaults"]["default_tracking"];
+                                var lsIdPost = new List<string>();
+                                for(int i =0; i< temp.Count; i++)
+                                {
+                                    try
+                                    {
+                                        if (temp[i]["post"] != null)
+                                        {
+                                            foreach(var id in temp[i]["post"])
+                                            {
+                                                var idPost = id.ToString() ?? "";
+                                                if (idPost != "")
+                                                {
+                                                    if(!lsIdPost.Contains(idPost))
+                                                        lsIdPost.Add(idPost);
+                                                }
+                                            }
+                                        }                                    
+                                    }
+                                    catch { }
+                                }
+                                    
+                                if (lsIdPost.Count > 0)
+                                {
+                                    TTCD.xemQC = "https://fb.com/" + lsIdPost.First();
+                                    TTCD.lsLinkQC = new List<string>();
+                                    TTCD.lsLinkQC.Add(TTCD.xemQC);
+                                    if(LinkQCInstance.Links == null)
+                                    {
+                                        LinkQCInstance.Links = new List<string>();
+                                    }
+                                    LinkQCInstance.Links.Add(TTCD.xemQC);
+                                    LinkQCInstance.Links = LinkQCInstance.Links.Distinct().ToList();
+                                }
+                                    
+
                             }
                             catch { TTCD.xemQC = ""; }
+
                             if (costAds.ContainsKey(TTCD.IdQC))
                             {
                                 TTCD.chiPhiQC = costAds[TTCD.IdQC];
@@ -360,18 +321,59 @@ namespace AdsManager.form.dataTKQC
                             {
                                 TTCD.chiPhiQC = "0";
                             }
+
+                            if (cpmAds.ContainsKey(TTCD.IdQC))
+                            {
+                                TTCD.cpm = cpmAds[TTCD.IdQC];
+                            }
+                            else
+                            {
+                                TTCD.cpm = "0";
+                            }
+                            if (ctrAds.ContainsKey(TTCD.IdQC))
+                            {
+                                TTCD.ctr = ctrAds[TTCD.IdQC];
+                            }
+                            else
+                            {
+                                TTCD.ctr = "0";
+                            }
+                            if (messAds.ContainsKey(TTCD.IdQC))
+                            {
+                                TTCD.mess = messAds[TTCD.IdQC];
+                            }
+                            else
+                            {
+                                TTCD.mess = "0";
+                            }
+                            if (commentAds.ContainsKey(TTCD.IdQC))
+                            {
+                                TTCD.comment = commentAds[TTCD.IdQC];
+                            }
+                            else
+                            {
+                                TTCD.comment = "0";
+                            }
+                            if (chuyenDoiAds.ContainsKey(TTCD.IdQC))
+                            {
+                                TTCD.chuyenDoi = chuyenDoiAds[TTCD.IdQC];
+                            }
+                            else
+                            {
+                                TTCD.chuyenDoi = "0";
+                            }
                             // }
 
                             for (int i = 0; i < Common.lsMKTInfo.Count; i++)
                             {
-                                if (TTCD.TenChienDich.Replace(" ", ""). Contains(Common.lsMKTInfo[i].MaMKT))
+                                if (TTCD.TenChienDich.Replace(" ", "").Contains(Common.lsMKTInfo[i].MaMKT))
                                 {
                                     TTCD.MKT = Common.lsMKTInfo[i].MKT;
                                     TTCD.MaMKT = Common.lsMKTInfo[i].MaMKT;
-                                    TTCD.HKD = Common.lsMKTInfo[i].HKD;  
+                                    TTCD.HKD = Common.lsMKTInfo[i].HKD;
                                     break;
                                 }
-                                else if(TTCD.TenNhomQC.Replace(" ", "").Contains(Common.lsMKTInfo[i].MaMKT))
+                                else if (TTCD.TenNhomQC.Replace(" ", "").Contains(Common.lsMKTInfo[i].MaMKT))
                                 {
                                     TTCD.MKT = Common.lsMKTInfo[i].MKT;
                                     TTCD.MaMKT = Common.lsMKTInfo[i].MaMKT;
@@ -386,7 +388,7 @@ namespace AdsManager.form.dataTKQC
                                     break;
                                 }
                             }
-                            if(TTCD.MKT == ""|| TTCD.MKT == null)
+                            if (TTCD.MKT == "" || TTCD.MKT == null)
                             {
                                 TTCD.MKT = TKQC.MKT;
                                 TTCD.MaMKT = TKQC.MaMKT;
@@ -398,9 +400,10 @@ namespace AdsManager.form.dataTKQC
                                 TTCDInstance.OnNewAccAdded(TTCD);
                                 TTCDInstance.lsTTCD.Add(TTCD);
                                 TTCDInstance.lsViewTTCD.Add(TTCD);
+                                TTCD_Worker.ReportProgress(2, TTCDInstance.lsTTCD.Count);
                             }
                         }
-                        catch (Exception e){ }
+                        catch (Exception e) { }
 #pragma warning restore CS0168 // The variable 'e' is declared but never used
                     }
                 }
@@ -427,8 +430,9 @@ namespace AdsManager.form.dataTKQC
                 ConcurrentQueue<string> queueHttp = (ConcurrentQueue<string>)e.UserState;
 
             }
-            else if (e.ProgressPercentage == 1)
+            else if (e.ProgressPercentage == 2)
             {
+                numChienDichTBox.Text = e.UserState.ToString();
             }
         }
 
@@ -497,11 +501,11 @@ namespace AdsManager.form.dataTKQC
         }
         private void vbButton3_Click(object sender, EventArgs e)
         {
-            
+            ViaInstances.ImportVia();
             TTCD_RefreshBtn.Enabled = false;
             vbButton3.Enabled = false;
             filterTimeBtn_TTCD.Enabled = false;
-            searchBtn_TTCD.Enabled=false;
+            searchBtn_TTCD.Enabled = false;
             loadingBtnTTCD.Visible = true;
             ThongTinChienDichDataGridView.Rows.Clear();
             TTCD_RefreshBtn.Enabled = false;
@@ -509,7 +513,7 @@ namespace AdsManager.form.dataTKQC
 
             TTCDInstance.fromDate = dateTimePicker1.Value.AddDays(-3000).ToShortDateString();
             TTCDInstance.toDate = dateTimePicker1.Value.ToShortDateString();
-            
+
             TTCD_Worker.RunWorkerAsync();
         }
 
@@ -607,10 +611,10 @@ namespace AdsManager.form.dataTKQC
         {
             try
             {
-                var url = $"https://graph.facebook.com/v14.0/act_{accId}/lightads";
+                var url = $"https://adsmanager-graph.facebook.com/v14.0/act_{accId}/lightads";
                 url += "?filtering=[{\"field\":\"ad.delivery_status\",\"operator\":\"IN\",\"value\":[\"active\",\"deleted\",\"error\",\"inactive\",\"off\",\"pending\"]},{\"field\":\"draft_action\",\"operator\":\"NOT_IN\",\"value\":[\"add\"]}]";
                 url += "&fields=id,name,adset_id";
-                url += "&limit=1000";
+                url += "&limit=20000";
                 url += $"&access_token={token}";
                 var client = new RestClient(url);
                 client.Timeout = -1;
@@ -627,13 +631,13 @@ namespace AdsManager.form.dataTKQC
                 request.AddHeader("sec-fetch-site", "same-origin");
                 client.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36";
                 IRestResponse response = client.Execute(request);
-                if(response.StatusCode== HttpStatusCode.OK)
+                if (response.StatusCode == HttpStatusCode.OK)
                 {
                     return response.Content;
                 }
                 return "";
             }
-            catch { return "" ; }
+            catch { return ""; }
         }
 
 
@@ -695,9 +699,9 @@ namespace AdsManager.form.dataTKQC
             }
             catch { return ""; }
         }
-        public static string RequestGetDetailAds( string token, string stringCookie, string Ids)
+        public static string RequestGetDetailAds(string token, string stringCookie, string Ids)
         {
-            var url = $"https://graph.facebook.com/v14.0/?access_token={token}&method=get";
+            var url = $"https://adsmanager-graph.facebook.com/v15.0/?access_token={token}&method=get";
             var client = new RestClient(url);
             client.Timeout = -1;
             var request = new RestRequest(Method.POST);
@@ -723,10 +727,12 @@ namespace AdsManager.form.dataTKQC
             client.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36";
             request.AddParameter("__business_id", TTCDInstance.businessId);
             request.AddParameter("am_call_tags", "{\"data_manager\":\"AdsPEAdObjectTableDataManager\"}");
-            request.AddParameter("fields", "[\"account_id\",\"adset_id\",\"campaign_id\",\"creative.thumbnail_height(46).thumbnail_width(46){actor_type,ad_disclaimer_spec,applink_treatment,asset_feed_spec,authorization_category,body,branded_content_boosting_type,branded_content_sponsor_page_id,branded_content{instagram_boost_post_access_token,partners,ui_version},call_to_action,call_to_action_type,categorization_criteria,category_media_source,contextual_multi_ads{eligibility},degrees_of_freedom_spec,dynamic_ad_voice,effective_authorization_category,effective_instagram_media_id,effective_instagram_story_id,effective_object_story_id,enable_direct_install,facebook_branded_content{sponsor_page_id},id,image_crops,image_hash,image_url,instagram_actor_id,instagram_branded_content{sponsor_id},instagram_permalink_url,instagram_story_id,instant_checkout_setting,interactive_components_spec,link_url,messenger_sponsored_message,mockup_id,object_id,object_story_id,object_story_spec{instagram_actor_id,instant_checkout_ad_type,link_data{additional_image_index,attachment_style,branded_content_sponsor_page_id,call_to_action,caption,child_attachments,collection_thumbnails,custom_overlay_spec,customization_rules_spec,description,event_id,image_crops,image_hash,image_overlay_spec,link,message,moment,multi_share_end_card,multi_share_optimized,name,offer_id,page_welcome_message,phone_data_id,picture,post_click_configuration,product_discount_id,retailer_item_ids},page_id,photo_data,template_data,text_data,video_data},object_type,object_url,omnichannel_link_spec{app{application_id,platform_specs{android{app_name,package_name,url},ios{app_name,app_store_id,url},ipad{app_name,app_store_id,url},iphone{app_name,app_store_id,url}}},web{url}},page_welcome_message,place_page_set_id,platform_customizations,playable_asset_id,portrait_customizations,product_set_id,recommender_settings{preferred_events,product_sales_channel},shop_spec{collection_id,landing_view,shop_id},source_instagram_media_id,template_url,template_url_spec{android{app_name,package,url},config{app_id},ios{app_name,app_store_id,url},ipad{app_name,app_store_id,url},iphone{app_name,app_store_id,url},web{should_fallback,url},windows_phone{app_id,app_name,url}},thumbnail_url,title,uca_draft_version,url_tags,use_page_actor_override,video_id,whatsapp_business_profile_id}\",\"effective_status\",\"id\",\"name\",\"status\",\"ad_review_feedback\",\"bid_amount\",\"bid_info\",\"bid_type\",\"adset{name}\",\"campaign{name}\",\"conversion_domain\",\"conversion_specs\",\"created_time\",\"creative_history\",\"creative_link_url\",\"demolink_hash\",\"display_sequence\",\"engagement_audience\",\"naming_template_custom_fields\",\"metadata\",\"priority\",\"source_app_id\",\"tracking_and_conversion_with_defaults\",\"tracking_specs\",\"updated_time\",\"view_tags\",\"can_aggregate_social_feedback_on_edit\"]");
+            //request.AddParameter("fields", "[\"account_id\",\"adset_id\",\"campaign_id\",\"creative.thumbnail_height(46).thumbnail_width(46){actor_type,ad_disclaimer_spec,applink_treatment,asset_feed_spec,authorization_category,body,branded_content_boosting_type,branded_content_sponsor_page_id,branded_content{instagram_boost_post_access_token,partners,ui_version},call_to_action,call_to_action_type,categorization_criteria,category_media_source,contextual_multi_ads{eligibility},degrees_of_freedom_spec,dynamic_ad_voice,effective_authorization_category,effective_instagram_media_id,effective_instagram_story_id,effective_object_story_id,enable_direct_install,facebook_branded_content{sponsor_page_id},id,image_crops,image_hash,image_url,instagram_actor_id,instagram_branded_content{sponsor_id},instagram_permalink_url,instagram_story_id,instant_checkout_setting,interactive_components_spec,link_url,messenger_sponsored_message,mockup_id,object_id,object_story_id,object_story_spec{instagram_actor_id,instant_checkout_ad_type,link_data{additional_image_index,attachment_style,branded_content_sponsor_page_id,call_to_action,caption,child_attachments,collection_thumbnails,custom_overlay_spec,customization_rules_spec,description,event_id,image_crops,image_hash,image_overlay_spec,link,message,moment,multi_share_end_card,multi_share_optimized,name,offer_id,page_welcome_message,phone_data_id,picture,post_click_configuration,product_discount_id,retailer_item_ids},page_id,photo_data,template_data,text_data,video_data},object_type,object_url,omnichannel_link_spec{app{application_id,platform_specs{android{app_name,package_name,url},ios{app_name,app_store_id,url},ipad{app_name,app_store_id,url},iphone{app_name,app_store_id,url}}},web{url}},page_welcome_message,place_page_set_id,platform_customizations,playable_asset_id,portrait_customizations,product_set_id,recommender_settings{preferred_events,product_sales_channel},shop_spec{collection_id,landing_view,shop_id},source_instagram_media_id,template_url,template_url_spec{android{app_name,package,url},config{app_id},ios{app_name,app_store_id,url},ipad{app_name,app_store_id,url},iphone{app_name,app_store_id,url},web{should_fallback,url},windows_phone{app_id,app_name,url}},thumbnail_url,title,uca_draft_version,url_tags,use_page_actor_override,video_id,whatsapp_business_profile_id}\",\"effective_status\",\"id\",\"name\",\"status\",\"ad_review_feedback\",\"bid_amount\",\"bid_info\",\"bid_type\",\"adset{name}\",\"campaign{name}\",\"conversion_domain\",\"conversion_specs\",\"created_time\",\"creative_history\",\"creative_link_url\",\"demolink_hash\",\"display_sequence\",\"engagement_audience\",\"naming_template_custom_fields\",\"metadata\",\"priority\",\"source_app_id\",\"tracking_and_conversion_with_defaults\",\"tracking_specs\",\"updated_time\",\"view_tags\",\"can_aggregate_social_feedback_on_edit\"]");
+            //request.AddParameter("fields", "[\"account_id\",\"adset_id\",\"campaign_id\",\"creative.thumbnail_height(46).thumbnail_width(46){actor_type,ad_disclaimer_spec,applink_treatment,asset_feed_spec,authorization_category,body,branded_content_boosting_type,branded_content_sponsor_page_id,branded_content{instagram_boost_post_access_token,partners,ui_version},call_to_action,call_to_action_type,categorization_criteria,category_media_source,contextual_multi_ads{eligibility},degrees_of_freedom_spec,dynamic_ad_voice,effective_authorization_category,effective_instagram_media_id,effective_instagram_story_id,effective_object_story_id,enable_direct_install,facebook_branded_content{sponsor_page_id},id,image_crops,image_hash,image_url,instagram_actor_id,instagram_branded_content{sponsor_id},instagram_permalink_url,instagram_story_id,instant_checkout_setting,interactive_components_spec,link_url,messenger_sponsored_message,mockup_id,object_id,object_story_id,object_story_spec{instagram_actor_id,instant_checkout_ad_type,link_data{additional_image_index,attachment_style,branded_content_sponsor_page_id,call_to_action,caption,child_attachments,collection_thumbnails,custom_overlay_spec,customization_rules_spec,description,event_id,image_crops,image_hash,image_overlay_spec,link,message,moment,multi_share_end_card,multi_share_optimized,name,offer_id,page_welcome_message,phone_data_id,picture,post_click_configuration,product_discount_id,retailer_item_ids},page_id,photo_data,template_data,text_data,video_data},object_type,object_url,omnichannel_link_spec{app{application_id,platform_specs{android{app_name,package_name,url},ios{app_name,app_store_id,url},ipad{app_name,app_store_id,url},iphone{app_name,app_store_id,url}}},web{url}},page_welcome_message,place_page_set_id,platform_customizations,playable_asset_id,portrait_customizations,product_set_id,recommender_settings{preferred_events,product_sales_channel},shop_spec{collection_id,landing_view,shop_id},source_instagram_media_id,template_url,template_url_spec{android{app_name,package,url},config{app_id},ios{app_name,app_store_id,url},ipad{app_name,app_store_id,url},iphone{app_name,app_store_id,url},web{should_fallback,url},windows_phone{app_id,app_name,url}},thumbnail_url,title,uca_draft_version,url_tags,use_page_actor_override,video_id,whatsapp_business_profile_id}\",\"effective_status\",\"id\",\"name\",\"status\",\"ad_review_feedback\",\"bid_amount\",\"bid_info\",\"bid_type\",\"adset{name}\",\"campaign{name}\",\"conversion_domain\",\"conversion_specs\",\"created_time\",\"creative_history\",\"creative_link_url\",\"demolink_hash\",\"display_sequence\",\"engagement_audience\",\"naming_template_custom_fields\",\"metadata\",\"priority\",\"source_app_id\",\"tracking_and_conversion_with_defaults\",\"tracking_specs\",\"updated_time\",\"can_aggregate_social_feedback_on_edit\"]");
+            request.AddParameter("fields", "[\"account_id\",\"adset_id\",\"campaign_id\",\"effective_status\",\"id\",\"name\",\"status\",\"ad_review_feedback\",\"bid_amount\",\"bid_info\",\"bid_type\",\"adset{name}\",\"campaign{name}\",\"conversion_domain\",\"conversion_specs\",\"created_time\",\"creative_history\",\"creative_link_url\",\"demolink_hash\",\"display_sequence\",\"engagement_audience\",\"naming_template_custom_fields\",\"metadata\",\"priority\",\"source_app_id\",\"tracking_and_conversion_with_defaults\",\"tracking_specs\",\"updated_time\",\"can_aggregate_social_feedback_on_edit\"]");
             request.AddParameter("ids", Ids);
             IRestResponse response = client.Execute(request);
-            if(response.StatusCode == HttpStatusCode.OK)
+            if (response.StatusCode == HttpStatusCode.OK)
             {
                 return response.Content;
             }
@@ -737,7 +743,7 @@ namespace AdsManager.form.dataTKQC
         public static string GetIdPostAds(string IdTKQC, string stringCookie, string token)
         {
 
-            var url = $"https://graph.facebook.com/v14.0/act_{IdTKQC}/?fields=id,ads{{id,name,adset_id,adset{{id,name,end_time,start_time,campaign{{id,name}},promoted_object}},campaign_id,creative{{id,name,object_story_id}},created_time,status,spent,cost_per}}&access_token={token}";
+            var url = $"https://adsmanager-graph.facebook.com/v14.0/act_{IdTKQC}/?fields=id,ads{{id,name,adset_id,adset{{id,name,end_time,start_time,campaign{{id,name}},promoted_object}},campaign_id,creative{{id,name,object_story_id}},created_time,status,spent,cost_per}}&access_token={token}";
             var client = new RestClient(url);
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
@@ -760,7 +766,7 @@ namespace AdsManager.form.dataTKQC
 
         public static string getCostAds(string IdTKQC, string stringCookie, string token, string dateSince, string dateUntil)
         {
-            var url = $"https://graph.facebook.com/v11.0/act_{IdTKQC}/insights?fields=ad_id,clicks,cost_per_outbound_click,cpc,cpm,cpp,ctr,frequency,impressions,reach,spend,results,actions,cost_per_action_type,mobile_app_purchase_roas,outbound_clicks,outbound_clicks_ctr,purchase_roas,website_purchase_roas&level=ad&time_range[since]={dateSince}&time_range[until]={dateUntil}&access_token={token}&limit=1000";
+            var url = $"https://adsmanager-graph.facebook.com/v11.0/act_{IdTKQC}/insights?fields=ad_id,clicks,cost_per_outbound_click,cpc,cpm,cpp,ctr,frequency,impressions,reach,spend,results,actions,cost_per_action_type,mobile_app_purchase_roas,outbound_clicks,outbound_clicks_ctr,purchase_roas,website_purchase_roas&level=ad&time_range[since]={dateSince}&time_range[until]={dateUntil}&access_token={token}&limit=1000";
             var client = new RestClient(url);
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
@@ -859,6 +865,11 @@ namespace AdsManager.form.dataTKQC
                         TTCDInstance.lsViewTTCD.Add(TTCDInstance.lsTTCD[i]);
                     }
                     else if (TTCDInstance.lsTTCD[i].TenQC != null && TTCDInstance.lsTTCD[i].TenQC.ToLower().Contains(TTCDInstance.searchData.ToLower()))
+                    {
+                        TTCDInstance.OnNewAccAdded(TTCDInstance.lsTTCD[i]);
+                        TTCDInstance.lsViewTTCD.Add(TTCDInstance.lsTTCD[i]);
+                    }
+                    else if (TTCDInstance.lsTTCD[i].IdQC != null && TTCDInstance.lsTTCD[i].IdQC.ToLower().Contains(TTCDInstance.searchData.ToLower()))
                     {
                         TTCDInstance.OnNewAccAdded(TTCDInstance.lsTTCD[i]);
                         TTCDInstance.lsViewTTCD.Add(TTCDInstance.lsTTCD[i]);
