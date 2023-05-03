@@ -17,11 +17,13 @@ namespace AdsManager.HelperLibrary.Facebook.Instance
         public static ConcurrentQueue<string> dataResult = new ConcurrentQueue<string>();
         public static List<TTCDInfo> lsTTCD = new List<TTCDInfo>();
         public static List<TTCDInfo> lsViewTTCD = new List<TTCDInfo>();
+        public static List<string> lsError = new List<string>();
         public static string fromDate = "";
         public static string toDate = "";
         public static string searchData = "";
 
         public static string businessId = "";
+        public static string fileErrorLogTTCD = AppDomain.CurrentDomain.BaseDirectory + "\\data" + "\\fileErrorLogTTCD.txt";
 
         public static void OnNewAccAdded(TTCDInfo info)
         {

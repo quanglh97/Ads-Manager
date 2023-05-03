@@ -500,7 +500,7 @@ namespace AdsManager
             }
             catch
             {
-                url = $"https://graph.facebook.com/v14.0/act_{accId}?fields=account_id,owner_business,created_time,next_bill_date,currency,adtrust_dsl,timezone_name,timezone_offset_hours_utc,business_country_code,disable_reason,adspaymentcycle{{threshold_amount}},balance,owner&access_token={token}&locale=en_US";
+                url = $"https://graph.facebook.com/v14.0/act_{accId}?fields=account_id,owner_business,created_time,next_bill_date,currency,adtrust_dsl,timezone_name,timezone_offset_hours_utc,business_country_code,disable_reason,adspaymentcycle{{threshold_amount}},balance,insights.date_preset(maximum){{spend}},owner&access_token={token}&locale=en_US";
                 var httpRequest2 = (HttpWebRequest)WebRequest.Create(url);
                 httpRequest2.Headers["authority"] = "business.facebook.com";
                 httpRequest2.Headers["cookie"] = coookie;

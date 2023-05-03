@@ -2,6 +2,7 @@
 using AdsManager.HelperLibrary.Facebook;
 using AdsManager.HelperLibrary.Facebook.Info;
 using AdsManager.HelperLibrary.Facebook.Instance;
+using Microsoft.Office.Interop.Excel;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
@@ -67,6 +68,7 @@ namespace AdsManager.form.dataTKQC
             TTCDThreadState.all_thread_together_running = true;
             try
             {
+                TTCDInstance.lsError = new List<string>();
                 TTCDInstance.lsTTCD.Clear();
                 List<TTTKQCInfo> lsTKQCClone = new List<TTTKQCInfo>(TTTKQCInstance.lsTKQC.Count);
                 TTTKQCInstance.lsTKQC.ForEach((item) =>
@@ -180,6 +182,9 @@ namespace AdsManager.form.dataTKQC
                     }
                     catch { return; }
                 }
+
+                TTCDInstance.lsError.Add("Log count ads: " + TKQC.ID + "countAds: " + lsAds.Count.ToString());
+                //MessageBox.Show("Log count ads: " + TKQC + "countAds: " + lsAds.Count.ToString());
 
                 //var resultIdPostAds = GetIdPostAds(accId, cookie, token);
                 //JObject objectResultIdPostAds = JObject.Parse(resultIdPostAds);
@@ -400,15 +405,19 @@ namespace AdsManager.form.dataTKQC
                                 TTCDInstance.OnNewAccAdded(TTCD);
                                 TTCDInstance.lsTTCD.Add(TTCD);
                                 TTCDInstance.lsViewTTCD.Add(TTCD);
-                                TTCD_Worker.ReportProgress(2, TTCDInstance.lsTTCD.Count);
+                                TTCD_Worker.ReportProgress(2, TTCDInstance.lsViewTTCD.Count);
                             }
                         }
-                        catch (Exception e) { }
+                        catch (Exception e) {
+                            TTCDInstance.lsError.Add(e.Message + "-------TKQC:" + TKQC +"AdsId: " + AdsId);
+                            //MessageBox.Show(e.Message + "-------TKQC:" + TKQC + "AdsId: " + AdsId);
+                        }
 #pragma warning restore CS0168 // The variable 'e' is declared but never used
                     }
                 }
                 catch (Exception ex)
                 {
+                    TTCDInstance.lsError.Add(ex.Message);
                     return;
                 }
 #pragma warning restore CS0168 // The variable 'ex' is declared but never used
@@ -416,7 +425,7 @@ namespace AdsManager.form.dataTKQC
             }
             catch (Exception ex)
             {
-
+                TTCDInstance.lsError.Add(ex.Message);
             }
 #pragma warning restore CS0168 // The variable 'ex' is declared but never used
         }
@@ -491,6 +500,13 @@ namespace AdsManager.form.dataTKQC
 
         void TTCD_Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            
+            foreach (var error in TTCDInstance.lsError)
+            {
+                File.AppendAllText(TTCDInstance.fileErrorLogTTCD, error + Environment.NewLine);
+            }
+            
+
             TTCD_RefreshBtn.Enabled = true;
             vbButton3.Enabled = true;
             filterTimeBtn_TTCD.Enabled = true;
@@ -907,6 +923,7 @@ namespace AdsManager.form.dataTKQC
                 }
             }
             loadingBtnTTCD.Visible = false;
+            numChienDichTBox.Text = TTCDInstance.lsViewTTCD.Count().ToString();
         }
 
         private void filterTimeBtn_TTCD_Click(object sender, EventArgs e)

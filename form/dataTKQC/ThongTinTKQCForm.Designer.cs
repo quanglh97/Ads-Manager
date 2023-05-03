@@ -59,6 +59,7 @@
             this.SoNgayDenKiTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LiDoDisable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.TTTKQCComboBox = new System.Windows.Forms.ComboBox();
             this.contextMenuStripTTTKQC = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.hoạtĐộngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,7 +79,6 @@
             this.loadingBtnTKQC = new AdsManager.VBButton();
             this.elipseControl1 = new TakeCarePage.ElipseControl();
             this.checkDataBtn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.thongTinTKQCToTalDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thongTinTKQCDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
@@ -334,6 +334,16 @@
             this.panel1.Size = new System.Drawing.Size(378, 34);
             this.panel1.TabIndex = 43;
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(306, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 14);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Số lượng";
+            // 
             // TTTKQCComboBox
             // 
             this.TTTKQCComboBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -580,16 +590,6 @@
             this.checkDataBtn.Text = "Check Chi tiêu 24H";
             this.checkDataBtn.UseVisualStyleBackColor = true;
             this.checkDataBtn.Click += new System.EventHandler(this.checkDataBtn_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(306, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 14);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Số lượng";
             // 
             // ThongTinTKQCForm
             // 
