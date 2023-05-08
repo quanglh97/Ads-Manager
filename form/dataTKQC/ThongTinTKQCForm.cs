@@ -1249,7 +1249,7 @@ namespace AdsManager
                     {
                         b = e.CellValue2.ToString();
                     }
-                    e.SortResult = double.Parse(a).CompareTo(double.Parse(b));
+                    e.SortResult = double.Parse(a.Replace(",","")).CompareTo(double.Parse(b.Replace(",", "")));
                     e.Handled = true;//pass by the default sorting
                 }
                 catch

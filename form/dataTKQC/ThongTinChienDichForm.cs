@@ -1028,8 +1028,18 @@ namespace AdsManager.form.dataTKQC
         {
             if (e.Column.Index == 13)
             {
-                e.SortResult = double.Parse(e.CellValue1.ToString()).CompareTo(double.Parse(e.CellValue2.ToString()));
-                e.Handled = true;//pass by the default sorting
+                try
+                {
+                    var a = e.CellValue1.ToString();
+                    var b = e.CellValue2.ToString();
+                    e.SortResult = double.Parse(a.Replace(",", "")).CompareTo(double.Parse(b.Replace(",", "")));
+                    e.Handled = true;//pass by the default sorting
+                }
+                catch
+                {
+                    e.SortResult = 1;
+                    e.Handled = true;
+                }
             }
         }
 
