@@ -791,9 +791,9 @@ namespace AdsManager
             {
                 item.tongTieu = "0";
             }
-            var timeSince = Common.parseStringDateToFilter2(from_dateTimePicker_TKQC.Value.ToShortDateString());
-            var timeUntil = Common.parseStringDateToFilter2(to_dateTimePicker_TKQC.Value.ToShortDateString());
-
+            var timeSince = Common.parseStringDateToFilter2(from_dateTimePicker_TKQC.Value.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture));
+            var timeUntil = Common.parseStringDateToFilter2(to_dateTimePicker_TKQC.Value.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture));
+            //MessageBox.Show(timeSince+ "_"+ timeUntil);
             for (int index = 0; index < ViaInstances.lsAccVia.Count; index++)
             {
                 var cookie = ViaInstances.lsAccVia[index].cookie;
@@ -816,13 +816,14 @@ namespace AdsManager
                 }
                 if (lsTKQC.Count > 0)
                     queue.Enqueue(lsTKQC);
-
+                //MessageBox.Show("queue: " + queue.Count);
                 while (queue.Count > 0)
                 {
                     List<TTTKQCInfo> tempLsTKQC = new List<TTTKQCInfo>();
                     queue.TryDequeue(out tempLsTKQC);
                     var dataFilterTime = GetDataFilterTime(ViaInstances.lsAccVia[index].token, cookie, timeSince, timeUntil, tempLsTKQC);
                     dataFilterTime = "{\"data\":" + dataFilterTime + "}";
+                    //MessageBox.Show(dataFilterTime);
                     JObject dataFilter = JObject.Parse(dataFilterTime);
                     if (dataFilter != null)
                     {
