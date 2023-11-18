@@ -268,7 +268,7 @@ namespace AdsManager.form.dataTKQC
                             var formatStringsTime = new string[] { "MM/dd/yyyy", "M/d/yyyy", "MM/d/yyyy", "M/dd/yyyy" };
                             try
                             {
-                                DateTime.TryParseExact(TTCD.ngayTaoQC, formatStringsTime, System.Globalization.CultureInfo.InvariantCulture, DateTimeStyles.None, out dateNgayTaoQC);
+DateTime.TryParseExact(TTCD.ngayTaoQC, formatStringsTime, System.Globalization.CultureInfo.InvariantCulture, DateTimeStyles.None, out dateNgayTaoQC);                                
                             }
                             catch
                             {

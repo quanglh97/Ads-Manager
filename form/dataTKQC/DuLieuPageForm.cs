@@ -554,7 +554,7 @@ namespace AdsManager.form.dataTKQC
 
         private void DuLieuPageDataGridView_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
         {
-            if ( e.Column.Index == 7 || e.Column.Index == 8 || e.Column.Index == 9)
+            if ( e.Column.Index == 7 || e.Column.Index == 8 || e.Column.Index == 9 || e.Column.Index == 10 || e.Column.Index == 11)
             {
                 try
                 {

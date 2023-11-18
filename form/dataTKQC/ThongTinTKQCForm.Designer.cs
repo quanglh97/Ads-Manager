@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThongTinTKQCForm));
             this.thongTinTKQCToTalDataGridView = new System.Windows.Forms.DataGridView();
             this.TongTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongNguong = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -370,7 +371,7 @@
             // hoạtĐộngToolStripMenuItem
             // 
             this.hoạtĐộngToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.hoạtĐộngToolStripMenuItem.Image = global::AdsManager.Properties.Resources.green;
+            this.hoạtĐộngToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("hoạtĐộngToolStripMenuItem.Image")));
             this.hoạtĐộngToolStripMenuItem.Name = "hoạtĐộngToolStripMenuItem";
             this.hoạtĐộngToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.hoạtĐộngToolStripMenuItem.Text = "Hoạt động";
@@ -379,7 +380,7 @@
             // vôHiệuHóaToolStripMenuItem
             // 
             this.vôHiệuHóaToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.vôHiệuHóaToolStripMenuItem.Image = global::AdsManager.Properties.Resources.red;
+            this.vôHiệuHóaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("vôHiệuHóaToolStripMenuItem.Image")));
             this.vôHiệuHóaToolStripMenuItem.Name = "vôHiệuHóaToolStripMenuItem";
             this.vôHiệuHóaToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.vôHiệuHóaToolStripMenuItem.Text = "Vô hiệu hóa";
@@ -388,7 +389,7 @@
             // cầnThanhToánToolStripMenuItem
             // 
             this.cầnThanhToánToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.cầnThanhToánToolStripMenuItem.Image = global::AdsManager.Properties.Resources.yellow;
+            this.cầnThanhToánToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cầnThanhToánToolStripMenuItem.Image")));
             this.cầnThanhToánToolStripMenuItem.Name = "cầnThanhToánToolStripMenuItem";
             this.cầnThanhToánToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.cầnThanhToánToolStripMenuItem.Text = "Cần thanh toán";
@@ -397,7 +398,7 @@
             // loạiKhácToolStripMenuItem
             // 
             this.loạiKhácToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.loạiKhácToolStripMenuItem.Image = global::AdsManager.Properties.Resources.blue;
+            this.loạiKhácToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loạiKhácToolStripMenuItem.Image")));
             this.loạiKhácToolStripMenuItem.Name = "loạiKhácToolStripMenuItem";
             this.loạiKhácToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.loạiKhácToolStripMenuItem.Text = "Khác";
@@ -491,7 +492,7 @@
             this.searchKTQCBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchKTQCBtn.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchKTQCBtn.ForeColor = System.Drawing.Color.Black;
-            this.searchKTQCBtn.Image = global::AdsManager.Properties.Resources.Screenshot_2022_10_01_024949_removebg_preview1;
+            this.searchKTQCBtn.Image = ((System.Drawing.Image)(resources.GetObject("searchKTQCBtn.Image")));
             this.searchKTQCBtn.Location = new System.Drawing.Point(475, 3);
             this.searchKTQCBtn.Name = "searchKTQCBtn";
             this.searchKTQCBtn.Size = new System.Drawing.Size(56, 31);
@@ -512,7 +513,7 @@
             this.TTTKQC_RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TTTKQC_RefreshBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TTTKQC_RefreshBtn.ForeColor = System.Drawing.Color.Black;
-            this.TTTKQC_RefreshBtn.Image = global::AdsManager.Properties.Resources.reload2;
+            this.TTTKQC_RefreshBtn.Image = ((System.Drawing.Image)(resources.GetObject("TTTKQC_RefreshBtn.Image")));
             this.TTTKQC_RefreshBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TTTKQC_RefreshBtn.Location = new System.Drawing.Point(7, 1);
             this.TTTKQC_RefreshBtn.Name = "TTTKQC_RefreshBtn";
@@ -565,7 +566,7 @@
             this.loadingBtnTKQC.FlatAppearance.BorderSize = 0;
             this.loadingBtnTKQC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loadingBtnTKQC.ForeColor = System.Drawing.Color.White;
-            this.loadingBtnTKQC.Image = global::AdsManager.Properties.Resources.loading1;
+            this.loadingBtnTKQC.Image = ((System.Drawing.Image)(resources.GetObject("loadingBtnTKQC.Image")));
             this.loadingBtnTKQC.Location = new System.Drawing.Point(812, 273);
             this.loadingBtnTKQC.Name = "loadingBtnTKQC";
             this.loadingBtnTKQC.Size = new System.Drawing.Size(249, 244);

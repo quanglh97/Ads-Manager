@@ -32,7 +32,6 @@ namespace TakeCarePage
 
 
 
-
 #pragma warning disable CS0414 // The field 'FormMain.workerVia' is assigned but its value is never used
         BackgroundWorker workerVia = null;
 #pragma warning restore CS0414 // The field 'FormMain.workerVia' is assigned but its value is never used

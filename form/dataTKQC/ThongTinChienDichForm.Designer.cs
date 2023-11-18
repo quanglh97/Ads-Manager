@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThongTinChienDichForm));
             this.ThongTinChienDichDataGridView = new System.Windows.Forms.DataGridView();
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenTKQC = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -347,7 +348,7 @@
             this.TTCD_RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TTCD_RefreshBtn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TTCD_RefreshBtn.ForeColor = System.Drawing.Color.Black;
-            this.TTCD_RefreshBtn.Image = global::AdsManager.Properties.Resources.reload2;
+            this.TTCD_RefreshBtn.Image = ((System.Drawing.Image)(resources.GetObject("TTCD_RefreshBtn.Image")));
             this.TTCD_RefreshBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TTCD_RefreshBtn.Location = new System.Drawing.Point(3, 2);
             this.TTCD_RefreshBtn.Name = "TTCD_RefreshBtn";
@@ -424,7 +425,7 @@
             this.searchBtn_TTCD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchBtn_TTCD.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchBtn_TTCD.ForeColor = System.Drawing.Color.Black;
-            this.searchBtn_TTCD.Image = global::AdsManager.Properties.Resources.Screenshot_2022_10_01_024949_removebg_preview1;
+            this.searchBtn_TTCD.Image = ((System.Drawing.Image)(resources.GetObject("searchBtn_TTCD.Image")));
             this.searchBtn_TTCD.Location = new System.Drawing.Point(469, 3);
             this.searchBtn_TTCD.Name = "searchBtn_TTCD";
             this.searchBtn_TTCD.Size = new System.Drawing.Size(56, 31);
@@ -485,7 +486,7 @@
             this.loadingBtnTTCD.FlatAppearance.BorderSize = 0;
             this.loadingBtnTTCD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loadingBtnTTCD.ForeColor = System.Drawing.Color.White;
-            this.loadingBtnTTCD.Image = global::AdsManager.Properties.Resources.loading1;
+            this.loadingBtnTTCD.Image = ((System.Drawing.Image)(resources.GetObject("loadingBtnTTCD.Image")));
             this.loadingBtnTTCD.Location = new System.Drawing.Point(894, 304);
             this.loadingBtnTTCD.Name = "loadingBtnTTCD";
             this.loadingBtnTTCD.Size = new System.Drawing.Size(249, 244);
