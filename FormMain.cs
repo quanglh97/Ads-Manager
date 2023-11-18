@@ -195,6 +195,9 @@ namespace TakeCarePage
             //contentPanel.Controls.Add(accFrom);
             accFrom.BringToFront();
             accFrom.Show();
+
+
+
         }
 
         private void dataTKQCBtn_Click(object sender, EventArgs e)
